@@ -71,10 +71,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/app/app.component.css.shim.ngstyle.js":
-/*!***************************************************!*\
-  !*** ./src/app/app.component.css.shim.ngstyle.js ***!
-  \***************************************************/
+/***/ "./node_modules/@angular/material/button/typings/index.ngfactory.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@angular/material/button/typings/index.ngfactory.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -87,8 +87,160 @@
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [""];
-exports.styles = styles;
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i3 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i4 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var i5 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i6 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+var i7 = __webpack_require__(/*! @angular/cdk/a11y */ "@angular/cdk/a11y");
+var MatButtonModuleNgFactory = i0.ɵcmf(i1.MatButtonModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i2.NgLocalization, i2.NgLocaleLocalization, [i0.LOCALE_ID, [2, i2.ɵangular_packages_common_common_a]]), i0.ɵmpd(1073742336, i2.CommonModule, i2.CommonModule, []), i0.ɵmpd(1073742336, i3.BidiModule, i3.BidiModule, []), i0.ɵmpd(1073742336, i4.MatCommonModule, i4.MatCommonModule, [[2, i4.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i5.PlatformModule, i5.PlatformModule, []), i0.ɵmpd(1073742336, i4.MatRippleModule, i4.MatRippleModule, []), i0.ɵmpd(1073742336, i1.MatButtonModule, i1.MatButtonModule, [])]); });
+exports.MatButtonModuleNgFactory = MatButtonModuleNgFactory;
+var styles_MatButton = [".mat-button,.mat-flat-button,.mat-icon-button,.mat-stroked-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-button[disabled],.mat-flat-button[disabled],.mat-icon-button[disabled],.mat-stroked-button[disabled]{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{transition:none;opacity:0}.mat-button:hover .mat-button-focus-overlay,.mat-stroked-button:hover .mat-button-focus-overlay{opacity:1}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button[disabled]{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-raised-button[disabled]{box-shadow:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button:not([class*=mat-elevation-z]){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.mat-flat-button:not([class*=mat-elevation-z]){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab[disabled]{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-fab::-moz-focus-inner{border:0}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-fab[disabled]{box-shadow:none}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab[disabled]{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-mini-fab[disabled]{box-shadow:none}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button-focus-overlay,.mat-button-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-focus-overlay{background-color:rgba(0,0,0,.12);border-radius:inherit;opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}@media screen and (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:rgba(255,255,255,.5)}}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:block;font-size:inherit;width:2.5em;height:2.5em}@media screen and (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-flat-button,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}"];
+var RenderType_MatButton = i0.ɵcrt({ encapsulation: 2, styles: styles_MatButton, data: {} });
+exports.RenderType_MatButton = RenderType_MatButton;
+function View_MatButton_0(_l) { return i0.ɵvid(2, [i0.ɵqud(402653184, 1, { ripple: 0 }), (_l()(), i0.ɵeld(1, 0, null, null, 1, "span", [["class", "mat-button-wrapper"]], null, null, null, null, null)), i0.ɵncd(null, 0), (_l()(), i0.ɵeld(3, 0, null, null, 1, "div", [["class", "mat-button-ripple mat-ripple"], ["matRipple", ""]], [[2, "mat-button-ripple-round", null], [2, "mat-ripple-unbounded", null]], null, null, null, null)), i0.ɵdid(4, 212992, [[1, 4]], 0, i4.MatRipple, [i0.ElementRef, i0.NgZone, i5.Platform, [2, i4.MAT_RIPPLE_GLOBAL_OPTIONS], [2, i6.ANIMATION_MODULE_TYPE]], { centered: [0, "centered"], disabled: [1, "disabled"], trigger: [2, "trigger"] }, null), (_l()(), i0.ɵeld(5, 0, null, null, 0, "div", [["class", "mat-button-focus-overlay"]], null, null, null, null, null))], function (_ck, _v) { var _co = _v.component; var currVal_2 = _co.isIconButton; var currVal_3 = _co._isRippleDisabled(); var currVal_4 = _co._getHostElement(); _ck(_v, 4, 0, currVal_2, currVal_3, currVal_4); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.isRoundButton || _co.isIconButton); var currVal_1 = i0.ɵnov(_v, 4).unbounded; _ck(_v, 3, 0, currVal_0, currVal_1); }); }
+exports.View_MatButton_0 = View_MatButton_0;
+function View_MatButton_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, View_MatButton_0, RenderType_MatButton)), i0.ɵdid(1, 180224, null, 0, i1.MatButton, [i0.ElementRef, i5.Platform, i7.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null)], null, function (_ck, _v) { var currVal_0 = (i0.ɵnov(_v, 1).disabled || null); var currVal_1 = (i0.ɵnov(_v, 1)._animationMode === "NoopAnimations"); _ck(_v, 0, 0, currVal_0, currVal_1); }); }
+exports.View_MatButton_Host_0 = View_MatButton_Host_0;
+var MatButtonNgFactory = i0.ɵccf("button[mat-button], button[mat-raised-button], button[mat-icon-button],\n             button[mat-fab], button[mat-mini-fab], button[mat-stroked-button],\n             button[mat-flat-button]", i1.MatButton, View_MatButton_Host_0, { disabled: "disabled", disableRipple: "disableRipple", color: "color" }, {}, ["*"]);
+exports.MatButtonNgFactory = MatButtonNgFactory;
+var styles_MatAnchor = [".mat-button,.mat-flat-button,.mat-icon-button,.mat-stroked-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-button[disabled],.mat-flat-button[disabled],.mat-icon-button[disabled],.mat-stroked-button[disabled]{cursor:default}.mat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-button.cdk-program-focused .mat-button-focus-overlay,.mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-flat-button.cdk-program-focused .mat-button-focus-overlay,.mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-icon-button.cdk-program-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-stroked-button.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-button::-moz-focus-inner,.mat-flat-button::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-stroked-button::-moz-focus-inner{border:0}.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{transition:none;opacity:0}.mat-button:hover .mat-button-focus-overlay,.mat-stroked-button:hover .mat-button-focus-overlay{opacity:1}.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button[disabled]{cursor:default}.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay,.mat-raised-button.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-raised-button::-moz-focus-inner{border:0}.mat-raised-button:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-raised-button{transition:none;animation:none}.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-raised-button[disabled]{box-shadow:none}.mat-stroked-button{border:1px solid currentColor;padding:0 15px;line-height:34px}.mat-stroked-button:not([class*=mat-elevation-z]){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.mat-flat-button:not([class*=mat-elevation-z]){box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)}.mat-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab::-moz-focus-inner{border:0}.mat-fab[disabled]{cursor:default}.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-fab.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-fab::-moz-focus-inner{border:0}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-fab{transition:none;animation:none}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-fab[disabled]{box-shadow:none}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px;overflow:visible;transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab[disabled]{cursor:default}.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay,.mat-mini-fab.cdk-program-focused .mat-button-focus-overlay{opacity:1}.mat-mini-fab::-moz-focus-inner{border:0}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}._mat-animation-noopable.mat-mini-fab{transition:none;animation:none}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}.mat-mini-fab[disabled]{box-shadow:none}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button-focus-overlay,.mat-button-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-button-focus-overlay{background-color:rgba(0,0,0,.12);border-radius:inherit;opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}._mat-animation-noopable .mat-button-focus-overlay{transition:none}@media screen and (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:rgba(255,255,255,.5)}}.mat-button-ripple-round{border-radius:50%;z-index:1}.mat-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-flat-button .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*,.mat-stroked-button .mat-button-wrapper>*{vertical-align:middle}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button{display:block;font-size:inherit;width:2.5em;height:2.5em}@media screen and (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-flat-button,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}"];
+var RenderType_MatAnchor = i0.ɵcrt({ encapsulation: 2, styles: styles_MatAnchor, data: {} });
+exports.RenderType_MatAnchor = RenderType_MatAnchor;
+function View_MatAnchor_0(_l) { return i0.ɵvid(2, [i0.ɵqud(402653184, 1, { ripple: 0 }), (_l()(), i0.ɵeld(1, 0, null, null, 1, "span", [["class", "mat-button-wrapper"]], null, null, null, null, null)), i0.ɵncd(null, 0), (_l()(), i0.ɵeld(3, 0, null, null, 1, "div", [["class", "mat-button-ripple mat-ripple"], ["matRipple", ""]], [[2, "mat-button-ripple-round", null], [2, "mat-ripple-unbounded", null]], null, null, null, null)), i0.ɵdid(4, 212992, [[1, 4]], 0, i4.MatRipple, [i0.ElementRef, i0.NgZone, i5.Platform, [2, i4.MAT_RIPPLE_GLOBAL_OPTIONS], [2, i6.ANIMATION_MODULE_TYPE]], { centered: [0, "centered"], disabled: [1, "disabled"], trigger: [2, "trigger"] }, null), (_l()(), i0.ɵeld(5, 0, null, null, 0, "div", [["class", "mat-button-focus-overlay"]], null, null, null, null, null))], function (_ck, _v) { var _co = _v.component; var currVal_2 = _co.isIconButton; var currVal_3 = _co._isRippleDisabled(); var currVal_4 = _co._getHostElement(); _ck(_v, 4, 0, currVal_2, currVal_3, currVal_4); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.isRoundButton || _co.isIconButton); var currVal_1 = i0.ɵnov(_v, 4).unbounded; _ck(_v, 3, 0, currVal_0, currVal_1); }); }
+exports.View_MatAnchor_0 = View_MatAnchor_0;
+function View_MatAnchor_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "a", [["mat-button", ""]], [[1, "tabindex", 0], [1, "disabled", 0], [1, "aria-disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i0.ɵnov(_v, 1)._haltDisabledEvents($event) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, View_MatAnchor_0, RenderType_MatAnchor)), i0.ɵdid(1, 180224, null, 0, i1.MatAnchor, [i5.Platform, i7.FocusMonitor, i0.ElementRef, [2, i6.ANIMATION_MODULE_TYPE]], null, null)], null, function (_ck, _v) { var currVal_0 = (i0.ɵnov(_v, 1).disabled ? (0 - 1) : 0); var currVal_1 = (i0.ɵnov(_v, 1).disabled || null); var currVal_2 = i0.ɵnov(_v, 1).disabled.toString(); var currVal_3 = (i0.ɵnov(_v, 1)._animationMode === "NoopAnimations"); _ck(_v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3); }); }
+exports.View_MatAnchor_Host_0 = View_MatAnchor_Host_0;
+var MatAnchorNgFactory = i0.ɵccf("a[mat-button], a[mat-raised-button], a[mat-icon-button], a[mat-fab],\n             a[mat-mini-fab], a[mat-stroked-button], a[mat-flat-button]", i1.MatAnchor, View_MatAnchor_Host_0, { disabled: "disabled", disableRipple: "disableRipple", color: "color" }, {}, ["*"]);
+exports.MatAnchorNgFactory = MatAnchorNgFactory;
+
+
+/***/ }),
+
+/***/ "./node_modules/@angular/material/card/typings/index.ngfactory.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@angular/material/card/typings/index.ngfactory.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
+var i2 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i3 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var MatCardModuleNgFactory = i0.ɵcmf(i1.MatCardModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(1073742336, i2.BidiModule, i2.BidiModule, []), i0.ɵmpd(1073742336, i3.MatCommonModule, i3.MatCommonModule, [[2, i3.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i1.MatCardModule, i1.MatCardModule, [])]); });
+exports.MatCardModuleNgFactory = MatCardModuleNgFactory;
+var styles_MatCard = [".mat-card{transition:box-shadow 280ms cubic-bezier(.4,0,.2,1);display:block;position:relative;padding:24px;border-radius:2px}.mat-card:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-card .mat-divider-horizontal{position:absolute;left:0;width:100%}[dir=rtl] .mat-card .mat-divider-horizontal{left:auto;right:0}.mat-card .mat-divider-horizontal.mat-divider-inset{position:static;margin:0}.mat-card.mat-card-flat{box-shadow:none}@media screen and (-ms-high-contrast:active){.mat-card{outline:solid 1px}}.mat-card-actions,.mat-card-content,.mat-card-subtitle,.mat-card-title{display:block;margin-bottom:16px}.mat-card-actions{margin-left:-16px;margin-right:-16px;padding:8px 0}.mat-card-actions-align-end{display:flex;justify-content:flex-end}.mat-card-image{width:calc(100% + 48px);margin:0 -24px 16px -24px}.mat-card-xl-image{width:240px;height:240px;margin:-8px}.mat-card-footer{display:block;margin:0 -24px -24px -24px}.mat-card-actions .mat-button,.mat-card-actions .mat-raised-button{margin:0 4px}.mat-card-header{display:flex;flex-direction:row}.mat-card-header-text{margin:0 8px}.mat-card-avatar{height:40px;width:40px;border-radius:50%;flex-shrink:0}.mat-card-lg-image,.mat-card-md-image,.mat-card-sm-image{margin:-8px 0}.mat-card-title-group{display:flex;justify-content:space-between;margin:0 -8px}.mat-card-sm-image{width:80px;height:80px}.mat-card-md-image{width:112px;height:112px}.mat-card-lg-image{width:152px;height:152px}@media (max-width:599px){.mat-card{padding:24px 16px}.mat-card-actions{margin-left:-8px;margin-right:-8px}.mat-card-image{width:calc(100% + 32px);margin:16px -16px}.mat-card-title-group{margin:0}.mat-card-xl-image{margin-left:0;margin-right:0}.mat-card-header{margin:-8px 0 0 0}.mat-card-footer{margin-left:-16px;margin-right:-16px}}.mat-card-content>:first-child,.mat-card>:first-child{margin-top:0}.mat-card-content>:last-child:not(.mat-card-footer),.mat-card>:last-child:not(.mat-card-footer){margin-bottom:0}.mat-card-image:first-child{margin-top:-24px}.mat-card>.mat-card-actions:last-child{margin-bottom:-16px;padding-bottom:0}.mat-card-actions .mat-button:first-child,.mat-card-actions .mat-raised-button:first-child{margin-left:0;margin-right:0}.mat-card-subtitle:not(:first-child),.mat-card-title:not(:first-child){margin-top:-4px}.mat-card-header .mat-card-subtitle:not(:first-child){margin-top:-8px}.mat-card>.mat-card-xl-image:first-child{margin-top:-8px}.mat-card>.mat-card-xl-image:last-child{margin-bottom:-8px}"];
+var RenderType_MatCard = i0.ɵcrt({ encapsulation: 2, styles: styles_MatCard, data: {} });
+exports.RenderType_MatCard = RenderType_MatCard;
+function View_MatCard_0(_l) { return i0.ɵvid(2, [i0.ɵncd(null, 0), i0.ɵncd(null, 1)], null, null); }
+exports.View_MatCard_0 = View_MatCard_0;
+function View_MatCard_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "mat-card", [["class", "mat-card"]], null, null, null, View_MatCard_0, RenderType_MatCard)), i0.ɵdid(1, 49152, null, 0, i1.MatCard, [], null, null)], null, null); }
+exports.View_MatCard_Host_0 = View_MatCard_Host_0;
+var MatCardNgFactory = i0.ɵccf("mat-card", i1.MatCard, View_MatCard_Host_0, {}, {}, ["*", "mat-card-footer"]);
+exports.MatCardNgFactory = MatCardNgFactory;
+var styles_MatCardHeader = [];
+var RenderType_MatCardHeader = i0.ɵcrt({ encapsulation: 2, styles: styles_MatCardHeader, data: {} });
+exports.RenderType_MatCardHeader = RenderType_MatCardHeader;
+function View_MatCardHeader_0(_l) { return i0.ɵvid(2, [i0.ɵncd(null, 0), (_l()(), i0.ɵeld(1, 0, null, null, 1, "div", [["class", "mat-card-header-text"]], null, null, null, null, null)), i0.ɵncd(null, 1), i0.ɵncd(null, 2)], null, null); }
+exports.View_MatCardHeader_0 = View_MatCardHeader_0;
+function View_MatCardHeader_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "mat-card-header", [["class", "mat-card-header"]], null, null, null, View_MatCardHeader_0, RenderType_MatCardHeader)), i0.ɵdid(1, 49152, null, 0, i1.MatCardHeader, [], null, null)], null, null); }
+exports.View_MatCardHeader_Host_0 = View_MatCardHeader_Host_0;
+var MatCardHeaderNgFactory = i0.ɵccf("mat-card-header", i1.MatCardHeader, View_MatCardHeader_Host_0, {}, {}, ["[mat-card-avatar], [matCardAvatar]", "mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "*"]);
+exports.MatCardHeaderNgFactory = MatCardHeaderNgFactory;
+var styles_MatCardTitleGroup = [];
+var RenderType_MatCardTitleGroup = i0.ɵcrt({ encapsulation: 2, styles: styles_MatCardTitleGroup, data: {} });
+exports.RenderType_MatCardTitleGroup = RenderType_MatCardTitleGroup;
+function View_MatCardTitleGroup_0(_l) { return i0.ɵvid(2, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "div", [], null, null, null, null, null)), i0.ɵncd(null, 0), i0.ɵncd(null, 1), i0.ɵncd(null, 2)], null, null); }
+exports.View_MatCardTitleGroup_0 = View_MatCardTitleGroup_0;
+function View_MatCardTitleGroup_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "mat-card-title-group", [["class", "mat-card-title-group"]], null, null, null, View_MatCardTitleGroup_0, RenderType_MatCardTitleGroup)), i0.ɵdid(1, 49152, null, 0, i1.MatCardTitleGroup, [], null, null)], null, null); }
+exports.View_MatCardTitleGroup_Host_0 = View_MatCardTitleGroup_Host_0;
+var MatCardTitleGroupNgFactory = i0.ɵccf("mat-card-title-group", i1.MatCardTitleGroup, View_MatCardTitleGroup_Host_0, {}, {}, ["mat-card-title, mat-card-subtitle,\n      [mat-card-title], [mat-card-subtitle],\n      [matCardTitle], [matCardSubtitle]", "img", "*"]);
+exports.MatCardTitleGroupNgFactory = MatCardTitleGroupNgFactory;
+
+
+/***/ }),
+
+/***/ "./node_modules/@angular/material/toolbar/typings/index.ngfactory.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@angular/material/toolbar/typings/index.ngfactory.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
+var i2 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i3 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var i4 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i5 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var MatToolbarModuleNgFactory = i0.ɵcmf(i1.MatToolbarModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(1073742336, i2.BidiModule, i2.BidiModule, []), i0.ɵmpd(1073742336, i3.MatCommonModule, i3.MatCommonModule, [[2, i3.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i1.MatToolbarModule, i1.MatToolbarModule, [])]); });
+exports.MatToolbarModuleNgFactory = MatToolbarModuleNgFactory;
+var styles_MatToolbar = ["@media screen and (-ms-high-contrast:active){.mat-toolbar{outline:solid 1px}}.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}.mat-toolbar-multiple-rows{min-height:64px}.mat-toolbar-row,.mat-toolbar-single-row{height:64px}@media (max-width:599px){.mat-toolbar-multiple-rows{min-height:56px}.mat-toolbar-row,.mat-toolbar-single-row{height:56px}}"];
+var RenderType_MatToolbar = i0.ɵcrt({ encapsulation: 2, styles: styles_MatToolbar, data: {} });
+exports.RenderType_MatToolbar = RenderType_MatToolbar;
+function View_MatToolbar_0(_l) { return i0.ɵvid(2, [i0.ɵncd(null, 0), i0.ɵncd(null, 1)], null, null); }
+exports.View_MatToolbar_0 = View_MatToolbar_0;
+function View_MatToolbar_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 2, "mat-toolbar", [["class", "mat-toolbar"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, View_MatToolbar_0, RenderType_MatToolbar)), i0.ɵdid(1, 4243456, null, 1, i1.MatToolbar, [i0.ElementRef, i4.Platform, i5.DOCUMENT], null, null), i0.ɵqud(603979776, 1, { _toolbarRows: 1 })], null, function (_ck, _v) { var currVal_0 = i0.ɵnov(_v, 1)._toolbarRows.length; var currVal_1 = !i0.ɵnov(_v, 1)._toolbarRows.length; _ck(_v, 0, 0, currVal_0, currVal_1); }); }
+exports.View_MatToolbar_Host_0 = View_MatToolbar_Host_0;
+var MatToolbarNgFactory = i0.ɵccf("mat-toolbar", i1.MatToolbar, View_MatToolbar_Host_0, { color: "color" }, {}, ["*", "mat-toolbar-row"]);
+exports.MatToolbarNgFactory = MatToolbarNgFactory;
+
+
+/***/ }),
+
+/***/ "./node_modules/@angular/router/router.ngfactory.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@angular/router/router.ngfactory.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var RouterModuleNgFactory = i0.ɵcmf(i1.RouterModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [ɵEmptyOutletComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(1073742336, i1.RouterModule, i1.RouterModule, [[2, i1.ɵangular_packages_router_router_a], [2, i1.Router]])]); });
+exports.RouterModuleNgFactory = RouterModuleNgFactory;
+var styles_ɵEmptyOutletComponent = [];
+var RenderType_ɵEmptyOutletComponent = i0.ɵcrt({ encapsulation: 2, styles: styles_ɵEmptyOutletComponent, data: {} });
+exports.RenderType_ɵEmptyOutletComponent = RenderType_ɵEmptyOutletComponent;
+function View_ɵEmptyOutletComponent_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i0.ɵdid(1, 212992, null, 0, i1.RouterOutlet, [i1.ChildrenOutletContexts, i0.ViewContainerRef, i0.ComponentFactoryResolver, [8, null], i0.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_ɵEmptyOutletComponent_0 = View_ɵEmptyOutletComponent_0;
+function View_ɵEmptyOutletComponent_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "ng-component", [], null, null, null, View_ɵEmptyOutletComponent_0, RenderType_ɵEmptyOutletComponent)), i0.ɵdid(1, 49152, null, 0, i1.ɵEmptyOutletComponent, [], null, null)], null, null); }
+exports.View_ɵEmptyOutletComponent_Host_0 = View_ɵEmptyOutletComponent_Host_0;
+var ɵEmptyOutletComponentNgFactory = i0.ɵccf("ng-component", i1.ɵEmptyOutletComponent, View_ɵEmptyOutletComponent_Host_0, {}, {}, []);
+exports.ɵEmptyOutletComponentNgFactory = ɵEmptyOutletComponentNgFactory;
 
 
 /***/ }),
@@ -109,18 +261,44 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./app.component.css.shim.ngstyle */ "./src/app/app.component.css.shim.ngstyle.js");
+var i0 = __webpack_require__(/*! ./app.component.scss.shim.ngstyle */ "./src/app/app.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+var i2 = __webpack_require__(/*! ./menu-bar/menu-bar.component.ngfactory */ "./src/app/menu-bar/menu-bar.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ./menu-bar/menu-bar.component */ "./src/app/menu-bar/menu-bar.component.ts");
+var i4 = __webpack_require__(/*! @angular/cdk/layout */ "@angular/cdk/layout");
+var i5 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i6 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var styles_AppComponent = [i0.styles];
 var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppComponent, data: {} });
 exports.RenderType_AppComponent = RenderType_AppComponent;
-function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "div", [["style", "text-align:center"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, [" Welcome to ", "! "])), (_l()(), i1.ɵeld(3, 0, null, null, 0, "img", [["alt", "Angular Logo"], ["src", "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="], ["width", "300"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Here are some links to help you start: "])), (_l()(), i1.ɵeld(6, 0, null, null, 12, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 3, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 2, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "a", [["href", "https://angular.io/tutorial"], ["rel", "noopener"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Tour of Heroes"])), (_l()(), i1.ɵeld(11, 0, null, null, 3, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(12, 0, null, null, 2, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵeld(13, 0, null, null, 1, "a", [["href", "https://github.com/angular/angular-cli/wiki"], ["rel", "noopener"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["CLI Documentation"])), (_l()(), i1.ɵeld(15, 0, null, null, 3, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 2, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵeld(17, 0, null, null, 1, "a", [["href", "https://blog.angular.io/"], ["rel", "noopener"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Angular blog"]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.title; _ck(_v, 2, 0, currVal_0); }); }
+function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-menu-bar", [], null, null, null, i2.View_MenuBarComponent_0, i2.RenderType_MenuBarComponent)), i1.ɵdid(1, 49152, null, 0, i3.MenuBarComponent, [i4.BreakpointObserver], null, null), (_l()(), i1.ɵeld(2, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(3, 212992, null, 0, i5.RouterOutlet, [i5.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 3, 0); }, null); }
 exports.View_AppComponent_0 = View_AppComponent_0;
-function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i2.AppComponent, [], null, null)], null, null); }
+function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i6.AppComponent, [], null, null)], null, null); }
 exports.View_AppComponent_Host_0 = View_AppComponent_Host_0;
-var AppComponentNgFactory = i1.ɵccf("app-root", i2.AppComponent, View_AppComponent_Host_0, {}, {}, []);
+var AppComponentNgFactory = i1.ɵccf("app-root", i6.AppComponent, View_AppComponent_Host_0, {}, {}, []);
 exports.AppComponentNgFactory = AppComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/app.component.scss.shim.ngstyle.js":
+/*!****************************************************!*\
+  !*** ./src/app/app.component.scss.shim.ngstyle.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
 
 
 /***/ }),
@@ -166,6 +344,32 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
+/***/ "./src/app/app.router.module.ts":
+/*!**************************************!*\
+  !*** ./src/app/app.router.module.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var home_component_1 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+var routes = [
+    { path: '', component: home_component_1.HomeComponent },
+    { path: '**', redirectTo: '' }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    return AppRoutingModule;
+}());
+exports.AppRoutingModule = AppRoutingModule;
+
+
+/***/ }),
+
 /***/ "./src/app/app.server.module.ngfactory.js":
 /*!************************************************!*\
   !*** ./src/app/app.server.module.ngfactory.js ***!
@@ -185,19 +389,40 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./app.server.module */ "./src/app/app.server.module.ts");
 var i2 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-var i3 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
-var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i5 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
-var i6 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
-var i7 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
-var i8 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
-var i9 = __webpack_require__(/*! @ng-toolkit/universal */ "@ng-toolkit/universal");
-var i10 = __webpack_require__(/*! @angular/http */ "@angular/http");
-var i11 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i12 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
-var i13 = __webpack_require__(/*! @nguniversal/module-map-ngfactory-loader */ "@nguniversal/module-map-ngfactory-loader");
-var i14 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i0.Compiler, i0.Compiler, []), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i5.DomSanitizer, i5.ɵangular_packages_platform_browser_platform_browser_e, [i4.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i5.DomSanitizer]), i0.ɵmpd(4608, i5.HAMMER_GESTURE_CONFIG, i5.HammerGestureConfig, []), i0.ɵmpd(5120, i5.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i5.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i5.ɵKeyEventsPlugin(p1_0), new i5.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i6.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i4.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i4.DOCUMENT, i4.DOCUMENT, i5.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i5.DOCUMENT]), i0.ɵmpd(4608, i5.EventManager, i5.EventManager, [i5.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i5.ɵDomSharedStylesHost, i5.ɵDomSharedStylesHost, [i4.DOCUMENT]), i0.ɵmpd(4608, i5.ɵDomRendererFactory2, i5.ɵDomRendererFactory2, [i5.EventManager, i5.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i6.ɵangular_packages_platform_server_platform_server_c, i6.ɵangular_packages_platform_server_platform_server_c, [i5.DOCUMENT, [2, i5.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i5.ɵSharedStylesHost, null, [i6.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i6.ɵServerRendererFactory2, i6.ɵServerRendererFactory2, [i5.EventManager, i0.NgZone, i5.DOCUMENT, i5.ɵSharedStylesHost]), i0.ɵmpd(4608, i7.AnimationDriver, i7.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i7.ɵAnimationStyleNormalizer, i8.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i7.ɵAnimationEngine, i8.ɵangular_packages_platform_browser_animations_animations_a, [i4.DOCUMENT, i7.AnimationDriver, i7.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i6.ɵangular_packages_platform_server_platform_server_a, [i6.ɵServerRendererFactory2, i7.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i5.Meta, i5.Meta, [i4.DOCUMENT]), i0.ɵmpd(4608, i5.Title, i5.Title, [i4.DOCUMENT]), i0.ɵmpd(4608, i9.ɵa, i9.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i9.WINDOW, i9.windowFactory, [i9.ɵa]), i0.ɵmpd(4608, i9.ɵb, i9.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i9.LOCAL_STORAGE, i9.localStoragefactory, [i9.ɵb]), i0.ɵmpd(4608, i10.BrowserXhr, i6.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i10.ResponseOptions, i10.BaseResponseOptions, []), i0.ɵmpd(4608, i10.XSRFStrategy, i6.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i10.XHRBackend, i10.XHRBackend, [i10.BrowserXhr, i10.ResponseOptions, i10.XSRFStrategy]), i0.ɵmpd(4608, i10.RequestOptions, i10.BaseRequestOptions, []), i0.ɵmpd(5120, i10.Http, i6.ɵangular_packages_platform_server_platform_server_g, [i10.XHRBackend, i10.RequestOptions]), i0.ɵmpd(4608, i11.HttpXsrfTokenExtractor, i11.ɵangular_packages_common_http_http_g, [i4.DOCUMENT, i0.PLATFORM_ID, i11.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i11.ɵangular_packages_common_http_http_h, i11.ɵangular_packages_common_http_http_h, [i11.HttpXsrfTokenExtractor, i11.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i11.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i11.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i11.XhrFactory, i6.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i11.HttpXhrBackend, i11.HttpXhrBackend, [i11.XhrFactory]), i0.ɵmpd(6144, i11.HttpBackend, null, [i11.HttpXhrBackend]), i0.ɵmpd(5120, i11.HttpHandler, i6.ɵangular_packages_platform_server_platform_server_h, [i11.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i11.HttpClient, i11.HttpClient, [i11.HttpHandler]), i0.ɵmpd(4608, i11.ɵangular_packages_common_http_http_d, i11.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i12.AnimationBuilder, i8.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i5.DOCUMENT]), i0.ɵmpd(4608, i0.NgModuleFactoryLoader, i13.ModuleMapNgFactoryLoader, [i0.Compiler, i13.MODULE_MAP]), i0.ɵmpd(4608, i5.TransferState, i5.TransferState, []), i0.ɵmpd(5120, i6.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i6.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i5.DOCUMENT, i0.APP_ID, i5.TransferState]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i5.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i5.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p1_1, p1_2) { return [i5.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i5.ɵangular_packages_platform_browser_platform_browser_f(p1_0, p1_1, p1_2)]; }, [[2, i0.NgProbeToken], i5.ɵTRANSITION_ID, i4.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i5.BrowserModule, i5.BrowserModule, [[3, i5.BrowserModule]]), i0.ɵmpd(1073742336, i9.NgtUniversalModule, i9.NgtUniversalModule, []), i0.ɵmpd(1073742336, i14.AppModule, i14.AppModule, []), i0.ɵmpd(1073742336, i10.HttpModule, i10.HttpModule, []), i0.ɵmpd(1073742336, i11.HttpClientXsrfModule, i11.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i11.HttpClientModule, i11.HttpClientModule, []), i0.ɵmpd(1073742336, i8.NoopAnimationsModule, i8.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i6.ServerModule, i6.ServerModule, []), i0.ɵmpd(1073742336, i13.ModuleMapLoaderModule, i13.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i6.ServerTransferStateModule, i6.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i11.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i11.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i8.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var i3 = __webpack_require__(/*! ../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
+var i4 = __webpack_require__(/*! ./home/home.component.ngfactory */ "./src/app/home/home.component.ngfactory.js");
+var i5 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
+var i6 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i7 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i8 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
+var i9 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
+var i10 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+var i11 = __webpack_require__(/*! @ng-toolkit/universal */ "@ng-toolkit/universal");
+var i12 = __webpack_require__(/*! @angular/cdk/overlay */ "@angular/cdk/overlay");
+var i13 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i14 = __webpack_require__(/*! @angular/material/menu */ "@angular/material/menu");
+var i15 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i16 = __webpack_require__(/*! @angular/http */ "@angular/http");
+var i17 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+var i18 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
+var i19 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var i20 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
+var i21 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i22 = __webpack_require__(/*! @angular/cdk/scrolling */ "@angular/cdk/scrolling");
+var i23 = __webpack_require__(/*! @angular/material/sidenav */ "@angular/material/sidenav");
+var i24 = __webpack_require__(/*! @angular/material/divider */ "@angular/material/divider");
+var i25 = __webpack_require__(/*! @angular/material/list */ "@angular/material/list");
+var i26 = __webpack_require__(/*! @angular/material/icon */ "@angular/material/icon");
+var i27 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i28 = __webpack_require__(/*! @angular/cdk/portal */ "@angular/cdk/portal");
+var i29 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
+var i30 = __webpack_require__(/*! @angular/material/grid-list */ "@angular/material/grid-list");
+var i31 = __webpack_require__(/*! ./material_module/material.module */ "./src/app/material_module/material.module.ts");
+var i32 = __webpack_require__(/*! @nguniversal/module-map-ngfactory-loader */ "@nguniversal/module-map-ngfactory-loader");
+var i33 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+var i34 = __webpack_require__(/*! ./app.router.module */ "./src/app/app.router.module.ts");
+var i35 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i6.NgLocalization, i6.NgLocaleLocalization, [i0.LOCALE_ID, [2, i6.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i7.DomSanitizer, i7.ɵangular_packages_platform_browser_platform_browser_e, [i6.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i7.DomSanitizer]), i0.ɵmpd(4608, i7.HAMMER_GESTURE_CONFIG, i7.HammerGestureConfig, []), i0.ɵmpd(5120, i7.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i7.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i7.ɵKeyEventsPlugin(p1_0), new i7.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i8.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i6.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i6.DOCUMENT, i6.DOCUMENT, i7.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i7.DOCUMENT]), i0.ɵmpd(4608, i7.EventManager, i7.EventManager, [i7.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i7.ɵDomSharedStylesHost, i7.ɵDomSharedStylesHost, [i6.DOCUMENT]), i0.ɵmpd(4608, i7.ɵDomRendererFactory2, i7.ɵDomRendererFactory2, [i7.EventManager, i7.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i8.ɵangular_packages_platform_server_platform_server_c, i8.ɵangular_packages_platform_server_platform_server_c, [i7.DOCUMENT, [2, i7.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i7.ɵSharedStylesHost, null, [i8.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i8.ɵServerRendererFactory2, i8.ɵServerRendererFactory2, [i7.EventManager, i0.NgZone, i7.DOCUMENT, i7.ɵSharedStylesHost]), i0.ɵmpd(4608, i9.AnimationDriver, i9.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i9.ɵAnimationStyleNormalizer, i10.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i9.ɵAnimationEngine, i10.ɵangular_packages_platform_browser_animations_animations_a, [i6.DOCUMENT, i9.AnimationDriver, i9.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i8.ɵangular_packages_platform_server_platform_server_a, [i8.ɵServerRendererFactory2, i9.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i7.Meta, i7.Meta, [i6.DOCUMENT]), i0.ɵmpd(4608, i7.Title, i7.Title, [i6.DOCUMENT]), i0.ɵmpd(4608, i11.ɵa, i11.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i11.WINDOW, i11.windowFactory, [i11.ɵa]), i0.ɵmpd(4608, i11.ɵb, i11.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i11.LOCAL_STORAGE, i11.localStoragefactory, [i11.ɵb]), i0.ɵmpd(4608, i12.Overlay, i12.Overlay, [i12.ScrollStrategyOptions, i12.OverlayContainer, i0.ComponentFactoryResolver, i12.OverlayPositionBuilder, i12.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i6.DOCUMENT, i13.Directionality]), i0.ɵmpd(5120, i12.ɵc, i12.ɵd, [i12.Overlay]), i0.ɵmpd(5120, i14.MAT_MENU_SCROLL_STRATEGY, i14.ɵd24, [i12.Overlay]), i0.ɵmpd(5120, i15.ActivatedRoute, i15.ɵangular_packages_router_router_f, [i15.Router]), i0.ɵmpd(4608, i15.NoPreloading, i15.NoPreloading, []), i0.ɵmpd(6144, i15.PreloadingStrategy, null, [i15.NoPreloading]), i0.ɵmpd(135680, i15.RouterPreloader, i15.RouterPreloader, [i15.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i15.PreloadingStrategy]), i0.ɵmpd(4608, i15.PreloadAllModules, i15.PreloadAllModules, []), i0.ɵmpd(5120, i15.ROUTER_INITIALIZER, i15.ɵangular_packages_router_router_i, [i15.ɵangular_packages_router_router_g]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i15.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i16.BrowserXhr, i8.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i16.ResponseOptions, i16.BaseResponseOptions, []), i0.ɵmpd(4608, i16.XSRFStrategy, i8.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i16.XHRBackend, i16.XHRBackend, [i16.BrowserXhr, i16.ResponseOptions, i16.XSRFStrategy]), i0.ɵmpd(4608, i16.RequestOptions, i16.BaseRequestOptions, []), i0.ɵmpd(5120, i16.Http, i8.ɵangular_packages_platform_server_platform_server_g, [i16.XHRBackend, i16.RequestOptions]), i0.ɵmpd(4608, i17.HttpXsrfTokenExtractor, i17.ɵangular_packages_common_http_http_g, [i6.DOCUMENT, i0.PLATFORM_ID, i17.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i17.ɵangular_packages_common_http_http_h, i17.ɵangular_packages_common_http_http_h, [i17.HttpXsrfTokenExtractor, i17.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i17.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i17.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i17.XhrFactory, i8.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.HttpXhrBackend, i17.HttpXhrBackend, [i17.XhrFactory]), i0.ɵmpd(6144, i17.HttpBackend, null, [i17.HttpXhrBackend]), i0.ɵmpd(5120, i17.HttpHandler, i8.ɵangular_packages_platform_server_platform_server_h, [i17.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i17.HttpClient, i17.HttpClient, [i17.HttpHandler]), i0.ɵmpd(4608, i17.ɵangular_packages_common_http_http_d, i17.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i18.AnimationBuilder, i10.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i7.DOCUMENT]), i0.ɵmpd(4608, i7.TransferState, i7.TransferState, []), i0.ɵmpd(5120, i8.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i8.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i7.DOCUMENT, i0.APP_ID, i7.TransferState]), i0.ɵmpd(1073742336, i6.CommonModule, i6.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i7.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i15.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i15.ɵangular_packages_router_router_g, i15.ɵangular_packages_router_router_g, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i7.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i7.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i15.ɵangular_packages_router_router_h(p1_0), i7.ɵangular_packages_platform_browser_platform_browser_f(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i15.ɵangular_packages_router_router_g, i7.ɵTRANSITION_ID, i6.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i7.BrowserModule, i7.BrowserModule, [[3, i7.BrowserModule]]), i0.ɵmpd(1073742336, i11.NgtUniversalModule, i11.NgtUniversalModule, []), i0.ɵmpd(1073742336, i13.BidiModule, i13.BidiModule, []), i0.ɵmpd(1073742336, i19.MatCommonModule, i19.MatCommonModule, [[2, i19.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i20.MatCardModule, i20.MatCardModule, []), i0.ɵmpd(1073742336, i21.PlatformModule, i21.PlatformModule, []), i0.ɵmpd(1073742336, i22.ScrollDispatchModule, i22.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i23.MatSidenavModule, i23.MatSidenavModule, []), i0.ɵmpd(1073742336, i19.MatLineModule, i19.MatLineModule, []), i0.ɵmpd(1073742336, i19.MatRippleModule, i19.MatRippleModule, []), i0.ɵmpd(1073742336, i19.MatPseudoCheckboxModule, i19.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i24.MatDividerModule, i24.MatDividerModule, []), i0.ɵmpd(1073742336, i25.MatListModule, i25.MatListModule, []), i0.ɵmpd(1073742336, i26.MatIconModule, i26.MatIconModule, []), i0.ɵmpd(1073742336, i27.MatButtonModule, i27.MatButtonModule, []), i0.ɵmpd(1073742336, i28.PortalModule, i28.PortalModule, []), i0.ɵmpd(1073742336, i12.OverlayModule, i12.OverlayModule, []), i0.ɵmpd(1073742336, i14.MatMenuModule, i14.MatMenuModule, []), i0.ɵmpd(1073742336, i29.MatToolbarModule, i29.MatToolbarModule, []), i0.ɵmpd(1073742336, i30.MatGridListModule, i30.MatGridListModule, []), i0.ɵmpd(1073742336, i31.MaterialModule, i31.MaterialModule, []), i0.ɵmpd(1024, i15.ɵangular_packages_router_router_a, i15.ɵangular_packages_router_router_d, [[3, i15.Router]]), i0.ɵmpd(512, i15.UrlSerializer, i15.DefaultUrlSerializer, []), i0.ɵmpd(512, i15.ChildrenOutletContexts, i15.ChildrenOutletContexts, []), i0.ɵmpd(256, i15.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i6.LocationStrategy, i15.ɵangular_packages_router_router_c, [i6.PlatformLocation, [2, i6.APP_BASE_HREF], i15.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i6.Location, i6.Location, [i6.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i32.ModuleMapNgFactoryLoader, [i0.Compiler, i32.MODULE_MAP]), i0.ɵmpd(1024, i15.ROUTES, function () { return [[{ path: "", component: i33.HomeComponent }, { path: "**", redirectTo: "" }]]; }, []), i0.ɵmpd(1024, i15.Router, i15.ɵangular_packages_router_router_e, [i0.ApplicationRef, i15.UrlSerializer, i15.ChildrenOutletContexts, i6.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i15.ROUTES, i15.ROUTER_CONFIGURATION, [2, i15.UrlHandlingStrategy], [2, i15.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i15.RouterModule, i15.RouterModule, [[2, i15.ɵangular_packages_router_router_a], [2, i15.Router]]), i0.ɵmpd(1073742336, i34.AppRoutingModule, i34.AppRoutingModule, []), i0.ɵmpd(1073742336, i35.AppModule, i35.AppModule, []), i0.ɵmpd(1073742336, i16.HttpModule, i16.HttpModule, []), i0.ɵmpd(1073742336, i17.HttpClientXsrfModule, i17.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i17.HttpClientModule, i17.HttpClientModule, []), i0.ɵmpd(1073742336, i10.NoopAnimationsModule, i10.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i8.ServerModule, i8.ServerModule, []), i0.ɵmpd(1073742336, i32.ModuleMapLoaderModule, i32.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i8.ServerTransferStateModule, i8.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i17.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i17.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i10.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -219,6 +444,196 @@ var AppServerModule = /** @class */ (function () {
     return AppServerModule;
 }());
 exports.AppServerModule = AppServerModule;
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ngfactory.js":
+/*!**************************************************!*\
+  !*** ./src/app/home/home.component.ngfactory.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./home.component.scss.shim.ngstyle */ "./src/app/home/home.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../../node_modules/@angular/material/card/typings/index.ngfactory */ "./node_modules/@angular/material/card/typings/index.ngfactory.js");
+var i3 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
+var i4 = __webpack_require__(/*! ../../../node_modules/@angular/material/button/typings/index.ngfactory */ "./node_modules/@angular/material/button/typings/index.ngfactory.js");
+var i5 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i6 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i7 = __webpack_require__(/*! @angular/cdk/a11y */ "@angular/cdk/a11y");
+var i8 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+var i9 = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
+var styles_HomeComponent = [i0.styles];
+var RenderType_HomeComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HomeComponent, data: {} });
+exports.RenderType_HomeComponent = RenderType_HomeComponent;
+function View_HomeComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 67, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 66, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 21, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 20, "mat-card", [["class", "card-container mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(4, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(5, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(6, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(7, 0, null, 0, 1, "div", [["class", "angular-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(8, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(9, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(10, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Angular"])), (_l()(), i1.ɵeld(12, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(13, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(14, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" The Angular is a powerfull java script component based framwork developed by google which can be used to develop the cross-platform web application faster, modular, lazy load, reliable, bundling, reusale, testeble and get the more performance. "])), (_l()(), i1.ɵeld(16, 0, null, 0, 7, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(17, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(18, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(19, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["LIKE"])), (_l()(), i1.ɵeld(21, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(22, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["SHARE"])), (_l()(), i1.ɵeld(24, 0, null, null, 21, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(25, 0, null, null, 20, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(26, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(27, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(28, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(29, 0, null, 0, 1, "div", [["class", "javascript-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(30, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(31, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(32, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Java Script"])), (_l()(), i1.ɵeld(34, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(35, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(36, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" The Java Script is a interpreted language used to develop mainly the browser based web application and server side using the nodejs.Its very easy and interesting language to learn every developer. Mainly we used Java script to add behaviour to HTML elements. "])), (_l()(), i1.ɵeld(38, 0, null, 0, 7, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(39, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(40, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(41, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["LIKE"])), (_l()(), i1.ɵeld(43, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(44, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["SHARE"])), (_l()(), i1.ɵeld(46, 0, null, null, 21, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(47, 0, null, null, 20, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(48, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(49, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(50, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(51, 0, null, 0, 1, "div", [["class", "rxjs-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(52, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(53, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(54, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["RxJS"])), (_l()(), i1.ɵeld(56, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(57, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(58, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Rxjs is a powerfull library, heavly used by UI developers for reactive programming with steams of data over the period. Which is very helpfull to build the complex event based application logics easily. Which is written by Ben lese a Software Engineer at Google. "])), (_l()(), i1.ɵeld(60, 0, null, 0, 7, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(61, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(62, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(63, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["LIKE"])), (_l()(), i1.ɵeld(65, 0, null, null, 2, "button", [["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(66, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["SHARE"]))], null, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 17).align === "end"); _ck(_v, 16, 0, currVal_0); var currVal_1 = (i1.ɵnov(_v, 19).disabled || null); var currVal_2 = (i1.ɵnov(_v, 19)._animationMode === "NoopAnimations"); _ck(_v, 18, 0, currVal_1, currVal_2); var currVal_3 = (i1.ɵnov(_v, 22).disabled || null); var currVal_4 = (i1.ɵnov(_v, 22)._animationMode === "NoopAnimations"); _ck(_v, 21, 0, currVal_3, currVal_4); var currVal_5 = (i1.ɵnov(_v, 39).align === "end"); _ck(_v, 38, 0, currVal_5); var currVal_6 = (i1.ɵnov(_v, 41).disabled || null); var currVal_7 = (i1.ɵnov(_v, 41)._animationMode === "NoopAnimations"); _ck(_v, 40, 0, currVal_6, currVal_7); var currVal_8 = (i1.ɵnov(_v, 44).disabled || null); var currVal_9 = (i1.ɵnov(_v, 44)._animationMode === "NoopAnimations"); _ck(_v, 43, 0, currVal_8, currVal_9); var currVal_10 = (i1.ɵnov(_v, 61).align === "end"); _ck(_v, 60, 0, currVal_10); var currVal_11 = (i1.ɵnov(_v, 63).disabled || null); var currVal_12 = (i1.ɵnov(_v, 63)._animationMode === "NoopAnimations"); _ck(_v, 62, 0, currVal_11, currVal_12); var currVal_13 = (i1.ɵnov(_v, 66).disabled || null); var currVal_14 = (i1.ɵnov(_v, 66)._animationMode === "NoopAnimations"); _ck(_v, 65, 0, currVal_13, currVal_14); }); }
+exports.View_HomeComponent_0 = View_HomeComponent_0;
+function View_HomeComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-home", [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i9.HomeComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_HomeComponent_Host_0 = View_HomeComponent_Host_0;
+var HomeComponentNgFactory = i1.ɵccf("app-home", i9.HomeComponent, View_HomeComponent_Host_0, {}, {}, []);
+exports.HomeComponentNgFactory = HomeComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.scss.shim.ngstyle.js":
+/*!**********************************************************!*\
+  !*** ./src/app/home/home.component.scss.shim.ngstyle.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".tut-card[_ngcontent-%COMP%] {\n  max-width: 200px; }\n\n.angular-header-image[_ngcontent-%COMP%] {\n  background-image: url('angular.jpg');\n  background-size: cover; }\n\n.javascript-header-image[_ngcontent-%COMP%] {\n  background-image: url('javascript.png');\n  background-size: cover; }\n\n.rxjs-header-image[_ngcontent-%COMP%] {\n  background-image: url(\"data:image/jpeg;base64,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\");\n  background-size: cover; }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    return HomeComponent;
+}());
+exports.HomeComponent = HomeComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/material_module/material.module.ts":
+/*!****************************************************!*\
+  !*** ./src/app/material_module/material.module.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var MaterialModule = /** @class */ (function () {
+    function MaterialModule() {
+    }
+    return MaterialModule;
+}());
+exports.MaterialModule = MaterialModule;
+
+
+/***/ }),
+
+/***/ "./src/app/menu-bar/menu-bar.component.ngfactory.js":
+/*!**********************************************************!*\
+  !*** ./src/app/menu-bar/menu-bar.component.ngfactory.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./menu-bar.component.scss.shim.ngstyle */ "./src/app/menu-bar/menu-bar.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../../node_modules/@angular/material/toolbar/typings/index.ngfactory */ "./node_modules/@angular/material/toolbar/typings/index.ngfactory.js");
+var i3 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
+var i4 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i5 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i6 = __webpack_require__(/*! ../../../node_modules/@angular/material/button/typings/index.ngfactory */ "./node_modules/@angular/material/button/typings/index.ngfactory.js");
+var i7 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i8 = __webpack_require__(/*! @angular/cdk/a11y */ "@angular/cdk/a11y");
+var i9 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+var i10 = __webpack_require__(/*! ./menu-bar.component */ "./src/app/menu-bar/menu-bar.component.ts");
+var i11 = __webpack_require__(/*! @angular/cdk/layout */ "@angular/cdk/layout");
+var styles_MenuBarComponent = [i0.styles];
+var RenderType_MenuBarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MenuBarComponent, data: {} });
+exports.RenderType_MenuBarComponent = RenderType_MenuBarComponent;
+function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 19, "mat-toolbar", [["class", "mat-toolbar"], ["color", "primary"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, i2.View_MatToolbar_0, i2.RenderType_MatToolbar)), i1.ɵdid(1, 4243456, null, 1, i3.MatToolbar, [i1.ElementRef, i4.Platform, i5.DOCUMENT], { color: [0, "color"] }, null), i1.ɵqud(603979776, 1, { _toolbarRows: 1 }), (_l()(), i1.ɵeld(3, 0, null, 0, 0, "img", [["height", "30px"], ["src", "../../assets/ifelseloop.png.jpg"], ["width", "30px"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, 0, 1, "span", [["class", "main-title"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00A0Ifelseloop \u00A0 \u00A0"])), (_l()(), i1.ɵeld(6, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i6.View_MatButton_0, i6.RenderType_MatButton)), i1.ɵdid(7, 180224, null, 0, i7.MatButton, [i1.ElementRef, i4.Platform, i8.FocusMonitor, [2, i9.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Home"])), (_l()(), i1.ɵeld(9, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i6.View_MatButton_0, i6.RenderType_MatButton)), i1.ɵdid(10, 180224, null, 0, i7.MatButton, [i1.ElementRef, i4.Platform, i8.FocusMonitor, [2, i9.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Blogs"])), (_l()(), i1.ɵeld(12, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(13, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(14, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i6.View_MatButton_0, i6.RenderType_MatButton)), i1.ɵdid(15, 180224, null, 0, i7.MatButton, [i1.ElementRef, i4.Platform, i8.FocusMonitor, [2, i9.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Settings"])), (_l()(), i1.ɵeld(17, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i6.View_MatButton_0, i6.RenderType_MatButton)), i1.ɵdid(18, 180224, null, 0, i7.MatButton, [i1.ElementRef, i4.Platform, i8.FocusMonitor, [2, i9.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["About"]))], function (_ck, _v) { var currVal_2 = "primary"; _ck(_v, 1, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1)._toolbarRows.length; var currVal_1 = !i1.ɵnov(_v, 1)._toolbarRows.length; _ck(_v, 0, 0, currVal_0, currVal_1); var currVal_3 = (i1.ɵnov(_v, 7).disabled || null); var currVal_4 = (i1.ɵnov(_v, 7)._animationMode === "NoopAnimations"); _ck(_v, 6, 0, currVal_3, currVal_4); var currVal_5 = (i1.ɵnov(_v, 10).disabled || null); var currVal_6 = (i1.ɵnov(_v, 10)._animationMode === "NoopAnimations"); _ck(_v, 9, 0, currVal_5, currVal_6); var currVal_7 = (i1.ɵnov(_v, 15).disabled || null); var currVal_8 = (i1.ɵnov(_v, 15)._animationMode === "NoopAnimations"); _ck(_v, 14, 0, currVal_7, currVal_8); var currVal_9 = (i1.ɵnov(_v, 18).disabled || null); var currVal_10 = (i1.ɵnov(_v, 18)._animationMode === "NoopAnimations"); _ck(_v, 17, 0, currVal_9, currVal_10); }); }
+exports.View_MenuBarComponent_0 = View_MenuBarComponent_0;
+function View_MenuBarComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-menu-bar", [], null, null, null, View_MenuBarComponent_0, RenderType_MenuBarComponent)), i1.ɵdid(1, 49152, null, 0, i10.MenuBarComponent, [i11.BreakpointObserver], null, null)], null, null); }
+exports.View_MenuBarComponent_Host_0 = View_MenuBarComponent_Host_0;
+var MenuBarComponentNgFactory = i1.ɵccf("app-menu-bar", i10.MenuBarComponent, View_MenuBarComponent_Host_0, {}, {}, []);
+exports.MenuBarComponentNgFactory = MenuBarComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/menu-bar/menu-bar.component.scss.shim.ngstyle.js":
+/*!******************************************************************!*\
+  !*** ./src/app/menu-bar/menu-bar.component.scss.shim.ngstyle.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".mat-toolbar.mat-primary[_ngcontent-%COMP%] {\n  background: #1976d2; }\n\n.mat-toolbar-single-row[_ngcontent-%COMP%] {\n  height: 55px; }\n\n.nav-right[_ngcontent-%COMP%] {\n  float: right; }\n\n.about-in-button[_ngcontent-%COMP%] {\n  line-height: 35px;\n  margin-right: 10px; }\n\n.spacer[_ngcontent-%COMP%] {\n  flex: 1 1 auto; }\n\n.main-title[_ngcontent-%COMP%] {\n  font-size: 20px;\n  font-family: cursive;\n  font-weight: bold; }\n\n.title-font[_ngcontent-%COMP%] {\n  font-size: 16px;\n  font-weight: 700; }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/menu-bar/menu-bar.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/menu-bar/menu-bar.component.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var layout_1 = __webpack_require__(/*! @angular/cdk/layout */ "@angular/cdk/layout");
+var MenuBarComponent = /** @class */ (function () {
+    function MenuBarComponent(breakpointObserver) {
+        this.breakpointObserver = breakpointObserver;
+        this.isHandset = this.breakpointObserver.observe(layout_1.Breakpoints.Handset);
+    }
+    return MenuBarComponent;
+}());
+exports.MenuBarComponent = MenuBarComponent;
 
 
 /***/ }),
@@ -308,6 +723,83 @@ module.exports = require("@angular/animations/browser");
 
 /***/ }),
 
+/***/ "@angular/cdk/a11y":
+/*!************************************!*\
+  !*** external "@angular/cdk/a11y" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/a11y");
+
+/***/ }),
+
+/***/ "@angular/cdk/bidi":
+/*!************************************!*\
+  !*** external "@angular/cdk/bidi" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/bidi");
+
+/***/ }),
+
+/***/ "@angular/cdk/layout":
+/*!**************************************!*\
+  !*** external "@angular/cdk/layout" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/layout");
+
+/***/ }),
+
+/***/ "@angular/cdk/overlay":
+/*!***************************************!*\
+  !*** external "@angular/cdk/overlay" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/overlay");
+
+/***/ }),
+
+/***/ "@angular/cdk/platform":
+/*!****************************************!*\
+  !*** external "@angular/cdk/platform" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/platform");
+
+/***/ }),
+
+/***/ "@angular/cdk/portal":
+/*!**************************************!*\
+  !*** external "@angular/cdk/portal" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/portal");
+
+/***/ }),
+
+/***/ "@angular/cdk/scrolling":
+/*!*****************************************!*\
+  !*** external "@angular/cdk/scrolling" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/cdk/scrolling");
+
+/***/ }),
+
 /***/ "@angular/common":
 /*!**********************************!*\
   !*** external "@angular/common" ***!
@@ -352,6 +844,116 @@ module.exports = require("@angular/http");
 
 /***/ }),
 
+/***/ "@angular/material/button":
+/*!*******************************************!*\
+  !*** external "@angular/material/button" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/button");
+
+/***/ }),
+
+/***/ "@angular/material/card":
+/*!*****************************************!*\
+  !*** external "@angular/material/card" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/card");
+
+/***/ }),
+
+/***/ "@angular/material/core":
+/*!*****************************************!*\
+  !*** external "@angular/material/core" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/core");
+
+/***/ }),
+
+/***/ "@angular/material/divider":
+/*!********************************************!*\
+  !*** external "@angular/material/divider" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/divider");
+
+/***/ }),
+
+/***/ "@angular/material/grid-list":
+/*!**********************************************!*\
+  !*** external "@angular/material/grid-list" ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/grid-list");
+
+/***/ }),
+
+/***/ "@angular/material/icon":
+/*!*****************************************!*\
+  !*** external "@angular/material/icon" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/icon");
+
+/***/ }),
+
+/***/ "@angular/material/list":
+/*!*****************************************!*\
+  !*** external "@angular/material/list" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/list");
+
+/***/ }),
+
+/***/ "@angular/material/menu":
+/*!*****************************************!*\
+  !*** external "@angular/material/menu" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/menu");
+
+/***/ }),
+
+/***/ "@angular/material/sidenav":
+/*!********************************************!*\
+  !*** external "@angular/material/sidenav" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/sidenav");
+
+/***/ }),
+
+/***/ "@angular/material/toolbar":
+/*!********************************************!*\
+  !*** external "@angular/material/toolbar" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/material/toolbar");
+
+/***/ }),
+
 /***/ "@angular/platform-browser":
 /*!********************************************!*\
   !*** external "@angular/platform-browser" ***!
@@ -382,6 +984,17 @@ module.exports = require("@angular/platform-browser/animations");
 /***/ (function(module, exports) {
 
 module.exports = require("@angular/platform-server");
+
+/***/ }),
+
+/***/ "@angular/router":
+/*!**********************************!*\
+  !*** external "@angular/router" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/router");
 
 /***/ }),
 

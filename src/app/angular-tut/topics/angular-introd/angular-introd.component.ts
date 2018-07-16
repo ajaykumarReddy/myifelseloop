@@ -1,22 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { CommunicationService } from './../../../comunication.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-angular-introd',
   templateUrl: './angular-introd.component.html',
-  styleUrls: ['./angular-introd.component.scss']
+  styleUrls: ['./angular-introd.component.scss'],
 })
 export class AngularIntrodComponent implements OnInit {
 
-  constructor(private communicationService: CommunicationService) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-    const angularTopics = [
-      { name: 'Introduction1', route: 'introduction' },
-      { name: 'Introduction2', route: 'introduction' },
-      { name: 'Introduction3', route: 'introduction' },
-      { name: 'Introduction4', route: 'introduction' }];
-    this.communicationService.setMenuItems(angularTopics);
+  ngOnInit() { }
+
+  getStart() {
+    this.router.navigate(['/angular/createAngularApp']);
   }
 
 }

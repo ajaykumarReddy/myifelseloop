@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "styles-variables";
+// @import "styles-variables";
+
 
 @import '~bootstrap/scss/bootstrap-reboot';
 @import '~bootstrap/scss/bootstrap-grid';
-
+ @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body{
   margin: 0%;
@@ -16,6 +17,57 @@ body{
   padding-left: 120px;
 }
 
+.main-container {
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 450px;
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: .3px;
+    font-weight: 400;
+  }
+  .l-sub-section {
+    color: #333;
+    background-color: rgba(25,118,210,.05);
+    border-left: 8px solid #1976d2;
+    padding: 16px;
+    margin-bottom: 8px;
+    display: table;
+    clear: both;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 
+.text-headline {
+  font-size: 15px;
+  font-weight: 400;
+  color: #1976d2;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.code-text{
+  background: black;
+  border: .5px solid #dbdbdb;
+  border-radius: 5px;
+  color:navajowhite;
+  margin: 16px auto;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.pre-text{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  border: 2px solid;
+  color: #abb2bf;
+  background: #282c34;
+  font-size: 12px;
+}
 
 

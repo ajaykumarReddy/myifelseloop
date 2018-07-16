@@ -8,12 +8,14 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { AppRoutingModule } from './app.router.module';
 import { HomeComponent } from './home/home.component';
 import { CommunicationService } from './comunication.service';
+import { HiremeComponent } from './hireme/hireme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuBarComponent,
-    HomeComponent
+    HomeComponent,
+    HiremeComponent
   ],
   imports: [
   CommonModule,

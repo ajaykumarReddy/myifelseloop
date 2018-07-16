@@ -1,24 +1,23 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary">
     <!-- <span [hidden]="!hideSideNav"> -->
-      <button (click)="snav.toggle()" *ngIf="fillerNav.length> 0" mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
+    <button (click)="snav.toggle()" *ngIf="fillerNav.length> 0" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
     <!-- </span> -->
     <img src="../../assets/ifelseloop.png.jpg" height="30px" width="30px" />
-    <span class="main-title">&nbsp;Ifelseloop &nbsp; &nbsp;</span>
-    <button (click)="goToPage()" class="title-font" mat-button>Home</button>
+    <span (click)="goToPage()" class="main-title pointer">&nbsp;Ifelseloop &nbsp; &nbsp;</span>
     <button class="title-font" mat-button>Blogs</button>
     <span class="spacer"></span>
     <span class="spacer"></span>
-    <button class="title-font" mat-button>Settings</button>
     <button class="title-font" mat-button>About</button>
+    <button routerLink="/hireme" class="title-font" mat-button>Hire me</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav.name}}</a>
+        <a mat-list-item routerLink="{{nav.route}}" *ngFor="let nav of fillerNav">{{nav.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
 

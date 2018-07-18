@@ -4,6 +4,8 @@ import { AngularIntrodComponent } from './topics/angular-introd/angular-introd.c
 import { AngularCreateAppComponent } from './topics/angular-create-app/angular-create-app.component';
 import { AngularPlaceholderComponent } from './topics/angular-placeholder/angular-placeholder.component';
 import { HttpClientComponent } from './topics/http-client/http-client.component';
+import { AngularServiceComponent } from './topics/angular-service/angular-service.component';
+import { AngularElementComponent } from './topics/angular-element/angular-element.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +22,14 @@ const routes: Routes = [
       {
         path: 'http-client',
         component: HttpClientComponent
+      },
+      {
+        path: 'http-service',
+        component: AngularServiceComponent
+      },
+      {
+        path: 'angular-element',
+        component: AngularElementComponent
       }
     ]
   }

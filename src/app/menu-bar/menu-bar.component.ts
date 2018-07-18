@@ -21,13 +21,14 @@ export class MenuBarComponent implements OnInit, AfterViewInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngAfterViewInit() {
     this.communicationService.sideNavMenu$.subscribe(navItems => {
       setTimeout(() => {
         this.setMenuItems(navItems);
         this.hideSideNav = true;
+        this.snav.toggle();
       }, 0);
     });
   }
@@ -39,6 +40,11 @@ export class MenuBarComponent implements OnInit, AfterViewInit, OnDestroy {
   goToPage() {
     this.fillerNav = [];
     this.router.navigate(['/']);
+  }
+
+  hireMe() {
+    this.fillerNav = [];
+    this.router.navigate(['/hireme']);
   }
 
 

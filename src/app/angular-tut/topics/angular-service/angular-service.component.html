@@ -1,0 +1,28 @@
+<div class="main-container">
+  <h3>Why Services</h3>
+  <p>Services are a great way to share the data beteen components and widely used to get the data from server. components should
+    not be used to get the data directly from the servers, Components are only for presentation logic..
+  </p>
+
+  <div class="text-headline"> Create Services</div>
+  <p>You can create service using the angular-cli as below</p>
+  <div class="code-text">
+    <code>ng generate service httpService</code> //httpService is service name here.
+  </div>
+
+  <pre class="pre-text">
+      <code [innerHTML]="angularService"></code>
+    </pre>
+  <div class="l-sub-section">
+    <p>
+      Injectable is a class level annotation and tells the angular that this class is a service and going to be injectable in other
+      angular classes.
+    </p>
+    <p>providedIn: ProvideIn Tells the angular that this service is registered at root level and not required to declare service
+      in providers array. </p>
+    <p>When you provide the service at the root level, Angular creates a single, shared instance of ItemService and injects
+      into any class that asks for it.</p>
+    <p>By doing this we will get loosely-coupled communication between classes</p>
+
+  </div>
+</div>

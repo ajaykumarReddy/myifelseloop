@@ -6,6 +6,8 @@ import { MaterialModule } from './../material_module/material.module';
 import { AngularCreateAppComponent } from './topics/angular-create-app/angular-create-app.component';
 import { AngularPlaceholderComponent } from './topics/angular-placeholder/angular-placeholder.component';
 import { HttpClientComponent } from './topics/http-client/http-client.component';
+import { AngularServiceComponent } from './topics/angular-service/angular-service.component';
+import { AngularElementComponent } from './topics/angular-element/angular-element.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,10 @@ import { HttpClientComponent } from './topics/http-client/http-client.component'
   declarations: [
     AngularIntrodComponent,
     AngularCreateAppComponent,
-    AngularPlaceholderComponent, HttpClientComponent
+    AngularPlaceholderComponent,
+    HttpClientComponent,
+    AngularServiceComponent,
+    AngularElementComponent
   ]
 })
 export class AngularTutModule { }

@@ -8,8 +8,11 @@
  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body{
-  margin: 0%;
-  // background-color: #201b1b2e;
+    margin: 0%;
+    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    margin: 0;
+    color: #333;
+    font-size: 14px;
 }
 
 .container{
@@ -20,7 +23,7 @@ body{
 .main-container {
   padding-top: 25px;
   padding-left: 20px;
-  padding-right: 450px;
+  padding-right: 350px;
   p {
     font-size: 14px;
     line-height: 24px;
@@ -30,7 +33,7 @@ body{
   .l-sub-section {
     color: #333;
     background-color: rgba(25,118,210,.05);
-    border-left: 8px solid #1976d2;
+    border-left: 8px solid #3f51b5;
     padding: 16px;
     margin-bottom: 8px;
     display: table;
@@ -43,9 +46,9 @@ body{
 .text-headline {
   font-size: 15px;
   font-weight: 400;
-  color: #1976d2;
+  color:#3f51b5;
   margin-top: 10px;
-  text-transform: uppercase;
+  //text-transform: uppercase;
 }
 
 .code-text{
@@ -54,6 +57,7 @@ body{
   border-radius: 5px;
   color:navajowhite;
   margin: 16px auto;
+  padding-left: 5px;
 }
 
 .pointer{
@@ -68,6 +72,7 @@ body{
   color: #abb2bf;
   background: #282c34;
   font-size: 12px;
+  padding-left: 5px;
 }
 
 

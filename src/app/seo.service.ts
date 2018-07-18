@@ -6,8 +6,9 @@ import { Meta } from '@angular/platform-browser';
 })
 export class SEOService {
   constructor(private meta: Meta) {
-    meta.addTag({ name: 'description', content: 'ifelseloop is a best learing site for basics of angular and java script' });
-    meta.addTag({ name: 'viewport', content: 'width=device-width, initial-scale=1' });
+    //this.addMetaTags();
+   // meta.addTag({ name: 'description', content: 'ifelseloop is a best learing site for basics of angular and java script' });
+    //meta.addTag({ name: 'viewport', content: 'width=device-width, initial-scale=1' });
   }
   addMetaTags() {
     this.meta.addTags([

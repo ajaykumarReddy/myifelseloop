@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SEOService } from './../../../seo.service';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-http-client',
   templateUrl: './http-client.component.html',
@@ -13,16 +14,17 @@ export class HttpClientComponent implements OnInit {
   httpHeaders: string;
   httpDelete: string;
   httpPutCall: string;
-  constructor(private seoService: SEOService) { }
+  constructor(private seoService: SEOService, private title: Title) { }
 
   ngOnInit() {
-    const metaData = {
-      description: 'we will get to know about how to use httpClient and basic setup and we will get know the example code',
-      keywords: 'httpClient, how to use httpClient using angular',
-      title: 'how to use httpClient using angular',
-      website: 'https://ifelseloop.com/angular/httpClient'
-    };
-    this.seoService.updateMetaTags(metaData);
+    this.title.setTitle('angular httpClient');
+    // const metaData = {
+    //   description: 'we will get to know about how to use httpClient and basic setup and we will get know the example code',
+    //   keywords: 'httpClient, how to use httpClient using angular',
+    //   title: 'how to use httpClient using angular',
+    //   website: 'https://ifelseloop.com/angular/httpClient'
+    // };
+    // this.seoService.updateMetaTags(metaData);
     this.httpClinetCode = `
     import { NgModule } from '@angular/core';
     import { BrowserModule }    from '@angular/platform-browser';

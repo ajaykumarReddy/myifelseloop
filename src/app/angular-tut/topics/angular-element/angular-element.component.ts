@@ -11,8 +11,14 @@ export class AngularElementComponent implements OnInit {
   polyfill: string;
   componentElm: string;
   componentDeclar: string;
+  elementsCode: string;
+  html_element_code: string;
+  buildsScript: string;
+  addCustomElem: string;
   constructor(private title: Title) {
     this.title.setTitle('how to create angular elements');
+    this.html_element_code = `
+    <app-hello wish="Hello World"></app-hello>`;
   }
 
   ngOnInit() {
@@ -33,11 +39,11 @@ export class AngularElementComponent implements OnInit {
     this.componentDeclar = `
  import { BrowserModule } from '@angular/platform-browser';
  import { NgModule } from '@angular/core';
- import { MessageComponent } from './message.component';
+ import { HelloComponent } from './hello.component';
 
  @NgModule({
      declarations: [
-         MessageComponent
+         HelloComponent
      ],
      imports: [
          BrowserModule
@@ -49,6 +55,28 @@ export class AngularElementComponent implements OnInit {
  export class AppModule {
 
  }`;
+
+    this.elementsCode = `
+    import { NgModule, Injector } from '@angular/core';
+    import { createCustomElement } from '@angular/elements';
+    export class AppModule {
+      constructor(private injector: Injector) {
+          const customElement = createCustomElement(MessageComponent, { injector });
+          customElements.define('app-hello', customElement);
+      }
+      ngDoBootstrap() {
+      }
+  }`;
+
+    this.buildsScript = `
+  "build": "ng build --prod --output-hashing=none",
+  "package":"cat dist/{runtime,polyfills,scripts,main}.js
+           | gzip > hello-element.js.gz"`;
+
+    this.addCustomElem = `
+           <app-hello wish='Hello World'></app-hello>
+           `;
+
   }
 
 

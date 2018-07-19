@@ -1,10 +1,12 @@
 <div class="main-container">
-  <h3>Steps to Create Angular Elements</h3>
-  <p>Angular Elements are introduced in angular6 new features, using angular elements we can Create our own reuseble custom
-    html elements which can be used in other application like React, Vue and other angular applications.
+  <h1>Steps to Create Angular Elements</h1>
+  <p>Angular Elements are introduced in angular6 as one of the new feature, using angular elements we can create our own reuseble
+    custom html elements which can be used in other application like React, Vue and other angular applications.
   </p>
   <p>Now let start how to create angular elements</p>
-  <div class="text-headline">1. Step1: installation</div>
+  <div class="text-headline">
+    <strong> installation</strong>
+  </div>
   <p>create a new project using angular-cli as like below</p>
   <div class="code-text">
     <code>ng new my-angular-elements</code>
@@ -26,17 +28,63 @@
     </pre>
   </div>
 
-  <div class="text-headline">1. Step2: Create Componet</div>
+  <div class="text-headline">
+    <strong>Step1: Create Componet</strong>
+  </div>
 
   <p> Create a component as follows or usig angular cli , ng g c componentname </p>
   <pre class="pre-text">
     <code [innerHTML]="componentElm"></code>
   </pre>
-  <p>Now we can start using this component as angular-elements</p>
+  <p>Now we can start making this component as angular-elements</p>
 
-  <div class="text-headline">3. Step3: Componet Declaration</div>
+  <div class="text-headline">
+    <strong>Step2: Componet Declaration</strong>
+  </div>
 
   <pre class="pre-text">
     <code [innerHTML]="componentDeclar"></code>
   </pre>
+
+  <div class="l-sub-section">
+    <ul>
+      <li>Import HelloComponent</li>
+      <li>Add HelloComponent to declarations array</li>
+      <li>Also make sure to add HelloComponent to entryComponents array</li>
+      <li>bootstap array should be empty</li>
+    </ul>
+  </div>
+  <div class="text-headline">
+    <strong>Step3: Create Angular Element</strong>
+  </div>
+  <p>Add the following code to your appModule</p>
+
+  <pre class="pre-text">
+      <code [innerHTML]="elementsCode"></code>
+    </pre>
+
+  <div class="text-headline">
+    <strong>Step4: Build, Optimize and run the code</strong>
+  </div>
+  <p>In order to build we should use the build command as below</p>
+  <div class="code-text">
+    <code>ng build</code>
+  </div>
+  <p>After build is done it will generate dist/angular_elements folder with 4 js files (runtime.js , scripts.js, polyfills.js
+    and main.js) . we’d like to distribute our component as a single js file, we need to turn hashing file names off to know
+    what are the names of files to manually concatenate. You can add this to npm script as below
+  </p>
+  <pre class="pre-text">
+    <code [innerHTML]="buildsScript"></code>
+  </pre>
+
+  <div class="text-headline">
+    <strong>Step5: Run the code with angular custom elements</strong>
+  </div>
+  <p>By simply adding the above generated hello-element.js file to index.html and the then run your application.
+  </p>
+  <pre class="pre-text">
+      <code>{{addCustomElem}}</code>
+    </pre>
+
 </div>

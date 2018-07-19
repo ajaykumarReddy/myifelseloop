@@ -1,6 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, AfterViewInit, OnInit, ViewChild } from '@angular/core';
-import { CommunicationService } from './../comunication.service';
+import { CommunicationService } from '../comunication.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu-bar',

@@ -9,13 +9,13 @@
     <span (click)="goToPage()" class="main-title pointer">&nbsp;Ifelseloop &nbsp; &nbsp;</span>
     <button mat-button [matMenuTriggerFor]="menu">Tutorials</button>
     <mat-menu #menu="matMenu">
-      <button style="height: 36px" routerLink="/angular" class="menu-bar-font" mat-menu-item>Angular</button>
-      <button style="height: 36px" class="menu-bar-font" mat-menu-item>Java Script</button>
-      <button style="height: 36px" class="menu-bar-font" mat-menu-item>C</button>
+      <button routerLink="/angular" class="menu-bar-font" mat-menu-item>Angular</button>
+      <button class="menu-bar-font" mat-menu-item>Java Script</button>
+      <button routerLink="/c-programming" class="menu-bar-font" mat-menu-item>C</button>
     </mat-menu>
     <span class="spacer"></span>
     <span class="spacer"></span>
-    <button class="title-font" mat-button>About</button>
+    <button class="title-font" mat-button>Interview Q</button>
     <button (click)="hireMe()" class="title-font" mat-button>Hire me</button>
   </mat-toolbar>
 

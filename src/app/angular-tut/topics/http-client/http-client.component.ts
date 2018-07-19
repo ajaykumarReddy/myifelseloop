@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SEOService } from './../../../seo.service';
+import { SEOService } from '../../../seo.service';
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-http-client',

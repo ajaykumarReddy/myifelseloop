@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-
+import { SEOService } from '../../../seo.service';
 @Component({
   selector: 'app-angular-element',
   templateUrl: './angular-element.component.html',
@@ -15,10 +15,17 @@ export class AngularElementComponent implements OnInit {
   html_element_code: string;
   buildsScript: string;
   addCustomElem: string;
-  constructor(private title: Title) {
+  constructor(private title: Title, private seoService: SEOService) {
     this.title.setTitle('how to create angular elements');
     this.html_element_code = `
     <app-hello wish="Hello World"></app-hello>`;
+
+    const metaData = {
+      description: 'we will get to know how to create angular application and run with server in easy and simple steps',
+      title: 'How to Create Angular Application',
+      website: 'https://ifelseloop.com/angular/create-angular-app'
+    };
+    this.seoService.updateMetaTags(metaData);
   }
 
   ngOnInit() {
@@ -59,7 +66,8 @@ export class AngularElementComponent implements OnInit {
     this.elementsCode = `
     import { NgModule, Injector } from '@angular/core';
     import { createCustomElement } from '@angular/elements';
-    export class AppModule {
+    import { SEOService } from './../../../seo.service';
+export class AppModule {
       constructor(private injector: Injector) {
           const customElement = createCustomElement(MessageComponent, { injector });
           customElements.define('app-hello', customElement);

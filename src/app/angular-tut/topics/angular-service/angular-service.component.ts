@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { SEOService } from '../../../seo.service';
 
 @Component({
   selector: 'app-angular-service',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AngularServiceComponent implements OnInit {
   angularService: string;
-  constructor() { }
+  constructor(private title: Title, private seoService: SEOService) {
+    this.title.setTitle('creating angular services');
+    const metaData = {
+      description: 'We will get to know all about how to create angular services and basic syntax and how to make all AJAX calls.',
+      title: 'how to create angular services',
+      website: 'https://ifelseloop.com/angular/http-service'
+    };
+    this.seoService.updateMetaTags(metaData);
+  }
 
   ngOnInit() {
     this.angularService = `

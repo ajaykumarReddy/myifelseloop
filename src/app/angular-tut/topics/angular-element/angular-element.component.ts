@@ -16,14 +16,15 @@ export class AngularElementComponent implements OnInit {
   buildsScript: string;
   addCustomElem: string;
   constructor(private title: Title, private seoService: SEOService) {
-    this.title.setTitle('how to create angular elements');
+    this.title.setTitle('How to Create Angular Elements');
     this.html_element_code = `
     <app-hello wish="Hello World"></app-hello>`;
 
     const metaData = {
-      description: 'we will get to know how to create angular application and run with server in easy and simple steps',
-      title: 'How to Create Angular Application',
-      website: 'https://ifelseloop.com/angular/create-angular-app'
+      description: `we will get to know how to create angular application and make angular components as
+      reuseble custom angular elements for any other front-end applications`,
+      title: 'Steps to create Angular Elements',
+      website: 'https://ifelseloop.com/angular/angular-element'
     };
     this.seoService.updateMetaTags(metaData);
   }

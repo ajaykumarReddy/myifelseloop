@@ -635,6 +635,2624 @@ exports.MatToolbarNgFactory = MatToolbarNgFactory;
 
 /***/ }),
 
+/***/ "./node_modules/@angular/platform-browser/bundles/platform-browser.umd.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@angular/platform-browser/bundles/platform-browser.umd.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * @license Angular v6.0.7
+ * (c) 2010-2018 Google, Inc. https://angular.io/
+ * License: MIT
+ */
+
+(function (global, factory) {
+	 true ? factory(exports, __webpack_require__(/*! @angular/common */ "@angular/common"), __webpack_require__(/*! @angular/core */ "@angular/core")) :
+	undefined;
+}(this, (function (exports,common,core) { 'use strict';
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = Object.assign || function __assign(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+    return t;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _DOM = null;
+function getDOM() {
+    return _DOM;
+}
+
+function setRootDomAdapter(adapter) {
+    if (!_DOM) {
+        _DOM = adapter;
+    }
+}
+/* tslint:disable:requireParameterType */
+/**
+ * Provides DOM operations in an environment-agnostic way.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+var DomAdapter = /** @class */ (function () {
+    function DomAdapter() {
+        this.resourceLoaderType = null;
+    }
+    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
+        /**
+         * Maps attribute names to their corresponding property names for cases
+         * where attribute name doesn't match property name.
+         */
+        get: function () { return this._attrToPropMap; },
+        set: function (value) { this._attrToPropMap = value; },
+        enumerable: true,
+        configurable: true
+    });
+    return DomAdapter;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Provides DOM operations in any browser environment.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+var GenericBrowserDomAdapter = /** @class */ (function (_super) {
+    __extends(GenericBrowserDomAdapter, _super);
+    function GenericBrowserDomAdapter() {
+        var _this = _super.call(this) || this;
+        _this._animationPrefix = null;
+        _this._transitionEnd = null;
+        try {
+            var element_1 = _this.createElement('div', document);
+            if (_this.getStyle(element_1, 'animationName') != null) {
+                _this._animationPrefix = '';
+            }
+            else {
+                var domPrefixes = ['Webkit', 'Moz', 'O', 'ms'];
+                for (var i = 0; i < domPrefixes.length; i++) {
+                    if (_this.getStyle(element_1, domPrefixes[i] + 'AnimationName') != null) {
+                        _this._animationPrefix = '-' + domPrefixes[i].toLowerCase() + '-';
+                        break;
+                    }
+                }
+            }
+            var transEndEventNames_1 = {
+                WebkitTransition: 'webkitTransitionEnd',
+                MozTransition: 'transitionend',
+                OTransition: 'oTransitionEnd otransitionend',
+                transition: 'transitionend'
+            };
+            Object.keys(transEndEventNames_1).forEach(function (key) {
+                if (_this.getStyle(element_1, key) != null) {
+                    _this._transitionEnd = transEndEventNames_1[key];
+                }
+            });
+        }
+        catch (e) {
+            _this._animationPrefix = null;
+            _this._transitionEnd = null;
+        }
+        return _this;
+    }
+    GenericBrowserDomAdapter.prototype.getDistributedNodes = function (el) { return el.getDistributedNodes(); };
+    GenericBrowserDomAdapter.prototype.resolveAndSetHref = function (el, baseUrl, href) {
+        el.href = href == null ? baseUrl : baseUrl + '/../' + href;
+    };
+    GenericBrowserDomAdapter.prototype.supportsDOMEvents = function () { return true; };
+    GenericBrowserDomAdapter.prototype.supportsNativeShadowDOM = function () {
+        return typeof document.body.createShadowRoot === 'function';
+    };
+    GenericBrowserDomAdapter.prototype.getAnimationPrefix = function () { return this._animationPrefix ? this._animationPrefix : ''; };
+    GenericBrowserDomAdapter.prototype.getTransitionEnd = function () { return this._transitionEnd ? this._transitionEnd : ''; };
+    GenericBrowserDomAdapter.prototype.supportsAnimation = function () {
+        return this._animationPrefix != null && this._transitionEnd != null;
+    };
+    return GenericBrowserDomAdapter;
+}(DomAdapter));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _attrToPropMap = {
+    'class': 'className',
+    'innerHtml': 'innerHTML',
+    'readonly': 'readOnly',
+    'tabindex': 'tabIndex',
+};
+var DOM_KEY_LOCATION_NUMPAD = 3;
+// Map to convert some key or keyIdentifier values to what will be returned by getEventKey
+var _keyMap = {
+    // The following values are here for cross-browser compatibility and to match the W3C standard
+    // cf http://www.w3.org/TR/DOM-Level-3-Events-key/
+    '\b': 'Backspace',
+    '\t': 'Tab',
+    '\x7F': 'Delete',
+    '\x1B': 'Escape',
+    'Del': 'Delete',
+    'Esc': 'Escape',
+    'Left': 'ArrowLeft',
+    'Right': 'ArrowRight',
+    'Up': 'ArrowUp',
+    'Down': 'ArrowDown',
+    'Menu': 'ContextMenu',
+    'Scroll': 'ScrollLock',
+    'Win': 'OS'
+};
+// There is a bug in Chrome for numeric keypad keys:
+// https://code.google.com/p/chromium/issues/detail?id=155654
+// 1, 2, 3 ... are reported as A, B, C ...
+var _chromeNumKeyPadMap = {
+    'A': '1',
+    'B': '2',
+    'C': '3',
+    'D': '4',
+    'E': '5',
+    'F': '6',
+    'G': '7',
+    'H': '8',
+    'I': '9',
+    'J': '*',
+    'K': '+',
+    'M': '-',
+    'N': '.',
+    'O': '/',
+    '\x60': '0',
+    '\x90': 'NumLock'
+};
+var nodeContains;
+if (core.ɵglobal['Node']) {
+    nodeContains = core.ɵglobal['Node'].prototype.contains || function (node) {
+        return !!(this.compareDocumentPosition(node) & 16);
+    };
+}
+/**
+ * A `DomAdapter` powered by full browser DOM APIs.
+ *
+ * @security Tread carefully! Interacting with the DOM directly is dangerous and
+ * can introduce XSS risks.
+ */
+/* tslint:disable:requireParameterType no-console */
+var BrowserDomAdapter = /** @class */ (function (_super) {
+    __extends(BrowserDomAdapter, _super);
+    function BrowserDomAdapter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    BrowserDomAdapter.prototype.parse = function (templateHtml) { throw new Error('parse not implemented'); };
+    BrowserDomAdapter.makeCurrent = function () { setRootDomAdapter(new BrowserDomAdapter()); };
+    BrowserDomAdapter.prototype.hasProperty = function (element, name) { return name in element; };
+    BrowserDomAdapter.prototype.setProperty = function (el, name, value) { el[name] = value; };
+    BrowserDomAdapter.prototype.getProperty = function (el, name) { return el[name]; };
+    BrowserDomAdapter.prototype.invoke = function (el, methodName, args) {
+        (_a = el)[methodName].apply(_a, __spread(args));
+        var _a;
+    };
+    // TODO(tbosch): move this into a separate environment class once we have it
+    BrowserDomAdapter.prototype.logError = function (error) {
+        if (window.console) {
+            if (console.error) {
+                console.error(error);
+            }
+            else {
+                console.log(error);
+            }
+        }
+    };
+    BrowserDomAdapter.prototype.log = function (error) {
+        if (window.console) {
+            window.console.log && window.console.log(error);
+        }
+    };
+    BrowserDomAdapter.prototype.logGroup = function (error) {
+        if (window.console) {
+            window.console.group && window.console.group(error);
+        }
+    };
+    BrowserDomAdapter.prototype.logGroupEnd = function () {
+        if (window.console) {
+            window.console.groupEnd && window.console.groupEnd();
+        }
+    };
+    Object.defineProperty(BrowserDomAdapter.prototype, "attrToPropMap", {
+        get: function () { return _attrToPropMap; },
+        enumerable: true,
+        configurable: true
+    });
+    BrowserDomAdapter.prototype.contains = function (nodeA, nodeB) { return nodeContains.call(nodeA, nodeB); };
+    BrowserDomAdapter.prototype.querySelector = function (el, selector) { return el.querySelector(selector); };
+    BrowserDomAdapter.prototype.querySelectorAll = function (el, selector) { return el.querySelectorAll(selector); };
+    BrowserDomAdapter.prototype.on = function (el, evt, listener) { el.addEventListener(evt, listener, false); };
+    BrowserDomAdapter.prototype.onAndCancel = function (el, evt, listener) {
+        el.addEventListener(evt, listener, false);
+        // Needed to follow Dart's subscription semantic, until fix of
+        // https://code.google.com/p/dart/issues/detail?id=17406
+        return function () { el.removeEventListener(evt, listener, false); };
+    };
+    BrowserDomAdapter.prototype.dispatchEvent = function (el, evt) { el.dispatchEvent(evt); };
+    BrowserDomAdapter.prototype.createMouseEvent = function (eventType) {
+        var evt = this.getDefaultDocument().createEvent('MouseEvent');
+        evt.initEvent(eventType, true, true);
+        return evt;
+    };
+    BrowserDomAdapter.prototype.createEvent = function (eventType) {
+        var evt = this.getDefaultDocument().createEvent('Event');
+        evt.initEvent(eventType, true, true);
+        return evt;
+    };
+    BrowserDomAdapter.prototype.preventDefault = function (evt) {
+        evt.preventDefault();
+        evt.returnValue = false;
+    };
+    BrowserDomAdapter.prototype.isPrevented = function (evt) {
+        return evt.defaultPrevented || evt.returnValue != null && !evt.returnValue;
+    };
+    BrowserDomAdapter.prototype.getInnerHTML = function (el) { return el.innerHTML; };
+    BrowserDomAdapter.prototype.getTemplateContent = function (el) {
+        return 'content' in el && this.isTemplateElement(el) ? el.content : null;
+    };
+    BrowserDomAdapter.prototype.getOuterHTML = function (el) { return el.outerHTML; };
+    BrowserDomAdapter.prototype.nodeName = function (node) { return node.nodeName; };
+    BrowserDomAdapter.prototype.nodeValue = function (node) { return node.nodeValue; };
+    BrowserDomAdapter.prototype.type = function (node) { return node.type; };
+    BrowserDomAdapter.prototype.content = function (node) {
+        if (this.hasProperty(node, 'content')) {
+            return node.content;
+        }
+        else {
+            return node;
+        }
+    };
+    BrowserDomAdapter.prototype.firstChild = function (el) { return el.firstChild; };
+    BrowserDomAdapter.prototype.nextSibling = function (el) { return el.nextSibling; };
+    BrowserDomAdapter.prototype.parentElement = function (el) { return el.parentNode; };
+    BrowserDomAdapter.prototype.childNodes = function (el) { return el.childNodes; };
+    BrowserDomAdapter.prototype.childNodesAsList = function (el) {
+        var childNodes = el.childNodes;
+        var res = new Array(childNodes.length);
+        for (var i = 0; i < childNodes.length; i++) {
+            res[i] = childNodes[i];
+        }
+        return res;
+    };
+    BrowserDomAdapter.prototype.clearNodes = function (el) {
+        while (el.firstChild) {
+            el.removeChild(el.firstChild);
+        }
+    };
+    BrowserDomAdapter.prototype.appendChild = function (el, node) { el.appendChild(node); };
+    BrowserDomAdapter.prototype.removeChild = function (el, node) { el.removeChild(node); };
+    BrowserDomAdapter.prototype.replaceChild = function (el, newChild, oldChild) { el.replaceChild(newChild, oldChild); };
+    BrowserDomAdapter.prototype.remove = function (node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+        return node;
+    };
+    BrowserDomAdapter.prototype.insertBefore = function (parent, ref, node) { parent.insertBefore(node, ref); };
+    BrowserDomAdapter.prototype.insertAllBefore = function (parent, ref, nodes) {
+        nodes.forEach(function (n) { return parent.insertBefore(n, ref); });
+    };
+    BrowserDomAdapter.prototype.insertAfter = function (parent, ref, node) { parent.insertBefore(node, ref.nextSibling); };
+    BrowserDomAdapter.prototype.setInnerHTML = function (el, value) { el.innerHTML = value; };
+    BrowserDomAdapter.prototype.getText = function (el) { return el.textContent; };
+    BrowserDomAdapter.prototype.setText = function (el, value) { el.textContent = value; };
+    BrowserDomAdapter.prototype.getValue = function (el) { return el.value; };
+    BrowserDomAdapter.prototype.setValue = function (el, value) { el.value = value; };
+    BrowserDomAdapter.prototype.getChecked = function (el) { return el.checked; };
+    BrowserDomAdapter.prototype.setChecked = function (el, value) { el.checked = value; };
+    BrowserDomAdapter.prototype.createComment = function (text) { return this.getDefaultDocument().createComment(text); };
+    BrowserDomAdapter.prototype.createTemplate = function (html) {
+        var t = this.getDefaultDocument().createElement('template');
+        t.innerHTML = html;
+        return t;
+    };
+    BrowserDomAdapter.prototype.createElement = function (tagName, doc) {
+        doc = doc || this.getDefaultDocument();
+        return doc.createElement(tagName);
+    };
+    BrowserDomAdapter.prototype.createElementNS = function (ns, tagName, doc) {
+        doc = doc || this.getDefaultDocument();
+        return doc.createElementNS(ns, tagName);
+    };
+    BrowserDomAdapter.prototype.createTextNode = function (text, doc) {
+        doc = doc || this.getDefaultDocument();
+        return doc.createTextNode(text);
+    };
+    BrowserDomAdapter.prototype.createScriptTag = function (attrName, attrValue, doc) {
+        doc = doc || this.getDefaultDocument();
+        var el = doc.createElement('SCRIPT');
+        el.setAttribute(attrName, attrValue);
+        return el;
+    };
+    BrowserDomAdapter.prototype.createStyleElement = function (css, doc) {
+        doc = doc || this.getDefaultDocument();
+        var style = doc.createElement('style');
+        this.appendChild(style, this.createTextNode(css, doc));
+        return style;
+    };
+    BrowserDomAdapter.prototype.createShadowRoot = function (el) { return el.createShadowRoot(); };
+    BrowserDomAdapter.prototype.getShadowRoot = function (el) { return el.shadowRoot; };
+    BrowserDomAdapter.prototype.getHost = function (el) { return el.host; };
+    BrowserDomAdapter.prototype.clone = function (node) { return node.cloneNode(true); };
+    BrowserDomAdapter.prototype.getElementsByClassName = function (element, name) {
+        return element.getElementsByClassName(name);
+    };
+    BrowserDomAdapter.prototype.getElementsByTagName = function (element, name) {
+        return element.getElementsByTagName(name);
+    };
+    BrowserDomAdapter.prototype.classList = function (element) { return Array.prototype.slice.call(element.classList, 0); };
+    BrowserDomAdapter.prototype.addClass = function (element, className) { element.classList.add(className); };
+    BrowserDomAdapter.prototype.removeClass = function (element, className) { element.classList.remove(className); };
+    BrowserDomAdapter.prototype.hasClass = function (element, className) {
+        return element.classList.contains(className);
+    };
+    BrowserDomAdapter.prototype.setStyle = function (element, styleName, styleValue) {
+        element.style[styleName] = styleValue;
+    };
+    BrowserDomAdapter.prototype.removeStyle = function (element, stylename) {
+        // IE requires '' instead of null
+        // see https://github.com/angular/angular/issues/7916
+        element.style[stylename] = '';
+    };
+    BrowserDomAdapter.prototype.getStyle = function (element, stylename) { return element.style[stylename]; };
+    BrowserDomAdapter.prototype.hasStyle = function (element, styleName, styleValue) {
+        var value = this.getStyle(element, styleName) || '';
+        return styleValue ? value == styleValue : value.length > 0;
+    };
+    BrowserDomAdapter.prototype.tagName = function (element) { return element.tagName; };
+    BrowserDomAdapter.prototype.attributeMap = function (element) {
+        var res = new Map();
+        var elAttrs = element.attributes;
+        for (var i = 0; i < elAttrs.length; i++) {
+            var attrib = elAttrs.item(i);
+            res.set(attrib.name, attrib.value);
+        }
+        return res;
+    };
+    BrowserDomAdapter.prototype.hasAttribute = function (element, attribute) {
+        return element.hasAttribute(attribute);
+    };
+    BrowserDomAdapter.prototype.hasAttributeNS = function (element, ns, attribute) {
+        return element.hasAttributeNS(ns, attribute);
+    };
+    BrowserDomAdapter.prototype.getAttribute = function (element, attribute) {
+        return element.getAttribute(attribute);
+    };
+    BrowserDomAdapter.prototype.getAttributeNS = function (element, ns, name) {
+        return element.getAttributeNS(ns, name);
+    };
+    BrowserDomAdapter.prototype.setAttribute = function (element, name, value) { element.setAttribute(name, value); };
+    BrowserDomAdapter.prototype.setAttributeNS = function (element, ns, name, value) {
+        element.setAttributeNS(ns, name, value);
+    };
+    BrowserDomAdapter.prototype.removeAttribute = function (element, attribute) { element.removeAttribute(attribute); };
+    BrowserDomAdapter.prototype.removeAttributeNS = function (element, ns, name) {
+        element.removeAttributeNS(ns, name);
+    };
+    BrowserDomAdapter.prototype.templateAwareRoot = function (el) { return this.isTemplateElement(el) ? this.content(el) : el; };
+    BrowserDomAdapter.prototype.createHtmlDocument = function () {
+        return document.implementation.createHTMLDocument('fakeTitle');
+    };
+    BrowserDomAdapter.prototype.getDefaultDocument = function () { return document; };
+    BrowserDomAdapter.prototype.getBoundingClientRect = function (el) {
+        try {
+            return el.getBoundingClientRect();
+        }
+        catch (e) {
+            return { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
+        }
+    };
+    BrowserDomAdapter.prototype.getTitle = function (doc) { return doc.title; };
+    BrowserDomAdapter.prototype.setTitle = function (doc, newTitle) { doc.title = newTitle || ''; };
+    BrowserDomAdapter.prototype.elementMatches = function (n, selector) {
+        if (this.isElementNode(n)) {
+            return n.matches && n.matches(selector) ||
+                n.msMatchesSelector && n.msMatchesSelector(selector) ||
+                n.webkitMatchesSelector && n.webkitMatchesSelector(selector);
+        }
+        return false;
+    };
+    BrowserDomAdapter.prototype.isTemplateElement = function (el) {
+        return this.isElementNode(el) && el.nodeName === 'TEMPLATE';
+    };
+    BrowserDomAdapter.prototype.isTextNode = function (node) { return node.nodeType === Node.TEXT_NODE; };
+    BrowserDomAdapter.prototype.isCommentNode = function (node) { return node.nodeType === Node.COMMENT_NODE; };
+    BrowserDomAdapter.prototype.isElementNode = function (node) { return node.nodeType === Node.ELEMENT_NODE; };
+    BrowserDomAdapter.prototype.hasShadowRoot = function (node) {
+        return node.shadowRoot != null && node instanceof HTMLElement;
+    };
+    BrowserDomAdapter.prototype.isShadowRoot = function (node) { return node instanceof DocumentFragment; };
+    BrowserDomAdapter.prototype.importIntoDoc = function (node) { return document.importNode(this.templateAwareRoot(node), true); };
+    BrowserDomAdapter.prototype.adoptNode = function (node) { return document.adoptNode(node); };
+    BrowserDomAdapter.prototype.getHref = function (el) { return el.getAttribute('href'); };
+    BrowserDomAdapter.prototype.getEventKey = function (event) {
+        var key = event.key;
+        if (key == null) {
+            key = event.keyIdentifier;
+            // keyIdentifier is defined in the old draft of DOM Level 3 Events implemented by Chrome and
+            // Safari cf
+            // http://www.w3.org/TR/2007/WD-DOM-Level-3-Events-20071221/events.html#Events-KeyboardEvents-Interfaces
+            if (key == null) {
+                return 'Unidentified';
+            }
+            if (key.startsWith('U+')) {
+                key = String.fromCharCode(parseInt(key.substring(2), 16));
+                if (event.location === DOM_KEY_LOCATION_NUMPAD && _chromeNumKeyPadMap.hasOwnProperty(key)) {
+                    // There is a bug in Chrome for numeric keypad keys:
+                    // https://code.google.com/p/chromium/issues/detail?id=155654
+                    // 1, 2, 3 ... are reported as A, B, C ...
+                    key = _chromeNumKeyPadMap[key];
+                }
+            }
+        }
+        return _keyMap[key] || key;
+    };
+    BrowserDomAdapter.prototype.getGlobalEventTarget = function (doc, target) {
+        if (target === 'window') {
+            return window;
+        }
+        if (target === 'document') {
+            return doc;
+        }
+        if (target === 'body') {
+            return doc.body;
+        }
+        return null;
+    };
+    BrowserDomAdapter.prototype.getHistory = function () { return window.history; };
+    BrowserDomAdapter.prototype.getLocation = function () { return window.location; };
+    BrowserDomAdapter.prototype.getBaseHref = function (doc) {
+        var href = getBaseElementHref();
+        return href == null ? null : relativePath(href);
+    };
+    BrowserDomAdapter.prototype.resetBaseElement = function () { baseElement = null; };
+    BrowserDomAdapter.prototype.getUserAgent = function () { return window.navigator.userAgent; };
+    BrowserDomAdapter.prototype.setData = function (element, name, value) {
+        this.setAttribute(element, 'data-' + name, value);
+    };
+    BrowserDomAdapter.prototype.getData = function (element, name) {
+        return this.getAttribute(element, 'data-' + name);
+    };
+    BrowserDomAdapter.prototype.getComputedStyle = function (element) { return getComputedStyle(element); };
+    // TODO(tbosch): move this into a separate environment class once we have it
+    BrowserDomAdapter.prototype.supportsWebAnimation = function () {
+        return typeof Element.prototype['animate'] === 'function';
+    };
+    BrowserDomAdapter.prototype.performanceNow = function () {
+        // performance.now() is not available in all browsers, see
+        // http://caniuse.com/#search=performance.now
+        return window.performance && window.performance.now ? window.performance.now() :
+            new Date().getTime();
+    };
+    BrowserDomAdapter.prototype.supportsCookies = function () { return true; };
+    BrowserDomAdapter.prototype.getCookie = function (name) { return common.ɵparseCookieValue(document.cookie, name); };
+    BrowserDomAdapter.prototype.setCookie = function (name, value) {
+        // document.cookie is magical, assigning into it assigns/overrides one cookie value, but does
+        // not clear other cookies.
+        document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    };
+    return BrowserDomAdapter;
+}(GenericBrowserDomAdapter));
+var baseElement = null;
+function getBaseElementHref() {
+    if (!baseElement) {
+        baseElement = document.querySelector('base');
+        if (!baseElement) {
+            return null;
+        }
+    }
+    return baseElement.getAttribute('href');
+}
+// based on urlUtils.js in AngularJS 1
+var urlParsingNode;
+function relativePath(url) {
+    if (!urlParsingNode) {
+        urlParsingNode = document.createElement('a');
+    }
+    urlParsingNode.setAttribute('href', url);
+    return (urlParsingNode.pathname.charAt(0) === '/') ? urlParsingNode.pathname :
+        '/' + urlParsingNode.pathname;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A DI Token representing the main rendering context. In a browser this is the DOM Document.
+ *
+ * Note: Document might not be available in the Application Context when Application and Rendering
+ * Contexts are not the same (e.g. when running the application into a Web Worker).
+ *
+ * @deprecated import from `@angular/common` instead.
+ */
+var DOCUMENT$1 = common.DOCUMENT;
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function supportsState() {
+    return !!window.history.pushState;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * `PlatformLocation` encapsulates all of the direct calls to platform APIs.
+ * This class should not be used directly by an application developer. Instead, use
+ * {@link Location}.
+ */
+var BrowserPlatformLocation = /** @class */ (function (_super) {
+    __extends(BrowserPlatformLocation, _super);
+    function BrowserPlatformLocation(_doc) {
+        var _this = _super.call(this) || this;
+        _this._doc = _doc;
+        _this._init();
+        return _this;
+    }
+    // This is moved to its own method so that `MockPlatformLocationStrategy` can overwrite it
+    /** @internal */
+    BrowserPlatformLocation.prototype._init = function () {
+        this.location = getDOM().getLocation();
+        this._history = getDOM().getHistory();
+    };
+    BrowserPlatformLocation.prototype.getBaseHrefFromDOM = function () { return getDOM().getBaseHref(this._doc); };
+    BrowserPlatformLocation.prototype.onPopState = function (fn) {
+        getDOM().getGlobalEventTarget(this._doc, 'window').addEventListener('popstate', fn, false);
+    };
+    BrowserPlatformLocation.prototype.onHashChange = function (fn) {
+        getDOM().getGlobalEventTarget(this._doc, 'window').addEventListener('hashchange', fn, false);
+    };
+    Object.defineProperty(BrowserPlatformLocation.prototype, "pathname", {
+        get: function () { return this.location.pathname; },
+        set: function (newPath) { this.location.pathname = newPath; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "search", {
+        get: function () { return this.location.search; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BrowserPlatformLocation.prototype, "hash", {
+        get: function () { return this.location.hash; },
+        enumerable: true,
+        configurable: true
+    });
+    BrowserPlatformLocation.prototype.pushState = function (state, title, url) {
+        if (supportsState()) {
+            this._history.pushState(state, title, url);
+        }
+        else {
+            this.location.hash = url;
+        }
+    };
+    BrowserPlatformLocation.prototype.replaceState = function (state, title, url) {
+        if (supportsState()) {
+            this._history.replaceState(state, title, url);
+        }
+        else {
+            this.location.hash = url;
+        }
+    };
+    BrowserPlatformLocation.prototype.forward = function () { this._history.forward(); };
+    BrowserPlatformLocation.prototype.back = function () { this._history.back(); };
+    BrowserPlatformLocation.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    BrowserPlatformLocation.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return BrowserPlatformLocation;
+}(common.PlatformLocation));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A service that can be used to get and add meta tags.
+ *
+ * @experimental
+ */
+var Meta = /** @class */ (function () {
+    function Meta(_doc) {
+        this._doc = _doc;
+        this._dom = getDOM();
+    }
+    Meta.prototype.addTag = function (tag, forceCreation) {
+        if (forceCreation === void 0) { forceCreation = false; }
+        if (!tag)
+            return null;
+        return this._getOrCreateElement(tag, forceCreation);
+    };
+    Meta.prototype.addTags = function (tags, forceCreation) {
+        var _this = this;
+        if (forceCreation === void 0) { forceCreation = false; }
+        if (!tags)
+            return [];
+        return tags.reduce(function (result, tag) {
+            if (tag) {
+                result.push(_this._getOrCreateElement(tag, forceCreation));
+            }
+            return result;
+        }, []);
+    };
+    Meta.prototype.getTag = function (attrSelector) {
+        if (!attrSelector)
+            return null;
+        return this._dom.querySelector(this._doc, "meta[" + attrSelector + "]") || null;
+    };
+    Meta.prototype.getTags = function (attrSelector) {
+        if (!attrSelector)
+            return [];
+        var list /*NodeList*/ = this._dom.querySelectorAll(this._doc, "meta[" + attrSelector + "]");
+        return list ? [].slice.call(list) : [];
+    };
+    Meta.prototype.updateTag = function (tag, selector) {
+        if (!tag)
+            return null;
+        selector = selector || this._parseSelector(tag);
+        var meta = this.getTag(selector);
+        if (meta) {
+            return this._setMetaElementAttributes(tag, meta);
+        }
+        return this._getOrCreateElement(tag, true);
+    };
+    Meta.prototype.removeTag = function (attrSelector) { this.removeTagElement(this.getTag(attrSelector)); };
+    Meta.prototype.removeTagElement = function (meta) {
+        if (meta) {
+            this._dom.remove(meta);
+        }
+    };
+    Meta.prototype._getOrCreateElement = function (meta, forceCreation) {
+        if (forceCreation === void 0) { forceCreation = false; }
+        if (!forceCreation) {
+            var selector = this._parseSelector(meta);
+            var elem = this.getTag(selector);
+            // It's allowed to have multiple elements with the same name so it's not enough to
+            // just check that element with the same name already present on the page. We also need to
+            // check if element has tag attributes
+            if (elem && this._containsAttributes(meta, elem))
+                return elem;
+        }
+        var element = this._dom.createElement('meta');
+        this._setMetaElementAttributes(meta, element);
+        var head = this._dom.getElementsByTagName(this._doc, 'head')[0];
+        this._dom.appendChild(head, element);
+        return element;
+    };
+    Meta.prototype._setMetaElementAttributes = function (tag, el) {
+        var _this = this;
+        Object.keys(tag).forEach(function (prop) { return _this._dom.setAttribute(el, prop, tag[prop]); });
+        return el;
+    };
+    Meta.prototype._parseSelector = function (tag) {
+        var attr = tag.name ? 'name' : 'property';
+        return attr + "=\"" + tag[attr] + "\"";
+    };
+    Meta.prototype._containsAttributes = function (tag, elem) {
+        var _this = this;
+        return Object.keys(tag).every(function (key) { return _this._dom.getAttribute(elem, key) === tag[key]; });
+    };
+    Meta.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    Meta.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return Meta;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * An id that identifies a particular application being bootstrapped, that should
+ * match across the client/server boundary.
+ */
+var TRANSITION_ID = new core.InjectionToken('TRANSITION_ID');
+function appInitializerFactory(transitionId, document, injector) {
+    return function () {
+        // Wait for all application initializers to be completed before removing the styles set by
+        // the server.
+        injector.get(core.ApplicationInitStatus).donePromise.then(function () {
+            var dom = getDOM();
+            var styles = Array.prototype.slice.apply(dom.querySelectorAll(document, "style[ng-transition]"));
+            styles.filter(function (el) { return dom.getAttribute(el, 'ng-transition') === transitionId; })
+                .forEach(function (el) { return dom.remove(el); });
+        });
+    };
+}
+var SERVER_TRANSITION_PROVIDERS = [
+    {
+        provide: core.APP_INITIALIZER,
+        useFactory: appInitializerFactory,
+        deps: [TRANSITION_ID, DOCUMENT$1, core.Injector],
+        multi: true
+    },
+];
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var BrowserGetTestability = /** @class */ (function () {
+    function BrowserGetTestability() {
+    }
+    BrowserGetTestability.init = function () { core.setTestabilityGetter(new BrowserGetTestability()); };
+    BrowserGetTestability.prototype.addToWindow = function (registry) {
+        core.ɵglobal['getAngularTestability'] = function (elem, findInAncestors) {
+            if (findInAncestors === void 0) { findInAncestors = true; }
+            var testability = registry.findTestabilityInTree(elem, findInAncestors);
+            if (testability == null) {
+                throw new Error('Could not find testability for element.');
+            }
+            return testability;
+        };
+        core.ɵglobal['getAllAngularTestabilities'] = function () { return registry.getAllTestabilities(); };
+        core.ɵglobal['getAllAngularRootElements'] = function () { return registry.getAllRootElements(); };
+        var whenAllStable = function (callback /** TODO #9100 */) {
+            var testabilities = core.ɵglobal['getAllAngularTestabilities']();
+            var count = testabilities.length;
+            var didWork = false;
+            var decrement = function (didWork_ /** TODO #9100 */) {
+                didWork = didWork || didWork_;
+                count--;
+                if (count == 0) {
+                    callback(didWork);
+                }
+            };
+            testabilities.forEach(function (testability /** TODO #9100 */) {
+                testability.whenStable(decrement);
+            });
+        };
+        if (!core.ɵglobal['frameworkStabilizers']) {
+            core.ɵglobal['frameworkStabilizers'] = [];
+        }
+        core.ɵglobal['frameworkStabilizers'].push(whenAllStable);
+    };
+    BrowserGetTestability.prototype.findTestabilityInTree = function (registry, elem, findInAncestors) {
+        if (elem == null) {
+            return null;
+        }
+        var t = registry.getTestability(elem);
+        if (t != null) {
+            return t;
+        }
+        else if (!findInAncestors) {
+            return null;
+        }
+        if (getDOM().isShadowRoot(elem)) {
+            return this.findTestabilityInTree(registry, getDOM().getHost(elem), true);
+        }
+        return this.findTestabilityInTree(registry, getDOM().parentElement(elem), true);
+    };
+    return BrowserGetTestability;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A service that can be used to get and set the title of a current HTML document.
+ *
+ * Since an Angular application can't be bootstrapped on the entire HTML document (`<html>` tag)
+ * it is not possible to bind to the `text` property of the `HTMLTitleElement` elements
+ * (representing the `<title>` tag). Instead, this service can be used to set and get the current
+ * title value.
+ *
+ * @experimental
+ */
+var Title = /** @class */ (function () {
+    function Title(_doc) {
+        this._doc = _doc;
+    }
+    /**
+     * Get the title of the current HTML document.
+     */
+    Title.prototype.getTitle = function () { return getDOM().getTitle(this._doc); };
+    /**
+     * Set the title of the current HTML document.
+     * @param newTitle
+     */
+    Title.prototype.setTitle = function (newTitle) { getDOM().setTitle(this._doc, newTitle); };
+    Title.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    Title.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return Title;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+
+/**
+ * Exports the value under a given `name` in the global property `ng`. For example `ng.probe` if
+ * `name` is `'probe'`.
+ * @param name Name under which it will be exported. Keep in mind this will be a property of the
+ * global `ng` object.
+ * @param value The value to export.
+ */
+function exportNgVar(name, value) {
+    if (typeof COMPILED === 'undefined' || !COMPILED) {
+        // Note: we can't export `ng` when using closure enhanced optimization as:
+        // - closure declares globals itself for minified names, which sometimes clobber our `ng` global
+        // - we can't declare a closure extern as the namespace `ng` is already used within Google
+        //   for typings for angularJS (via `goog.provide('ng....')`).
+        var ng = core.ɵglobal['ng'] = core.ɵglobal['ng'] || {};
+        ng[name] = value;
+    }
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var CORE_TOKENS = {
+    'ApplicationRef': core.ApplicationRef,
+    'NgZone': core.NgZone,
+};
+var INSPECT_GLOBAL_NAME = 'probe';
+var CORE_TOKENS_GLOBAL_NAME = 'coreTokens';
+/**
+ * Returns a {@link DebugElement} for the given native DOM element, or
+ * null if the given native element does not have an Angular view associated
+ * with it.
+ */
+function inspectNativeElement(element) {
+    return core.getDebugNode(element);
+}
+function _createNgProbe(coreTokens) {
+    exportNgVar(INSPECT_GLOBAL_NAME, inspectNativeElement);
+    exportNgVar(CORE_TOKENS_GLOBAL_NAME, __assign({}, CORE_TOKENS, _ngProbeTokensToMap(coreTokens || [])));
+    return function () { return inspectNativeElement; };
+}
+function _ngProbeTokensToMap(tokens) {
+    return tokens.reduce(function (prev, t) { return (prev[t.name] = t.token, prev); }, {});
+}
+/**
+ * Providers which support debugging Angular applications (e.g. via `ng.probe`).
+ */
+var ELEMENT_PROBE_PROVIDERS = [
+    {
+        provide: core.APP_INITIALIZER,
+        useFactory: _createNgProbe,
+        deps: [
+            [core.NgProbeToken, new core.Optional()],
+        ],
+        multi: true,
+    },
+];
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * The injection token for the event-manager plug-in service.
+ */
+var EVENT_MANAGER_PLUGINS = new core.InjectionToken('EventManagerPlugins');
+/**
+ * An injectable service that provides event management for Angular
+ * through a browser plug-in.
+ */
+var EventManager = /** @class */ (function () {
+    /**
+     * Initializes an instance of the event-manager service.
+     */
+    function EventManager(plugins, _zone) {
+        var _this = this;
+        this._zone = _zone;
+        this._eventNameToPlugin = new Map();
+        plugins.forEach(function (p) { return p.manager = _this; });
+        this._plugins = plugins.slice().reverse();
+    }
+    /**
+     * Registers a handler for a specific element and event.
+     *
+     * @param element The HTML element to receive event notifications.
+     * @param eventName The name of the event to listen for.
+     * @param handler A function to call when the notification occurs. Receives the
+     * event object as an argument.
+     * @returns  A callback function that can be used to remove the handler.
+     */
+    EventManager.prototype.addEventListener = function (element, eventName, handler) {
+        var plugin = this._findPluginFor(eventName);
+        return plugin.addEventListener(element, eventName, handler);
+    };
+    /**
+     * Registers a global handler for an event in a target view.
+     *
+     * @param target A target for global event notifications. One of "window", "document", or "body".
+     * @param eventName The name of the event to listen for.
+     * @param handler A function to call when the notification occurs. Receives the
+     * event object as an argument.
+     * @returns A callback function that can be used to remove the handler.
+     */
+    EventManager.prototype.addGlobalEventListener = function (target, eventName, handler) {
+        var plugin = this._findPluginFor(eventName);
+        return plugin.addGlobalEventListener(target, eventName, handler);
+    };
+    /**
+     * Retrieves the compilation zone in which event listeners are registered.
+     */
+    EventManager.prototype.getZone = function () { return this._zone; };
+    /** @internal */
+    EventManager.prototype._findPluginFor = function (eventName) {
+        var plugin = this._eventNameToPlugin.get(eventName);
+        if (plugin) {
+            return plugin;
+        }
+        var plugins = this._plugins;
+        for (var i = 0; i < plugins.length; i++) {
+            var plugin_1 = plugins[i];
+            if (plugin_1.supports(eventName)) {
+                this._eventNameToPlugin.set(eventName, plugin_1);
+                return plugin_1;
+            }
+        }
+        throw new Error("No event manager plugin found for event " + eventName);
+    };
+    EventManager.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    EventManager.ctorParameters = function () { return [
+        { type: Array, decorators: [{ type: core.Inject, args: [EVENT_MANAGER_PLUGINS,] }] },
+        { type: core.NgZone }
+    ]; };
+    return EventManager;
+}());
+var EventManagerPlugin = /** @class */ (function () {
+    function EventManagerPlugin(_doc) {
+        this._doc = _doc;
+    }
+    EventManagerPlugin.prototype.addGlobalEventListener = function (element, eventName, handler) {
+        var target = getDOM().getGlobalEventTarget(this._doc, element);
+        if (!target) {
+            throw new Error("Unsupported event target " + target + " for event " + eventName);
+        }
+        return this.addEventListener(target, eventName, handler);
+    };
+    return EventManagerPlugin;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var SharedStylesHost = /** @class */ (function () {
+    function SharedStylesHost() {
+        /** @internal */
+        this._stylesSet = new Set();
+    }
+    SharedStylesHost.prototype.addStyles = function (styles) {
+        var _this = this;
+        var additions = new Set();
+        styles.forEach(function (style) {
+            if (!_this._stylesSet.has(style)) {
+                _this._stylesSet.add(style);
+                additions.add(style);
+            }
+        });
+        this.onStylesAdded(additions);
+    };
+    SharedStylesHost.prototype.onStylesAdded = function (additions) { };
+    SharedStylesHost.prototype.getAllStyles = function () { return Array.from(this._stylesSet); };
+    SharedStylesHost.decorators = [
+        { type: core.Injectable }
+    ];
+    return SharedStylesHost;
+}());
+var DomSharedStylesHost = /** @class */ (function (_super) {
+    __extends(DomSharedStylesHost, _super);
+    function DomSharedStylesHost(_doc) {
+        var _this = _super.call(this) || this;
+        _this._doc = _doc;
+        _this._hostNodes = new Set();
+        _this._styleNodes = new Set();
+        _this._hostNodes.add(_doc.head);
+        return _this;
+    }
+    DomSharedStylesHost.prototype._addStylesToHost = function (styles, host) {
+        var _this = this;
+        styles.forEach(function (style) {
+            var styleEl = _this._doc.createElement('style');
+            styleEl.textContent = style;
+            _this._styleNodes.add(host.appendChild(styleEl));
+        });
+    };
+    DomSharedStylesHost.prototype.addHost = function (hostNode) {
+        this._addStylesToHost(this._stylesSet, hostNode);
+        this._hostNodes.add(hostNode);
+    };
+    DomSharedStylesHost.prototype.removeHost = function (hostNode) { this._hostNodes.delete(hostNode); };
+    DomSharedStylesHost.prototype.onStylesAdded = function (additions) {
+        var _this = this;
+        this._hostNodes.forEach(function (hostNode) { return _this._addStylesToHost(additions, hostNode); });
+    };
+    DomSharedStylesHost.prototype.ngOnDestroy = function () { this._styleNodes.forEach(function (styleNode) { return getDOM().remove(styleNode); }); };
+    DomSharedStylesHost.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    DomSharedStylesHost.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return DomSharedStylesHost;
+}(SharedStylesHost));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var NAMESPACE_URIS = {
+    'svg': 'http://www.w3.org/2000/svg',
+    'xhtml': 'http://www.w3.org/1999/xhtml',
+    'xlink': 'http://www.w3.org/1999/xlink',
+    'xml': 'http://www.w3.org/XML/1998/namespace',
+    'xmlns': 'http://www.w3.org/2000/xmlns/',
+};
+var COMPONENT_REGEX = /%COMP%/g;
+var COMPONENT_VARIABLE = '%COMP%';
+var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
+var CONTENT_ATTR = "_ngcontent-" + COMPONENT_VARIABLE;
+function shimContentAttribute(componentShortId) {
+    return CONTENT_ATTR.replace(COMPONENT_REGEX, componentShortId);
+}
+function shimHostAttribute(componentShortId) {
+    return HOST_ATTR.replace(COMPONENT_REGEX, componentShortId);
+}
+function flattenStyles(compId, styles, target) {
+    for (var i = 0; i < styles.length; i++) {
+        var style = styles[i];
+        if (Array.isArray(style)) {
+            flattenStyles(compId, style, target);
+        }
+        else {
+            style = style.replace(COMPONENT_REGEX, compId);
+            target.push(style);
+        }
+    }
+    return target;
+}
+function decoratePreventDefault(eventHandler) {
+    return function (event) {
+        var allowDefaultBehavior = eventHandler(event);
+        if (allowDefaultBehavior === false) {
+            // TODO(tbosch): move preventDefault into event plugins...
+            event.preventDefault();
+            event.returnValue = false;
+        }
+    };
+}
+var DomRendererFactory2 = /** @class */ (function () {
+    function DomRendererFactory2(eventManager, sharedStylesHost) {
+        this.eventManager = eventManager;
+        this.sharedStylesHost = sharedStylesHost;
+        this.rendererByCompId = new Map();
+        this.defaultRenderer = new DefaultDomRenderer2(eventManager);
+    }
+    DomRendererFactory2.prototype.createRenderer = function (element, type) {
+        if (!element || !type) {
+            return this.defaultRenderer;
+        }
+        switch (type.encapsulation) {
+            case core.ViewEncapsulation.Emulated: {
+                var renderer = this.rendererByCompId.get(type.id);
+                if (!renderer) {
+                    renderer =
+                        new EmulatedEncapsulationDomRenderer2(this.eventManager, this.sharedStylesHost, type);
+                    this.rendererByCompId.set(type.id, renderer);
+                }
+                renderer.applyToHost(element);
+                return renderer;
+            }
+            case core.ViewEncapsulation.Native:
+                return new ShadowDomRenderer(this.eventManager, this.sharedStylesHost, element, type);
+            default: {
+                if (!this.rendererByCompId.has(type.id)) {
+                    var styles = flattenStyles(type.id, type.styles, []);
+                    this.sharedStylesHost.addStyles(styles);
+                    this.rendererByCompId.set(type.id, this.defaultRenderer);
+                }
+                return this.defaultRenderer;
+            }
+        }
+    };
+    DomRendererFactory2.prototype.begin = function () { };
+    DomRendererFactory2.prototype.end = function () { };
+    DomRendererFactory2.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    DomRendererFactory2.ctorParameters = function () { return [
+        { type: EventManager },
+        { type: DomSharedStylesHost }
+    ]; };
+    return DomRendererFactory2;
+}());
+var DefaultDomRenderer2 = /** @class */ (function () {
+    function DefaultDomRenderer2(eventManager) {
+        this.eventManager = eventManager;
+        this.data = Object.create(null);
+    }
+    DefaultDomRenderer2.prototype.destroy = function () { };
+    DefaultDomRenderer2.prototype.createElement = function (name, namespace) {
+        if (namespace) {
+            return document.createElementNS(NAMESPACE_URIS[namespace], name);
+        }
+        return document.createElement(name);
+    };
+    DefaultDomRenderer2.prototype.createComment = function (value) { return document.createComment(value); };
+    DefaultDomRenderer2.prototype.createText = function (value) { return document.createTextNode(value); };
+    DefaultDomRenderer2.prototype.appendChild = function (parent, newChild) { parent.appendChild(newChild); };
+    DefaultDomRenderer2.prototype.insertBefore = function (parent, newChild, refChild) {
+        if (parent) {
+            parent.insertBefore(newChild, refChild);
+        }
+    };
+    DefaultDomRenderer2.prototype.removeChild = function (parent, oldChild) {
+        if (parent) {
+            parent.removeChild(oldChild);
+        }
+    };
+    DefaultDomRenderer2.prototype.selectRootElement = function (selectorOrNode) {
+        var el = typeof selectorOrNode === 'string' ? document.querySelector(selectorOrNode) :
+            selectorOrNode;
+        if (!el) {
+            throw new Error("The selector \"" + selectorOrNode + "\" did not match any elements");
+        }
+        el.textContent = '';
+        return el;
+    };
+    DefaultDomRenderer2.prototype.parentNode = function (node) { return node.parentNode; };
+    DefaultDomRenderer2.prototype.nextSibling = function (node) { return node.nextSibling; };
+    DefaultDomRenderer2.prototype.setAttribute = function (el, name, value, namespace) {
+        if (namespace) {
+            name = namespace + ":" + name;
+            var namespaceUri = NAMESPACE_URIS[namespace];
+            if (namespaceUri) {
+                el.setAttributeNS(namespaceUri, name, value);
+            }
+            else {
+                el.setAttribute(name, value);
+            }
+        }
+        else {
+            el.setAttribute(name, value);
+        }
+    };
+    DefaultDomRenderer2.prototype.removeAttribute = function (el, name, namespace) {
+        if (namespace) {
+            var namespaceUri = NAMESPACE_URIS[namespace];
+            if (namespaceUri) {
+                el.removeAttributeNS(namespaceUri, name);
+            }
+            else {
+                el.removeAttribute(namespace + ":" + name);
+            }
+        }
+        else {
+            el.removeAttribute(name);
+        }
+    };
+    DefaultDomRenderer2.prototype.addClass = function (el, name) { el.classList.add(name); };
+    DefaultDomRenderer2.prototype.removeClass = function (el, name) { el.classList.remove(name); };
+    DefaultDomRenderer2.prototype.setStyle = function (el, style, value, flags) {
+        if (flags & core.RendererStyleFlags2.DashCase) {
+            el.style.setProperty(style, value, !!(flags & core.RendererStyleFlags2.Important) ? 'important' : '');
+        }
+        else {
+            el.style[style] = value;
+        }
+    };
+    DefaultDomRenderer2.prototype.removeStyle = function (el, style, flags) {
+        if (flags & core.RendererStyleFlags2.DashCase) {
+            el.style.removeProperty(style);
+        }
+        else {
+            // IE requires '' instead of null
+            // see https://github.com/angular/angular/issues/7916
+            el.style[style] = '';
+        }
+    };
+    DefaultDomRenderer2.prototype.setProperty = function (el, name, value) {
+        checkNoSyntheticProp(name, 'property');
+        el[name] = value;
+    };
+    DefaultDomRenderer2.prototype.setValue = function (node, value) { node.nodeValue = value; };
+    DefaultDomRenderer2.prototype.listen = function (target, event, callback) {
+        checkNoSyntheticProp(event, 'listener');
+        if (typeof target === 'string') {
+            return this.eventManager.addGlobalEventListener(target, event, decoratePreventDefault(callback));
+        }
+        return this.eventManager.addEventListener(target, event, decoratePreventDefault(callback));
+    };
+    return DefaultDomRenderer2;
+}());
+var AT_CHARCODE = '@'.charCodeAt(0);
+function checkNoSyntheticProp(name, nameKind) {
+    if (name.charCodeAt(0) === AT_CHARCODE) {
+        throw new Error("Found the synthetic " + nameKind + " " + name + ". Please include either \"BrowserAnimationsModule\" or \"NoopAnimationsModule\" in your application.");
+    }
+}
+var EmulatedEncapsulationDomRenderer2 = /** @class */ (function (_super) {
+    __extends(EmulatedEncapsulationDomRenderer2, _super);
+    function EmulatedEncapsulationDomRenderer2(eventManager, sharedStylesHost, component) {
+        var _this = _super.call(this, eventManager) || this;
+        _this.component = component;
+        var styles = flattenStyles(component.id, component.styles, []);
+        sharedStylesHost.addStyles(styles);
+        _this.contentAttr = shimContentAttribute(component.id);
+        _this.hostAttr = shimHostAttribute(component.id);
+        return _this;
+    }
+    EmulatedEncapsulationDomRenderer2.prototype.applyToHost = function (element) { _super.prototype.setAttribute.call(this, element, this.hostAttr, ''); };
+    EmulatedEncapsulationDomRenderer2.prototype.createElement = function (parent, name) {
+        var el = _super.prototype.createElement.call(this, parent, name);
+        _super.prototype.setAttribute.call(this, el, this.contentAttr, '');
+        return el;
+    };
+    return EmulatedEncapsulationDomRenderer2;
+}(DefaultDomRenderer2));
+var ShadowDomRenderer = /** @class */ (function (_super) {
+    __extends(ShadowDomRenderer, _super);
+    function ShadowDomRenderer(eventManager, sharedStylesHost, hostEl, component) {
+        var _this = _super.call(this, eventManager) || this;
+        _this.sharedStylesHost = sharedStylesHost;
+        _this.hostEl = hostEl;
+        _this.component = component;
+        _this.shadowRoot = hostEl.createShadowRoot();
+        _this.sharedStylesHost.addHost(_this.shadowRoot);
+        var styles = flattenStyles(component.id, component.styles, []);
+        for (var i = 0; i < styles.length; i++) {
+            var styleEl = document.createElement('style');
+            styleEl.textContent = styles[i];
+            _this.shadowRoot.appendChild(styleEl);
+        }
+        return _this;
+    }
+    ShadowDomRenderer.prototype.nodeOrShadowRoot = function (node) { return node === this.hostEl ? this.shadowRoot : node; };
+    ShadowDomRenderer.prototype.destroy = function () { this.sharedStylesHost.removeHost(this.shadowRoot); };
+    ShadowDomRenderer.prototype.appendChild = function (parent, newChild) {
+        return _super.prototype.appendChild.call(this, this.nodeOrShadowRoot(parent), newChild);
+    };
+    ShadowDomRenderer.prototype.insertBefore = function (parent, newChild, refChild) {
+        return _super.prototype.insertBefore.call(this, this.nodeOrShadowRoot(parent), newChild, refChild);
+    };
+    ShadowDomRenderer.prototype.removeChild = function (parent, oldChild) {
+        return _super.prototype.removeChild.call(this, this.nodeOrShadowRoot(parent), oldChild);
+    };
+    ShadowDomRenderer.prototype.parentNode = function (node) {
+        return this.nodeOrShadowRoot(_super.prototype.parentNode.call(this, this.nodeOrShadowRoot(node)));
+    };
+    return ShadowDomRenderer;
+}(DefaultDomRenderer2));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var ɵ0 = function (v) {
+    return '__zone_symbol__' + v;
+};
+/**
+ * Detect if Zone is present. If it is then use simple zone aware 'addEventListener'
+ * since Angular can do much more
+ * efficient bookkeeping than Zone can, because we have additional information. This speeds up
+ * addEventListener by 3x.
+ */
+var __symbol__ = (typeof Zone !== 'undefined') && Zone['__symbol__'] || ɵ0;
+var ADD_EVENT_LISTENER = __symbol__('addEventListener');
+var REMOVE_EVENT_LISTENER = __symbol__('removeEventListener');
+var symbolNames = {};
+var FALSE = 'FALSE';
+var ANGULAR = 'ANGULAR';
+var NATIVE_ADD_LISTENER = 'addEventListener';
+var NATIVE_REMOVE_LISTENER = 'removeEventListener';
+// use the same symbol string which is used in zone.js
+var stopSymbol = '__zone_symbol__propagationStopped';
+var stopMethodSymbol = '__zone_symbol__stopImmediatePropagation';
+var blackListedEvents = (typeof Zone !== 'undefined') && Zone[__symbol__('BLACK_LISTED_EVENTS')];
+var blackListedMap;
+if (blackListedEvents) {
+    blackListedMap = {};
+    blackListedEvents.forEach(function (eventName) { blackListedMap[eventName] = eventName; });
+}
+var isBlackListedEvent = function (eventName) {
+    if (!blackListedMap) {
+        return false;
+    }
+    return blackListedMap.hasOwnProperty(eventName);
+};
+// a global listener to handle all dom event,
+// so we do not need to create a closure every time
+var globalListener = function (event) {
+    var symbolName = symbolNames[event.type];
+    if (!symbolName) {
+        return;
+    }
+    var taskDatas = this[symbolName];
+    if (!taskDatas) {
+        return;
+    }
+    var args = [event];
+    if (taskDatas.length === 1) {
+        // if taskDatas only have one element, just invoke it
+        var taskData = taskDatas[0];
+        if (taskData.zone !== Zone.current) {
+            // only use Zone.run when Zone.current not equals to stored zone
+            return taskData.zone.run(taskData.handler, this, args);
+        }
+        else {
+            return taskData.handler.apply(this, args);
+        }
+    }
+    else {
+        // copy tasks as a snapshot to avoid event handlers remove
+        // itself or others
+        var copiedTasks = taskDatas.slice();
+        for (var i = 0; i < copiedTasks.length; i++) {
+            // if other listener call event.stopImmediatePropagation
+            // just break
+            if (event[stopSymbol] === true) {
+                break;
+            }
+            var taskData = copiedTasks[i];
+            if (taskData.zone !== Zone.current) {
+                // only use Zone.run when Zone.current not equals to stored zone
+                taskData.zone.run(taskData.handler, this, args);
+            }
+            else {
+                taskData.handler.apply(this, args);
+            }
+        }
+    }
+};
+var DomEventsPlugin = /** @class */ (function (_super) {
+    __extends(DomEventsPlugin, _super);
+    function DomEventsPlugin(doc, ngZone, platformId) {
+        var _this = _super.call(this, doc) || this;
+        _this.ngZone = ngZone;
+        if (!platformId || !common.isPlatformServer(platformId)) {
+            _this.patchEvent();
+        }
+        return _this;
+    }
+    DomEventsPlugin.prototype.patchEvent = function () {
+        if (typeof Event === 'undefined' || !Event || !Event.prototype) {
+            return;
+        }
+        if (Event.prototype[stopMethodSymbol]) {
+            // already patched by zone.js
+            return;
+        }
+        var delegate = Event.prototype[stopMethodSymbol] =
+            Event.prototype.stopImmediatePropagation;
+        Event.prototype.stopImmediatePropagation = function () {
+            if (this) {
+                this[stopSymbol] = true;
+            }
+            // should call native delegate in case
+            // in some environment part of the application
+            // will not use the patched Event
+            delegate && delegate.apply(this, arguments);
+        };
+    };
+    // This plugin should come last in the list of plugins, because it accepts all
+    // events.
+    DomEventsPlugin.prototype.supports = function (eventName) { return true; };
+    DomEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
+        var _this = this;
+        /**
+         * This code is about to add a listener to the DOM. If Zone.js is present, than
+         * `addEventListener` has been patched. The patched code adds overhead in both
+         * memory and speed (3x slower) than native. For this reason if we detect that
+         * Zone.js is present we use a simple version of zone aware addEventListener instead.
+         * The result is faster registration and the zone will be restored.
+         * But ZoneSpec.onScheduleTask, ZoneSpec.onInvokeTask, ZoneSpec.onCancelTask
+         * will not be invoked
+         * We also do manual zone restoration in element.ts renderEventHandlerClosure method.
+         *
+         * NOTE: it is possible that the element is from different iframe, and so we
+         * have to check before we execute the method.
+         */
+        var zoneJsLoaded = element[ADD_EVENT_LISTENER];
+        var callback = handler;
+        // if zonejs is loaded and current zone is not ngZone
+        // we keep Zone.current on target for later restoration.
+        if (zoneJsLoaded && (!core.NgZone.isInAngularZone() || isBlackListedEvent(eventName))) {
+            var symbolName = symbolNames[eventName];
+            if (!symbolName) {
+                symbolName = symbolNames[eventName] = __symbol__(ANGULAR + eventName + FALSE);
+            }
+            var taskDatas = element[symbolName];
+            var globalListenerRegistered = taskDatas && taskDatas.length > 0;
+            if (!taskDatas) {
+                taskDatas = element[symbolName] = [];
+            }
+            var zone = isBlackListedEvent(eventName) ? Zone.root : Zone.current;
+            if (taskDatas.length === 0) {
+                taskDatas.push({ zone: zone, handler: callback });
+            }
+            else {
+                var callbackRegistered = false;
+                for (var i = 0; i < taskDatas.length; i++) {
+                    if (taskDatas[i].handler === callback) {
+                        callbackRegistered = true;
+                        break;
+                    }
+                }
+                if (!callbackRegistered) {
+                    taskDatas.push({ zone: zone, handler: callback });
+                }
+            }
+            if (!globalListenerRegistered) {
+                element[ADD_EVENT_LISTENER](eventName, globalListener, false);
+            }
+        }
+        else {
+            element[NATIVE_ADD_LISTENER](eventName, callback, false);
+        }
+        return function () { return _this.removeEventListener(element, eventName, callback); };
+    };
+    DomEventsPlugin.prototype.removeEventListener = function (target, eventName, callback) {
+        var underlyingRemove = target[REMOVE_EVENT_LISTENER];
+        // zone.js not loaded, use native removeEventListener
+        if (!underlyingRemove) {
+            return target[NATIVE_REMOVE_LISTENER].apply(target, [eventName, callback, false]);
+        }
+        var symbolName = symbolNames[eventName];
+        var taskDatas = symbolName && target[symbolName];
+        if (!taskDatas) {
+            // addEventListener not using patched version
+            // just call native removeEventListener
+            return target[NATIVE_REMOVE_LISTENER].apply(target, [eventName, callback, false]);
+        }
+        // fix issue 20532, should be able to remove
+        // listener which was added inside of ngZone
+        var found = false;
+        for (var i = 0; i < taskDatas.length; i++) {
+            // remove listener from taskDatas if the callback equals
+            if (taskDatas[i].handler === callback) {
+                found = true;
+                taskDatas.splice(i, 1);
+                break;
+            }
+        }
+        if (found) {
+            if (taskDatas.length === 0) {
+                // all listeners are removed, we can remove the globalListener from target
+                underlyingRemove.apply(target, [eventName, globalListener, false]);
+            }
+        }
+        else {
+            // not found in taskDatas, the callback may be added inside of ngZone
+            // use native remove listener to remove the callback
+            target[NATIVE_REMOVE_LISTENER].apply(target, [eventName, callback, false]);
+        }
+    };
+    DomEventsPlugin.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    DomEventsPlugin.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] },
+        { type: core.NgZone },
+        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.PLATFORM_ID,] }] }
+    ]; };
+    return DomEventsPlugin;
+}(EventManagerPlugin));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Supported HammerJS recognizer event names.
+ */
+var EVENT_NAMES = {
+    // pan
+    'pan': true,
+    'panstart': true,
+    'panmove': true,
+    'panend': true,
+    'pancancel': true,
+    'panleft': true,
+    'panright': true,
+    'panup': true,
+    'pandown': true,
+    // pinch
+    'pinch': true,
+    'pinchstart': true,
+    'pinchmove': true,
+    'pinchend': true,
+    'pinchcancel': true,
+    'pinchin': true,
+    'pinchout': true,
+    // press
+    'press': true,
+    'pressup': true,
+    // rotate
+    'rotate': true,
+    'rotatestart': true,
+    'rotatemove': true,
+    'rotateend': true,
+    'rotatecancel': true,
+    // swipe
+    'swipe': true,
+    'swipeleft': true,
+    'swiperight': true,
+    'swipeup': true,
+    'swipedown': true,
+    // tap
+    'tap': true,
+};
+/**
+ * DI token for providing [HammerJS](http://hammerjs.github.io/) support to Angular.
+ * @see `HammerGestureConfig`
+ *
+ * @experimental
+ */
+var HAMMER_GESTURE_CONFIG = new core.InjectionToken('HammerGestureConfig');
+/**
+ * An injectable [HammerJS Manager](http://hammerjs.github.io/api/#hammer.manager)
+ * for gesture recognition. Configures specific event recognition.
+ * @experimental
+ */
+var HammerGestureConfig = /** @class */ (function () {
+    function HammerGestureConfig() {
+        /**
+         * A set of supported event names for gestures to be used in Angular.
+         * Angular supports all built-in recognizers, as listed in
+         * [HammerJS documentation](http://hammerjs.github.io/).
+         */
+        this.events = [];
+        /**
+        * Maps gesture event names to a set of configuration options
+        * that specify overrides to the default values for specific properties.
+        *
+        * The key is a supported event name to be configured,
+        * and the options object contains a set of properties, with override values
+        * to be applied to the named recognizer event.
+        * For example, to disable recognition of the rotate event, specify
+        *  `{"rotate": {"enable": false}}`.
+        *
+        * Properties that are not present take the HammerJS default values.
+        * For information about which properties are supported for which events,
+        * and their allowed and default values, see
+        * [HammerJS documentation](http://hammerjs.github.io/).
+        *
+        */
+        this.overrides = {};
+    }
+    /**
+     * Creates a [HammerJS Manager](http://hammerjs.github.io/api/#hammer.manager)
+     * and attaches it to a given HTML element.
+     * @param element The element that will recognize gestures.
+     * @returns A HammerJS event-manager object.
+     */
+    HammerGestureConfig.prototype.buildHammer = function (element) {
+        var mc = new Hammer(element, this.options);
+        mc.get('pinch').set({ enable: true });
+        mc.get('rotate').set({ enable: true });
+        for (var eventName in this.overrides) {
+            mc.get(eventName).set(this.overrides[eventName]);
+        }
+        return mc;
+    };
+    HammerGestureConfig.decorators = [
+        { type: core.Injectable }
+    ];
+    return HammerGestureConfig;
+}());
+var HammerGesturesPlugin = /** @class */ (function (_super) {
+    __extends(HammerGesturesPlugin, _super);
+    function HammerGesturesPlugin(doc, _config, console) {
+        var _this = _super.call(this, doc) || this;
+        _this._config = _config;
+        _this.console = console;
+        return _this;
+    }
+    HammerGesturesPlugin.prototype.supports = function (eventName) {
+        if (!EVENT_NAMES.hasOwnProperty(eventName.toLowerCase()) && !this.isCustomEvent(eventName)) {
+            return false;
+        }
+        if (!window.Hammer) {
+            this.console.warn("Hammer.js is not loaded, can not bind '" + eventName + "' event.");
+            return false;
+        }
+        return true;
+    };
+    HammerGesturesPlugin.prototype.addEventListener = function (element, eventName, handler) {
+        var _this = this;
+        var zone = this.manager.getZone();
+        eventName = eventName.toLowerCase();
+        return zone.runOutsideAngular(function () {
+            // Creating the manager bind events, must be done outside of angular
+            var mc = _this._config.buildHammer(element);
+            var callback = function (eventObj) {
+                zone.runGuarded(function () { handler(eventObj); });
+            };
+            mc.on(eventName, callback);
+            return function () { return mc.off(eventName, callback); };
+        });
+    };
+    HammerGesturesPlugin.prototype.isCustomEvent = function (eventName) { return this._config.events.indexOf(eventName) > -1; };
+    HammerGesturesPlugin.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    HammerGesturesPlugin.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] },
+        { type: HammerGestureConfig, decorators: [{ type: core.Inject, args: [HAMMER_GESTURE_CONFIG,] }] },
+        { type: core.ɵConsole }
+    ]; };
+    return HammerGesturesPlugin;
+}(EventManagerPlugin));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Defines supported modifiers for key events.
+ */
+var MODIFIER_KEYS = ['alt', 'control', 'meta', 'shift'];
+var ɵ0$1 = function (event) { return event.altKey; };
+var ɵ1$1 = function (event) { return event.ctrlKey; };
+var ɵ2$1 = function (event) { return event.metaKey; };
+var ɵ3 = function (event) { return event.shiftKey; };
+/**
+ * Retrieves modifiers from key-event objects.
+ */
+var MODIFIER_KEY_GETTERS = {
+    'alt': ɵ0$1,
+    'control': ɵ1$1,
+    'meta': ɵ2$1,
+    'shift': ɵ3
+};
+/**
+ * @experimental
+ * A browser plug-in that provides support for handling of key events in Angular.
+ */
+var KeyEventsPlugin = /** @class */ (function (_super) {
+    __extends(KeyEventsPlugin, _super);
+    /**
+     * Initializes an instance of the browser plug-in.
+     * @param doc The document in which key events will be detected.
+     */
+    function KeyEventsPlugin(doc) {
+        return _super.call(this, doc) || this;
+    }
+    /**
+      * Reports whether a named key event is supported.
+      * @param eventName The event name to query.
+      * @return True if the named key event is supported.
+     */
+    KeyEventsPlugin.prototype.supports = function (eventName) { return KeyEventsPlugin.parseEventName(eventName) != null; };
+    /**
+     * Registers a handler for a specific element and key event.
+     * @param element The HTML element to receive event notifications.
+     * @param eventName The name of the key event to listen for.
+     * @param handler A function to call when the notification occurs. Receives the
+     * event object as an argument.
+     * @returns The key event that was registered.
+    */
+    KeyEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
+        var parsedEvent = KeyEventsPlugin.parseEventName(eventName);
+        var outsideHandler = KeyEventsPlugin.eventCallback(parsedEvent['fullKey'], handler, this.manager.getZone());
+        return this.manager.getZone().runOutsideAngular(function () {
+            return getDOM().onAndCancel(element, parsedEvent['domEventName'], outsideHandler);
+        });
+    };
+    KeyEventsPlugin.parseEventName = function (eventName) {
+        var parts = eventName.toLowerCase().split('.');
+        var domEventName = parts.shift();
+        if ((parts.length === 0) || !(domEventName === 'keydown' || domEventName === 'keyup')) {
+            return null;
+        }
+        var key = KeyEventsPlugin._normalizeKey(parts.pop());
+        var fullKey = '';
+        MODIFIER_KEYS.forEach(function (modifierName) {
+            var index = parts.indexOf(modifierName);
+            if (index > -1) {
+                parts.splice(index, 1);
+                fullKey += modifierName + '.';
+            }
+        });
+        fullKey += key;
+        if (parts.length != 0 || key.length === 0) {
+            // returning null instead of throwing to let another plugin process the event
+            return null;
+        }
+        var result = {};
+        result['domEventName'] = domEventName;
+        result['fullKey'] = fullKey;
+        return result;
+    };
+    KeyEventsPlugin.getEventFullKey = function (event) {
+        var fullKey = '';
+        var key = getDOM().getEventKey(event);
+        key = key.toLowerCase();
+        if (key === ' ') {
+            key = 'space'; // for readability
+        }
+        else if (key === '.') {
+            key = 'dot'; // because '.' is used as a separator in event names
+        }
+        MODIFIER_KEYS.forEach(function (modifierName) {
+            if (modifierName != key) {
+                var modifierGetter = MODIFIER_KEY_GETTERS[modifierName];
+                if (modifierGetter(event)) {
+                    fullKey += modifierName + '.';
+                }
+            }
+        });
+        fullKey += key;
+        return fullKey;
+    };
+    /**
+     * Configures a handler callback for a key event.
+     * @param fullKey The event name that combines all simultaneous keystrokes.
+     * @param handler The function that responds to the key event.
+     * @param zone The zone in which the event occurred.
+     * @returns A callback function.
+     */
+    KeyEventsPlugin.eventCallback = function (fullKey, handler, zone) {
+        return function (event /** TODO #9100 */) {
+            if (KeyEventsPlugin.getEventFullKey(event) === fullKey) {
+                zone.runGuarded(function () { return handler(event); });
+            }
+        };
+    };
+    /** @internal */
+    KeyEventsPlugin._normalizeKey = function (keyName) {
+        // TODO: switch to a Map if the mapping grows too much
+        switch (keyName) {
+            case 'esc':
+                return 'escape';
+            default:
+                return keyName;
+        }
+    };
+    KeyEventsPlugin.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    KeyEventsPlugin.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return KeyEventsPlugin;
+}(EventManagerPlugin));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * DomSanitizer helps preventing Cross Site Scripting Security bugs (XSS) by sanitizing
+ * values to be safe to use in the different DOM contexts.
+ *
+ * For example, when binding a URL in an `<a [href]="someValue">` hyperlink, `someValue` will be
+ * sanitized so that an attacker cannot inject e.g. a `javascript:` URL that would execute code on
+ * the website.
+ *
+ * In specific situations, it might be necessary to disable sanitization, for example if the
+ * application genuinely needs to produce a `javascript:` style link with a dynamic value in it.
+ * Users can bypass security by constructing a value with one of the `bypassSecurityTrust...`
+ * methods, and then binding to that value from the template.
+ *
+ * These situations should be very rare, and extraordinary care must be taken to avoid creating a
+ * Cross Site Scripting (XSS) security bug!
+ *
+ * When using `bypassSecurityTrust...`, make sure to call the method as early as possible and as
+ * close as possible to the source of the value, to make it easy to verify no security bug is
+ * created by its use.
+ *
+ * It is not required (and not recommended) to bypass security if the value is safe, e.g. a URL that
+ * does not start with a suspicious protocol, or an HTML snippet that does not contain dangerous
+ * code. The sanitizer leaves safe values intact.
+ *
+ * @security Calling any of the `bypassSecurityTrust...` APIs disables Angular's built-in
+ * sanitization for the value passed in. Carefully check and audit all values and code paths going
+ * into this call. Make sure any user data is appropriately escaped for this security context.
+ * For more detail, see the [Security Guide](http://g.co/ng/security).
+ *
+ *
+ */
+var DomSanitizer = /** @class */ (function () {
+    function DomSanitizer() {
+    }
+    return DomSanitizer;
+}());
+var DomSanitizerImpl = /** @class */ (function (_super) {
+    __extends(DomSanitizerImpl, _super);
+    function DomSanitizerImpl(_doc) {
+        var _this = _super.call(this) || this;
+        _this._doc = _doc;
+        return _this;
+    }
+    DomSanitizerImpl.prototype.sanitize = function (ctx, value) {
+        if (value == null)
+            return null;
+        switch (ctx) {
+            case core.SecurityContext.NONE:
+                return value;
+            case core.SecurityContext.HTML:
+                if (value instanceof SafeHtmlImpl)
+                    return value.changingThisBreaksApplicationSecurity;
+                this.checkNotSafeValue(value, 'HTML');
+                return core.ɵ_sanitizeHtml(this._doc, String(value));
+            case core.SecurityContext.STYLE:
+                if (value instanceof SafeStyleImpl)
+                    return value.changingThisBreaksApplicationSecurity;
+                this.checkNotSafeValue(value, 'Style');
+                return core.ɵ_sanitizeStyle(value);
+            case core.SecurityContext.SCRIPT:
+                if (value instanceof SafeScriptImpl)
+                    return value.changingThisBreaksApplicationSecurity;
+                this.checkNotSafeValue(value, 'Script');
+                throw new Error('unsafe value used in a script context');
+            case core.SecurityContext.URL:
+                if (value instanceof SafeResourceUrlImpl || value instanceof SafeUrlImpl) {
+                    // Allow resource URLs in URL contexts, they are strictly more trusted.
+                    return value.changingThisBreaksApplicationSecurity;
+                }
+                this.checkNotSafeValue(value, 'URL');
+                return core.ɵ_sanitizeUrl(String(value));
+            case core.SecurityContext.RESOURCE_URL:
+                if (value instanceof SafeResourceUrlImpl) {
+                    return value.changingThisBreaksApplicationSecurity;
+                }
+                this.checkNotSafeValue(value, 'ResourceURL');
+                throw new Error('unsafe value used in a resource URL context (see http://g.co/ng/security#xss)');
+            default:
+                throw new Error("Unexpected SecurityContext " + ctx + " (see http://g.co/ng/security#xss)");
+        }
+    };
+    DomSanitizerImpl.prototype.checkNotSafeValue = function (value, expectedType) {
+        if (value instanceof SafeValueImpl) {
+            throw new Error("Required a safe " + expectedType + ", got a " + value.getTypeName() + " " +
+                "(see http://g.co/ng/security#xss)");
+        }
+    };
+    DomSanitizerImpl.prototype.bypassSecurityTrustHtml = function (value) { return new SafeHtmlImpl(value); };
+    DomSanitizerImpl.prototype.bypassSecurityTrustStyle = function (value) { return new SafeStyleImpl(value); };
+    DomSanitizerImpl.prototype.bypassSecurityTrustScript = function (value) { return new SafeScriptImpl(value); };
+    DomSanitizerImpl.prototype.bypassSecurityTrustUrl = function (value) { return new SafeUrlImpl(value); };
+    DomSanitizerImpl.prototype.bypassSecurityTrustResourceUrl = function (value) {
+        return new SafeResourceUrlImpl(value);
+    };
+    DomSanitizerImpl.decorators = [
+        { type: core.Injectable }
+    ];
+    /** @nocollapse */
+    DomSanitizerImpl.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: core.Inject, args: [DOCUMENT$1,] }] }
+    ]; };
+    return DomSanitizerImpl;
+}(DomSanitizer));
+var SafeValueImpl = /** @class */ (function () {
+    function SafeValueImpl(changingThisBreaksApplicationSecurity) {
+        this.changingThisBreaksApplicationSecurity = changingThisBreaksApplicationSecurity;
+        // empty
+    }
+    SafeValueImpl.prototype.toString = function () {
+        return "SafeValue must use [property]=binding: " + this.changingThisBreaksApplicationSecurity +
+            " (see http://g.co/ng/security#xss)";
+    };
+    return SafeValueImpl;
+}());
+var SafeHtmlImpl = /** @class */ (function (_super) {
+    __extends(SafeHtmlImpl, _super);
+    function SafeHtmlImpl() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SafeHtmlImpl.prototype.getTypeName = function () { return 'HTML'; };
+    return SafeHtmlImpl;
+}(SafeValueImpl));
+var SafeStyleImpl = /** @class */ (function (_super) {
+    __extends(SafeStyleImpl, _super);
+    function SafeStyleImpl() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SafeStyleImpl.prototype.getTypeName = function () { return 'Style'; };
+    return SafeStyleImpl;
+}(SafeValueImpl));
+var SafeScriptImpl = /** @class */ (function (_super) {
+    __extends(SafeScriptImpl, _super);
+    function SafeScriptImpl() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SafeScriptImpl.prototype.getTypeName = function () { return 'Script'; };
+    return SafeScriptImpl;
+}(SafeValueImpl));
+var SafeUrlImpl = /** @class */ (function (_super) {
+    __extends(SafeUrlImpl, _super);
+    function SafeUrlImpl() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SafeUrlImpl.prototype.getTypeName = function () { return 'URL'; };
+    return SafeUrlImpl;
+}(SafeValueImpl));
+var SafeResourceUrlImpl = /** @class */ (function (_super) {
+    __extends(SafeResourceUrlImpl, _super);
+    function SafeResourceUrlImpl() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SafeResourceUrlImpl.prototype.getTypeName = function () { return 'ResourceURL'; };
+    return SafeResourceUrlImpl;
+}(SafeValueImpl));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var INTERNAL_BROWSER_PLATFORM_PROVIDERS = [
+    { provide: core.PLATFORM_ID, useValue: common.ɵPLATFORM_BROWSER_ID },
+    { provide: core.PLATFORM_INITIALIZER, useValue: initDomAdapter, multi: true },
+    { provide: common.PlatformLocation, useClass: BrowserPlatformLocation, deps: [DOCUMENT$1] },
+    { provide: DOCUMENT$1, useFactory: _document, deps: [] },
+];
+/**
+ * @security Replacing built-in sanitization providers exposes the application to XSS risks.
+ * Attacker-controlled data introduced by an unsanitized provider could expose your
+ * application to XSS risks. For more detail, see the [Security Guide](http://g.co/ng/security).
+ * @experimental
+ */
+var BROWSER_SANITIZATION_PROVIDERS = [
+    { provide: core.Sanitizer, useExisting: DomSanitizer },
+    { provide: DomSanitizer, useClass: DomSanitizerImpl, deps: [DOCUMENT$1] },
+];
+var platformBrowser = core.createPlatformFactory(core.platformCore, 'browser', INTERNAL_BROWSER_PLATFORM_PROVIDERS);
+function initDomAdapter() {
+    BrowserDomAdapter.makeCurrent();
+    BrowserGetTestability.init();
+}
+function errorHandler() {
+    return new core.ErrorHandler();
+}
+function _document() {
+    return document;
+}
+/**
+ * The ng module for the browser.
+ *
+ *
+ */
+var BrowserModule = /** @class */ (function () {
+    function BrowserModule(parentModule) {
+        if (parentModule) {
+            throw new Error("BrowserModule has already been loaded. If you need access to common directives such as NgIf and NgFor from a lazy loaded module, import CommonModule instead.");
+        }
+    }
+    /**
+     * Configures a browser-based application to transition from a server-rendered app, if
+     * one is present on the page. The specified parameters must include an application id,
+     * which must match between the client and server applications.
+     *
+     * @experimental
+     */
+    BrowserModule.withServerTransition = function (params) {
+        return {
+            ngModule: BrowserModule,
+            providers: [
+                { provide: core.APP_ID, useValue: params.appId },
+                { provide: TRANSITION_ID, useExisting: core.APP_ID },
+                SERVER_TRANSITION_PROVIDERS,
+            ],
+        };
+    };
+    BrowserModule.decorators = [
+        { type: core.NgModule, args: [{
+                    providers: [
+                        BROWSER_SANITIZATION_PROVIDERS,
+                        { provide: core.ɵAPP_ROOT, useValue: true },
+                        { provide: core.ErrorHandler, useFactory: errorHandler, deps: [] },
+                        { provide: EVENT_MANAGER_PLUGINS, useClass: DomEventsPlugin, multi: true },
+                        { provide: EVENT_MANAGER_PLUGINS, useClass: KeyEventsPlugin, multi: true },
+                        { provide: EVENT_MANAGER_PLUGINS, useClass: HammerGesturesPlugin, multi: true },
+                        { provide: HAMMER_GESTURE_CONFIG, useClass: HammerGestureConfig },
+                        DomRendererFactory2,
+                        { provide: core.RendererFactory2, useExisting: DomRendererFactory2 },
+                        { provide: SharedStylesHost, useExisting: DomSharedStylesHost },
+                        DomSharedStylesHost,
+                        core.Testability,
+                        EventManager,
+                        ELEMENT_PROBE_PROVIDERS,
+                        Meta,
+                        Title,
+                    ],
+                    exports: [common.CommonModule, core.ApplicationModule]
+                },] }
+    ];
+    /** @nocollapse */
+    BrowserModule.ctorParameters = function () { return [
+        { type: BrowserModule, decorators: [{ type: core.Optional }, { type: core.SkipSelf }] }
+    ]; };
+    return BrowserModule;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var win = typeof window !== 'undefined' && window || {};
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var ChangeDetectionPerfRecord = /** @class */ (function () {
+    function ChangeDetectionPerfRecord(msPerTick, numTicks) {
+        this.msPerTick = msPerTick;
+        this.numTicks = numTicks;
+    }
+    return ChangeDetectionPerfRecord;
+}());
+/**
+ * Entry point for all Angular profiling-related debug tools. This object
+ * corresponds to the `ng.profiler` in the dev console.
+ */
+var AngularProfiler = /** @class */ (function () {
+    function AngularProfiler(ref) {
+        this.appRef = ref.injector.get(core.ApplicationRef);
+    }
+    // tslint:disable:no-console
+    /**
+     * Exercises change detection in a loop and then prints the average amount of
+     * time in milliseconds how long a single round of change detection takes for
+     * the current state of the UI. It runs a minimum of 5 rounds for a minimum
+     * of 500 milliseconds.
+     *
+     * Optionally, a user may pass a `config` parameter containing a map of
+     * options. Supported options are:
+     *
+     * `record` (boolean) - causes the profiler to record a CPU profile while
+     * it exercises the change detector. Example:
+     *
+     * ```
+     * ng.profiler.timeChangeDetection({record: true})
+     * ```
+     */
+    AngularProfiler.prototype.timeChangeDetection = function (config) {
+        var record = config && config['record'];
+        var profileName = 'Change Detection';
+        // Profiler is not available in Android browsers, nor in IE 9 without dev tools opened
+        var isProfilerAvailable = win.console.profile != null;
+        if (record && isProfilerAvailable) {
+            win.console.profile(profileName);
+        }
+        var start = getDOM().performanceNow();
+        var numTicks = 0;
+        while (numTicks < 5 || (getDOM().performanceNow() - start) < 500) {
+            this.appRef.tick();
+            numTicks++;
+        }
+        var end = getDOM().performanceNow();
+        if (record && isProfilerAvailable) {
+            // need to cast to <any> because type checker thinks there's no argument
+            // while in fact there is:
+            //
+            // https://developer.mozilla.org/en-US/docs/Web/API/Console/profileEnd
+            win.console.profileEnd(profileName);
+        }
+        var msPerTick = (end - start) / numTicks;
+        win.console.log("ran " + numTicks + " change detection cycles");
+        win.console.log(msPerTick.toFixed(2) + " ms per check");
+        return new ChangeDetectionPerfRecord(msPerTick, numTicks);
+    };
+    return AngularProfiler;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var PROFILER_GLOBAL_NAME = 'profiler';
+/**
+ * Enabled Angular debug tools that are accessible via your browser's
+ * developer console.
+ *
+ * Usage:
+ *
+ * 1. Open developer console (e.g. in Chrome Ctrl + Shift + j)
+ * 1. Type `ng.` (usually the console will show auto-complete suggestion)
+ * 1. Try the change detection profiler `ng.profiler.timeChangeDetection()`
+ *    then hit Enter.
+ *
+ * @experimental All debugging apis are currently experimental.
+ */
+function enableDebugTools(ref) {
+    exportNgVar(PROFILER_GLOBAL_NAME, new AngularProfiler(ref));
+    return ref;
+}
+/**
+ * Disables Angular tools.
+ *
+ * @experimental All debugging apis are currently experimental.
+ */
+function disableDebugTools() {
+    exportNgVar(PROFILER_GLOBAL_NAME, null);
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function escapeHtml(text) {
+    var escapedText = {
+        '&': '&a;',
+        '"': '&q;',
+        '\'': '&s;',
+        '<': '&l;',
+        '>': '&g;',
+    };
+    return text.replace(/[&"'<>]/g, function (s) { return escapedText[s]; });
+}
+function unescapeHtml(text) {
+    var unescapedText = {
+        '&a;': '&',
+        '&q;': '"',
+        '&s;': '\'',
+        '&l;': '<',
+        '&g;': '>',
+    };
+    return text.replace(/&[^;]+;/g, function (s) { return unescapedText[s]; });
+}
+/**
+ * Create a `StateKey<T>` that can be used to store value of type T with `TransferState`.
+ *
+ * Example:
+ *
+ * ```
+ * const COUNTER_KEY = makeStateKey<number>('counter');
+ * let value = 10;
+ *
+ * transferState.set(COUNTER_KEY, value);
+ * ```
+ *
+ * @experimental
+ */
+function makeStateKey(key) {
+    return key;
+}
+/**
+ * A key value store that is transferred from the application on the server side to the application
+ * on the client side.
+ *
+ * `TransferState` will be available as an injectable token. To use it import
+ * `ServerTransferStateModule` on the server and `BrowserTransferStateModule` on the client.
+ *
+ * The values in the store are serialized/deserialized using JSON.stringify/JSON.parse. So only
+ * boolean, number, string, null and non-class objects will be serialized and deserialzied in a
+ * non-lossy manner.
+ *
+ * @experimental
+ */
+var TransferState = /** @class */ (function () {
+    function TransferState() {
+        this.store = {};
+        this.onSerializeCallbacks = {};
+    }
+    /** @internal */
+    TransferState.init = function (initState) {
+        var transferState = new TransferState();
+        transferState.store = initState;
+        return transferState;
+    };
+    /**
+     * Get the value corresponding to a key. Return `defaultValue` if key is not found.
+     */
+    TransferState.prototype.get = function (key, defaultValue) {
+        return this.store[key] !== undefined ? this.store[key] : defaultValue;
+    };
+    /**
+     * Set the value corresponding to a key.
+     */
+    TransferState.prototype.set = function (key, value) { this.store[key] = value; };
+    /**
+     * Remove a key from the store.
+     */
+    TransferState.prototype.remove = function (key) { delete this.store[key]; };
+    /**
+     * Test whether a key exists in the store.
+     */
+    TransferState.prototype.hasKey = function (key) { return this.store.hasOwnProperty(key); };
+    /**
+     * Register a callback to provide the value for a key when `toJson` is called.
+     */
+    TransferState.prototype.onSerialize = function (key, callback) {
+        this.onSerializeCallbacks[key] = callback;
+    };
+    /**
+     * Serialize the current state of the store to JSON.
+     */
+    TransferState.prototype.toJson = function () {
+        // Call the onSerialize callbacks and put those values into the store.
+        for (var key in this.onSerializeCallbacks) {
+            if (this.onSerializeCallbacks.hasOwnProperty(key)) {
+                try {
+                    this.store[key] = this.onSerializeCallbacks[key]();
+                }
+                catch (e) {
+                    console.warn('Exception in onSerialize callback: ', e);
+                }
+            }
+        }
+        return JSON.stringify(this.store);
+    };
+    TransferState.decorators = [
+        { type: core.Injectable }
+    ];
+    return TransferState;
+}());
+function initTransferState(doc, appId) {
+    // Locate the script tag with the JSON data transferred from the server.
+    // The id of the script tag is set to the Angular appId + 'state'.
+    var script = doc.getElementById(appId + '-state');
+    var initialState = {};
+    if (script && script.textContent) {
+        try {
+            initialState = JSON.parse(unescapeHtml(script.textContent));
+        }
+        catch (e) {
+            console.warn('Exception while restoring TransferState for app ' + appId, e);
+        }
+    }
+    return TransferState.init(initialState);
+}
+/**
+ * NgModule to install on the client side while using the `TransferState` to transfer state from
+ * server to client.
+ *
+ * @experimental
+ */
+var BrowserTransferStateModule = /** @class */ (function () {
+    function BrowserTransferStateModule() {
+    }
+    BrowserTransferStateModule.decorators = [
+        { type: core.NgModule, args: [{
+                    providers: [{ provide: TransferState, useFactory: initTransferState, deps: [DOCUMENT$1, core.APP_ID] }],
+                },] }
+    ];
+    return BrowserTransferStateModule;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Predicates for use with {@link DebugElement}'s query functions.
+ *
+ * @experimental All debugging apis are currently experimental.
+ */
+var By = /** @class */ (function () {
+    function By() {
+    }
+    /**
+     * Match all elements.
+     *
+     * ## Example
+     *
+     * {@example platform-browser/dom/debug/ts/by/by.ts region='by_all'}
+     */
+    By.all = function () { return function (debugElement) { return true; }; };
+    /**
+     * Match elements by the given CSS selector.
+     *
+     * ## Example
+     *
+     * {@example platform-browser/dom/debug/ts/by/by.ts region='by_css'}
+     */
+    By.css = function (selector) {
+        return function (debugElement) {
+            return debugElement.nativeElement != null ?
+                getDOM().elementMatches(debugElement.nativeElement, selector) :
+                false;
+        };
+    };
+    /**
+     * Match elements that have the given directive present.
+     *
+     * ## Example
+     *
+     * {@example platform-browser/dom/debug/ts/by/by.ts region='by_directive'}
+     */
+    By.directive = function (type) {
+        return function (debugElement) { return debugElement.providerTokens.indexOf(type) !== -1; };
+    };
+    return By;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+var VERSION = new core.Version('6.0.7');
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
+
+// This file only reexports content of the `src` folder. Keep it that way.
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+exports.ɵangular_packages_platform_browser_platform_browser_b = _document;
+exports.ɵangular_packages_platform_browser_platform_browser_a = errorHandler;
+exports.ɵangular_packages_platform_browser_platform_browser_i = GenericBrowserDomAdapter;
+exports.ɵangular_packages_platform_browser_platform_browser_g = SERVER_TRANSITION_PROVIDERS;
+exports.ɵangular_packages_platform_browser_platform_browser_f = appInitializerFactory;
+exports.ɵangular_packages_platform_browser_platform_browser_c = initTransferState;
+exports.ɵangular_packages_platform_browser_platform_browser_h = _createNgProbe;
+exports.ɵangular_packages_platform_browser_platform_browser_d = EventManagerPlugin;
+exports.ɵangular_packages_platform_browser_platform_browser_e = DomSanitizerImpl;
+exports.BrowserModule = BrowserModule;
+exports.platformBrowser = platformBrowser;
+exports.Meta = Meta;
+exports.Title = Title;
+exports.disableDebugTools = disableDebugTools;
+exports.enableDebugTools = enableDebugTools;
+exports.BrowserTransferStateModule = BrowserTransferStateModule;
+exports.TransferState = TransferState;
+exports.makeStateKey = makeStateKey;
+exports.By = By;
+exports.DOCUMENT = DOCUMENT$1;
+exports.EVENT_MANAGER_PLUGINS = EVENT_MANAGER_PLUGINS;
+exports.EventManager = EventManager;
+exports.HAMMER_GESTURE_CONFIG = HAMMER_GESTURE_CONFIG;
+exports.HammerGestureConfig = HammerGestureConfig;
+exports.DomSanitizer = DomSanitizer;
+exports.VERSION = VERSION;
+exports.ɵBROWSER_SANITIZATION_PROVIDERS = BROWSER_SANITIZATION_PROVIDERS;
+exports.ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS = INTERNAL_BROWSER_PLATFORM_PROVIDERS;
+exports.ɵinitDomAdapter = initDomAdapter;
+exports.ɵBrowserDomAdapter = BrowserDomAdapter;
+exports.ɵBrowserPlatformLocation = BrowserPlatformLocation;
+exports.ɵTRANSITION_ID = TRANSITION_ID;
+exports.ɵBrowserGetTestability = BrowserGetTestability;
+exports.ɵescapeHtml = escapeHtml;
+exports.ɵELEMENT_PROBE_PROVIDERS = ELEMENT_PROBE_PROVIDERS;
+exports.ɵDomAdapter = DomAdapter;
+exports.ɵgetDOM = getDOM;
+exports.ɵsetRootDomAdapter = setRootDomAdapter;
+exports.ɵDomRendererFactory2 = DomRendererFactory2;
+exports.ɵNAMESPACE_URIS = NAMESPACE_URIS;
+exports.ɵflattenStyles = flattenStyles;
+exports.ɵshimContentAttribute = shimContentAttribute;
+exports.ɵshimHostAttribute = shimHostAttribute;
+exports.ɵDomEventsPlugin = DomEventsPlugin;
+exports.ɵHammerGesturesPlugin = HammerGesturesPlugin;
+exports.ɵKeyEventsPlugin = KeyEventsPlugin;
+exports.ɵDomSharedStylesHost = DomSharedStylesHost;
+exports.ɵSharedStylesHost = SharedStylesHost;
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+//# sourceMappingURL=platform-browser.umd.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@angular/router/router.ngfactory.js":
 /*!**********************************************************!*\
   !*** ./node_modules/@angular/router/router.ngfactory.js ***!
@@ -818,12 +3436,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./angular-create-app.component.scss.shim.ngstyle */ "./src/app/angular-tut/topics/angular-create-app/angular-create-app.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! ./angular-create-app.component */ "./src/app/angular-tut/topics/angular-create-app/angular-create-app.component.ts");
+var i3 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i4 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var styles_AngularCreateAppComponent = [i0.styles];
 var RenderType_AngularCreateAppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AngularCreateAppComponent, data: {} });
 exports.RenderType_AngularCreateAppComponent = RenderType_AngularCreateAppComponent;
 function View_AngularCreateAppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 39, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Set up the Development Environment "])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["We have great tools which will help us to create angular application quicker and faster. Before start creating application, make sure you install the below softwares."])), (_l()(), i1.ɵeld(5, 0, null, null, 4, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Install "])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "a", [["href", "https://nodejs.org/en/download/"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Node.js and npm "])), (_l()(), i1.ɵted(-1, null, ["if they are not already on your machine."])), (_l()(), i1.ɵeld(10, 0, null, null, 10, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(11, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["To Verify the installation do the following "])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1) Open commend propt "])), (_l()(), i1.ɵeld(15, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["2) node -v "])), (_l()(), i1.ɵeld(17, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["3) npm -v"])), (_l()(), i1.ɵeld(19, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["4) npm install -g @angular/cli"])), (_l()(), i1.ɵeld(21, 0, null, null, 1, "h5", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1. Create a new project"])), (_l()(), i1.ɵeld(23, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Open a terminal window and run the following command."])), (_l()(), i1.ɵeld(25, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(26, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng new my-app"])), (_l()(), i1.ɵeld(28, 0, null, null, 2, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(29, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Here my-app is the project name that you want to create."])), (_l()(), i1.ɵeld(31, 0, null, null, 1, "h5", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["2. Run the application"])), (_l()(), i1.ɵeld(33, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["after successfully created project, go to the project folder in terminal and run the following commands "])), (_l()(), i1.ɵeld(35, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(36, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng serve -o"])), (_l()(), i1.ɵeld(38, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now you can see on the browser the working project"]))], null, null); }
 exports.View_AngularCreateAppComponent_0 = View_AngularCreateAppComponent_0;
-function View_AngularCreateAppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-create-app", [], null, null, null, View_AngularCreateAppComponent_0, RenderType_AngularCreateAppComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularCreateAppComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_AngularCreateAppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-create-app", [], null, null, null, View_AngularCreateAppComponent_0, RenderType_AngularCreateAppComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularCreateAppComponent, [i3.Title, i4.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AngularCreateAppComponent_Host_0 = View_AngularCreateAppComponent_Host_0;
 var AngularCreateAppComponentNgFactory = i1.ɵccf("app-angular-create-app", i2.AngularCreateAppComponent, View_AngularCreateAppComponent_Host_0, {}, {}, []);
 exports.AngularCreateAppComponentNgFactory = AngularCreateAppComponentNgFactory;
@@ -864,10 +3484,22 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ./../../../seo.service */ "./src/app/seo.service.ts");
 var AngularCreateAppComponent = /** @class */ (function () {
-    function AngularCreateAppComponent() {
+    function AngularCreateAppComponent(title, seoService) {
+        this.title = title;
+        this.seoService = seoService;
     }
-    AngularCreateAppComponent.prototype.ngOnInit = function () { };
+    AngularCreateAppComponent.prototype.ngOnInit = function () {
+        this.title.setTitle('How to Create Angular Application');
+        var metaData = {
+            description: 'we will get to know how to create angular application and run with server in easy and simple steps',
+            title: 'How to Create Angular Application',
+            website: 'https://ifelseloop.com/angular/create-angular-app'
+        };
+        this.seoService.updateMetaTags(metaData);
+    };
     return AngularCreateAppComponent;
 }());
 exports.AngularCreateAppComponent = AngularCreateAppComponent;
@@ -895,12 +3527,13 @@ var i0 = __webpack_require__(/*! ./angular-element.component.scss.shim.ngstyle *
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! ./angular-element.component */ "./src/app/angular-tut/topics/angular-element/angular-element.component.ts");
 var i3 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i4 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var styles_AngularElementComponent = [i0.styles];
 var RenderType_AngularElementComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AngularElementComponent, data: {} });
 exports.RenderType_AngularElementComponent = RenderType_AngularElementComponent;
-function View_AngularElementComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 46, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Steps to Create Angular Elements"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Angular Elements are introduced in angular6 new features, using angular elements we can Create our own reuseble custom html elements which can be used in other application like React, Vue and other angular applications. "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now let start how to create angular elements"])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1. Step1: installation"])), (_l()(), i1.ɵeld(9, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["create a new project using angular-cli as like below"])), (_l()(), i1.ɵeld(11, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(12, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng new my-angular-elements"])), (_l()(), i1.ɵeld(14, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After project is created succesfully go to the project directory and run the following commands "])), (_l()(), i1.ɵeld(16, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(17, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["npm install @angular/elements"])), (_l()(), i1.ɵeld(19, 0, null, null, 11, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(20, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["To make it works in old browsers make some changes in polyfill as below "])), (_l()(), i1.ɵeld(22, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(23, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["npm install @webcomponents/custom-elements"])), (_l()(), i1.ɵeld(25, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After done with polyfill installation , add these below lines to polyfill.ts"])), (_l()(), i1.ɵeld(27, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["      "])), (_l()(), i1.ɵeld(29, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(31, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1. Step2: Create Componet"])), (_l()(), i1.ɵeld(33, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Create a component as follows or usig angular cli , ng g c componentname "])), (_l()(), i1.ɵeld(35, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["    "])), (_l()(), i1.ɵeld(37, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(39, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now we can start using this component as angular-elements"])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["3. Step3: Componet Declaration"])), (_l()(), i1.ɵeld(43, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["    "])), (_l()(), i1.ɵeld(45, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.polyfill; _ck(_v, 29, 0, currVal_0); var currVal_1 = _co.componentElm; _ck(_v, 37, 0, currVal_1); var currVal_2 = _co.componentDeclar; _ck(_v, 45, 0, currVal_2); }); }
+function View_AngularElementComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 92, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Steps to Create Angular Elements"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Angular Elements are introduced in angular6 as one of the new feature, using angular elements we can create our own reuseble custom html elements which can be used in other application like React, Vue and other angular applications. "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now let start how to create angular elements"])), (_l()(), i1.ɵeld(7, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" installation"])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["create a new project using angular-cli as like below"])), (_l()(), i1.ɵeld(12, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(13, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng new my-angular-elements"])), (_l()(), i1.ɵeld(15, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After project is created succesfully go to the project directory and run the following commands "])), (_l()(), i1.ɵeld(17, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["npm install @angular/elements"])), (_l()(), i1.ɵeld(20, 0, null, null, 11, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["To make it works in old browsers make some changes in polyfill as below "])), (_l()(), i1.ɵeld(23, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(24, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["npm install @webcomponents/custom-elements"])), (_l()(), i1.ɵeld(26, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After done with polyfill installation , add these below lines to polyfill.ts"])), (_l()(), i1.ɵeld(28, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["      "])), (_l()(), i1.ɵeld(30, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(32, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(33, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step1: Create Componet"])), (_l()(), i1.ɵeld(35, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Create a component as follows or usig angular cli , ng g c componentname "])), (_l()(), i1.ɵeld(37, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["    "])), (_l()(), i1.ɵeld(39, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now we can start making this component as angular-elements"])), (_l()(), i1.ɵeld(43, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(44, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step2: Componet Declaration"])), (_l()(), i1.ɵeld(46, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["    "])), (_l()(), i1.ɵeld(48, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(50, 0, null, null, 9, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(51, 0, null, null, 8, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(52, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Import HelloComponent"])), (_l()(), i1.ɵeld(54, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Add HelloComponent to declarations array"])), (_l()(), i1.ɵeld(56, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Also make sure to add HelloComponent to entryComponents array"])), (_l()(), i1.ɵeld(58, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["bootstap array should be empty"])), (_l()(), i1.ɵeld(60, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(61, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step3: Create Angular Element"])), (_l()(), i1.ɵeld(63, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Add the following code to your appModule"])), (_l()(), i1.ɵeld(65, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["      "])), (_l()(), i1.ɵeld(67, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(69, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(70, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step4: Build, Optimize and run the code"])), (_l()(), i1.ɵeld(72, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["In order to build we should use the build command as below"])), (_l()(), i1.ɵeld(74, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(75, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng build"])), (_l()(), i1.ɵeld(77, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After build is done it will generate dist/angular_elements folder with 4 js files (runtime.js , scripts.js, polyfills.js and main.js) . we\u2019d like to distribute our component as a single js file, we need to turn hashing file names off to know what are the names of files to manually concatenate. You can add this to npm script as below "])), (_l()(), i1.ɵeld(79, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["    "])), (_l()(), i1.ɵeld(81, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n  "])), (_l()(), i1.ɵeld(83, 0, null, null, 2, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(84, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step5: Run the code with angular custom elements"])), (_l()(), i1.ɵeld(86, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["By simply adding the above generated hello-element.js file to index.html and the then run your application. "])), (_l()(), i1.ɵeld(88, 0, null, null, 4, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["      "])), (_l()(), i1.ɵeld(90, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(91, null, ["", ""])), (_l()(), i1.ɵted(-1, null, ["\n    "]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.polyfill; _ck(_v, 30, 0, currVal_0); var currVal_1 = _co.componentElm; _ck(_v, 39, 0, currVal_1); var currVal_2 = _co.componentDeclar; _ck(_v, 48, 0, currVal_2); var currVal_3 = _co.elementsCode; _ck(_v, 67, 0, currVal_3); var currVal_4 = _co.buildsScript; _ck(_v, 81, 0, currVal_4); var currVal_5 = _co.addCustomElem; _ck(_v, 91, 0, currVal_5); }); }
 exports.View_AngularElementComponent_0 = View_AngularElementComponent_0;
-function View_AngularElementComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-element", [], null, null, null, View_AngularElementComponent_0, RenderType_AngularElementComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularElementComponent, [i3.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_AngularElementComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-element", [], null, null, null, View_AngularElementComponent_0, RenderType_AngularElementComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularElementComponent, [i3.Title, i4.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AngularElementComponent_Host_0 = View_AngularElementComponent_Host_0;
 var AngularElementComponentNgFactory = i1.ɵccf("app-angular-element", i2.AngularElementComponent, View_AngularElementComponent_Host_0, {}, {}, []);
 exports.AngularElementComponentNgFactory = AngularElementComponentNgFactory;
@@ -942,15 +3575,27 @@ exports.styles = styles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var AngularElementComponent = /** @class */ (function () {
-    function AngularElementComponent(title) {
+    function AngularElementComponent(title, seoService) {
         this.title = title;
-        this.title.setTitle('how to create angular elements');
+        this.seoService = seoService;
+        this.title.setTitle('How to Create Angular Elements');
+        this.html_element_code = "\n    <app-hello wish=\"Hello World\"></app-hello>";
+        var metaData = {
+            description: "we will get to know how to create angular application and make angular components as\n      reuseble custom angular elements for any other front-end applications",
+            title: 'Steps to create Angular Elements',
+            website: 'https://ifelseloop.com/angular/angular-element'
+        };
+        this.seoService.updateMetaTags(metaData);
     }
     AngularElementComponent.prototype.ngOnInit = function () {
         this.polyfill = "\n    import '@webcomponents/custom-elements/src/native-shim';\n    import '@webcomponents/custom-elements/custom-elements.min';";
         this.componentElm = "import { Component, Input } from '@angular/core';\n    @Component({\n        selector: 'app-hello',\n        template:  <span>Angular Elements-{{wish}}</span>,\n    })\n    export class HelloComponent {\n        title = 'Angular Elements';\n        @Input() wish: string;\n    };";
-        this.componentDeclar = "\n import { BrowserModule } from '@angular/platform-browser';\n import { NgModule } from '@angular/core';\n import { MessageComponent } from './message.component';\n\n @NgModule({\n     declarations: [\n         MessageComponent\n     ],\n     imports: [\n         BrowserModule\n     ],\n     providers: [],\n     bootstrap: [],\n     entryComponents: [HelloComponent]\n })\n export class AppModule {\n\n }";
+        this.componentDeclar = "\n import { BrowserModule } from '@angular/platform-browser';\n import { NgModule } from '@angular/core';\n import { HelloComponent } from './hello.component';\n\n @NgModule({\n     declarations: [\n         HelloComponent\n     ],\n     imports: [\n         BrowserModule\n     ],\n     providers: [],\n     bootstrap: [],\n     entryComponents: [HelloComponent]\n })\n export class AppModule {\n\n }";
+        this.elementsCode = "\n    import { NgModule, Injector } from '@angular/core';\n    import { createCustomElement } from '@angular/elements';\n    import { SEOService } from './../../../seo.service';\nexport class AppModule {\n      constructor(private injector: Injector) {\n          const customElement = createCustomElement(MessageComponent, { injector });\n          customElements.define('app-hello', customElement);\n      }\n      ngDoBootstrap() {\n      }\n  }";
+        this.buildsScript = "\n  \"build\": \"ng build --prod --output-hashing=none\",\n  \"package\":\"cat dist/{runtime,polyfills,scripts,main}.js\n           | gzip > hello-element.js.gz\"";
+        this.addCustomElem = "\n           <app-hello wish='Hello World'></app-hello>\n           ";
     };
     return AngularElementComponent;
 }());
@@ -981,12 +3626,14 @@ var i2 = __webpack_require__(/*! ../../../../../node_modules/@angular/material/d
 var i3 = __webpack_require__(/*! @angular/material/divider */ "@angular/material/divider");
 var i4 = __webpack_require__(/*! ./angular-introd.component */ "./src/app/angular-tut/topics/angular-introd/angular-introd.component.ts");
 var i5 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i6 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i7 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var styles_AngularIntrodComponent = [i0.styles];
 var RenderType_AngularIntrodComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AngularIntrodComponent, data: {} });
 exports.RenderType_AngularIntrodComponent = RenderType_AngularIntrodComponent;
 function View_AngularIntrodComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 60, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Angular Features "])), (_l()(), i1.ɵeld(3, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1. Develop Across All Platforms"])), (_l()(), i1.ɵeld(9, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Write Angular code once and it can be reused for any development of all web, response mobile, native mobile and native desktop. So one time investment for all platforms. One framework for web and mobile. "])), (_l()(), i1.ɵeld(11, 0, null, null, 1, "mat-divider", [["class", "mat-divider"], ["role", "separator"]], [[1, "aria-orientation", 0], [2, "mat-divider-vertical", null], [2, "mat-divider-horizontal", null], [2, "mat-divider-inset", null]], null, null, i2.View_MatDivider_0, i2.RenderType_MatDivider)), i1.ɵdid(12, 49152, null, 0, i3.MatDivider, [], null, null), (_l()(), i1.ɵeld(13, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(14, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(16, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(17, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["2. SPEED & PERFORMANCE"])), (_l()(), i1.ɵeld(19, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Angular widely used for to get the maximum speed by Web workers , PWA , scalability and Immutability nature of change detection stratagy. "])), (_l()(), i1.ɵeld(21, 0, null, null, 1, "mat-divider", [["class", "mat-divider"], ["role", "separator"]], [[1, "aria-orientation", 0], [2, "mat-divider-vertical", null], [2, "mat-divider-horizontal", null], [2, "mat-divider-inset", null]], null, null, i2.View_MatDivider_0, i2.RenderType_MatDivider)), i1.ɵdid(22, 49152, null, 0, i3.MatDivider, [], null, null), (_l()(), i1.ɵeld(23, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(24, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(25, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(26, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(27, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["3. GREAT TOOLING"])), (_l()(), i1.ɵeld(29, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Using the great tooling support to create app using Angular-CLI and develop app faster using IDE's. "])), (_l()(), i1.ɵeld(31, 0, null, null, 1, "mat-divider", [["class", "mat-divider"], ["role", "separator"]], [[1, "aria-orientation", 0], [2, "mat-divider-vertical", null], [2, "mat-divider-horizontal", null], [2, "mat-divider-inset", null]], null, null, i2.View_MatDivider_0, i2.RenderType_MatDivider)), i1.ɵdid(32, 49152, null, 0, i3.MatDivider, [], null, null), (_l()(), i1.ɵeld(33, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(34, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(35, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(36, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(37, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["4. Angular is best for creating Progressive Web Apps"])), (_l()(), i1.ɵeld(39, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Angular was created by Google with a mobile-first perspective. As the primary influencer of mobile technology, it makes sense to create apps that are platform independent. With that vision the concept of Progressive Web Apps was born. In a nutshell, it meant that one code base; written with Angular, could work seamlessly on Apple and Android devices without the need to re-invent the wheel. "])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "mat-divider", [["class", "mat-divider"], ["role", "separator"]], [[1, "aria-orientation", 0], [2, "mat-divider-vertical", null], [2, "mat-divider-horizontal", null], [2, "mat-divider-inset", null]], null, null, i2.View_MatDivider_0, i2.RenderType_MatDivider)), i1.ɵdid(42, 49152, null, 0, i3.MatDivider, [], null, null), (_l()(), i1.ɵeld(43, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(44, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(45, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(46, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(47, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["5.Unit Testing Friendly"])), (_l()(), i1.ɵeld(49, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" When developing a software solution, businesses are looking to leverage development processes to shorten time-to-market. Its equally important to create a functional application is bug-free and has a minimum number of glitches once deployed. Once again, Angular to the rescue. The modular-like components are easy to test individually. Due to the simple nature of these components quality assurance procedures are streamlined and developers can validate even the smallest nooks of the application. "])), (_l()(), i1.ɵeld(51, 0, null, null, 1, "mat-divider", [["class", "mat-divider"], ["role", "separator"]], [[1, "aria-orientation", 0], [2, "mat-divider-vertical", null], [2, "mat-divider-horizontal", null], [2, "mat-divider-inset", null]], null, null, i2.View_MatDivider_0, i2.RenderType_MatDivider)), i1.ɵdid(52, 49152, null, 0, i3.MatDivider, [], null, null), (_l()(), i1.ɵeld(53, 0, null, null, 7, "div", [["class", "home-row homepage-container"], ["layout", "row"], ["layout-xs", "column"]], null, null, null, null, null)), (_l()(), i1.ɵeld(54, 0, null, null, 0, "div", [["class", "promo-img-container promo-1"]], null, null, null, null, null)), (_l()(), i1.ɵeld(55, 0, null, null, 5, "div", [["class", "text-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(56, 0, null, null, 4, "div", [["class", "text-block promo-1-desc l-pad-top-2"]], null, null, null, null, null)), (_l()(), i1.ɵeld(57, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["5.Angular Is A Fully Matured Framework"])), (_l()(), i1.ɵeld(59, 0, null, null, 1, "p", [["class", "text-body"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" The best thing about Angular is that it has been around for almost a decade now. The first Angular version was released in 2009 but ever since it has only evolved into a behemoth of a framework. Now in 2018, Angular having launched its sixth version, has support from thousands of developers with a range specialty in Android, iOS, full-stack, UI visualization and front-end engineering. "]))], null, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 12).vertical ? "vertical" : "horizontal"); var currVal_1 = i1.ɵnov(_v, 12).vertical; var currVal_2 = !i1.ɵnov(_v, 12).vertical; var currVal_3 = i1.ɵnov(_v, 12).inset; _ck(_v, 11, 0, currVal_0, currVal_1, currVal_2, currVal_3); var currVal_4 = (i1.ɵnov(_v, 22).vertical ? "vertical" : "horizontal"); var currVal_5 = i1.ɵnov(_v, 22).vertical; var currVal_6 = !i1.ɵnov(_v, 22).vertical; var currVal_7 = i1.ɵnov(_v, 22).inset; _ck(_v, 21, 0, currVal_4, currVal_5, currVal_6, currVal_7); var currVal_8 = (i1.ɵnov(_v, 32).vertical ? "vertical" : "horizontal"); var currVal_9 = i1.ɵnov(_v, 32).vertical; var currVal_10 = !i1.ɵnov(_v, 32).vertical; var currVal_11 = i1.ɵnov(_v, 32).inset; _ck(_v, 31, 0, currVal_8, currVal_9, currVal_10, currVal_11); var currVal_12 = (i1.ɵnov(_v, 42).vertical ? "vertical" : "horizontal"); var currVal_13 = i1.ɵnov(_v, 42).vertical; var currVal_14 = !i1.ɵnov(_v, 42).vertical; var currVal_15 = i1.ɵnov(_v, 42).inset; _ck(_v, 41, 0, currVal_12, currVal_13, currVal_14, currVal_15); var currVal_16 = (i1.ɵnov(_v, 52).vertical ? "vertical" : "horizontal"); var currVal_17 = i1.ɵnov(_v, 52).vertical; var currVal_18 = !i1.ɵnov(_v, 52).vertical; var currVal_19 = i1.ɵnov(_v, 52).inset; _ck(_v, 51, 0, currVal_16, currVal_17, currVal_18, currVal_19); }); }
 exports.View_AngularIntrodComponent_0 = View_AngularIntrodComponent_0;
-function View_AngularIntrodComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-introd", [], null, null, null, View_AngularIntrodComponent_0, RenderType_AngularIntrodComponent)), i1.ɵdid(1, 114688, null, 0, i4.AngularIntrodComponent, [i5.Router], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_AngularIntrodComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-introd", [], null, null, null, View_AngularIntrodComponent_0, RenderType_AngularIntrodComponent)), i1.ɵdid(1, 114688, null, 0, i4.AngularIntrodComponent, [i5.Router, i6.Title, i7.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AngularIntrodComponent_Host_0 = View_AngularIntrodComponent_Host_0;
 var AngularIntrodComponentNgFactory = i1.ɵccf("app-angular-introd", i4.AngularIntrodComponent, View_AngularIntrodComponent_Host_0, {}, {}, []);
 exports.AngularIntrodComponentNgFactory = AngularIntrodComponentNgFactory;
@@ -1028,9 +3675,20 @@ exports.styles = styles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var AngularIntrodComponent = /** @class */ (function () {
-    function AngularIntrodComponent(router) {
+    function AngularIntrodComponent(router, title, seoService) {
         this.router = router;
+        this.title = title;
+        this.seoService = seoService;
+        this.title.setTitle('angular introduction');
+        var metaData = {
+            description: 'In this post we will get to know all about angular introducion and features and then how to get start a angular app',
+            title: 'angular introduction and features',
+            website: 'https://ifelseloop.com/angular/'
+        };
+        this.seoService.updateMetaTags(metaData);
     }
     AngularIntrodComponent.prototype.ngOnInit = function () { };
     AngularIntrodComponent.prototype.getStart = function () {
@@ -1151,12 +3809,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./angular-service.component.scss.shim.ngstyle */ "./src/app/angular-tut/topics/angular-service/angular-service.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! ./angular-service.component */ "./src/app/angular-tut/topics/angular-service/angular-service.component.ts");
+var i3 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i4 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var styles_AngularServiceComponent = [i0.styles];
 var RenderType_AngularServiceComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AngularServiceComponent, data: {} });
 exports.RenderType_AngularServiceComponent = RenderType_AngularServiceComponent;
 function View_AngularServiceComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 25, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Why Services"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Services are a great way to share the data beteen components and widely used to get the data from server. components should not be used to get the data directly from the servers, Components are only for presentation logic.. "])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Create Services"])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["You can create service using the angular-cli as below"])), (_l()(), i1.ɵeld(9, 0, null, null, 3, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(10, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng generate service httpService"])), (_l()(), i1.ɵted(-1, null, [" //httpService is service name here. "])), (_l()(), i1.ɵeld(13, 0, null, null, 3, "pre", [["class", "pre-text"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["      "])), (_l()(), i1.ɵeld(15, 0, null, null, 0, "code", [], [[8, "innerHTML", 1]], null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n    "])), (_l()(), i1.ɵeld(17, 0, null, null, 8, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Injectable is a class level annotation and tells the angular that this class is a service and going to be injectable in other angular classes. "])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["providedIn: ProvideIn Tells the angular that this service is registered at root level and not required to declare service in providers array. "])), (_l()(), i1.ɵeld(22, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["When you provide the service at the root level, Angular creates a single, shared instance of ItemService and injects into any class that asks for it."])), (_l()(), i1.ɵeld(24, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["By doing this we will get loosely-coupled communication between classes"]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.angularService; _ck(_v, 15, 0, currVal_0); }); }
 exports.View_AngularServiceComponent_0 = View_AngularServiceComponent_0;
-function View_AngularServiceComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-service", [], null, null, null, View_AngularServiceComponent_0, RenderType_AngularServiceComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularServiceComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_AngularServiceComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-angular-service", [], null, null, null, View_AngularServiceComponent_0, RenderType_AngularServiceComponent)), i1.ɵdid(1, 114688, null, 0, i2.AngularServiceComponent, [i3.Title, i4.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AngularServiceComponent_Host_0 = View_AngularServiceComponent_Host_0;
 var AngularServiceComponentNgFactory = i1.ɵccf("app-angular-service", i2.AngularServiceComponent, View_AngularServiceComponent_Host_0, {}, {}, []);
 exports.AngularServiceComponentNgFactory = AngularServiceComponentNgFactory;
@@ -1197,8 +3857,19 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var AngularServiceComponent = /** @class */ (function () {
-    function AngularServiceComponent() {
+    function AngularServiceComponent(title, seoService) {
+        this.title = title;
+        this.seoService = seoService;
+        this.title.setTitle('creating angular services');
+        var metaData = {
+            description: 'We will get to know all about how to create angular services and basic syntax and how to make all AJAX calls.',
+            title: 'how to create angular services',
+            website: 'https://ifelseloop.com/angular/http-service'
+        };
+        this.seoService.updateMetaTags(metaData);
     }
     AngularServiceComponent.prototype.ngOnInit = function () {
         this.angularService = "\nimport { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ItemService {\n\n  constructor() { }\n\n}";
@@ -1277,7 +3948,7 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var seo_service_1 = __webpack_require__(/*! ./../../../seo.service */ "./src/app/seo.service.ts");
+var seo_service_1 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var HttpClientComponent = /** @class */ (function () {
     function HttpClientComponent(seoService, title) {
@@ -1286,13 +3957,13 @@ var HttpClientComponent = /** @class */ (function () {
     }
     HttpClientComponent.prototype.ngOnInit = function () {
         this.title.setTitle('angular httpClient');
-        // const metaData = {
-        //   description: 'we will get to know about how to use httpClient and basic setup and we will get know the example code',
-        //   keywords: 'httpClient, how to use httpClient using angular',
-        //   title: 'how to use httpClient using angular',
-        //   website: 'https://ifelseloop.com/angular/httpClient'
-        // };
-        // this.seoService.updateMetaTags(metaData);
+        var metaData = {
+            description: 'we will get to know about how to use httpClient and basic setup and we will get know the example code',
+            keywords: '',
+            title: 'how to use httpClient using angular',
+            website: 'https://ifelseloop.com/angular/http-client'
+        };
+        this.seoService.updateMetaTags(metaData);
         this.httpClinetCode = "\n    import { NgModule } from '@angular/core';\n    import { BrowserModule }    from '@angular/platform-browser';\n    import { HttpClientModule } from '@angular/common/http';\n\n    @NgModule({\n      imports: [\n        BrowserModule,\n        // import HttpClientModule after BrowserModule.\n        HttpClientModule,\n      ],\n      declarations: [\n        AppComponent,\n      ],\n      bootstrap: [ AppComponent ]\n    })\n    export class AppModule {}";
         this.httpServiceCode = "\n    import { Injectable } from '@angular/core';\n    import { HttpClient } from '@angular/common/http';\n\n    @Injectable()\n    export class HttpService {\n      constructor(private http: HttpClient) { }\n    }";
         this.httpGetCall = "\n    getConfig() {\n      return this.http.get(url); // url, you would like to replace with your custom url.\n    }";
@@ -1428,6 +4099,10 @@ var routes = [
         loadChildren: './angular-tut/angular-tut.module#AngularTutModule'
     },
     {
+        path: 'c-programming',
+        loadChildren: './c-language/c-language.module#CLanguageModule'
+    },
+    {
         path: 'hireme',
         component: hireme_component_1.HiremeComponent
     },
@@ -1498,7 +4173,7 @@ var i35 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.
 var i36 = __webpack_require__(/*! ./hireme/hireme.component */ "./src/app/hireme/hireme.component.ts");
 var i37 = __webpack_require__(/*! ./app.router.module */ "./src/app/app.router.module.ts");
 var i38 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.HiremeComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵangular_packages_platform_browser_platform_browser_e, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i8.Meta, i8.Meta, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.Title, i8.Title, [i7.DOCUMENT]), i0.ɵmpd(4608, i12.ɵa, i12.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.WINDOW, i12.windowFactory, [i12.ɵa]), i0.ɵmpd(4608, i12.ɵb, i12.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.LOCAL_STORAGE, i12.localStoragefactory, [i12.ɵb]), i0.ɵmpd(4608, i13.Overlay, i13.Overlay, [i13.ScrollStrategyOptions, i13.OverlayContainer, i0.ComponentFactoryResolver, i13.OverlayPositionBuilder, i13.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i7.DOCUMENT, i14.Directionality]), i0.ɵmpd(5120, i13.ɵc, i13.ɵd, [i13.Overlay]), i0.ɵmpd(5120, i15.MAT_MENU_SCROLL_STRATEGY, i15.ɵd24, [i13.Overlay]), i0.ɵmpd(5120, i16.ActivatedRoute, i16.ɵangular_packages_router_router_f, [i16.Router]), i0.ɵmpd(4608, i16.NoPreloading, i16.NoPreloading, []), i0.ɵmpd(6144, i16.PreloadingStrategy, null, [i16.NoPreloading]), i0.ɵmpd(135680, i16.RouterPreloader, i16.RouterPreloader, [i16.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i16.PreloadingStrategy]), i0.ɵmpd(4608, i16.PreloadAllModules, i16.PreloadAllModules, []), i0.ɵmpd(5120, i16.ROUTER_INITIALIZER, i16.ɵangular_packages_router_router_i, [i16.ɵangular_packages_router_router_g]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i16.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i17.CommunicationService, i17.CommunicationService, []), i0.ɵmpd(4608, i18.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i18.ResponseOptions, i18.BaseResponseOptions, []), i0.ɵmpd(4608, i18.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i18.XHRBackend, i18.XHRBackend, [i18.BrowserXhr, i18.ResponseOptions, i18.XSRFStrategy]), i0.ɵmpd(4608, i18.RequestOptions, i18.BaseRequestOptions, []), i0.ɵmpd(5120, i18.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i18.XHRBackend, i18.RequestOptions]), i0.ɵmpd(4608, i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i19.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_h, i19.ɵangular_packages_common_http_http_h, [i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i19.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i19.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i19.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i19.HttpXhrBackend, i19.HttpXhrBackend, [i19.XhrFactory]), i0.ɵmpd(6144, i19.HttpBackend, null, [i19.HttpXhrBackend]), i0.ɵmpd(5120, i19.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i19.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i19.HttpClient, i19.HttpClient, [i19.HttpHandler]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_d, i19.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i20.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i16.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i16.ɵangular_packages_router_router_g, i16.ɵangular_packages_router_router_g, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i16.ɵangular_packages_router_router_h(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_f(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i16.ɵangular_packages_router_router_g, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.NgtUniversalModule, i12.NgtUniversalModule, []), i0.ɵmpd(1073742336, i14.BidiModule, i14.BidiModule, []), i0.ɵmpd(1073742336, i21.MatCommonModule, i21.MatCommonModule, [[2, i21.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i22.MatCardModule, i22.MatCardModule, []), i0.ɵmpd(1073742336, i23.PlatformModule, i23.PlatformModule, []), i0.ɵmpd(1073742336, i24.ScrollDispatchModule, i24.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i25.MatSidenavModule, i25.MatSidenavModule, []), i0.ɵmpd(1073742336, i21.MatLineModule, i21.MatLineModule, []), i0.ɵmpd(1073742336, i21.MatRippleModule, i21.MatRippleModule, []), i0.ɵmpd(1073742336, i21.MatPseudoCheckboxModule, i21.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i26.MatDividerModule, i26.MatDividerModule, []), i0.ɵmpd(1073742336, i27.MatListModule, i27.MatListModule, []), i0.ɵmpd(1073742336, i28.MatIconModule, i28.MatIconModule, []), i0.ɵmpd(1073742336, i29.MatButtonModule, i29.MatButtonModule, []), i0.ɵmpd(1073742336, i30.PortalModule, i30.PortalModule, []), i0.ɵmpd(1073742336, i13.OverlayModule, i13.OverlayModule, []), i0.ɵmpd(1073742336, i15.MatMenuModule, i15.MatMenuModule, []), i0.ɵmpd(1073742336, i31.MatToolbarModule, i31.MatToolbarModule, []), i0.ɵmpd(1073742336, i32.MatGridListModule, i32.MatGridListModule, []), i0.ɵmpd(1073742336, i33.MaterialModule, i33.MaterialModule, []), i0.ɵmpd(1024, i16.ɵangular_packages_router_router_a, i16.ɵangular_packages_router_router_d, [[3, i16.Router]]), i0.ɵmpd(512, i16.UrlSerializer, i16.DefaultUrlSerializer, []), i0.ɵmpd(512, i16.ChildrenOutletContexts, i16.ChildrenOutletContexts, []), i0.ɵmpd(256, i16.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i16.ɵangular_packages_router_router_c, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i16.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i34.ModuleMapNgFactoryLoader, [i0.Compiler, i34.MODULE_MAP]), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i35.HomeComponent }, { path: "angular", loadChildren: "./angular-tut/angular-tut.module#AngularTutModule" }, { path: "hireme", component: i36.HiremeComponent }, { path: "**", redirectTo: "" }]]; }, []), i0.ɵmpd(1024, i16.Router, i16.ɵangular_packages_router_router_e, [i0.ApplicationRef, i16.UrlSerializer, i16.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i16.ROUTES, i16.ROUTER_CONFIGURATION, [2, i16.UrlHandlingStrategy], [2, i16.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i37.AppRoutingModule, i37.AppRoutingModule, []), i0.ɵmpd(1073742336, i38.AppModule, i38.AppModule, []), i0.ɵmpd(1073742336, i18.HttpModule, i18.HttpModule, []), i0.ɵmpd(1073742336, i19.HttpClientXsrfModule, i19.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i19.HttpClientModule, i19.HttpClientModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i34.ModuleMapLoaderModule, i34.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.HiremeComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵangular_packages_platform_browser_platform_browser_e, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i8.Meta, i8.Meta, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.Title, i8.Title, [i7.DOCUMENT]), i0.ɵmpd(4608, i12.ɵa, i12.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.WINDOW, i12.windowFactory, [i12.ɵa]), i0.ɵmpd(4608, i12.ɵb, i12.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.LOCAL_STORAGE, i12.localStoragefactory, [i12.ɵb]), i0.ɵmpd(4608, i13.Overlay, i13.Overlay, [i13.ScrollStrategyOptions, i13.OverlayContainer, i0.ComponentFactoryResolver, i13.OverlayPositionBuilder, i13.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i7.DOCUMENT, i14.Directionality]), i0.ɵmpd(5120, i13.ɵc, i13.ɵd, [i13.Overlay]), i0.ɵmpd(5120, i15.MAT_MENU_SCROLL_STRATEGY, i15.ɵd24, [i13.Overlay]), i0.ɵmpd(5120, i16.ActivatedRoute, i16.ɵangular_packages_router_router_f, [i16.Router]), i0.ɵmpd(4608, i16.NoPreloading, i16.NoPreloading, []), i0.ɵmpd(6144, i16.PreloadingStrategy, null, [i16.NoPreloading]), i0.ɵmpd(135680, i16.RouterPreloader, i16.RouterPreloader, [i16.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i16.PreloadingStrategy]), i0.ɵmpd(4608, i16.PreloadAllModules, i16.PreloadAllModules, []), i0.ɵmpd(5120, i16.ROUTER_INITIALIZER, i16.ɵangular_packages_router_router_i, [i16.ɵangular_packages_router_router_g]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i16.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i17.CommunicationService, i17.CommunicationService, []), i0.ɵmpd(4608, i18.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i18.ResponseOptions, i18.BaseResponseOptions, []), i0.ɵmpd(4608, i18.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i18.XHRBackend, i18.XHRBackend, [i18.BrowserXhr, i18.ResponseOptions, i18.XSRFStrategy]), i0.ɵmpd(4608, i18.RequestOptions, i18.BaseRequestOptions, []), i0.ɵmpd(5120, i18.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i18.XHRBackend, i18.RequestOptions]), i0.ɵmpd(4608, i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i19.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_h, i19.ɵangular_packages_common_http_http_h, [i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i19.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i19.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i19.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i19.HttpXhrBackend, i19.HttpXhrBackend, [i19.XhrFactory]), i0.ɵmpd(6144, i19.HttpBackend, null, [i19.HttpXhrBackend]), i0.ɵmpd(5120, i19.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i19.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i19.HttpClient, i19.HttpClient, [i19.HttpHandler]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_d, i19.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i20.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i16.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i16.ɵangular_packages_router_router_g, i16.ɵangular_packages_router_router_g, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i16.ɵangular_packages_router_router_h(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_f(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i16.ɵangular_packages_router_router_g, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.NgtUniversalModule, i12.NgtUniversalModule, []), i0.ɵmpd(1073742336, i14.BidiModule, i14.BidiModule, []), i0.ɵmpd(1073742336, i21.MatCommonModule, i21.MatCommonModule, [[2, i21.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i22.MatCardModule, i22.MatCardModule, []), i0.ɵmpd(1073742336, i23.PlatformModule, i23.PlatformModule, []), i0.ɵmpd(1073742336, i24.ScrollDispatchModule, i24.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i25.MatSidenavModule, i25.MatSidenavModule, []), i0.ɵmpd(1073742336, i21.MatLineModule, i21.MatLineModule, []), i0.ɵmpd(1073742336, i21.MatRippleModule, i21.MatRippleModule, []), i0.ɵmpd(1073742336, i21.MatPseudoCheckboxModule, i21.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i26.MatDividerModule, i26.MatDividerModule, []), i0.ɵmpd(1073742336, i27.MatListModule, i27.MatListModule, []), i0.ɵmpd(1073742336, i28.MatIconModule, i28.MatIconModule, []), i0.ɵmpd(1073742336, i29.MatButtonModule, i29.MatButtonModule, []), i0.ɵmpd(1073742336, i30.PortalModule, i30.PortalModule, []), i0.ɵmpd(1073742336, i13.OverlayModule, i13.OverlayModule, []), i0.ɵmpd(1073742336, i15.MatMenuModule, i15.MatMenuModule, []), i0.ɵmpd(1073742336, i31.MatToolbarModule, i31.MatToolbarModule, []), i0.ɵmpd(1073742336, i32.MatGridListModule, i32.MatGridListModule, []), i0.ɵmpd(1073742336, i33.MaterialModule, i33.MaterialModule, []), i0.ɵmpd(1024, i16.ɵangular_packages_router_router_a, i16.ɵangular_packages_router_router_d, [[3, i16.Router]]), i0.ɵmpd(512, i16.UrlSerializer, i16.DefaultUrlSerializer, []), i0.ɵmpd(512, i16.ChildrenOutletContexts, i16.ChildrenOutletContexts, []), i0.ɵmpd(256, i16.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i16.ɵangular_packages_router_router_c, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i16.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i34.ModuleMapNgFactoryLoader, [i0.Compiler, i34.MODULE_MAP]), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i35.HomeComponent }, { path: "angular", loadChildren: "./angular-tut/angular-tut.module#AngularTutModule" }, { path: "c-programming", loadChildren: "./c-language/c-language.module#CLanguageModule" }, { path: "hireme", component: i36.HiremeComponent }, { path: "**", redirectTo: "" }]]; }, []), i0.ɵmpd(1024, i16.Router, i16.ɵangular_packages_router_router_e, [i0.ApplicationRef, i16.UrlSerializer, i16.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i16.ROUTES, i16.ROUTER_CONFIGURATION, [2, i16.UrlHandlingStrategy], [2, i16.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i37.AppRoutingModule, i37.AppRoutingModule, []), i0.ɵmpd(1073742336, i38.AppModule, i38.AppModule, []), i0.ɵmpd(1073742336, i18.HttpModule, i18.HttpModule, []), i0.ɵmpd(1073742336, i19.HttpClientXsrfModule, i19.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i19.HttpClientModule, i19.HttpClientModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i34.ModuleMapLoaderModule, i34.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -1520,6 +4195,455 @@ var AppServerModule = /** @class */ (function () {
     return AppServerModule;
 }());
 exports.AppServerModule = AppServerModule;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/c-language.module.ngfactory.js":
+/*!***********************************************************!*\
+  !*** ./src/app/c-language/c-language.module.ngfactory.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! ./c-language.module */ "./src/app/c-language/c-language.module.ts");
+var i2 = __webpack_require__(/*! ../../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
+var i3 = __webpack_require__(/*! ./clanguagemenu/clanguagemenu.component.ngfactory */ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ngfactory.js");
+var i4 = __webpack_require__(/*! ./cintroduction/cintroduction.component.ngfactory */ "./src/app/c-language/cintroduction/cintroduction.component.ngfactory.js");
+var i5 = __webpack_require__(/*! ./cconstants/cconstants.component.ngfactory */ "./src/app/c-language/cconstants/cconstants.component.ngfactory.js");
+var i6 = __webpack_require__(/*! ./cvariables/cvariables.component.ngfactory */ "./src/app/c-language/cvariables/cvariables.component.ngfactory.js");
+var i7 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i8 = __webpack_require__(/*! @angular/cdk/overlay */ "@angular/cdk/overlay");
+var i9 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i10 = __webpack_require__(/*! @angular/material/menu */ "@angular/material/menu");
+var i11 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i12 = __webpack_require__(/*! ./c-language.routing */ "./src/app/c-language/c-language.routing.ts");
+var i13 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var i14 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
+var i15 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i16 = __webpack_require__(/*! @angular/cdk/scrolling */ "@angular/cdk/scrolling");
+var i17 = __webpack_require__(/*! @angular/material/sidenav */ "@angular/material/sidenav");
+var i18 = __webpack_require__(/*! @angular/material/divider */ "@angular/material/divider");
+var i19 = __webpack_require__(/*! @angular/material/list */ "@angular/material/list");
+var i20 = __webpack_require__(/*! @angular/material/icon */ "@angular/material/icon");
+var i21 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i22 = __webpack_require__(/*! @angular/cdk/portal */ "@angular/cdk/portal");
+var i23 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
+var i24 = __webpack_require__(/*! @angular/material/grid-list */ "@angular/material/grid-list");
+var i25 = __webpack_require__(/*! ../material_module/material.module */ "./src/app/material_module/material.module.ts");
+var i26 = __webpack_require__(/*! ./clanguagemenu/clanguagemenu.component */ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ts");
+var i27 = __webpack_require__(/*! ./cintroduction/cintroduction.component */ "./src/app/c-language/cintroduction/cintroduction.component.ts");
+var i28 = __webpack_require__(/*! ./cconstants/cconstants.component */ "./src/app/c-language/cconstants/cconstants.component.ts");
+var i29 = __webpack_require__(/*! ./cvariables/cvariables.component */ "./src/app/c-language/cvariables/cvariables.component.ts");
+var CLanguageModuleNgFactory = i0.ɵcmf(i1.CLanguageModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.ClanguagemenuComponentNgFactory, i4.CintroductionComponentNgFactory, i5.CconstantsComponentNgFactory, i6.CvariablesComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i8.Overlay, i8.Overlay, [i8.ScrollStrategyOptions, i8.OverlayContainer, i0.ComponentFactoryResolver, i8.OverlayPositionBuilder, i8.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i7.DOCUMENT, i9.Directionality]), i0.ɵmpd(5120, i8.ɵc, i8.ɵd, [i8.Overlay]), i0.ɵmpd(5120, i10.MAT_MENU_SCROLL_STRATEGY, i10.ɵd24, [i8.Overlay]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1073742336, i11.RouterModule, i11.RouterModule, [[2, i11.ɵangular_packages_router_router_a], [2, i11.Router]]), i0.ɵmpd(1073742336, i12.CLanguageRoutingModule, i12.CLanguageRoutingModule, []), i0.ɵmpd(1073742336, i9.BidiModule, i9.BidiModule, []), i0.ɵmpd(1073742336, i13.MatCommonModule, i13.MatCommonModule, [[2, i13.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i14.MatCardModule, i14.MatCardModule, []), i0.ɵmpd(1073742336, i15.PlatformModule, i15.PlatformModule, []), i0.ɵmpd(1073742336, i16.ScrollDispatchModule, i16.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i17.MatSidenavModule, i17.MatSidenavModule, []), i0.ɵmpd(1073742336, i13.MatLineModule, i13.MatLineModule, []), i0.ɵmpd(1073742336, i13.MatRippleModule, i13.MatRippleModule, []), i0.ɵmpd(1073742336, i13.MatPseudoCheckboxModule, i13.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i18.MatDividerModule, i18.MatDividerModule, []), i0.ɵmpd(1073742336, i19.MatListModule, i19.MatListModule, []), i0.ɵmpd(1073742336, i20.MatIconModule, i20.MatIconModule, []), i0.ɵmpd(1073742336, i21.MatButtonModule, i21.MatButtonModule, []), i0.ɵmpd(1073742336, i22.PortalModule, i22.PortalModule, []), i0.ɵmpd(1073742336, i8.OverlayModule, i8.OverlayModule, []), i0.ɵmpd(1073742336, i10.MatMenuModule, i10.MatMenuModule, []), i0.ɵmpd(1073742336, i23.MatToolbarModule, i23.MatToolbarModule, []), i0.ɵmpd(1073742336, i24.MatGridListModule, i24.MatGridListModule, []), i0.ɵmpd(1073742336, i25.MaterialModule, i25.MaterialModule, []), i0.ɵmpd(1073742336, i1.CLanguageModule, i1.CLanguageModule, []), i0.ɵmpd(1024, i11.ROUTES, function () { return [[{ path: "", component: i26.ClanguagemenuComponent, children: [{ path: "", component: i27.CintroductionComponent }, { path: "constants", component: i28.CconstantsComponent }, { path: "variables", component: i29.CvariablesComponent }] }]]; }, [])]); });
+exports.CLanguageModuleNgFactory = CLanguageModuleNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/c-language.module.ts":
+/*!*************************************************!*\
+  !*** ./src/app/c-language/c-language.module.ts ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var CLanguageModule = /** @class */ (function () {
+    function CLanguageModule() {
+    }
+    return CLanguageModule;
+}());
+exports.CLanguageModule = CLanguageModule;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/c-language.routing.ts":
+/*!**************************************************!*\
+  !*** ./src/app/c-language/c-language.routing.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var cintroduction_component_1 = __webpack_require__(/*! ./cintroduction/cintroduction.component */ "./src/app/c-language/cintroduction/cintroduction.component.ts");
+var clanguagemenu_component_1 = __webpack_require__(/*! ./clanguagemenu/clanguagemenu.component */ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ts");
+var cconstants_component_1 = __webpack_require__(/*! ./cconstants/cconstants.component */ "./src/app/c-language/cconstants/cconstants.component.ts");
+var cvariables_component_1 = __webpack_require__(/*! ./cvariables/cvariables.component */ "./src/app/c-language/cvariables/cvariables.component.ts");
+var routes = [
+    {
+        path: '',
+        component: clanguagemenu_component_1.ClanguagemenuComponent,
+        children: [
+            {
+                path: '',
+                component: cintroduction_component_1.CintroductionComponent
+            },
+            {
+                path: 'constants',
+                component: cconstants_component_1.CconstantsComponent
+            },
+            {
+                path: 'variables',
+                component: cvariables_component_1.CvariablesComponent
+            }
+        ]
+    }
+];
+var CLanguageRoutingModule = /** @class */ (function () {
+    function CLanguageRoutingModule() {
+    }
+    return CLanguageRoutingModule;
+}());
+exports.CLanguageRoutingModule = CLanguageRoutingModule;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cconstants/cconstants.component.ngfactory.js":
+/*!*************************************************************************!*\
+  !*** ./src/app/c-language/cconstants/cconstants.component.ngfactory.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./cconstants.component.scss.shim.ngstyle */ "./src/app/c-language/cconstants/cconstants.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ./cconstants.component */ "./src/app/c-language/cconstants/cconstants.component.ts");
+var styles_CconstantsComponent = [i0.styles];
+var RenderType_CconstantsComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CconstantsComponent, data: {} });
+exports.RenderType_CconstantsComponent = RenderType_CconstantsComponent;
+function View_CconstantsComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" cconstants works!\n"]))], null, null); }
+exports.View_CconstantsComponent_0 = View_CconstantsComponent_0;
+function View_CconstantsComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-cconstants", [], null, null, null, View_CconstantsComponent_0, RenderType_CconstantsComponent)), i1.ɵdid(1, 114688, null, 0, i2.CconstantsComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_CconstantsComponent_Host_0 = View_CconstantsComponent_Host_0;
+var CconstantsComponentNgFactory = i1.ɵccf("app-cconstants", i2.CconstantsComponent, View_CconstantsComponent_Host_0, {}, {}, []);
+exports.CconstantsComponentNgFactory = CconstantsComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cconstants/cconstants.component.scss.shim.ngstyle.js":
+/*!*********************************************************************************!*\
+  !*** ./src/app/c-language/cconstants/cconstants.component.scss.shim.ngstyle.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cconstants/cconstants.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/c-language/cconstants/cconstants.component.ts ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var CconstantsComponent = /** @class */ (function () {
+    function CconstantsComponent() {
+    }
+    CconstantsComponent.prototype.ngOnInit = function () {
+    };
+    return CconstantsComponent;
+}());
+exports.CconstantsComponent = CconstantsComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cintroduction/cintroduction.component.ngfactory.js":
+/*!*******************************************************************************!*\
+  !*** ./src/app/c-language/cintroduction/cintroduction.component.ngfactory.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./cintroduction.component.scss.shim.ngstyle */ "./src/app/c-language/cintroduction/cintroduction.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ./cintroduction.component */ "./src/app/c-language/cintroduction/cintroduction.component.ts");
+var i3 = __webpack_require__(/*! ../../seo.service */ "./src/app/seo.service.ts");
+var i4 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var styles_CintroductionComponent = [i0.styles];
+var RenderType_CintroductionComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CintroductionComponent, data: {} });
+exports.RenderType_CintroductionComponent = RenderType_CintroductionComponent;
+function View_CintroductionComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 172, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C Language Introduction"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C Language was developed by Dennis Ritchie between 1969 and 1973 at AT & T\u2019s Bell laboratories. It is a powerful general-purpose, Imperative, Procedural, computer Programming language. Initially it is used to re-implement the UNIX operating system, later it has become one of the most widely used computer programming languages. C language is one of the most popular programming language because it is reliable, simple and easy to use. Major parts of popular operating systems like Windows, LINUX and UNIX are written in C.\n"])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Facts About C Programming Language"])), (_l()(), i1.ɵeld(7, 0, null, null, 11, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 10, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["The C language was first formalized by American National Standards Institutes (ANSI) in the year 1988."])), (_l()(), i1.ɵeld(11, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C was invented to write UNIX operating system."])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C language is a successor of B Language which was introduced in 1970's and it is also called as 'Basic Combined Programming Language' (BCPL)."])), (_l()(), i1.ɵeld(15, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Linux operating system, Mysql Data Base are written in C."])), (_l()(), i1.ɵeld(17, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C is a portable language, the source code written in one operating system works in another operating system without any change."])), (_l()(), i1.ɵeld(19, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Uses of C Programming Language"])), (_l()(), i1.ɵeld(21, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Initially C programs are developed to make-up the operating systems. Here are some of the examples of the uses of C programming."])), (_l()(), i1.ɵeld(23, 0, null, null, 21, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(24, 0, null, null, 20, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(25, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Operating Systems"])), (_l()(), i1.ɵeld(27, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Network Drivers"])), (_l()(), i1.ɵeld(29, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Databases"])), (_l()(), i1.ɵeld(31, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Compilers"])), (_l()(), i1.ɵeld(33, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Assemblers"])), (_l()(), i1.ɵeld(35, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Text Editors"])), (_l()(), i1.ɵeld(37, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Modern Programs"])), (_l()(), i1.ɵeld(39, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Mobile Applications"])), (_l()(), i1.ɵeld(41, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Desktop Applications"])), (_l()(), i1.ɵeld(43, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Games & Animations etc."])), (_l()(), i1.ɵeld(45, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Advantages of C Programming language"])), (_l()(), i1.ɵeld(47, 0, null, null, 12, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(48, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Programs written in C are very efficient, fast and easy to understand"])), (_l()(), i1.ɵeld(50, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C is a medium level language, it can be used for both low-level and high-level languages."])), (_l()(), i1.ɵeld(52, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C is a structured programming language, where complex programs to be broken into simple programs called Functions."])), (_l()(), i1.ɵeld(54, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C is a portable, which means source code written in one computer works in another computer without any changes in the source code."])), (_l()(), i1.ɵeld(56, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C language is the building blocks of many other popular programming languages."])), (_l()(), i1.ɵeld(58, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C has a built-in library which provides number of functions."])), (_l()(), i1.ɵeld(60, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Disadvantages of C Programming Language"])), (_l()(), i1.ɵeld(62, 0, null, null, 8, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(63, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C is a Procedural Oriented language. It doesn\u2019t have the concept of Object Oriented Programming (OOP) features."])), (_l()(), i1.ɵeld(65, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["The Major disadvantage of C language is runtime type checking in not available."])), (_l()(), i1.ɵeld(67, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C doesn\u2019t provide constructors and Destructors."])), (_l()(), i1.ɵeld(69, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["C doesn\u2019t have the concept of NameSpace like C++."])), (_l()(), i1.ɵeld(71, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now lets see how to compile and run C programs in your os. These are necessary steps for executing C programs on your computer."])), (_l()(), i1.ɵeld(73, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Setting up Compile and run C Program on your OS"])), (_l()(), i1.ɵeld(75, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["For running a C program you need compilers and text editors. There are number of Compilers and Text editors. Here I will show you two easy methods for compilation and execution of your C programs. You can use any one of these two methods."])), (_l()(), i1.ɵeld(77, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Method 1: Run C program online"])), (_l()(), i1.ɵeld(79, 0, null, null, 4, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["There are several tools and sites you can use to compile and run your C program. But, I personally prefer "])), (_l()(), i1.ɵeld(81, 0, null, null, 1, "a", [["href", "https://ideone.com/"], ["rel", "nofollow"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ideone.com"])), (_l()(), i1.ɵted(-1, null, [". It is very simple tool and easy to compile and run your C programs."])), (_l()(), i1.ɵeld(84, 0, null, null, 4, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Go to "])), (_l()(), i1.ɵeld(86, 0, null, null, 1, "a", [["href", "https://ideone.com/"], ["rel", "nofollow"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ideone.com"])), (_l()(), i1.ɵted(-1, null, [" > write a Programe > Run"])), (_l()(), i1.ɵeld(89, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵeld(90, 0, null, null, 0, "br", [], null, null, null, null, null)), (_l()(), i1.ɵeld(91, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Method 2: Run C program in Windows Operating System"])), (_l()(), i1.ɵeld(93, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Compile and run C program in Windows you need to download a software called Code:Blocks. In this method I will show you how to download the software, writing C program, save with .c extension and running the program."])), (_l()(), i1.ɵeld(95, 0, null, null, 6, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(96, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 1:"])), (_l()(), i1.ɵted(-1, null, [" Go to "])), (_l()(), i1.ɵeld(99, 0, null, null, 1, "a", [["href", "http://www.codeblocks.org/downloads/26"], ["rel", "nofollow"], ["target", "_blank"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["binary download page of Code::Block"])), (_l()(), i1.ɵted(-1, null, [".\n"])), (_l()(), i1.ɵeld(102, 0, null, null, 9, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(103, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 2:"])), (_l()(), i1.ɵted(-1, null, ["Under "])), (_l()(), i1.ɵeld(106, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Windows XP/Vista/7/8.x/10"])), (_l()(), i1.ɵted(-1, null, [" click the link mingw-setup.exe from "])), (_l()(), i1.ɵeld(109, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Sourceforge.net"])), (_l()(), i1.ɵted(-1, null, ["> as highlighted in the below image. Then the software will start downloading.\n"])), (_l()(), i1.ɵeld(112, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(113, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/download-code-blocks.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(114, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(115, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 3:"])), (_l()(), i1.ɵted(-1, null, [" Now open the downloaded Code::Block file and click NEXT.\n"])), (_l()(), i1.ɵeld(118, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(119, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/open-downloaded-code-block.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(120, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(121, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 4:"])), (_l()(), i1.ɵted(-1, null, [" click AGREEE\n"])), (_l()(), i1.ɵeld(124, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(125, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction4.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(126, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(127, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 5:"])), (_l()(), i1.ɵted(-1, null, [" click NEXT\n"])), (_l()(), i1.ɵeld(130, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(131, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction5.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(132, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(133, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 6:"])), (_l()(), i1.ɵted(-1, null, [" click on INSTALL\n"])), (_l()(), i1.ɵeld(136, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(137, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction6.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(138, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(139, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 7:"])), (_l()(), i1.ɵted(-1, null, [" After install click on NEXT\n"])), (_l()(), i1.ɵeld(142, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(143, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction7.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(144, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(145, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 8:"])), (_l()(), i1.ɵted(-1, null, [" click on FINISH. Now you no need change anything, the software is installed successfully.\n"])), (_l()(), i1.ɵeld(148, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(149, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction8.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(150, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(151, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 9:"])), (_l()(), i1.ɵted(-1, null, ["Now open the Code::Block and go to FILE > NEW > EMPTY FILE (shortcut: ctrl + shift + N) to open a new file for writing a C program.\n"])), (_l()(), i1.ɵeld(154, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(155, 0, null, null, 0, "img", [["height", "400px"], ["src", "../../../assets/c-introduction9.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(156, 0, null, null, 6, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(157, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 10:"])), (_l()(), i1.ɵted(-1, null, [" write the C program and save the program file with .c extenstion. To save the program file, go to FILE > SAVE (shortcut: ctrl + s). "])), (_l()(), i1.ɵeld(160, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Note:"])), (_l()(), i1.ɵted(-1, null, [" The program file name must end with .c extension like \u201Cprogramname.c\u201D.\n"])), (_l()(), i1.ɵeld(163, 0, null, null, 3, "div", [["class", "text-headline"]], null, null, null, null, null)), (_l()(), i1.ɵeld(164, 0, null, null, 1, "strong", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Step 11:"])), (_l()(), i1.ɵted(-1, null, [" After completing the program go to BUILD > BUILD and RUN (shortcut: F9). Then the program will run and produce the output on executable file.\n"])), (_l()(), i1.ɵeld(167, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(168, 0, null, null, 0, "img", [["height", "30%"], ["src", "../../../assets/c-introduction11.jpg"], ["width", "100%"]], null, null, null, null, null)), (_l()(), i1.ɵeld(169, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["This is the easy way to compile and run the C programs in your operating system."])), (_l()(), i1.ɵeld(171, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["I hope that this complete C tutorial guide will give you a clear idea about what is C language and complete knowledge on C programming. But before we enter in to programming you need to learn some basics concepts like what are constants, Variables, Identifiers and Keywords. We will discuss all these topics in the next chapter, stay tuned\u2026"]))], null, null); }
+exports.View_CintroductionComponent_0 = View_CintroductionComponent_0;
+function View_CintroductionComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-cintroduction", [], null, null, null, View_CintroductionComponent_0, RenderType_CintroductionComponent)), i1.ɵdid(1, 114688, null, 0, i2.CintroductionComponent, [i3.SEOService, i4.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_CintroductionComponent_Host_0 = View_CintroductionComponent_Host_0;
+var CintroductionComponentNgFactory = i1.ɵccf("app-cintroduction", i2.CintroductionComponent, View_CintroductionComponent_Host_0, {}, {}, []);
+exports.CintroductionComponentNgFactory = CintroductionComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cintroduction/cintroduction.component.scss.shim.ngstyle.js":
+/*!***************************************************************************************!*\
+  !*** ./src/app/c-language/cintroduction/cintroduction.component.scss.shim.ngstyle.js ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cintroduction/cintroduction.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/c-language/cintroduction/cintroduction.component.ts ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var seo_service_1 = __webpack_require__(/*! ../../seo.service */ "./src/app/seo.service.ts");
+var platform_browser_1 = __webpack_require__(/*! ../../../../node_modules/@angular/platform-browser */ "./node_modules/@angular/platform-browser/bundles/platform-browser.umd.js");
+var CintroductionComponent = /** @class */ (function () {
+    function CintroductionComponent(seoService, title) {
+        this.seoService = seoService;
+        this.title = title;
+    }
+    CintroductionComponent.prototype.ngOnInit = function () {
+        this.title.setTitle('C Language Introduction (2018) | C Programming Tutorials');
+        var metaData = {
+            description: 'This C language tutorial guide will give you everything you need about C introduction, features, uses of C in various applications along with setting up compiling and running of a C program on your Computer.',
+            keywords: 'C Language, C programming tutorials, C tutorials for bigenners',
+            title: 'C Language Introduction (2018) | C Programming Tutorials',
+            website: 'https://ifelseloop.com/c-programming'
+        };
+        this.seoService.updateMetaTags(metaData);
+    };
+    return CintroductionComponent;
+}());
+exports.CintroductionComponent = CintroductionComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ngfactory.js":
+/*!*******************************************************************************!*\
+  !*** ./src/app/c-language/clanguagemenu/clanguagemenu.component.ngfactory.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./clanguagemenu.component.scss.shim.ngstyle */ "./src/app/c-language/clanguagemenu/clanguagemenu.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i3 = __webpack_require__(/*! ./clanguagemenu.component */ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ts");
+var i4 = __webpack_require__(/*! ../../comunication.service */ "./src/app/comunication.service.ts");
+var styles_ClanguagemenuComponent = [i0.styles];
+var RenderType_ClanguagemenuComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_ClanguagemenuComponent, data: {} });
+exports.RenderType_ClanguagemenuComponent = RenderType_ClanguagemenuComponent;
+function View_ClanguagemenuComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(1, 212992, null, 0, i2.RouterOutlet, [i2.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_ClanguagemenuComponent_0 = View_ClanguagemenuComponent_0;
+function View_ClanguagemenuComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-clanguagemenu", [], null, null, null, View_ClanguagemenuComponent_0, RenderType_ClanguagemenuComponent)), i1.ɵdid(1, 114688, null, 0, i3.ClanguagemenuComponent, [i4.CommunicationService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_ClanguagemenuComponent_Host_0 = View_ClanguagemenuComponent_Host_0;
+var ClanguagemenuComponentNgFactory = i1.ɵccf("app-clanguagemenu", i3.ClanguagemenuComponent, View_ClanguagemenuComponent_Host_0, {}, {}, []);
+exports.ClanguagemenuComponentNgFactory = ClanguagemenuComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/clanguagemenu/clanguagemenu.component.scss.shim.ngstyle.js":
+/*!***************************************************************************************!*\
+  !*** ./src/app/c-language/clanguagemenu/clanguagemenu.component.scss.shim.ngstyle.js ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/clanguagemenu/clanguagemenu.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/c-language/clanguagemenu/clanguagemenu.component.ts ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var comunication_service_1 = __webpack_require__(/*! ../../comunication.service */ "./src/app/comunication.service.ts");
+var ClanguagemenuComponent = /** @class */ (function () {
+    function ClanguagemenuComponent(communicationService) {
+        this.communicationService = communicationService;
+    }
+    ClanguagemenuComponent.prototype.ngOnInit = function () {
+        var cTopics = [
+            { name: 'C Intoduction', route: '/c-programming' },
+            { name: 'Constants', route: '/c-programming/constants' },
+            { name: 'Variables', route: '/c-programming/variables' },
+        ];
+        this.communicationService.setMenuItems(cTopics);
+    };
+    return ClanguagemenuComponent;
+}());
+exports.ClanguagemenuComponent = ClanguagemenuComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cvariables/cvariables.component.ngfactory.js":
+/*!*************************************************************************!*\
+  !*** ./src/app/c-language/cvariables/cvariables.component.ngfactory.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./cvariables.component.scss.shim.ngstyle */ "./src/app/c-language/cvariables/cvariables.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ./cvariables.component */ "./src/app/c-language/cvariables/cvariables.component.ts");
+var styles_CvariablesComponent = [i0.styles];
+var RenderType_CvariablesComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CvariablesComponent, data: {} });
+exports.RenderType_CvariablesComponent = RenderType_CvariablesComponent;
+function View_CvariablesComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" cvariables works!\n"]))], null, null); }
+exports.View_CvariablesComponent_0 = View_CvariablesComponent_0;
+function View_CvariablesComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-cvariables", [], null, null, null, View_CvariablesComponent_0, RenderType_CvariablesComponent)), i1.ɵdid(1, 114688, null, 0, i2.CvariablesComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_CvariablesComponent_Host_0 = View_CvariablesComponent_Host_0;
+var CvariablesComponentNgFactory = i1.ɵccf("app-cvariables", i2.CvariablesComponent, View_CvariablesComponent_Host_0, {}, {}, []);
+exports.CvariablesComponentNgFactory = CvariablesComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cvariables/cvariables.component.scss.shim.ngstyle.js":
+/*!*********************************************************************************!*\
+  !*** ./src/app/c-language/cvariables/cvariables.component.scss.shim.ngstyle.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/c-language/cvariables/cvariables.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/c-language/cvariables/cvariables.component.ts ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var CvariablesComponent = /** @class */ (function () {
+    function CvariablesComponent() {
+    }
+    CvariablesComponent.prototype.ngOnInit = function () {
+    };
+    return CvariablesComponent;
+}());
+exports.CvariablesComponent = CvariablesComponent;
 
 
 /***/ }),
@@ -1622,7 +4746,7 @@ exports.styles = styles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
-var seo_service_1 = __webpack_require__(/*! ./../seo.service */ "./src/app/seo.service.ts");
+var seo_service_1 = __webpack_require__(/*! ../seo.service */ "./src/app/seo.service.ts");
 var HiremeComponent = /** @class */ (function () {
     function HiremeComponent(title, seo) {
         this.title = title;
@@ -1672,15 +4796,26 @@ var i7 = __webpack_require__(/*! @angular/cdk/a11y */ "@angular/cdk/a11y");
 var i8 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
 var i9 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var i10 = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
+var i11 = __webpack_require__(/*! ../seo.service */ "./src/app/seo.service.ts");
+var i12 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var styles_HomeComponent = [i0.styles];
 var RenderType_HomeComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HomeComponent, data: {} });
 exports.RenderType_HomeComponent = RenderType_HomeComponent;
-function View_HomeComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 54, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 53, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 19, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 18, "mat-card", [["class", "card-container mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(4, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(5, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(6, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(7, 0, null, 0, 1, "div", [["class", "angular-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(8, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(9, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(10, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Angular"])), (_l()(), i1.ɵeld(12, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(13, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(14, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" The Angular is a powerfull java script component based framwork developed by google which can be used to develop the cross-platform web application faster, modular, lazy load, reliable, reusale, testeble and get the more performance. "])), (_l()(), i1.ɵeld(16, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(17, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(18, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/angular"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 20).onClick() !== false);
+function View_HomeComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 73, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 72, "div", [["class", "row"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 16, "mat-card", [["class", "card-container mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(4, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(5, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(6, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(7, 0, null, 0, 1, "div", [["class", "angular-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(8, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(9, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(10, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Angular"])), (_l()(), i1.ɵeld(12, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(13, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(14, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(15, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(16, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/angular"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 18).onClick() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(19, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(20, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(22, 0, null, null, 16, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(23, 0, null, null, 15, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(24, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(25, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(26, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(27, 0, null, 0, 1, "div", [["class", "javascript-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(28, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(29, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(30, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Java Script"])), (_l()(), i1.ɵeld(32, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(33, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(34, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" The Java Script is a interpreted language used to develop mainly the browser based web application and server side using the nodejs.Its very easy and interesting language to learn every developer. We used Java script to add behaviour to HTML elements. "])), (_l()(), i1.ɵeld(36, 0, null, 0, 2, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(37, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵted(-1, null, [" //hello "])), (_l()(), i1.ɵeld(39, 0, null, null, 15, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(40, 0, null, null, 14, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(41, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(42, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(43, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(44, 0, null, 0, 1, "div", [["class", "rxjs-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(45, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(46, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(47, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["RxJS"])), (_l()(), i1.ɵeld(49, 0, null, 0, 3, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(50, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(51, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Rxjs is a powerfull library, heavly used by UI developers for reactive programming with steams of data over the period. Which is very helpfull to build the complex event based application logics easily. "])), (_l()(), i1.ɵeld(53, 0, null, 0, 1, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(54, 16384, null, 0, i3.MatCardActions, [], null, null)], function (_ck, _v) { var currVal_3 = "/angular"; _ck(_v, 20, 0, currVal_3); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 17).align === "end"); _ck(_v, 16, 0, currVal_0); var currVal_1 = (i1.ɵnov(_v, 19).disabled || null); var currVal_2 = (i1.ɵnov(_v, 19)._animationMode === "NoopAnimations"); _ck(_v, 18, 0, currVal_1, currVal_2); var currVal_4 = (i1.ɵnov(_v, 37).align === "end"); _ck(_v, 36, 0, currVal_4); var currVal_5 = (i1.ɵnov(_v, 54).align === "end"); _ck(_v, 53, 0, currVal_5); }); }
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(17, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(18, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(20, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(22, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(23, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(24, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(25, 0, null, 0, 1, "div", [["class", "javascript-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(26, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(27, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(28, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Java Script"])), (_l()(), i1.ɵeld(30, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(31, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(32, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(33, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(34, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 36).onClick() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(35, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(36, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(38, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(39, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(40, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(41, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(42, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(43, 0, null, 0, 1, "div", [["class", "rxjs-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(44, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(45, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(46, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["RxJS"])), (_l()(), i1.ɵeld(48, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(49, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(50, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(51, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(52, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 54).onClick() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(53, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(54, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(56, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(57, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(58, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(59, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(60, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(61, 0, null, 0, 1, "div", [["class", "c-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(62, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(63, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(64, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["C-Language"])), (_l()(), i1.ɵeld(66, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(67, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(68, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(69, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(70, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "c-programming"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 72).onClick() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(71, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(72, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"]))], function (_ck, _v) { var currVal_3 = "/angular"; _ck(_v, 18, 0, currVal_3); var currVal_7 = "/"; _ck(_v, 36, 0, currVal_7); var currVal_11 = "/"; _ck(_v, 54, 0, currVal_11); var currVal_15 = "c-programming"; _ck(_v, 72, 0, currVal_15); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 15).align === "end"); _ck(_v, 14, 0, currVal_0); var currVal_1 = (i1.ɵnov(_v, 17).disabled || null); var currVal_2 = (i1.ɵnov(_v, 17)._animationMode === "NoopAnimations"); _ck(_v, 16, 0, currVal_1, currVal_2); var currVal_4 = (i1.ɵnov(_v, 33).align === "end"); _ck(_v, 32, 0, currVal_4); var currVal_5 = (i1.ɵnov(_v, 35).disabled || null); var currVal_6 = (i1.ɵnov(_v, 35)._animationMode === "NoopAnimations"); _ck(_v, 34, 0, currVal_5, currVal_6); var currVal_8 = (i1.ɵnov(_v, 51).align === "end"); _ck(_v, 50, 0, currVal_8); var currVal_9 = (i1.ɵnov(_v, 53).disabled || null); var currVal_10 = (i1.ɵnov(_v, 53)._animationMode === "NoopAnimations"); _ck(_v, 52, 0, currVal_9, currVal_10); var currVal_12 = (i1.ɵnov(_v, 69).align === "end"); _ck(_v, 68, 0, currVal_12); var currVal_13 = (i1.ɵnov(_v, 71).disabled || null); var currVal_14 = (i1.ɵnov(_v, 71)._animationMode === "NoopAnimations"); _ck(_v, 70, 0, currVal_13, currVal_14); }); }
 exports.View_HomeComponent_0 = View_HomeComponent_0;
-function View_HomeComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-home", [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i10.HomeComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_HomeComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-home", [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i10.HomeComponent, [i11.SEOService, i12.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_HomeComponent_Host_0 = View_HomeComponent_Host_0;
 var HomeComponentNgFactory = i1.ɵccf("app-home", i10.HomeComponent, View_HomeComponent_Host_0, {}, {}, []);
 exports.HomeComponentNgFactory = HomeComponentNgFactory;
@@ -1704,7 +4839,7 @@ exports.HomeComponentNgFactory = HomeComponentNgFactory;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".tut-card[_ngcontent-%COMP%] {\n  max-width: 200px; }\n\n.angular-header-image[_ngcontent-%COMP%] {\n  background-image: url('angular.jpg');\n  background-size: cover; }\n\n.javascript-header-image[_ngcontent-%COMP%] {\n  background-image: url('javascript.png');\n  background-size: cover; }\n\n.rxjs-header-image[_ngcontent-%COMP%] {\n  background-image: url(\"data:image/jpeg;base64,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\");\n  background-size: cover; }"];
+var styles = [".tut-card[_ngcontent-%COMP%] {\n  max-width: 200px; }\n\n.angular-header-image[_ngcontent-%COMP%] {\n  background-image: url('angular.jpg');\n  background-size: cover; }\n\n.javascript-header-image[_ngcontent-%COMP%] {\n  background-image: url('javascript.png');\n  background-size: cover; }\n\n.rxjs-header-image[_ngcontent-%COMP%] {\n  background-image: url(\"data:image/jpeg;base64,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\");\n  background-size: cover; }\n\n.c-header-image[_ngcontent-%COMP%] {\n  background-image: url(\"data:image/png;base64,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\");\n  background-size: cover; }"];
 exports.styles = styles;
 
 
@@ -1721,10 +4856,16 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var seo_service_1 = __webpack_require__(/*! ../seo.service */ "./src/app/seo.service.ts");
+var platform_browser_1 = __webpack_require__(/*! ../../../node_modules/@angular/platform-browser */ "./node_modules/@angular/platform-browser/bundles/platform-browser.umd.js");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(seoService, title) {
+        this.seoService = seoService;
+        this.title = title;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.title.setTitle('ifelseloop');
+        this.seoService.addMetaTags();
     };
     return HomeComponent;
 }());
@@ -1797,7 +4938,7 @@ var styles_MenuBarComponent = [i0.styles];
 var RenderType_MenuBarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MenuBarComponent, data: {} });
 exports.RenderType_MenuBarComponent = RenderType_MenuBarComponent;
 function View_MenuBarComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "button", [["mat-icon-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v.parent, 42).toggle() !== false);
+        var pd_0 = (i1.ɵnov(_v.parent, 43).toggle() !== false);
         ad = (pd_0 && ad);
     } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(1, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵeld(2, 0, null, 0, 2, "mat-icon", [["class", "mat-icon"], ["role", "img"]], [[2, "mat-icon-inline", null]], null, null, i7.View_MatIcon_0, i7.RenderType_MatIcon)), i1.ɵdid(3, 638976, null, 0, i8.MatIcon, [i1.ElementRef, i8.MatIconRegistry, [8, null]], null, null), (_l()(), i1.ɵted(-1, 0, ["menu"]))], function (_ck, _v) { _ck(_v, 3, 0); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 1).disabled || null); var currVal_1 = (i1.ɵnov(_v, 1)._animationMode === "NoopAnimations"); _ck(_v, 0, 0, currVal_0, currVal_1); var currVal_2 = i1.ɵnov(_v, 3).inline; _ck(_v, 2, 0, currVal_2); }); }
 function View_MenuBarComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "a", [["class", "mat-list-item"], ["mat-list-item", ""], ["style", "font-size: 12px; margin: 0px;padding: 1px;height: 35px;"]], [[2, "mat-list-item-avatar", null], [2, "mat-list-item-with-avatar", null], [1, "target", 0], [8, "href", 4]], [[null, "focus"], [null, "blur"], [null, "click"]], function (_v, en, $event) { var ad = true; if (("focus" === en)) {
@@ -1810,7 +4951,7 @@ function View_MenuBarComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 
         var pd_2 = (i1.ɵnov(_v, 4).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_2 && ad);
     } return ad; }, i9.View_MatListItem_0, i9.RenderType_MatListItem)), i1.ɵdid(1, 1097728, null, 2, i10.MatListItem, [i1.ElementRef, [2, i10.MatNavList]], null, null), i1.ɵqud(603979776, 7, { _lines: 1 }), i1.ɵqud(335544320, 8, { _avatar: 0 }), i1.ɵdid(4, 671744, null, 0, i11.RouterLinkWithHref, [i11.Router, i11.ActivatedRoute, i12.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(5, 2, ["", ""]))], function (_ck, _v) { var currVal_4 = i1.ɵinlineInterpolate(1, "", _v.context.$implicit.route, ""); _ck(_v, 4, 0, currVal_4); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1)._avatar; var currVal_1 = i1.ɵnov(_v, 1)._avatar; var currVal_2 = i1.ɵnov(_v, 4).target; var currVal_3 = i1.ɵnov(_v, 4).href; _ck(_v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3); var currVal_5 = _v.context.$implicit.name; _ck(_v, 5, 0, currVal_5); }); }
-function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { snav: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 49, "div", [["class", "example-container"]], [[2, "example-is-mobile", null]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 34, "mat-toolbar", [["class", "mat-toolbar"], ["color", "primary"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, i13.View_MatToolbar_0, i13.RenderType_MatToolbar)), i1.ɵdid(3, 4243456, null, 1, i14.MatToolbar, [i1.ElementRef, i4.Platform, i12.DOCUMENT], { color: [0, "color"] }, null), i1.ɵqud(603979776, 2, { _toolbarRows: 1 }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_1)), i1.ɵdid(6, 16384, null, 0, i12.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(7, 0, null, 0, 0, "img", [["height", "30px"], ["src", "../../assets/ifelseloop.png.jpg"], ["width", "30px"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, 0, 1, "span", [["class", "main-title pointer"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { snav: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 50, "div", [["class", "example-container"]], [[2, "example-is-mobile", null]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 35, "mat-toolbar", [["class", "mat-toolbar"], ["color", "primary"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, i13.View_MatToolbar_0, i13.RenderType_MatToolbar)), i1.ɵdid(3, 4243456, null, 1, i14.MatToolbar, [i1.ElementRef, i4.Platform, i12.DOCUMENT], { color: [0, "color"] }, null), i1.ɵqud(603979776, 2, { _toolbarRows: 1 }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_1)), i1.ɵdid(6, 16384, null, 0, i12.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(7, 0, null, 0, 0, "img", [["height", "30px"], ["src", "../../assets/ifelseloop.png.jpg"], ["width", "30px"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, 0, 1, "span", [["class", "main-title pointer"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.goToPage() !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00A0Ifelseloop \u00A0 \u00A0"])), (_l()(), i1.ɵeld(10, 16777216, null, 0, 3, "button", [["aria-haspopup", "true"], ["mat-button", ""]], [[1, "aria-expanded", 0], [8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "mousedown"], [null, "keydown"], [null, "click"]], function (_v, en, $event) { var ad = true; if (("mousedown" === en)) {
@@ -1822,7 +4963,7 @@ function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1
     } if (("click" === en)) {
         var pd_2 = (i1.ɵnov(_v, 11)._handleClick($event) !== false);
         ad = (pd_2 && ad);
-    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(11, 1196032, null, 0, i15.MatMenuTrigger, [i16.Overlay, i1.ElementRef, i1.ViewContainerRef, i15.MAT_MENU_SCROLL_STRATEGY, [2, i15.MatMenu], [8, null], [2, i17.Directionality], i5.FocusMonitor], { menu: [0, "menu"] }, null), i1.ɵdid(12, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Tutorials"])), (_l()(), i1.ɵeld(14, 0, null, 0, 14, "mat-menu", [], null, null, null, i18.View_MatMenu_0, i18.RenderType_MatMenu)), i1.ɵdid(15, 1294336, [["menu", 4]], 2, i15.MatMenu, [i1.ElementRef, i1.NgZone, i15.MAT_MENU_DEFAULT_OPTIONS], null, null), i1.ɵqud(603979776, 3, { items: 1 }), i1.ɵqud(335544320, 4, { lazyContent: 0 }), i1.ɵprd(2048, null, i15.ɵf24, null, [i15.MatMenu]), (_l()(), i1.ɵeld(19, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/angular"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(11, 1196032, null, 0, i15.MatMenuTrigger, [i16.Overlay, i1.ElementRef, i1.ViewContainerRef, i15.MAT_MENU_SCROLL_STRATEGY, [2, i15.MatMenu], [8, null], [2, i17.Directionality], i5.FocusMonitor], { menu: [0, "menu"] }, null), i1.ɵdid(12, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Tutorials"])), (_l()(), i1.ɵeld(14, 0, null, 0, 15, "mat-menu", [], null, null, null, i18.View_MatMenu_0, i18.RenderType_MatMenu)), i1.ɵdid(15, 1294336, [["menu", 4]], 2, i15.MatMenu, [i1.ElementRef, i1.NgZone, i15.MAT_MENU_DEFAULT_OPTIONS], null, null), i1.ɵqud(603979776, 3, { items: 1 }), i1.ɵqud(335544320, 4, { lazyContent: 0 }), i1.ɵprd(2048, null, i15.ɵf24, null, [i15.MatMenu]), (_l()(), i1.ɵeld(19, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/angular"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 20)._checkDisabled($event) !== false);
         ad = (pd_0 && ad);
     } if (("mouseenter" === en)) {
@@ -1837,22 +4978,25 @@ function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1
     } if (("mouseenter" === en)) {
         var pd_1 = (i1.ɵnov(_v, 24)._handleMouseEnter() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(24, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), (_l()(), i1.ɵted(-1, 0, ["Java Script"])), (_l()(), i1.ɵeld(26, 0, null, 0, 2, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(24, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), (_l()(), i1.ɵted(-1, 0, ["Java Script"])), (_l()(), i1.ɵeld(26, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/c-programming"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 27)._checkDisabled($event) !== false);
         ad = (pd_0 && ad);
     } if (("mouseenter" === en)) {
         var pd_1 = (i1.ɵnov(_v, 27)._handleMouseEnter() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(27, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), (_l()(), i1.ɵted(-1, 0, ["C"])), (_l()(), i1.ɵeld(29, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(30, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(31, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(32, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["About"])), (_l()(), i1.ɵeld(34, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } if (("click" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 28).onClick() !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(27, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), i1.ɵdid(28, 16384, null, 0, i11.RouterLink, [i11.Router, i11.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["C"])), (_l()(), i1.ɵeld(30, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(31, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(32, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(33, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Interview Q"])), (_l()(), i1.ɵeld(35, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.hireMe() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(35, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Hire me"])), (_l()(), i1.ɵeld(37, 0, null, null, 13, "mat-sidenav-container", [["class", "example-sidenav-container mat-drawer-container mat-sidenav-container"]], [[4, "marginTop", "px"], [2, "mat-drawer-container-explicit-backdrop", null]], null, null, i19.View_MatSidenavContainer_0, i19.RenderType_MatSidenavContainer)), i1.ɵdid(38, 1490944, null, 2, i20.MatSidenavContainer, [[2, i17.Directionality], i1.ElementRef, i1.NgZone, i1.ChangeDetectorRef, i20.MAT_DRAWER_DEFAULT_AUTOSIZE, [2, i6.ANIMATION_MODULE_TYPE]], null, null), i1.ɵqud(603979776, 5, { _drawers: 1 }), i1.ɵqud(335544320, 6, { _content: 0 }), (_l()(), i1.ɵeld(41, 0, null, 0, 5, "mat-sidenav", [["class", "mat-drawer mat-sidenav"], ["fixedTopGap", "56"], ["tabIndex", "-1"]], [[40, "@transform", 0], [1, "align", 0], [2, "mat-drawer-end", null], [2, "mat-drawer-over", null], [2, "mat-drawer-push", null], [2, "mat-drawer-side", null], [2, "mat-sidenav-fixed", null], [4, "top", "px"], [4, "bottom", "px"]], [["component", "@transform.start"], ["component", "@transform.done"]], function (_v, en, $event) { var ad = true; if (("component:@transform.start" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 42)._onAnimationStart($event) !== false);
+    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(36, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Hire me"])), (_l()(), i1.ɵeld(38, 0, null, null, 13, "mat-sidenav-container", [["class", "example-sidenav-container mat-drawer-container mat-sidenav-container"]], [[4, "marginTop", "px"], [2, "mat-drawer-container-explicit-backdrop", null]], null, null, i19.View_MatSidenavContainer_0, i19.RenderType_MatSidenavContainer)), i1.ɵdid(39, 1490944, null, 2, i20.MatSidenavContainer, [[2, i17.Directionality], i1.ElementRef, i1.NgZone, i1.ChangeDetectorRef, i20.MAT_DRAWER_DEFAULT_AUTOSIZE, [2, i6.ANIMATION_MODULE_TYPE]], null, null), i1.ɵqud(603979776, 5, { _drawers: 1 }), i1.ɵqud(335544320, 6, { _content: 0 }), (_l()(), i1.ɵeld(42, 0, null, 0, 5, "mat-sidenav", [["class", "mat-drawer mat-sidenav"], ["fixedTopGap", "56"], ["tabIndex", "-1"]], [[40, "@transform", 0], [1, "align", 0], [2, "mat-drawer-end", null], [2, "mat-drawer-over", null], [2, "mat-drawer-push", null], [2, "mat-drawer-side", null], [2, "mat-sidenav-fixed", null], [4, "top", "px"], [4, "bottom", "px"]], [["component", "@transform.start"], ["component", "@transform.done"]], function (_v, en, $event) { var ad = true; if (("component:@transform.start" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 43)._onAnimationStart($event) !== false);
         ad = (pd_0 && ad);
     } if (("component:@transform.done" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 42)._onAnimationEnd($event) !== false);
+        var pd_1 = (i1.ɵnov(_v, 43)._onAnimationEnd($event) !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i19.View_MatSidenav_0, i19.RenderType_MatSidenav)), i1.ɵdid(42, 3325952, [[5, 4], [1, 4], ["snav", 4]], 0, i20.MatSidenav, [i1.ElementRef, i5.FocusTrapFactory, i5.FocusMonitor, i4.Platform, i1.NgZone, [2, i12.DOCUMENT]], { mode: [0, "mode"], fixedInViewport: [1, "fixedInViewport"], fixedTopGap: [2, "fixedTopGap"] }, null), (_l()(), i1.ɵeld(43, 0, null, 0, 3, "mat-nav-list", [["class", "mat-nav-list"], ["role", "navigation"]], null, null, null, i9.View_MatNavList_0, i9.RenderType_MatNavList)), i1.ɵdid(44, 49152, null, 0, i10.MatNavList, [], null, null), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_2)), i1.ɵdid(46, 802816, null, 0, i12.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(47, 0, null, 1, 3, "mat-sidenav-content", [["class", "mat-drawer-content mat-sidenav-content"]], [[4, "margin-left", "px"], [4, "margin-right", "px"]], null, null, i19.View_MatSidenavContent_0, i19.RenderType_MatSidenavContent)), i1.ɵdid(48, 1097728, [[6, 4]], 0, i20.MatSidenavContent, [i1.ChangeDetectorRef, i20.MatSidenavContainer], null, null), (_l()(), i1.ɵeld(49, 16777216, null, 0, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(50, 212992, null, 0, i11.RouterOutlet, [i11.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_3 = "primary"; _ck(_v, 3, 0, currVal_3); var currVal_4 = (_co.fillerNav.length > 0); _ck(_v, 6, 0, currVal_4); var currVal_8 = i1.ɵnov(_v, 15); _ck(_v, 11, 0, currVal_8); _ck(_v, 15, 0); var currVal_14 = "/angular"; _ck(_v, 21, 0, currVal_14); _ck(_v, 38, 0); var currVal_40 = (_co.mobileQuery.matches ? "over" : "side"); var currVal_41 = _co.mobileQuery.matches; var currVal_42 = "56"; _ck(_v, 42, 0, currVal_40, currVal_41, currVal_42); var currVal_43 = _co.fillerNav; _ck(_v, 46, 0, currVal_43); _ck(_v, 50, 0); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.mobileQuery.matches; _ck(_v, 1, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 3)._toolbarRows.length; var currVal_2 = !i1.ɵnov(_v, 3)._toolbarRows.length; _ck(_v, 2, 0, currVal_1, currVal_2); var currVal_5 = (i1.ɵnov(_v, 11).menuOpen || null); var currVal_6 = (i1.ɵnov(_v, 12).disabled || null); var currVal_7 = (i1.ɵnov(_v, 12)._animationMode === "NoopAnimations"); _ck(_v, 10, 0, currVal_5, currVal_6, currVal_7); var currVal_9 = i1.ɵnov(_v, 20)._highlighted; var currVal_10 = i1.ɵnov(_v, 20)._triggersSubmenu; var currVal_11 = i1.ɵnov(_v, 20)._getTabIndex(); var currVal_12 = i1.ɵnov(_v, 20).disabled.toString(); var currVal_13 = (i1.ɵnov(_v, 20).disabled || null); _ck(_v, 19, 0, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13); var currVal_15 = i1.ɵnov(_v, 24)._highlighted; var currVal_16 = i1.ɵnov(_v, 24)._triggersSubmenu; var currVal_17 = i1.ɵnov(_v, 24)._getTabIndex(); var currVal_18 = i1.ɵnov(_v, 24).disabled.toString(); var currVal_19 = (i1.ɵnov(_v, 24).disabled || null); _ck(_v, 23, 0, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19); var currVal_20 = i1.ɵnov(_v, 27)._highlighted; var currVal_21 = i1.ɵnov(_v, 27)._triggersSubmenu; var currVal_22 = i1.ɵnov(_v, 27)._getTabIndex(); var currVal_23 = i1.ɵnov(_v, 27).disabled.toString(); var currVal_24 = (i1.ɵnov(_v, 27).disabled || null); _ck(_v, 26, 0, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24); var currVal_25 = (i1.ɵnov(_v, 32).disabled || null); var currVal_26 = (i1.ɵnov(_v, 32)._animationMode === "NoopAnimations"); _ck(_v, 31, 0, currVal_25, currVal_26); var currVal_27 = (i1.ɵnov(_v, 35).disabled || null); var currVal_28 = (i1.ɵnov(_v, 35)._animationMode === "NoopAnimations"); _ck(_v, 34, 0, currVal_27, currVal_28); var currVal_29 = (_co.mobileQuery.matches ? 56 : 0); var currVal_30 = i1.ɵnov(_v, 38)._backdropOverride; _ck(_v, 37, 0, currVal_29, currVal_30); var currVal_31 = i1.ɵnov(_v, 42)._animationState; var currVal_32 = null; var currVal_33 = (i1.ɵnov(_v, 42).position === "end"); var currVal_34 = (i1.ɵnov(_v, 42).mode === "over"); var currVal_35 = (i1.ɵnov(_v, 42).mode === "push"); var currVal_36 = (i1.ɵnov(_v, 42).mode === "side"); var currVal_37 = i1.ɵnov(_v, 42).fixedInViewport; var currVal_38 = (i1.ɵnov(_v, 42).fixedInViewport ? i1.ɵnov(_v, 42).fixedTopGap : null); var currVal_39 = (i1.ɵnov(_v, 42).fixedInViewport ? i1.ɵnov(_v, 42).fixedBottomGap : null); _ck(_v, 41, 0, currVal_31, currVal_32, currVal_33, currVal_34, currVal_35, currVal_36, currVal_37, currVal_38, currVal_39); var currVal_44 = i1.ɵnov(_v, 48)._container._contentMargins.left; var currVal_45 = i1.ɵnov(_v, 48)._container._contentMargins.right; _ck(_v, 47, 0, currVal_44, currVal_45); }); }
+    } return ad; }, i19.View_MatSidenav_0, i19.RenderType_MatSidenav)), i1.ɵdid(43, 3325952, [[5, 4], [1, 4], ["snav", 4]], 0, i20.MatSidenav, [i1.ElementRef, i5.FocusTrapFactory, i5.FocusMonitor, i4.Platform, i1.NgZone, [2, i12.DOCUMENT]], { mode: [0, "mode"], fixedInViewport: [1, "fixedInViewport"], fixedTopGap: [2, "fixedTopGap"] }, null), (_l()(), i1.ɵeld(44, 0, null, 0, 3, "mat-nav-list", [["class", "mat-nav-list"], ["role", "navigation"]], null, null, null, i9.View_MatNavList_0, i9.RenderType_MatNavList)), i1.ɵdid(45, 49152, null, 0, i10.MatNavList, [], null, null), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_2)), i1.ɵdid(47, 802816, null, 0, i12.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(48, 0, null, 1, 3, "mat-sidenav-content", [["class", "mat-drawer-content mat-sidenav-content"]], [[4, "margin-left", "px"], [4, "margin-right", "px"]], null, null, i19.View_MatSidenavContent_0, i19.RenderType_MatSidenavContent)), i1.ɵdid(49, 1097728, [[6, 4]], 0, i20.MatSidenavContent, [i1.ChangeDetectorRef, i20.MatSidenavContainer], null, null), (_l()(), i1.ɵeld(50, 16777216, null, 0, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(51, 212992, null, 0, i11.RouterOutlet, [i11.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_3 = "primary"; _ck(_v, 3, 0, currVal_3); var currVal_4 = (_co.fillerNav.length > 0); _ck(_v, 6, 0, currVal_4); var currVal_8 = i1.ɵnov(_v, 15); _ck(_v, 11, 0, currVal_8); _ck(_v, 15, 0); var currVal_14 = "/angular"; _ck(_v, 21, 0, currVal_14); var currVal_25 = "/c-programming"; _ck(_v, 28, 0, currVal_25); _ck(_v, 39, 0); var currVal_41 = (_co.mobileQuery.matches ? "over" : "side"); var currVal_42 = _co.mobileQuery.matches; var currVal_43 = "56"; _ck(_v, 43, 0, currVal_41, currVal_42, currVal_43); var currVal_44 = _co.fillerNav; _ck(_v, 47, 0, currVal_44); _ck(_v, 51, 0); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.mobileQuery.matches; _ck(_v, 1, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 3)._toolbarRows.length; var currVal_2 = !i1.ɵnov(_v, 3)._toolbarRows.length; _ck(_v, 2, 0, currVal_1, currVal_2); var currVal_5 = (i1.ɵnov(_v, 11).menuOpen || null); var currVal_6 = (i1.ɵnov(_v, 12).disabled || null); var currVal_7 = (i1.ɵnov(_v, 12)._animationMode === "NoopAnimations"); _ck(_v, 10, 0, currVal_5, currVal_6, currVal_7); var currVal_9 = i1.ɵnov(_v, 20)._highlighted; var currVal_10 = i1.ɵnov(_v, 20)._triggersSubmenu; var currVal_11 = i1.ɵnov(_v, 20)._getTabIndex(); var currVal_12 = i1.ɵnov(_v, 20).disabled.toString(); var currVal_13 = (i1.ɵnov(_v, 20).disabled || null); _ck(_v, 19, 0, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13); var currVal_15 = i1.ɵnov(_v, 24)._highlighted; var currVal_16 = i1.ɵnov(_v, 24)._triggersSubmenu; var currVal_17 = i1.ɵnov(_v, 24)._getTabIndex(); var currVal_18 = i1.ɵnov(_v, 24).disabled.toString(); var currVal_19 = (i1.ɵnov(_v, 24).disabled || null); _ck(_v, 23, 0, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19); var currVal_20 = i1.ɵnov(_v, 27)._highlighted; var currVal_21 = i1.ɵnov(_v, 27)._triggersSubmenu; var currVal_22 = i1.ɵnov(_v, 27)._getTabIndex(); var currVal_23 = i1.ɵnov(_v, 27).disabled.toString(); var currVal_24 = (i1.ɵnov(_v, 27).disabled || null); _ck(_v, 26, 0, currVal_20, currVal_21, currVal_22, currVal_23, currVal_24); var currVal_26 = (i1.ɵnov(_v, 33).disabled || null); var currVal_27 = (i1.ɵnov(_v, 33)._animationMode === "NoopAnimations"); _ck(_v, 32, 0, currVal_26, currVal_27); var currVal_28 = (i1.ɵnov(_v, 36).disabled || null); var currVal_29 = (i1.ɵnov(_v, 36)._animationMode === "NoopAnimations"); _ck(_v, 35, 0, currVal_28, currVal_29); var currVal_30 = (_co.mobileQuery.matches ? 56 : 0); var currVal_31 = i1.ɵnov(_v, 39)._backdropOverride; _ck(_v, 38, 0, currVal_30, currVal_31); var currVal_32 = i1.ɵnov(_v, 43)._animationState; var currVal_33 = null; var currVal_34 = (i1.ɵnov(_v, 43).position === "end"); var currVal_35 = (i1.ɵnov(_v, 43).mode === "over"); var currVal_36 = (i1.ɵnov(_v, 43).mode === "push"); var currVal_37 = (i1.ɵnov(_v, 43).mode === "side"); var currVal_38 = i1.ɵnov(_v, 43).fixedInViewport; var currVal_39 = (i1.ɵnov(_v, 43).fixedInViewport ? i1.ɵnov(_v, 43).fixedTopGap : null); var currVal_40 = (i1.ɵnov(_v, 43).fixedInViewport ? i1.ɵnov(_v, 43).fixedBottomGap : null); _ck(_v, 42, 0, currVal_32, currVal_33, currVal_34, currVal_35, currVal_36, currVal_37, currVal_38, currVal_39, currVal_40); var currVal_45 = i1.ɵnov(_v, 49)._container._contentMargins.left; var currVal_46 = i1.ɵnov(_v, 49)._container._contentMargins.right; _ck(_v, 48, 0, currVal_45, currVal_46); }); }
 exports.View_MenuBarComponent_0 = View_MenuBarComponent_0;
 function View_MenuBarComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-menu-bar", [], null, null, null, View_MenuBarComponent_0, RenderType_MenuBarComponent)), i1.ɵdid(1, 4440064, null, 0, i21.MenuBarComponent, [i1.ChangeDetectorRef, i22.MediaMatcher, i23.CommunicationService, i11.Router], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MenuBarComponent_Host_0 = View_MenuBarComponent_Host_0;
@@ -1896,7 +5040,7 @@ exports.styles = styles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var layout_1 = __webpack_require__(/*! @angular/cdk/layout */ "@angular/cdk/layout");
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var comunication_service_1 = __webpack_require__(/*! ./../comunication.service */ "./src/app/comunication.service.ts");
+var comunication_service_1 = __webpack_require__(/*! ../comunication.service */ "./src/app/comunication.service.ts");
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var MenuBarComponent = /** @class */ (function () {
     function MenuBarComponent(changeDetectorRef, media, communicationService, router) {
@@ -1984,14 +5128,14 @@ var SEOService = /** @class */ (function () {
         });
     };
     SEOService.prototype.updateMetaTags = function (metaObj) {
+        this.meta.updateTag({ property: 'og:title', content: metaObj.title });
         this.meta.updateTag({ name: 'description', content: metaObj.description });
         this.meta.updateTag({ httpEquiv: 'Content-Type', content: 'application/json' }, 'httpEquiv= "Content-Type"');
-        this.meta.updateTag({ name: 'robots', content: 'NOINDEX, NOFOLLOW' });
+        this.meta.updateTag({ name: 'robots', content: 'INDEX, FOLLOW' });
         this.meta.updateTag({ name: 'keywords', content: metaObj.keywords });
         this.meta.updateTag({ name: 'date', content: '2018-06-03', scheme: 'YYYY-MM-DD' });
         this.meta.updateTag({ name: 'author', content: 'ajaychagam' });
         this.meta.updateTag({ charset: 'UTF-16' }, 'charset= "UTF-8"');
-        this.meta.updateTag({ property: 'og:title', content: metaObj.title });
         this.meta.updateTag({ property: 'og:type', content: metaObj.website });
     };
     SEOService.prototype.removeMetaTags = function () {
@@ -2060,6 +5204,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_server_module_ngfactory_1 = __webpack_require__(/*! ./app/app.server.module.ngfactory */ "./src/app/app.server.module.ngfactory.js");
 exports.AppServerModuleNgFactory = app_server_module_ngfactory_1.AppServerModuleNgFactory;
 var __lazy_0__ = __webpack_require__(/*! ./app/angular-tut/angular-tut.module.ngfactory.js */ "./src/app/angular-tut/angular-tut.module.ngfactory.js");
+var __lazy_1__ = __webpack_require__(/*! ./app/c-language/c-language.module.ngfactory.js */ "./src/app/c-language/c-language.module.ngfactory.js");
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var environment_1 = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 if (environment_1.environment.production) {
@@ -2067,7 +5212,7 @@ if (environment_1.environment.production) {
 }
 var app_server_module_1 = __webpack_require__(/*! ./app/app.server.module */ "./src/app/app.server.module.ts");
 exports.AppServerModule = app_server_module_1.AppServerModule;
-exports.LAZY_MODULE_MAP = { "./angular-tut/angular-tut.module#AngularTutModule": __lazy_0__.AngularTutModuleNgFactory };
+exports.LAZY_MODULE_MAP = { "./angular-tut/angular-tut.module#AngularTutModule": __lazy_0__.AngularTutModuleNgFactory, "./c-language/c-language.module#CLanguageModule": __lazy_1__.CLanguageModuleNgFactory };
 
 
 /***/ }),

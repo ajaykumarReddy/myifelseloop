@@ -4,7 +4,9 @@
     custom html elements which can be used in other application like React, Vue and other angular applications.
   </p>
   <p>Now let start how to create angular elements</p>
-  <div class="text-headline">1. Step1: installation</div>
+  <div class="text-headline">
+    <strong> installation</strong>
+  </div>
   <p>create a new project using angular-cli as like below</p>
   <div class="code-text">
     <code>ng new my-angular-elements</code>
@@ -26,7 +28,9 @@
     </pre>
   </div>
 
-  <div class="text-headline">Step1: Create Componet</div>
+  <div class="text-headline">
+    <strong>Step1: Create Componet</strong>
+  </div>
 
   <p> Create a component as follows or usig angular cli , ng g c componentname </p>
   <pre class="pre-text">
@@ -34,7 +38,9 @@
   </pre>
   <p>Now we can start making this component as angular-elements</p>
 
-  <div class="text-headline">Step2: Componet Declaration</div>
+  <div class="text-headline">
+    <strong>Step2: Componet Declaration</strong>
+  </div>
 
   <pre class="pre-text">
     <code [innerHTML]="componentDeclar"></code>
@@ -48,7 +54,9 @@
       <li>bootstap array should be empty</li>
     </ul>
   </div>
-  <div class="text-headline">Step3: Create Angular Element</div>
+  <div class="text-headline">
+    <strong>Step3: Create Angular Element</strong>
+  </div>
   <p>Add the following code to your appModule</p>
 
   <pre class="pre-text">
@@ -75,5 +83,8 @@
   </div>
   <p>By simply adding the above generated hello-element.js file to index.html and the then run your application.
   </p>
+  <pre class="pre-text">
+      <code>{{addCustomElem}}</code>
+    </pre>
 
 </div>

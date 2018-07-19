@@ -14,6 +14,7 @@ export class AngularElementComponent implements OnInit {
   elementsCode: string;
   html_element_code: string;
   buildsScript: string;
+  addCustomElem: string;
   constructor(private title: Title) {
     this.title.setTitle('how to create angular elements');
     this.html_element_code = `
@@ -71,6 +72,10 @@ export class AngularElementComponent implements OnInit {
   "build": "ng build --prod --output-hashing=none",
   "package":"cat dist/{runtime,polyfills,scripts,main}.js
            | gzip > hello-element.js.gz"`;
+
+    this.addCustomElem = `
+           <app-hello wish='Hello World'></app-hello>
+           `;
 
   }
 

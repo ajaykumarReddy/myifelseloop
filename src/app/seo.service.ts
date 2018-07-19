@@ -36,14 +36,14 @@ export class SEOService {
     });
   }
   updateMetaTags(metaObj: any) {
+    this.meta.updateTag({ property: 'og:title', content: metaObj.title });
     this.meta.updateTag({ name: 'description', content: metaObj.description });
     this.meta.updateTag({ httpEquiv: 'Content-Type', content: 'application/json' }, 'httpEquiv= "Content-Type"');
-    this.meta.updateTag({ name: 'robots', content: 'NOINDEX, NOFOLLOW' });
+    this.meta.updateTag({ name: 'robots', content: 'INDEX, FOLLOW' });
     this.meta.updateTag({ name: 'keywords', content: metaObj.keywords });
     this.meta.updateTag({ name: 'date', content: '2018-06-03', scheme: 'YYYY-MM-DD' });
     this.meta.updateTag({ name: 'author', content: 'ajaychagam' });
     this.meta.updateTag({ charset: 'UTF-16' }, 'charset= "UTF-8"');
-    this.meta.updateTag({ property: 'og:title', content: metaObj.title });
     this.meta.updateTag({ property: 'og:type', content: metaObj.website });
   }
   removeMetaTags() {

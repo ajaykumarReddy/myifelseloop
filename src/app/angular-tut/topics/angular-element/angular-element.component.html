@@ -1,4 +1,42 @@
 <div class="main-container">
   <h3>Steps to Create Angular Elements</h3>
-  <div class="text-headline">5.Angular Is A Fully Matured Framework</div>
+  <p>Angular Elements are introduced in angular6 new features, using angular elements we can Create our own reuseble custom
+    html elements which can be used in other application like React, Vue and other angular applications.
+  </p>
+  <p>Now let start how to create angular elements</p>
+  <div class="text-headline">1. Step1: installation</div>
+  <p>create a new project using angular-cli as like below</p>
+  <div class="code-text">
+    <code>ng new my-angular-elements</code>
+  </div>
+
+  <p>After project is created succesfully go to the project directory and run the following commands </p>
+
+  <div class="code-text">
+    <code>npm install @angular/elements</code>
+  </div>
+  <div class="l-sub-section">
+    <p>To make it works in old browsers make some changes in polyfill as below </p>
+    <div class="code-text">
+      <code>npm install @webcomponents/custom-elements</code>
+    </div>
+    <p>After done with polyfill installation , add these below lines to polyfill.ts</p>
+    <pre class="pre-text">
+      <code [innerHTML]="polyfill"></code>
+    </pre>
+  </div>
+
+  <div class="text-headline">1. Step2: Create Componet</div>
+
+  <p> Create a component as follows or usig angular cli , ng g c componentname </p>
+  <pre class="pre-text">
+    <code [innerHTML]="componentElm"></code>
+  </pre>
+  <p>Now we can start using this component as angular-elements</p>
+
+  <div class="text-headline">3. Step3: Componet Declaration</div>
+
+  <pre class="pre-text">
+    <code [innerHTML]="componentDeclar"></code>
+  </pre>
 </div>

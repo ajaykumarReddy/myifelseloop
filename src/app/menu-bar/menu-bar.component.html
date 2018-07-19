@@ -7,7 +7,12 @@
     <!-- </span> -->
     <img src="../../assets/ifelseloop.png.jpg" height="30px" width="30px" />
     <span (click)="goToPage()" class="main-title pointer">&nbsp;Ifelseloop &nbsp; &nbsp;</span>
-    <button class="title-font" mat-button>Blogs</button>
+    <button mat-button [matMenuTriggerFor]="menu">Tutorials</button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="/angular" class="menu-bar-font" mat-menu-item>Angular</button>
+      <button class="menu-bar-font" mat-menu-item>Java Script</button>
+      <button class="menu-bar-font" mat-menu-item>C</button>
+    </mat-menu>
     <span class="spacer"></span>
     <span class="spacer"></span>
     <button class="title-font" mat-button>About</button>
@@ -23,6 +28,8 @@
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
+
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 

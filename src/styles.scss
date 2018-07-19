@@ -45,8 +45,7 @@ body{
 
 .text-headline {
   font-size: 15px;
-  font-weight: 400;
-  color:#3f51b5;
+  //color:#3f51b5;
   margin-top: 10px;
   //text-transform: uppercase;
 }
@@ -73,6 +72,12 @@ body{
   background: #282c34;
   font-size: 12px;
   padding-left: 5px;
+}
+
+.menu-bar-font{
+  font-size: 12px;
+  margin: 0px;padding: 1px;
+  height: 35px;
 }
 
 

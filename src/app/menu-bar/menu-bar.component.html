@@ -10,7 +10,7 @@
     <button mat-button [matMenuTriggerFor]="menu">Tutorials</button>
     <mat-menu #menu="matMenu">
       <button routerLink="/angular" class="menu-bar-font" mat-menu-item>Angular</button>
-      <button class="menu-bar-font" mat-menu-item>Java Script</button>
+      <button routerLink="/js-module" class="menu-bar-font" mat-menu-item>Java Script</button>
       <button routerLink="/c-programming" class="menu-bar-font" mat-menu-item>C</button>
     </mat-menu>
     <span class="spacer"></span>
@@ -28,6 +28,7 @@
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
+
 
     </mat-sidenav-content>
   </mat-sidenav-container>

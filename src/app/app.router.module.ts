@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './c-language/c-language.module#CLanguageModule'
   },
   {
+    path: 'js-module',
+    loadChildren: './javascript/javascript.module#JavaScriptModule'
+  },
+  {
     path: 'hireme',
     component: HiremeComponent
   },

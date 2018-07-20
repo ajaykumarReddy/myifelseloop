@@ -4559,8 +4559,6 @@ var ClanguagemenuComponent = /** @class */ (function () {
     ClanguagemenuComponent.prototype.ngOnInit = function () {
         var cTopics = [
             { name: 'C Intoduction', route: '/c-programming' },
-            { name: 'Constants', route: '/c-programming/constants' },
-            { name: 'Variables', route: '/c-programming/variables' },
         ];
         this.communicationService.setMenuItems(cTopics);
     };

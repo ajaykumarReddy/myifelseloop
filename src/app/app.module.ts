@@ -18,7 +18,7 @@ import { HiremeComponent } from './hireme/hireme.component';
     HiremeComponent
   ],
   imports: [
-  CommonModule,
+    CommonModule,
     NgtUniversalModule,
     MaterialModule,
     AppRoutingModule,

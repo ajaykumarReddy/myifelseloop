@@ -1,0 +1,48 @@
+<div class="main-container">
+  <h1>Maps in Javascript ES6</h1>
+  <p> In Javascript es6 , there were many features introduced one of them and most usefull feature is Map. </p>
+
+  <p>A Map is an unordered list of key-values pairs where the key and the value can be of any type.</p>
+
+  <div class="text-headline">
+    <strong>Create Map</strong>
+  </div>
+
+  <app-pre-code [code]="createMap"></app-pre-code>
+  <p>In the array of arrays, each array represents a key-value pair. The first item in each array will become the key, the second
+    will be the value. The structure may look odd, but it is the best way to make sure we can allow any type of data for
+    keys.
+  </p>
+
+  <div class="text-headline">
+    <strong>Methods in Map</strong>
+  </div>
+
+  <app-pre-code [code]="methodsInMap"></app-pre-code>
+  <app-text-headline text='Objects as key in Map'></app-text-headline>
+  <p>Objects can be used as keys in a map.</p>
+  <app-pre-code [code]="objectsAsKeys"></app-pre-code>
+  <p>As you can see, even though we are are using two empty objects as keys, we are using the references of those objects in
+    the map. Therefore, Object.is(), who is used for comparing the keys, returns false. Again, notice that the object are
+    not coerced into strings.</p>
+  <app-text-headline text='Iteration'></app-text-headline>
+  <app-pre-code [code]="iterationMap"></app-pre-code>
+
+  <h1>Weak Maps</h1>
+  <p>Weak maps obey the same principle of weak sets. In a Weak Map, every key must be an object. Weak maps are used to store
+    weak object references. What does that mean?</p>
+  <app-pre-code [code]="weakMap"></app-pre-code>
+
+  <p>In this case, our object's reference still exists in the map. Removing the reference everywhere else does not remove it
+    from the map. It is not garbage collected to free memory. In certain cases, you would want to optimize memory usage and
+    avoid memory leaks. This is what a WeakMap does for you. If the reference of an object disappear everywhere else in your
+    program, it will be removed from the WeakSet also.</p>
+
+  <app-pre-code [code]="weakMapCode"></app-pre-code>
+
+  <app-text-headline text="Use cases for WeakMap"></app-text-headline>
+
+  <p>One possible use case for WeakMap could be when you are tracking DOM elements. By using a WeakMap, you could store DOM
+    elements as keys. As soon as the element is removed, the object will be garbage collected to free memory.</p>
+  <app-pre-code [code]="useCases"></app-pre-code>
+</div>

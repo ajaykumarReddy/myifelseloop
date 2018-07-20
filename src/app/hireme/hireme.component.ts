@@ -10,16 +10,16 @@ import { SEOService } from '../seo.service';
 export class HiremeComponent implements OnInit {
 
   constructor(private title: Title, private seo: SEOService) {
-    this.title.setTitle('hire me');
+    this.title.setTitle('angular developer for freelance | angular developer for remote project');
   }
 
   ngOnInit() {
     const metaData = {
-      description: `My name is Ajay kumar Chagam, I am passinate about the new UI side techologies like angular, react ,
-      vue and java script as well java , j2ee technologies.`,
+      description: `My name is Ajay kumar Chagam, I am passinate about UI side techologies like angular, react ,
+      vue and java script as well java , j2ee technologies. i have been working for developed multiple remote projects successfully.`,
       keywords: `angular developer for hire, angular developer from india,
       angular developer, freelance angular developer, angular developer for freelance, angular developer for remote project work`,
-      title: 'angular developer for freelancer',
+      title: 'freelancer for angular developer',
       website: 'https://ifelseloop.com/hireme'
     };
     this.seo.updateMetaTags(metaData);

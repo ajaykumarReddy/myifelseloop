@@ -6,12 +6,28 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
-  <loc>https://ifelseloop.com/</loc>
-  <lastmod>2018-07-19T17:26:31+00:00</lastmod>
+  <loc>https://ifelseloop.com/rxjs/</loc>
+  <lastmod>2018-07-22T17:26:31+00:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 
+<url>
+  <loc>https://ifelseloop.com/angular/http-operators</loc>
+  <lastmod>2018-07-22T17:26:31+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://ifelseloop.com/angular/vs-code-ext/</loc>
+  <lastmod>2018-07-22T17:26:31+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+
+<url>
+  <loc>https://ifelseloop.com/js-module</loc>
+  <lastmod>2018-07-22T17:26:31+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
 
 </urlset>

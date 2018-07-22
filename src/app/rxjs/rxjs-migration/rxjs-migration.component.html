@@ -1,0 +1,24 @@
+<div class="main-container">
+  <h1>Migrating Angular Apps to RxJS v6 </h1>
+  <p>RxJs 5 Operators are not treeshackable for bundling So by migrating Rxjs5 to Rxjs6 you can make all Rxjs operators as treeshackable.
+    So that bundle size will get decreased so will get more performance</p>
+  <p>I will be showing how to migrate from Rxjs5 to Rxjs6</p>
+
+  <h1>Rxjs5 code will looks like as below</h1>
+
+  <app-pre-code [code]="rxjs5"></app-pre-code>
+
+  <p>The above code is written in rxjs5 </p>
+  <h1>Migration</h1>
+  <p>Go to project directory and install rxjs-lint as below </p>
+  <div class="code-text">
+    <code>yarn add rxjs-tslint</code>
+  </div>
+  <p>And then you need to do the following command in project directory.</p>
+  <div class="code-text">
+    <code>rxjs-5-to-6-migrate -p src/tsconfig.app.json</code>
+  </div>
+  <app-pre-code [code]="rxjs6"></app-pre-code>
+  <p>Now all the rxjx5 code changed to rxjs6 so it can be treeshackable and using pipe operators its more cleaner way to implement
+    all the operators.</p>
+</div>

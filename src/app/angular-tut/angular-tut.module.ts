@@ -8,10 +8,14 @@ import { AngularPlaceholderComponent } from './topics/angular-placeholder/angula
 import { HttpClientComponent } from './topics/http-client/http-client.component';
 import { AngularServiceComponent } from './topics/angular-service/angular-service.component';
 import { AngularElementComponent } from './topics/angular-element/angular-element.component';
+import { HttpOperatorsComponent } from './topics/http-operators/http-operators.component';
+import { SharedModule } from './../shared-module/shared.module';
+import { VsCodeExtensionComponent } from './topics/vs-code-extension/vs-code-extension.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     AngularRoutingModule,
     MaterialModule
   ],
@@ -21,7 +25,9 @@ import { AngularElementComponent } from './topics/angular-element/angular-elemen
     AngularPlaceholderComponent,
     HttpClientComponent,
     AngularServiceComponent,
-    AngularElementComponent
+    AngularElementComponent,
+    HttpOperatorsComponent,
+    VsCodeExtensionComponent
   ]
 })
 export class AngularTutModule { }

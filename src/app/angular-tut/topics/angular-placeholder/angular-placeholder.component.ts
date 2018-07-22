@@ -16,7 +16,10 @@ export class AngularPlaceholderComponent implements OnInit {
       { name: 'Create Applicaton', route: '/angular/create-angular-app' },
       { name: 'HttpClient', route: '/angular/http-client' },
       { name: 'Services', route: '/angular/http-service' },
-      { name: 'Angular-Elements', route: '/angular/angular-element' }];
+      { name: 'Angular-Elements', route: '/angular/angular-element' },
+      { name: 'Http-Operators', route: '/angular/http-operators' },
+      { name: 'vscode-extensions', route: '/angular/vs-code-ext' },
+    ];
     this.communicationService.setMenuItems(angularTopics);
   }
 

@@ -1,0 +1,40 @@
+<div class="main-container">
+  <h1>Angular Http Operators for Caching</h1>
+
+  <app-text-headline text='Create Application'></app-text-headline>
+  <p>Create angular application using Angular-CLI as below commands</p>
+  <div class="code-text">
+    <code>ng new my-http-operators</code>
+  </div>
+  <p>And then add HttpClientModule to imports array of root module as follows</p>
+  <app-pre-code [code]="myhttpclient"></app-pre-code>
+  <p>After that import HttpClient service into your component and then make an http call</p>
+  <p>You can find all these code in live example at the end</p>
+  <h1>Use of Http Operators</h1>
+  <app-pre-code [code]="httpMap"></app-pre-code>
+
+  <div class="l-sub-section">
+    <p>1. Import HttpClient.</p>
+    <p>2. Make the http get call to retrive all the github repos of angular.</p>
+    <p>3. Used rxjs map operators to transform results. </p>
+  </div>
+  <h1>Install Http-Operators</h1>
+  <div class="code-text">
+    <code>yarn add http-operators</code>
+  </div>
+
+  <app-pre-code [code]="httpOperators"></app-pre-code>
+
+  <p>Lets talk about the operators</p>
+  <h1>ShareAndCache</h1>
+  <p>shareAndCache will be caching the repos data in localStorage once its gets from the server and share the stored data accross
+    all the subscribers.</p>
+  <p>So, Once get the data and cache it and share to all others subscribption</p>
+  <h1>KeepFresh</h1>
+  <p>keepFresh will be getting the fresh data from server evvery 10ms and update the results.</p>
+  <h1>RetryExponentialBackoff</h1>
+  <p>retryExponentialBackoff will be used to stop making calls after 3 retry if there are any errors with service calls </p>
+  <h1>Explore Example Here</h1>
+  <div id="myDiv"></div>
+
+</div>

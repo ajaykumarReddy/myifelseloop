@@ -3303,6 +3303,8 @@ var angular_placeholder_component_1 = __webpack_require__(/*! ./topics/angular-p
 var http_client_component_1 = __webpack_require__(/*! ./topics/http-client/http-client.component */ "./src/app/angular-tut/topics/http-client/http-client.component.ts");
 var angular_service_component_1 = __webpack_require__(/*! ./topics/angular-service/angular-service.component */ "./src/app/angular-tut/topics/angular-service/angular-service.component.ts");
 var angular_element_component_1 = __webpack_require__(/*! ./topics/angular-element/angular-element.component */ "./src/app/angular-tut/topics/angular-element/angular-element.component.ts");
+var http_operators_component_1 = __webpack_require__(/*! ./topics/http-operators/http-operators.component */ "./src/app/angular-tut/topics/http-operators/http-operators.component.ts");
+var vs_code_extension_component_1 = __webpack_require__(/*! ./topics/vs-code-extension/vs-code-extension.component */ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ts");
 var routes = [
     {
         path: '',
@@ -3327,6 +3329,14 @@ var routes = [
             {
                 path: 'angular-element',
                 component: angular_element_component_1.AngularElementComponent
+            },
+            {
+                path: 'http-operators',
+                component: http_operators_component_1.HttpOperatorsComponent
+            },
+            {
+                path: 'vs-code-ext',
+                component: vs_code_extension_component_1.VsCodeExtensionComponent
             }
         ]
     }
@@ -3366,32 +3376,37 @@ var i5 = __webpack_require__(/*! ./topics/angular-create-app/angular-create-app.
 var i6 = __webpack_require__(/*! ./topics/http-client/http-client.component.ngfactory */ "./src/app/angular-tut/topics/http-client/http-client.component.ngfactory.js");
 var i7 = __webpack_require__(/*! ./topics/angular-service/angular-service.component.ngfactory */ "./src/app/angular-tut/topics/angular-service/angular-service.component.ngfactory.js");
 var i8 = __webpack_require__(/*! ./topics/angular-element/angular-element.component.ngfactory */ "./src/app/angular-tut/topics/angular-element/angular-element.component.ngfactory.js");
-var i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i10 = __webpack_require__(/*! @angular/cdk/overlay */ "@angular/cdk/overlay");
-var i11 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
-var i12 = __webpack_require__(/*! @angular/material/menu */ "@angular/material/menu");
-var i13 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i14 = __webpack_require__(/*! ./angular-tut-routing */ "./src/app/angular-tut/angular-tut-routing.ts");
-var i15 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
-var i16 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
-var i17 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
-var i18 = __webpack_require__(/*! @angular/cdk/scrolling */ "@angular/cdk/scrolling");
-var i19 = __webpack_require__(/*! @angular/material/sidenav */ "@angular/material/sidenav");
-var i20 = __webpack_require__(/*! @angular/material/divider */ "@angular/material/divider");
-var i21 = __webpack_require__(/*! @angular/material/list */ "@angular/material/list");
-var i22 = __webpack_require__(/*! @angular/material/icon */ "@angular/material/icon");
-var i23 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
-var i24 = __webpack_require__(/*! @angular/cdk/portal */ "@angular/cdk/portal");
-var i25 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
-var i26 = __webpack_require__(/*! @angular/material/grid-list */ "@angular/material/grid-list");
-var i27 = __webpack_require__(/*! ../material_module/material.module */ "./src/app/material_module/material.module.ts");
-var i28 = __webpack_require__(/*! ./topics/angular-placeholder/angular-placeholder.component */ "./src/app/angular-tut/topics/angular-placeholder/angular-placeholder.component.ts");
-var i29 = __webpack_require__(/*! ./topics/angular-introd/angular-introd.component */ "./src/app/angular-tut/topics/angular-introd/angular-introd.component.ts");
-var i30 = __webpack_require__(/*! ./topics/angular-create-app/angular-create-app.component */ "./src/app/angular-tut/topics/angular-create-app/angular-create-app.component.ts");
-var i31 = __webpack_require__(/*! ./topics/http-client/http-client.component */ "./src/app/angular-tut/topics/http-client/http-client.component.ts");
-var i32 = __webpack_require__(/*! ./topics/angular-service/angular-service.component */ "./src/app/angular-tut/topics/angular-service/angular-service.component.ts");
-var i33 = __webpack_require__(/*! ./topics/angular-element/angular-element.component */ "./src/app/angular-tut/topics/angular-element/angular-element.component.ts");
-var AngularTutModuleNgFactory = i0.ɵcmf(i1.AngularTutModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.AngularPlaceholderComponentNgFactory, i4.AngularIntrodComponentNgFactory, i5.AngularCreateAppComponentNgFactory, i6.HttpClientComponentNgFactory, i7.AngularServiceComponentNgFactory, i8.AngularElementComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i10.Overlay, i10.Overlay, [i10.ScrollStrategyOptions, i10.OverlayContainer, i0.ComponentFactoryResolver, i10.OverlayPositionBuilder, i10.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i9.DOCUMENT, i11.Directionality]), i0.ɵmpd(5120, i10.ɵc, i10.ɵd, [i10.Overlay]), i0.ɵmpd(5120, i12.MAT_MENU_SCROLL_STRATEGY, i12.ɵd24, [i10.Overlay]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i14.AngularRoutingModule, i14.AngularRoutingModule, []), i0.ɵmpd(1073742336, i11.BidiModule, i11.BidiModule, []), i0.ɵmpd(1073742336, i15.MatCommonModule, i15.MatCommonModule, [[2, i15.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i16.MatCardModule, i16.MatCardModule, []), i0.ɵmpd(1073742336, i17.PlatformModule, i17.PlatformModule, []), i0.ɵmpd(1073742336, i18.ScrollDispatchModule, i18.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i19.MatSidenavModule, i19.MatSidenavModule, []), i0.ɵmpd(1073742336, i15.MatLineModule, i15.MatLineModule, []), i0.ɵmpd(1073742336, i15.MatRippleModule, i15.MatRippleModule, []), i0.ɵmpd(1073742336, i15.MatPseudoCheckboxModule, i15.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i20.MatDividerModule, i20.MatDividerModule, []), i0.ɵmpd(1073742336, i21.MatListModule, i21.MatListModule, []), i0.ɵmpd(1073742336, i22.MatIconModule, i22.MatIconModule, []), i0.ɵmpd(1073742336, i23.MatButtonModule, i23.MatButtonModule, []), i0.ɵmpd(1073742336, i24.PortalModule, i24.PortalModule, []), i0.ɵmpd(1073742336, i10.OverlayModule, i10.OverlayModule, []), i0.ɵmpd(1073742336, i12.MatMenuModule, i12.MatMenuModule, []), i0.ɵmpd(1073742336, i25.MatToolbarModule, i25.MatToolbarModule, []), i0.ɵmpd(1073742336, i26.MatGridListModule, i26.MatGridListModule, []), i0.ɵmpd(1073742336, i27.MaterialModule, i27.MaterialModule, []), i0.ɵmpd(1073742336, i1.AngularTutModule, i1.AngularTutModule, []), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", component: i28.AngularPlaceholderComponent, children: [{ path: "", component: i29.AngularIntrodComponent }, { path: "create-angular-app", component: i30.AngularCreateAppComponent }, { path: "http-client", component: i31.HttpClientComponent }, { path: "http-service", component: i32.AngularServiceComponent }, { path: "angular-element", component: i33.AngularElementComponent }] }]]; }, [])]); });
+var i9 = __webpack_require__(/*! ./topics/http-operators/http-operators.component.ngfactory */ "./src/app/angular-tut/topics/http-operators/http-operators.component.ngfactory.js");
+var i10 = __webpack_require__(/*! ./topics/vs-code-extension/vs-code-extension.component.ngfactory */ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ngfactory.js");
+var i11 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i12 = __webpack_require__(/*! @angular/cdk/overlay */ "@angular/cdk/overlay");
+var i13 = __webpack_require__(/*! @angular/cdk/bidi */ "@angular/cdk/bidi");
+var i14 = __webpack_require__(/*! @angular/material/menu */ "@angular/material/menu");
+var i15 = __webpack_require__(/*! ../shared-module/shared.module */ "./src/app/shared-module/shared.module.ts");
+var i16 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i17 = __webpack_require__(/*! ./angular-tut-routing */ "./src/app/angular-tut/angular-tut-routing.ts");
+var i18 = __webpack_require__(/*! @angular/material/core */ "@angular/material/core");
+var i19 = __webpack_require__(/*! @angular/material/card */ "@angular/material/card");
+var i20 = __webpack_require__(/*! @angular/cdk/platform */ "@angular/cdk/platform");
+var i21 = __webpack_require__(/*! @angular/cdk/scrolling */ "@angular/cdk/scrolling");
+var i22 = __webpack_require__(/*! @angular/material/sidenav */ "@angular/material/sidenav");
+var i23 = __webpack_require__(/*! @angular/material/divider */ "@angular/material/divider");
+var i24 = __webpack_require__(/*! @angular/material/list */ "@angular/material/list");
+var i25 = __webpack_require__(/*! @angular/material/icon */ "@angular/material/icon");
+var i26 = __webpack_require__(/*! @angular/material/button */ "@angular/material/button");
+var i27 = __webpack_require__(/*! @angular/cdk/portal */ "@angular/cdk/portal");
+var i28 = __webpack_require__(/*! @angular/material/toolbar */ "@angular/material/toolbar");
+var i29 = __webpack_require__(/*! @angular/material/grid-list */ "@angular/material/grid-list");
+var i30 = __webpack_require__(/*! ../material_module/material.module */ "./src/app/material_module/material.module.ts");
+var i31 = __webpack_require__(/*! ./topics/angular-placeholder/angular-placeholder.component */ "./src/app/angular-tut/topics/angular-placeholder/angular-placeholder.component.ts");
+var i32 = __webpack_require__(/*! ./topics/angular-introd/angular-introd.component */ "./src/app/angular-tut/topics/angular-introd/angular-introd.component.ts");
+var i33 = __webpack_require__(/*! ./topics/angular-create-app/angular-create-app.component */ "./src/app/angular-tut/topics/angular-create-app/angular-create-app.component.ts");
+var i34 = __webpack_require__(/*! ./topics/http-client/http-client.component */ "./src/app/angular-tut/topics/http-client/http-client.component.ts");
+var i35 = __webpack_require__(/*! ./topics/angular-service/angular-service.component */ "./src/app/angular-tut/topics/angular-service/angular-service.component.ts");
+var i36 = __webpack_require__(/*! ./topics/angular-element/angular-element.component */ "./src/app/angular-tut/topics/angular-element/angular-element.component.ts");
+var i37 = __webpack_require__(/*! ./topics/http-operators/http-operators.component */ "./src/app/angular-tut/topics/http-operators/http-operators.component.ts");
+var i38 = __webpack_require__(/*! ./topics/vs-code-extension/vs-code-extension.component */ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ts");
+var AngularTutModuleNgFactory = i0.ɵcmf(i1.AngularTutModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.AngularPlaceholderComponentNgFactory, i4.AngularIntrodComponentNgFactory, i5.AngularCreateAppComponentNgFactory, i6.HttpClientComponentNgFactory, i7.AngularServiceComponentNgFactory, i8.AngularElementComponentNgFactory, i9.HttpOperatorsComponentNgFactory, i10.VsCodeExtensionComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i11.NgLocalization, i11.NgLocaleLocalization, [i0.LOCALE_ID, [2, i11.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i12.Overlay, i12.Overlay, [i12.ScrollStrategyOptions, i12.OverlayContainer, i0.ComponentFactoryResolver, i12.OverlayPositionBuilder, i12.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i11.DOCUMENT, i13.Directionality]), i0.ɵmpd(5120, i12.ɵc, i12.ɵd, [i12.Overlay]), i0.ɵmpd(5120, i14.MAT_MENU_SCROLL_STRATEGY, i14.ɵd24, [i12.Overlay]), i0.ɵmpd(1073742336, i11.CommonModule, i11.CommonModule, []), i0.ɵmpd(1073742336, i15.SharedModule, i15.SharedModule, []), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i17.AngularRoutingModule, i17.AngularRoutingModule, []), i0.ɵmpd(1073742336, i13.BidiModule, i13.BidiModule, []), i0.ɵmpd(1073742336, i18.MatCommonModule, i18.MatCommonModule, [[2, i18.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i19.MatCardModule, i19.MatCardModule, []), i0.ɵmpd(1073742336, i20.PlatformModule, i20.PlatformModule, []), i0.ɵmpd(1073742336, i21.ScrollDispatchModule, i21.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i22.MatSidenavModule, i22.MatSidenavModule, []), i0.ɵmpd(1073742336, i18.MatLineModule, i18.MatLineModule, []), i0.ɵmpd(1073742336, i18.MatRippleModule, i18.MatRippleModule, []), i0.ɵmpd(1073742336, i18.MatPseudoCheckboxModule, i18.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i23.MatDividerModule, i23.MatDividerModule, []), i0.ɵmpd(1073742336, i24.MatListModule, i24.MatListModule, []), i0.ɵmpd(1073742336, i25.MatIconModule, i25.MatIconModule, []), i0.ɵmpd(1073742336, i26.MatButtonModule, i26.MatButtonModule, []), i0.ɵmpd(1073742336, i27.PortalModule, i27.PortalModule, []), i0.ɵmpd(1073742336, i12.OverlayModule, i12.OverlayModule, []), i0.ɵmpd(1073742336, i14.MatMenuModule, i14.MatMenuModule, []), i0.ɵmpd(1073742336, i28.MatToolbarModule, i28.MatToolbarModule, []), i0.ɵmpd(1073742336, i29.MatGridListModule, i29.MatGridListModule, []), i0.ɵmpd(1073742336, i30.MaterialModule, i30.MaterialModule, []), i0.ɵmpd(1073742336, i1.AngularTutModule, i1.AngularTutModule, []), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i31.AngularPlaceholderComponent, children: [{ path: "", component: i32.AngularIntrodComponent }, { path: "create-angular-app", component: i33.AngularCreateAppComponent }, { path: "http-client", component: i34.HttpClientComponent }, { path: "http-service", component: i35.AngularServiceComponent }, { path: "angular-element", component: i36.AngularElementComponent }, { path: "http-operators", component: i37.HttpOperatorsComponent }, { path: "vs-code-ext", component: i38.VsCodeExtensionComponent }] }]]; }, [])]); });
 exports.AngularTutModuleNgFactory = AngularTutModuleNgFactory;
 
 
@@ -3779,7 +3794,9 @@ var AngularPlaceholderComponent = /** @class */ (function () {
             { name: 'Create Applicaton', route: '/angular/create-angular-app' },
             { name: 'HttpClient', route: '/angular/http-client' },
             { name: 'Services', route: '/angular/http-service' },
-            { name: 'Angular-Elements', route: '/angular/angular-element' }
+            { name: 'Angular-Elements', route: '/angular/angular-element' },
+            { name: 'Http-Operators', route: '/angular/http-operators' },
+            { name: 'vscode-extensions', route: '/angular/vs-code-ext' },
         ];
         this.communicationService.setMenuItems(angularTopics);
     };
@@ -3979,6 +3996,203 @@ exports.HttpClientComponent = HttpClientComponent;
 
 /***/ }),
 
+/***/ "./src/app/angular-tut/topics/http-operators/http-operators.component.ngfactory.js":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/http-operators/http-operators.component.ngfactory.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./http-operators.component.scss.shim.ngstyle */ "./src/app/angular-tut/topics/http-operators/http-operators.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../../shared-module/text.headline.component.ngfactory */ "./src/app/shared-module/text.headline.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../../shared-module/text.headline.component */ "./src/app/shared-module/text.headline.component.ts");
+var i4 = __webpack_require__(/*! ../../../shared-module/pre.code.component.ngfactory */ "./src/app/shared-module/pre.code.component.ngfactory.js");
+var i5 = __webpack_require__(/*! ../../../shared-module/pre.code.component */ "./src/app/shared-module/pre.code.component.ts");
+var i6 = __webpack_require__(/*! ./http-operators.component */ "./src/app/angular-tut/topics/http-operators/http-operators.component.ts");
+var i7 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i8 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
+var styles_HttpOperatorsComponent = [i0.styles];
+var RenderType_HttpOperatorsComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HttpOperatorsComponent, data: {} });
+exports.RenderType_HttpOperatorsComponent = RenderType_HttpOperatorsComponent;
+function View_HttpOperatorsComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 54, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Angular Http Operators for Caching"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "app-text-headline", [["text", "Create Application"]], null, null, null, i2.View_TextHeadLineComponent_0, i2.RenderType_TextHeadLineComponent)), i1.ɵdid(4, 114688, null, 0, i3.TextHeadLineComponent, [], { text: [0, "text"] }, null), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Create angular application using Angular-CLI as below commands"])), (_l()(), i1.ɵeld(7, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ng new my-http-operators"])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["And then add HttpClientModule to imports array of root module as follows"])), (_l()(), i1.ɵeld(12, 0, null, null, 1, "app-pre-code", [], null, null, null, i4.View_PreCodeComponent_0, i4.RenderType_PreCodeComponent)), i1.ɵdid(13, 114688, null, 0, i5.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(14, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["After that import HttpClient service into your component and then make an http call"])), (_l()(), i1.ɵeld(16, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["You can find all these code in live example at the end"])), (_l()(), i1.ɵeld(18, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Use of Http Operators"])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "app-pre-code", [], null, null, null, i4.View_PreCodeComponent_0, i4.RenderType_PreCodeComponent)), i1.ɵdid(21, 114688, null, 0, i5.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(22, 0, null, null, 6, "div", [["class", "l-sub-section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(23, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["1. Import HttpClient."])), (_l()(), i1.ɵeld(25, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["2. Make the http get call to retrive all the github repos of angular."])), (_l()(), i1.ɵeld(27, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["3. Used rxjs map operators to transform results. "])), (_l()(), i1.ɵeld(29, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Install Http-Operators"])), (_l()(), i1.ɵeld(31, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(32, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["yarn add http-operators"])), (_l()(), i1.ɵeld(34, 0, null, null, 1, "app-pre-code", [], null, null, null, i4.View_PreCodeComponent_0, i4.RenderType_PreCodeComponent)), i1.ɵdid(35, 114688, null, 0, i5.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(36, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Lets talk about the operators"])), (_l()(), i1.ɵeld(38, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["ShareAndCache"])), (_l()(), i1.ɵeld(40, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["shareAndCache will be caching the repos data in localStorage once its gets from the server and share the stored data accross all the subscribers."])), (_l()(), i1.ɵeld(42, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["So, Once get the data and cache it and share to all others subscribption"])), (_l()(), i1.ɵeld(44, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["KeepFresh"])), (_l()(), i1.ɵeld(46, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["keepFresh will be getting the fresh data from server evvery 10ms and update the results."])), (_l()(), i1.ɵeld(48, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["RetryExponentialBackoff"])), (_l()(), i1.ɵeld(50, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["retryExponentialBackoff will be used to stop making calls after 3 retry if there are any errors with service calls "])), (_l()(), i1.ɵeld(52, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Explore Example Here"])), (_l()(), i1.ɵeld(54, 0, null, null, 0, "div", [["id", "myDiv"]], null, null, null, null, null))], function (_ck, _v) { var _co = _v.component; var currVal_0 = "Create Application"; _ck(_v, 4, 0, currVal_0); var currVal_1 = _co.myhttpclient; _ck(_v, 13, 0, currVal_1); var currVal_2 = _co.httpMap; _ck(_v, 21, 0, currVal_2); var currVal_3 = _co.httpOperators; _ck(_v, 35, 0, currVal_3); }, null); }
+exports.View_HttpOperatorsComponent_0 = View_HttpOperatorsComponent_0;
+function View_HttpOperatorsComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-http-operators", [], null, null, null, View_HttpOperatorsComponent_0, RenderType_HttpOperatorsComponent)), i1.ɵdid(1, 4308992, null, 0, i6.HttpOperatorsComponent, [i7.Title, i8.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_HttpOperatorsComponent_Host_0 = View_HttpOperatorsComponent_Host_0;
+var HttpOperatorsComponentNgFactory = i1.ɵccf("app-http-operators", i6.HttpOperatorsComponent, View_HttpOperatorsComponent_Host_0, {}, {}, []);
+exports.HttpOperatorsComponentNgFactory = HttpOperatorsComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/angular-tut/topics/http-operators/http-operators.component.scss.shim.ngstyle.js":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/http-operators/http-operators.component.scss.shim.ngstyle.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/angular-tut/topics/http-operators/http-operators.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/http-operators/http-operators.component.ts ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var seo_service_1 = __webpack_require__(/*! ./../../../seo.service */ "./src/app/seo.service.ts");
+var sdk_1 = __webpack_require__(/*! @stackblitz/sdk */ "@stackblitz/sdk");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var HttpOperatorsComponent = /** @class */ (function () {
+    function HttpOperatorsComponent(title, seoService) {
+        this.title = title;
+        this.seoService = seoService;
+        this.title.setTitle('angular http operators | angular e');
+        var metaData = {
+            description: "Angular Http Operators shareAndCache and keepFresh are the great way to cahe the services data once and keep\n      it in cache and then shared across all the applications.",
+            title: 'Angular http operators shareAndCache, keepFresh ',
+            website: 'https://ifelseloop.com/angular/http-operators'
+        };
+        this.seoService.updateMetaTags(metaData);
+    }
+    HttpOperatorsComponent.prototype.ngOnInit = function () {
+        this.myhttpclient = "\n    import { HttpClientModule } from '@angular/common/http';\n\n    imports: [\n        BrowserModule,\n        HttpClientModule\n      ]";
+        this.httpOperators = "\n    import { keepFresh, shareAndCache, retryExponentialBackoff } from 'http-operators';\n    repos;\n    constructor(private http: HttpClient) {\n    const path = https://api.github.com/search/repositories?q=angular;\n    this.repos = this.http.get<any>(path).pipe(\n      map(res => res.items),\n      retryExponentialBackoff(3, 1000),\n      keepFresh(10 * 1000),\n      shareAndCache('myapp-repos'),\n    );\n  }";
+        this.httpMap = "\n    import { HttpClient } from '@angular/common/http';\n    import { map } from 'rxjs/operators';\nconstructor(private http: HttpClient) {}\n    this.http.get<any>(path).pipe(\n      map(res => res.items),\n    );\n  ";
+    };
+    HttpOperatorsComponent.prototype.ngAfterViewInit = function () {
+        sdk_1.default.embedGithubProject('myDiv', 'ajaykumarReddy/http-operators', { height: 350 });
+    };
+    return HttpOperatorsComponent;
+}());
+exports.HttpOperatorsComponent = HttpOperatorsComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ngfactory.js":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ngfactory.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./vs-code-extension.component.scss.shim.ngstyle */ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../../shared-module/text.headline.component.ngfactory */ "./src/app/shared-module/text.headline.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../../shared-module/text.headline.component */ "./src/app/shared-module/text.headline.component.ts");
+var i4 = __webpack_require__(/*! ../../../shared-module/pre.code.component.ngfactory */ "./src/app/shared-module/pre.code.component.ngfactory.js");
+var i5 = __webpack_require__(/*! ../../../shared-module/pre.code.component */ "./src/app/shared-module/pre.code.component.ts");
+var i6 = __webpack_require__(/*! ./vs-code-extension.component */ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ts");
+var i7 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i8 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
+var styles_VsCodeExtensionComponent = [i0.styles];
+var RenderType_VsCodeExtensionComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_VsCodeExtensionComponent, data: {} });
+exports.RenderType_VsCodeExtensionComponent = RenderType_VsCodeExtensionComponent;
+function View_VsCodeExtensionComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 36, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Latest vscode extensions for angular"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "app-text-headline", [["text", "1. Angular2 Switcher"]], null, null, null, i2.View_TextHeadLineComponent_0, i2.RenderType_TextHeadLineComponent)), i1.ɵdid(4, 114688, null, 0, i3.TextHeadLineComponent, [], { text: [0, "text"] }, null), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Angular2-switcher is very helpfull to switch between the TS, HTML, CSS and Spec files very fast using the keyboard shotcuts. "])), (_l()(), i1.ɵeld(7, 0, null, null, 12, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 2, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" alt+o(Windows) shift+alt+o(macOS) if on .ts|.css|.spec.ts: go to html"])), (_l()(), i1.ɵeld(11, 0, null, null, 2, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(12, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["alt+i(Windows) shift+alt+i(macOS) if on .ts|.html|.spec.ts: go to css "])), (_l()(), i1.ɵeld(14, 0, null, null, 2, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(15, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" alt+u(Windows) shift+alt+u(macOS) if on .css|.html|.spec.ts: go to ts"])), (_l()(), i1.ɵeld(17, 0, null, null, 2, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["alt+p(Windows) shift+alt+p(macOS) if on .ts|.css|.html: go to spec.ts "])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "app-text-headline", [["text", "2. Angular Language Service"]], null, null, null, i2.View_TextHeadLineComponent_0, i2.RenderType_TextHeadLineComponent)), i1.ɵdid(21, 114688, null, 0, i3.TextHeadLineComponent, [], { text: [0, "text"] }, null), (_l()(), i1.ɵeld(22, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Which will help you for autocompile properties and methods of ts file to HTMl."])), (_l()(), i1.ɵeld(24, 0, null, null, 1, "app-text-headline", [["text", "3. json2ts"]], null, null, null, i2.View_TextHeadLineComponent_0, i2.RenderType_TextHeadLineComponent)), i1.ɵdid(25, 114688, null, 0, i3.TextHeadLineComponent, [], { text: [0, "text"] }, null), (_l()(), i1.ɵeld(26, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["json2ts is a VSCode Extension which converts a JSON to TypeScript interfaces."])), (_l()(), i1.ɵeld(28, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Usage json2ts converts a JSON from clipboard to TypeScript interfaces with cmd+alt+V or ctrl+alt+V."])), (_l()(), i1.ɵted(-1, null, [" Ex: "])), (_l()(), i1.ɵeld(31, 0, null, null, 1, "app-pre-code", [], null, null, null, i4.View_PreCodeComponent_0, i4.RenderType_PreCodeComponent)), i1.ɵdid(32, 114688, null, 0, i5.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(33, 0, null, null, 1, "app-text-headline", [["text", "4. Angular v6 snippets"]], null, null, null, i2.View_TextHeadLineComponent_0, i2.RenderType_TextHeadLineComponent)), i1.ɵdid(34, 114688, null, 0, i3.TextHeadLineComponent, [], { text: [0, "text"] }, null), (_l()(), i1.ɵeld(35, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["This extension is optimized for developers that use Angular and are no longer using AngularJS (Angular 1). If you type in AngularJS keywords, it will suggest an Angular solutions. This is by design and meant to help developers learn how AngularJS concepts and techniques map to Angular."]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = "1. Angular2 Switcher"; _ck(_v, 4, 0, currVal_0); var currVal_1 = "2. Angular Language Service"; _ck(_v, 21, 0, currVal_1); var currVal_2 = "3. json2ts"; _ck(_v, 25, 0, currVal_2); var currVal_3 = _co.json2Interface; _ck(_v, 32, 0, currVal_3); var currVal_4 = "4. Angular v6 snippets"; _ck(_v, 34, 0, currVal_4); }, null); }
+exports.View_VsCodeExtensionComponent_0 = View_VsCodeExtensionComponent_0;
+function View_VsCodeExtensionComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-vs-code-extension", [], null, null, null, View_VsCodeExtensionComponent_0, RenderType_VsCodeExtensionComponent)), i1.ɵdid(1, 114688, null, 0, i6.VsCodeExtensionComponent, [i7.Title, i8.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_VsCodeExtensionComponent_Host_0 = View_VsCodeExtensionComponent_Host_0;
+var VsCodeExtensionComponentNgFactory = i1.ɵccf("app-vs-code-extension", i6.VsCodeExtensionComponent, View_VsCodeExtensionComponent_Host_0, {}, {}, []);
+exports.VsCodeExtensionComponentNgFactory = VsCodeExtensionComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.scss.shim.ngstyle.js":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.scss.shim.ngstyle.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/angular-tut/topics/vs-code-extension/vs-code-extension.component.ts ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ../../../seo.service */ "./src/app/seo.service.ts");
+var VsCodeExtensionComponent = /** @class */ (function () {
+    function VsCodeExtensionComponent(title, seoService) {
+        this.title = title;
+        this.seoService = seoService;
+        this.title.setTitle('vscode extensions for angular apps | vscode extension');
+        var metaData = {
+            description: 'This post will describe about the all neccessary and helpfull vscode extension for angular apps.',
+            keywords: '',
+            title: 'vscode extensions for angular apps',
+            website: 'https://ifelseloop.com/angular/vs-code-ext'
+        };
+        this.seoService.updateMetaTags(metaData);
+    }
+    VsCodeExtensionComponent.prototype.ngOnInit = function () {
+        this.json2Interface = "\n    {key: 'hello', name: 'ajay', spdx_id: 'world', 'url': 'my website', node_id: 1234}\n    // this json will be converted to Interface when you type ctrl+Alt+v\n\n    export interface License {\n      key: string;\n      name: string;\n      spdx_id: string;\n      url: string;y[]\n      node_id: number;\n    }";
+    };
+    return VsCodeExtensionComponent;
+}());
+exports.VsCodeExtensionComponent = VsCodeExtensionComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.ngfactory.js":
 /*!********************************************!*\
   !*** ./src/app/app.component.ngfactory.js ***!
@@ -4107,6 +4321,10 @@ var routes = [
         loadChildren: './javascript/javascript.module#JavaScriptModule'
     },
     {
+        path: 'rxjs',
+        loadChildren: './rxjs/rxjs.module#RxjsModule'
+    },
+    {
         path: 'hireme',
         component: hireme_component_1.HiremeComponent
     },
@@ -4177,7 +4395,7 @@ var i35 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.
 var i36 = __webpack_require__(/*! ./hireme/hireme.component */ "./src/app/hireme/hireme.component.ts");
 var i37 = __webpack_require__(/*! ./app.router.module */ "./src/app/app.router.module.ts");
 var i38 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.HiremeComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵangular_packages_platform_browser_platform_browser_e, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i8.Meta, i8.Meta, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.Title, i8.Title, [i7.DOCUMENT]), i0.ɵmpd(4608, i12.ɵa, i12.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.WINDOW, i12.windowFactory, [i12.ɵa]), i0.ɵmpd(4608, i12.ɵb, i12.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.LOCAL_STORAGE, i12.localStoragefactory, [i12.ɵb]), i0.ɵmpd(4608, i13.Overlay, i13.Overlay, [i13.ScrollStrategyOptions, i13.OverlayContainer, i0.ComponentFactoryResolver, i13.OverlayPositionBuilder, i13.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i7.DOCUMENT, i14.Directionality]), i0.ɵmpd(5120, i13.ɵc, i13.ɵd, [i13.Overlay]), i0.ɵmpd(5120, i15.MAT_MENU_SCROLL_STRATEGY, i15.ɵd24, [i13.Overlay]), i0.ɵmpd(5120, i16.ActivatedRoute, i16.ɵangular_packages_router_router_f, [i16.Router]), i0.ɵmpd(4608, i16.NoPreloading, i16.NoPreloading, []), i0.ɵmpd(6144, i16.PreloadingStrategy, null, [i16.NoPreloading]), i0.ɵmpd(135680, i16.RouterPreloader, i16.RouterPreloader, [i16.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i16.PreloadingStrategy]), i0.ɵmpd(4608, i16.PreloadAllModules, i16.PreloadAllModules, []), i0.ɵmpd(5120, i16.ROUTER_INITIALIZER, i16.ɵangular_packages_router_router_i, [i16.ɵangular_packages_router_router_g]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i16.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i17.CommunicationService, i17.CommunicationService, []), i0.ɵmpd(4608, i18.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i18.ResponseOptions, i18.BaseResponseOptions, []), i0.ɵmpd(4608, i18.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i18.XHRBackend, i18.XHRBackend, [i18.BrowserXhr, i18.ResponseOptions, i18.XSRFStrategy]), i0.ɵmpd(4608, i18.RequestOptions, i18.BaseRequestOptions, []), i0.ɵmpd(5120, i18.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i18.XHRBackend, i18.RequestOptions]), i0.ɵmpd(4608, i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i19.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_h, i19.ɵangular_packages_common_http_http_h, [i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i19.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i19.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i19.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i19.HttpXhrBackend, i19.HttpXhrBackend, [i19.XhrFactory]), i0.ɵmpd(6144, i19.HttpBackend, null, [i19.HttpXhrBackend]), i0.ɵmpd(5120, i19.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i19.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i19.HttpClient, i19.HttpClient, [i19.HttpHandler]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_d, i19.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i20.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i16.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i16.ɵangular_packages_router_router_g, i16.ɵangular_packages_router_router_g, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i16.ɵangular_packages_router_router_h(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_f(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i16.ɵangular_packages_router_router_g, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.NgtUniversalModule, i12.NgtUniversalModule, []), i0.ɵmpd(1073742336, i14.BidiModule, i14.BidiModule, []), i0.ɵmpd(1073742336, i21.MatCommonModule, i21.MatCommonModule, [[2, i21.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i22.MatCardModule, i22.MatCardModule, []), i0.ɵmpd(1073742336, i23.PlatformModule, i23.PlatformModule, []), i0.ɵmpd(1073742336, i24.ScrollDispatchModule, i24.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i25.MatSidenavModule, i25.MatSidenavModule, []), i0.ɵmpd(1073742336, i21.MatLineModule, i21.MatLineModule, []), i0.ɵmpd(1073742336, i21.MatRippleModule, i21.MatRippleModule, []), i0.ɵmpd(1073742336, i21.MatPseudoCheckboxModule, i21.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i26.MatDividerModule, i26.MatDividerModule, []), i0.ɵmpd(1073742336, i27.MatListModule, i27.MatListModule, []), i0.ɵmpd(1073742336, i28.MatIconModule, i28.MatIconModule, []), i0.ɵmpd(1073742336, i29.MatButtonModule, i29.MatButtonModule, []), i0.ɵmpd(1073742336, i30.PortalModule, i30.PortalModule, []), i0.ɵmpd(1073742336, i13.OverlayModule, i13.OverlayModule, []), i0.ɵmpd(1073742336, i15.MatMenuModule, i15.MatMenuModule, []), i0.ɵmpd(1073742336, i31.MatToolbarModule, i31.MatToolbarModule, []), i0.ɵmpd(1073742336, i32.MatGridListModule, i32.MatGridListModule, []), i0.ɵmpd(1073742336, i33.MaterialModule, i33.MaterialModule, []), i0.ɵmpd(1024, i16.ɵangular_packages_router_router_a, i16.ɵangular_packages_router_router_d, [[3, i16.Router]]), i0.ɵmpd(512, i16.UrlSerializer, i16.DefaultUrlSerializer, []), i0.ɵmpd(512, i16.ChildrenOutletContexts, i16.ChildrenOutletContexts, []), i0.ɵmpd(256, i16.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i16.ɵangular_packages_router_router_c, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i16.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i34.ModuleMapNgFactoryLoader, [i0.Compiler, i34.MODULE_MAP]), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i35.HomeComponent }, { path: "angular", loadChildren: "./angular-tut/angular-tut.module#AngularTutModule" }, { path: "c-programming", loadChildren: "./c-language/c-language.module#CLanguageModule" }, { path: "js-module", loadChildren: "./javascript/javascript.module#JavaScriptModule" }, { path: "hireme", component: i36.HiremeComponent }, { path: "**", redirectTo: "" }]]; }, []), i0.ɵmpd(1024, i16.Router, i16.ɵangular_packages_router_router_e, [i0.ApplicationRef, i16.UrlSerializer, i16.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i16.ROUTES, i16.ROUTER_CONFIGURATION, [2, i16.UrlHandlingStrategy], [2, i16.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i37.AppRoutingModule, i37.AppRoutingModule, []), i0.ɵmpd(1073742336, i38.AppModule, i38.AppModule, []), i0.ɵmpd(1073742336, i18.HttpModule, i18.HttpModule, []), i0.ɵmpd(1073742336, i19.HttpClientXsrfModule, i19.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i19.HttpClientModule, i19.HttpClientModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i34.ModuleMapLoaderModule, i34.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.HiremeComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_l, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_k, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵangular_packages_platform_browser_platform_browser_e, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, [2, i0.PLATFORM_ID], i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i8.Meta, i8.Meta, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.Title, i8.Title, [i7.DOCUMENT]), i0.ɵmpd(4608, i12.ɵa, i12.ɵa, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.WINDOW, i12.windowFactory, [i12.ɵa]), i0.ɵmpd(4608, i12.ɵb, i12.ɵb, [i0.PLATFORM_ID]), i0.ɵmpd(5120, i12.LOCAL_STORAGE, i12.localStoragefactory, [i12.ɵb]), i0.ɵmpd(4608, i13.Overlay, i13.Overlay, [i13.ScrollStrategyOptions, i13.OverlayContainer, i0.ComponentFactoryResolver, i13.OverlayPositionBuilder, i13.OverlayKeyboardDispatcher, i0.Injector, i0.NgZone, i7.DOCUMENT, i14.Directionality]), i0.ɵmpd(5120, i13.ɵc, i13.ɵd, [i13.Overlay]), i0.ɵmpd(5120, i15.MAT_MENU_SCROLL_STRATEGY, i15.ɵd24, [i13.Overlay]), i0.ɵmpd(5120, i16.ActivatedRoute, i16.ɵangular_packages_router_router_f, [i16.Router]), i0.ɵmpd(4608, i16.NoPreloading, i16.NoPreloading, []), i0.ɵmpd(6144, i16.PreloadingStrategy, null, [i16.NoPreloading]), i0.ɵmpd(135680, i16.RouterPreloader, i16.RouterPreloader, [i16.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i16.PreloadingStrategy]), i0.ɵmpd(4608, i16.PreloadAllModules, i16.PreloadAllModules, []), i0.ɵmpd(5120, i16.ROUTER_INITIALIZER, i16.ɵangular_packages_router_router_i, [i16.ɵangular_packages_router_router_g]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i16.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i17.CommunicationService, i17.CommunicationService, []), i0.ɵmpd(4608, i18.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i18.ResponseOptions, i18.BaseResponseOptions, []), i0.ɵmpd(4608, i18.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i18.XHRBackend, i18.XHRBackend, [i18.BrowserXhr, i18.ResponseOptions, i18.XSRFStrategy]), i0.ɵmpd(4608, i18.RequestOptions, i18.BaseRequestOptions, []), i0.ɵmpd(5120, i18.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i18.XHRBackend, i18.RequestOptions]), i0.ɵmpd(4608, i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i19.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_h, i19.ɵangular_packages_common_http_http_h, [i19.HttpXsrfTokenExtractor, i19.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i19.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i19.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i19.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i19.HttpXhrBackend, i19.HttpXhrBackend, [i19.XhrFactory]), i0.ɵmpd(6144, i19.HttpBackend, null, [i19.HttpXhrBackend]), i0.ɵmpd(5120, i19.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i19.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i19.HttpClient, i19.HttpClient, [i19.HttpHandler]), i0.ɵmpd(4608, i19.ɵangular_packages_common_http_http_d, i19.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i20.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i16.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i16.ɵangular_packages_router_router_g, i16.ɵangular_packages_router_router_g, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "app-root", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_h(p0_0), i16.ɵangular_packages_router_router_h(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_f(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i16.ɵangular_packages_router_router_g, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.NgtUniversalModule, i12.NgtUniversalModule, []), i0.ɵmpd(1073742336, i14.BidiModule, i14.BidiModule, []), i0.ɵmpd(1073742336, i21.MatCommonModule, i21.MatCommonModule, [[2, i21.MATERIAL_SANITY_CHECKS]]), i0.ɵmpd(1073742336, i22.MatCardModule, i22.MatCardModule, []), i0.ɵmpd(1073742336, i23.PlatformModule, i23.PlatformModule, []), i0.ɵmpd(1073742336, i24.ScrollDispatchModule, i24.ScrollDispatchModule, []), i0.ɵmpd(1073742336, i25.MatSidenavModule, i25.MatSidenavModule, []), i0.ɵmpd(1073742336, i21.MatLineModule, i21.MatLineModule, []), i0.ɵmpd(1073742336, i21.MatRippleModule, i21.MatRippleModule, []), i0.ɵmpd(1073742336, i21.MatPseudoCheckboxModule, i21.MatPseudoCheckboxModule, []), i0.ɵmpd(1073742336, i26.MatDividerModule, i26.MatDividerModule, []), i0.ɵmpd(1073742336, i27.MatListModule, i27.MatListModule, []), i0.ɵmpd(1073742336, i28.MatIconModule, i28.MatIconModule, []), i0.ɵmpd(1073742336, i29.MatButtonModule, i29.MatButtonModule, []), i0.ɵmpd(1073742336, i30.PortalModule, i30.PortalModule, []), i0.ɵmpd(1073742336, i13.OverlayModule, i13.OverlayModule, []), i0.ɵmpd(1073742336, i15.MatMenuModule, i15.MatMenuModule, []), i0.ɵmpd(1073742336, i31.MatToolbarModule, i31.MatToolbarModule, []), i0.ɵmpd(1073742336, i32.MatGridListModule, i32.MatGridListModule, []), i0.ɵmpd(1073742336, i33.MaterialModule, i33.MaterialModule, []), i0.ɵmpd(1024, i16.ɵangular_packages_router_router_a, i16.ɵangular_packages_router_router_d, [[3, i16.Router]]), i0.ɵmpd(512, i16.UrlSerializer, i16.DefaultUrlSerializer, []), i0.ɵmpd(512, i16.ChildrenOutletContexts, i16.ChildrenOutletContexts, []), i0.ɵmpd(256, i16.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i16.ɵangular_packages_router_router_c, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i16.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i34.ModuleMapNgFactoryLoader, [i0.Compiler, i34.MODULE_MAP]), i0.ɵmpd(1024, i16.ROUTES, function () { return [[{ path: "", component: i35.HomeComponent }, { path: "angular", loadChildren: "./angular-tut/angular-tut.module#AngularTutModule" }, { path: "c-programming", loadChildren: "./c-language/c-language.module#CLanguageModule" }, { path: "js-module", loadChildren: "./javascript/javascript.module#JavaScriptModule" }, { path: "rxjs", loadChildren: "./rxjs/rxjs.module#RxjsModule" }, { path: "hireme", component: i36.HiremeComponent }, { path: "**", redirectTo: "" }]]; }, []), i0.ɵmpd(1024, i16.Router, i16.ɵangular_packages_router_router_e, [i0.ApplicationRef, i16.UrlSerializer, i16.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i16.ROUTES, i16.ROUTER_CONFIGURATION, [2, i16.UrlHandlingStrategy], [2, i16.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i16.RouterModule, i16.RouterModule, [[2, i16.ɵangular_packages_router_router_a], [2, i16.Router]]), i0.ɵmpd(1073742336, i37.AppRoutingModule, i37.AppRoutingModule, []), i0.ɵmpd(1073742336, i38.AppModule, i38.AppModule, []), i0.ɵmpd(1073742336, i18.HttpModule, i18.HttpModule, []), i0.ɵmpd(1073742336, i19.HttpClientXsrfModule, i19.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i19.HttpClientModule, i19.HttpClientModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i34.ModuleMapLoaderModule, i34.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i19.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -4342,7 +4560,7 @@ var i2 = __webpack_require__(/*! ./cconstants.component */ "./src/app/c-language
 var styles_CconstantsComponent = [i0.styles];
 var RenderType_CconstantsComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CconstantsComponent, data: {} });
 exports.RenderType_CconstantsComponent = RenderType_CconstantsComponent;
-function View_CconstantsComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" cconstants works!\n"]))], null, null); }
+function View_CconstantsComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "p", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "span", [["class", "red"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["cconstants works!"]))], null, null); }
 exports.View_CconstantsComponent_0 = View_CconstantsComponent_0;
 function View_CconstantsComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-cconstants", [], null, null, null, View_CconstantsComponent_0, RenderType_CconstantsComponent)), i1.ɵdid(1, 114688, null, 0, i2.CconstantsComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_CconstantsComponent_Host_0 = View_CconstantsComponent_Host_0;
@@ -4809,13 +5027,13 @@ function View_HomeComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, 
     } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(17, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(18, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(20, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(21, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(22, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(23, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(24, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(25, 0, null, 0, 1, "div", [["class", "javascript-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(26, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(27, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(28, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["Java Script"])), (_l()(), i1.ɵeld(30, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(31, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(32, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(33, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(34, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/js-module"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 36).onClick() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(35, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(36, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(38, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(39, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(40, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(41, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(42, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(43, 0, null, 0, 1, "div", [["class", "rxjs-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(44, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(45, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(46, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["RxJS"])), (_l()(), i1.ɵeld(48, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(49, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(50, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(51, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(52, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(35, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(36, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(38, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(39, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(40, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(41, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(42, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(43, 0, null, 0, 1, "div", [["class", "rxjs-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(44, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(45, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(46, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["RxJS"])), (_l()(), i1.ɵeld(48, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(49, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(50, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(51, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(52, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "/rxjs"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 54).onClick() !== false);
         ad = (pd_0 && ad);
     } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(53, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(54, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"])), (_l()(), i1.ɵeld(56, 0, null, null, 17, "div", [["class", "col-sm-3"]], null, null, null, null, null)), (_l()(), i1.ɵeld(57, 0, null, null, 16, "mat-card", [["class", "example-card mat-card"]], null, null, null, i2.View_MatCard_0, i2.RenderType_MatCard)), i1.ɵdid(58, 49152, null, 0, i3.MatCard, [], null, null), (_l()(), i1.ɵeld(59, 0, null, 0, 6, "mat-card-header", [["class", "mat-card-header"]], null, null, null, i2.View_MatCardHeader_0, i2.RenderType_MatCardHeader)), i1.ɵdid(60, 49152, null, 0, i3.MatCardHeader, [], null, null), (_l()(), i1.ɵeld(61, 0, null, 0, 1, "div", [["class", "c-header-image mat-card-avatar"], ["mat-card-avatar", ""]], null, null, null, null, null)), i1.ɵdid(62, 16384, null, 0, i3.MatCardAvatar, [], null, null), (_l()(), i1.ɵeld(63, 0, null, 1, 2, "mat-card-title", [["class", "mat-card-title"]], null, null, null, null, null)), i1.ɵdid(64, 16384, null, 0, i3.MatCardTitle, [], null, null), (_l()(), i1.ɵted(-1, null, ["C-Language"])), (_l()(), i1.ɵeld(66, 0, null, 0, 1, "mat-card-content", [["class", "mat-card-content"]], null, null, null, null, null)), i1.ɵdid(67, 16384, null, 0, i3.MatCardContent, [], null, null), (_l()(), i1.ɵeld(68, 0, null, 0, 5, "mat-card-actions", [["class", "mat-card-actions"]], [[2, "mat-card-actions-align-end", null]], null, null, null, null)), i1.ɵdid(69, 16384, null, 0, i3.MatCardActions, [], null, null), (_l()(), i1.ɵeld(70, 0, null, null, 3, "button", [["mat-button", ""], ["routerLink", "c-programming"]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 72).onClick() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(71, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(72, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"]))], function (_ck, _v) { var currVal_3 = "/angular"; _ck(_v, 18, 0, currVal_3); var currVal_7 = "/js-module"; _ck(_v, 36, 0, currVal_7); var currVal_11 = "/"; _ck(_v, 54, 0, currVal_11); var currVal_15 = "c-programming"; _ck(_v, 72, 0, currVal_15); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 15).align === "end"); _ck(_v, 14, 0, currVal_0); var currVal_1 = (i1.ɵnov(_v, 17).disabled || null); var currVal_2 = (i1.ɵnov(_v, 17)._animationMode === "NoopAnimations"); _ck(_v, 16, 0, currVal_1, currVal_2); var currVal_4 = (i1.ɵnov(_v, 33).align === "end"); _ck(_v, 32, 0, currVal_4); var currVal_5 = (i1.ɵnov(_v, 35).disabled || null); var currVal_6 = (i1.ɵnov(_v, 35)._animationMode === "NoopAnimations"); _ck(_v, 34, 0, currVal_5, currVal_6); var currVal_8 = (i1.ɵnov(_v, 51).align === "end"); _ck(_v, 50, 0, currVal_8); var currVal_9 = (i1.ɵnov(_v, 53).disabled || null); var currVal_10 = (i1.ɵnov(_v, 53)._animationMode === "NoopAnimations"); _ck(_v, 52, 0, currVal_9, currVal_10); var currVal_12 = (i1.ɵnov(_v, 69).align === "end"); _ck(_v, 68, 0, currVal_12); var currVal_13 = (i1.ɵnov(_v, 71).disabled || null); var currVal_14 = (i1.ɵnov(_v, 71)._animationMode === "NoopAnimations"); _ck(_v, 70, 0, currVal_13, currVal_14); }); }
+    } return ad; }, i4.View_MatButton_0, i4.RenderType_MatButton)), i1.ɵdid(71, 180224, null, 0, i5.MatButton, [i1.ElementRef, i6.Platform, i7.FocusMonitor, [2, i8.ANIMATION_MODULE_TYPE]], null, null), i1.ɵdid(72, 16384, null, 0, i9.RouterLink, [i9.Router, i9.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Learn"]))], function (_ck, _v) { var currVal_3 = "/angular"; _ck(_v, 18, 0, currVal_3); var currVal_7 = "/js-module"; _ck(_v, 36, 0, currVal_7); var currVal_11 = "/rxjs"; _ck(_v, 54, 0, currVal_11); var currVal_15 = "c-programming"; _ck(_v, 72, 0, currVal_15); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 15).align === "end"); _ck(_v, 14, 0, currVal_0); var currVal_1 = (i1.ɵnov(_v, 17).disabled || null); var currVal_2 = (i1.ɵnov(_v, 17)._animationMode === "NoopAnimations"); _ck(_v, 16, 0, currVal_1, currVal_2); var currVal_4 = (i1.ɵnov(_v, 33).align === "end"); _ck(_v, 32, 0, currVal_4); var currVal_5 = (i1.ɵnov(_v, 35).disabled || null); var currVal_6 = (i1.ɵnov(_v, 35)._animationMode === "NoopAnimations"); _ck(_v, 34, 0, currVal_5, currVal_6); var currVal_8 = (i1.ɵnov(_v, 51).align === "end"); _ck(_v, 50, 0, currVal_8); var currVal_9 = (i1.ɵnov(_v, 53).disabled || null); var currVal_10 = (i1.ɵnov(_v, 53)._animationMode === "NoopAnimations"); _ck(_v, 52, 0, currVal_9, currVal_10); var currVal_12 = (i1.ɵnov(_v, 69).align === "end"); _ck(_v, 68, 0, currVal_12); var currVal_13 = (i1.ɵnov(_v, 71).disabled || null); var currVal_14 = (i1.ɵnov(_v, 71)._animationMode === "NoopAnimations"); _ck(_v, 70, 0, currVal_13, currVal_14); }); }
 exports.View_HomeComponent_0 = View_HomeComponent_0;
 function View_HomeComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-home", [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i10.HomeComponent, [i11.SEOService, i12.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_HomeComponent_Host_0 = View_HomeComponent_Host_0;
@@ -5217,7 +5435,7 @@ var styles_MenuBarComponent = [i0.styles];
 var RenderType_MenuBarComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MenuBarComponent, data: {} });
 exports.RenderType_MenuBarComponent = RenderType_MenuBarComponent;
 function View_MenuBarComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "button", [["mat-icon-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v.parent, 44).toggle() !== false);
+        var pd_0 = (i1.ɵnov(_v.parent, 48).toggle() !== false);
         ad = (pd_0 && ad);
     } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(1, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵeld(2, 0, null, 0, 2, "mat-icon", [["class", "mat-icon"], ["role", "img"]], [[2, "mat-icon-inline", null]], null, null, i7.View_MatIcon_0, i7.RenderType_MatIcon)), i1.ɵdid(3, 638976, null, 0, i8.MatIcon, [i1.ElementRef, i8.MatIconRegistry, [8, null]], null, null), (_l()(), i1.ɵted(-1, 0, ["menu"]))], function (_ck, _v) { _ck(_v, 3, 0); }, function (_ck, _v) { var currVal_0 = (i1.ɵnov(_v, 1).disabled || null); var currVal_1 = (i1.ɵnov(_v, 1)._animationMode === "NoopAnimations"); _ck(_v, 0, 0, currVal_0, currVal_1); var currVal_2 = i1.ɵnov(_v, 3).inline; _ck(_v, 2, 0, currVal_2); }); }
 function View_MenuBarComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "a", [["class", "mat-list-item"], ["mat-list-item", ""], ["style", "font-size: 12px; margin: 0px;padding: 1px;height: 35px;"]], [[2, "mat-list-item-avatar", null], [2, "mat-list-item-with-avatar", null], [1, "target", 0], [8, "href", 4]], [[null, "focus"], [null, "blur"], [null, "click"]], function (_v, en, $event) { var ad = true; if (("focus" === en)) {
@@ -5230,7 +5448,7 @@ function View_MenuBarComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 
         var pd_2 = (i1.ɵnov(_v, 4).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
         ad = (pd_2 && ad);
     } return ad; }, i9.View_MatListItem_0, i9.RenderType_MatListItem)), i1.ɵdid(1, 1097728, null, 2, i10.MatListItem, [i1.ElementRef, [2, i10.MatNavList]], null, null), i1.ɵqud(603979776, 7, { _lines: 1 }), i1.ɵqud(335544320, 8, { _avatar: 0 }), i1.ɵdid(4, 671744, null, 0, i11.RouterLinkWithHref, [i11.Router, i11.ActivatedRoute, i12.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(5, 2, ["", ""]))], function (_ck, _v) { var currVal_4 = i1.ɵinlineInterpolate(1, "", _v.context.$implicit.route, ""); _ck(_v, 4, 0, currVal_4); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1)._avatar; var currVal_1 = i1.ɵnov(_v, 1)._avatar; var currVal_2 = i1.ɵnov(_v, 4).target; var currVal_3 = i1.ɵnov(_v, 4).href; _ck(_v, 0, 0, currVal_0, currVal_1, currVal_2, currVal_3); var currVal_5 = _v.context.$implicit.name; _ck(_v, 5, 0, currVal_5); }); }
-function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { snav: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 51, "div", [["class", "example-container"]], [[2, "example-is-mobile", null]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 36, "mat-toolbar", [["class", "mat-toolbar"], ["color", "primary"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, i13.View_MatToolbar_0, i13.RenderType_MatToolbar)), i1.ɵdid(3, 4243456, null, 1, i14.MatToolbar, [i1.ElementRef, i4.Platform, i12.DOCUMENT], { color: [0, "color"] }, null), i1.ɵqud(603979776, 2, { _toolbarRows: 1 }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_1)), i1.ɵdid(6, 16384, null, 0, i12.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(7, 0, null, 0, 0, "img", [["height", "30px"], ["src", "../../assets/ifelseloop.png.jpg"], ["width", "30px"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, 0, 1, "span", [["class", "main-title pointer"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { snav: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 55, "div", [["class", "example-container"]], [[2, "example-is-mobile", null]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 40, "mat-toolbar", [["class", "mat-toolbar"], ["color", "primary"]], [[2, "mat-toolbar-multiple-rows", null], [2, "mat-toolbar-single-row", null]], null, null, i13.View_MatToolbar_0, i13.RenderType_MatToolbar)), i1.ɵdid(3, 4243456, null, 1, i14.MatToolbar, [i1.ElementRef, i4.Platform, i12.DOCUMENT], { color: [0, "color"] }, null), i1.ɵqud(603979776, 2, { _toolbarRows: 1 }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_1)), i1.ɵdid(6, 16384, null, 0, i12.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(7, 0, null, 0, 0, "img", [["height", "30px"], ["src", "../../assets/ifelseloop.png.jpg"], ["width", "30px"]], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, 0, 1, "span", [["class", "main-title pointer"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.goToPage() !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["\u00A0Ifelseloop \u00A0 \u00A0"])), (_l()(), i1.ɵeld(10, 16777216, null, 0, 3, "button", [["aria-haspopup", "true"], ["mat-button", ""]], [[1, "aria-expanded", 0], [8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "mousedown"], [null, "keydown"], [null, "click"]], function (_v, en, $event) { var ad = true; if (("mousedown" === en)) {
@@ -5242,7 +5460,7 @@ function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1
     } if (("click" === en)) {
         var pd_2 = (i1.ɵnov(_v, 11)._handleClick($event) !== false);
         ad = (pd_2 && ad);
-    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(11, 1196032, null, 0, i15.MatMenuTrigger, [i16.Overlay, i1.ElementRef, i1.ViewContainerRef, i15.MAT_MENU_SCROLL_STRATEGY, [2, i15.MatMenu], [8, null], [2, i17.Directionality], i5.FocusMonitor], { menu: [0, "menu"] }, null), i1.ɵdid(12, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Tutorials"])), (_l()(), i1.ɵeld(14, 0, null, 0, 16, "mat-menu", [], null, null, null, i18.View_MatMenu_0, i18.RenderType_MatMenu)), i1.ɵdid(15, 1294336, [["menu", 4]], 2, i15.MatMenu, [i1.ElementRef, i1.NgZone, i15.MAT_MENU_DEFAULT_OPTIONS], null, null), i1.ɵqud(603979776, 3, { items: 1 }), i1.ɵqud(335544320, 4, { lazyContent: 0 }), i1.ɵprd(2048, null, i15.ɵf24, null, [i15.MatMenu]), (_l()(), i1.ɵeld(19, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/angular"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(11, 1196032, null, 0, i15.MatMenuTrigger, [i16.Overlay, i1.ElementRef, i1.ViewContainerRef, i15.MAT_MENU_SCROLL_STRATEGY, [2, i15.MatMenu], [8, null], [2, i17.Directionality], i5.FocusMonitor], { menu: [0, "menu"] }, null), i1.ɵdid(12, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Tutorials"])), (_l()(), i1.ɵeld(14, 0, null, 0, 20, "mat-menu", [], null, null, null, i18.View_MatMenu_0, i18.RenderType_MatMenu)), i1.ɵdid(15, 1294336, [["menu", 4]], 2, i15.MatMenu, [i1.ElementRef, i1.NgZone, i15.MAT_MENU_DEFAULT_OPTIONS], null, null), i1.ɵqud(603979776, 3, { items: 1 }), i1.ɵqud(335544320, 4, { lazyContent: 0 }), i1.ɵprd(2048, null, i15.ɵf24, null, [i15.MatMenu]), (_l()(), i1.ɵeld(19, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/angular"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
         var pd_0 = (i1.ɵnov(_v, 20)._checkDisabled($event) !== false);
         ad = (pd_0 && ad);
     } if (("mouseenter" === en)) {
@@ -5269,16 +5487,25 @@ function View_MenuBarComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1
     } if (("click" === en)) {
         var pd_2 = (i1.ɵnov(_v, 29).onClick() !== false);
         ad = (pd_2 && ad);
-    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(28, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), i1.ɵdid(29, 16384, null, 0, i11.RouterLink, [i11.Router, i11.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["C"])), (_l()(), i1.ɵeld(31, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(32, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(33, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(34, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Interview Q"])), (_l()(), i1.ɵeld(36, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(28, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), i1.ɵdid(29, 16384, null, 0, i11.RouterLink, [i11.Router, i11.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["C"])), (_l()(), i1.ɵeld(31, 0, null, 0, 3, "button", [["class", "menu-bar-font mat-menu-item"], ["mat-menu-item", ""], ["role", "menuitem"], ["routerLink", "/rxjs"]], [[2, "mat-menu-item-highlighted", null], [2, "mat-menu-item-submenu-trigger", null], [1, "tabindex", 0], [1, "aria-disabled", 0], [1, "disabled", 0]], [[null, "click"], [null, "mouseenter"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 32)._checkDisabled($event) !== false);
+        ad = (pd_0 && ad);
+    } if (("mouseenter" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 32)._handleMouseEnter() !== false);
+        ad = (pd_1 && ad);
+    } if (("click" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 33).onClick() !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, i18.View_MatMenuItem_0, i18.RenderType_MatMenuItem)), i1.ɵdid(32, 180224, [[3, 4]], 0, i15.MatMenuItem, [i1.ElementRef, i12.DOCUMENT, i5.FocusMonitor, [2, i15.ɵf24]], null, null), i1.ɵdid(33, 16384, null, 0, i11.RouterLink, [i11.Router, i11.ActivatedRoute, [8, null], i1.Renderer2, i1.ElementRef], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, 0, ["Rxjs"])), (_l()(), i1.ɵeld(35, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(36, 0, null, 0, 0, "span", [["class", "spacer"]], null, null, null, null, null)), (_l()(), i1.ɵeld(37, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], null, null, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(38, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Interview Q"])), (_l()(), i1.ɵeld(40, 0, null, 0, 2, "button", [["class", "title-font"], ["mat-button", ""]], [[8, "disabled", 0], [2, "_mat-animation-noopable", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.hireMe() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(37, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Hire me"])), (_l()(), i1.ɵeld(39, 0, null, null, 13, "mat-sidenav-container", [["class", "example-sidenav-container mat-drawer-container mat-sidenav-container"]], [[4, "marginTop", "px"], [2, "mat-drawer-container-explicit-backdrop", null]], null, null, i19.View_MatSidenavContainer_0, i19.RenderType_MatSidenavContainer)), i1.ɵdid(40, 1490944, null, 2, i20.MatSidenavContainer, [[2, i17.Directionality], i1.ElementRef, i1.NgZone, i1.ChangeDetectorRef, i20.MAT_DRAWER_DEFAULT_AUTOSIZE, [2, i6.ANIMATION_MODULE_TYPE]], null, null), i1.ɵqud(603979776, 5, { _drawers: 1 }), i1.ɵqud(335544320, 6, { _content: 0 }), (_l()(), i1.ɵeld(43, 0, null, 0, 5, "mat-sidenav", [["class", "mat-drawer mat-sidenav"], ["fixedTopGap", "56"], ["tabIndex", "-1"]], [[40, "@transform", 0], [1, "align", 0], [2, "mat-drawer-end", null], [2, "mat-drawer-over", null], [2, "mat-drawer-push", null], [2, "mat-drawer-side", null], [2, "mat-sidenav-fixed", null], [4, "top", "px"], [4, "bottom", "px"]], [["component", "@transform.start"], ["component", "@transform.done"]], function (_v, en, $event) { var ad = true; if (("component:@transform.start" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 44)._onAnimationStart($event) !== false);
+    } return ad; }, i2.View_MatButton_0, i2.RenderType_MatButton)), i1.ɵdid(41, 180224, null, 0, i3.MatButton, [i1.ElementRef, i4.Platform, i5.FocusMonitor, [2, i6.ANIMATION_MODULE_TYPE]], null, null), (_l()(), i1.ɵted(-1, 0, ["Hire me"])), (_l()(), i1.ɵeld(43, 0, null, null, 13, "mat-sidenav-container", [["class", "example-sidenav-container mat-drawer-container mat-sidenav-container"]], [[4, "marginTop", "px"], [2, "mat-drawer-container-explicit-backdrop", null]], null, null, i19.View_MatSidenavContainer_0, i19.RenderType_MatSidenavContainer)), i1.ɵdid(44, 1490944, null, 2, i20.MatSidenavContainer, [[2, i17.Directionality], i1.ElementRef, i1.NgZone, i1.ChangeDetectorRef, i20.MAT_DRAWER_DEFAULT_AUTOSIZE, [2, i6.ANIMATION_MODULE_TYPE]], null, null), i1.ɵqud(603979776, 5, { _drawers: 1 }), i1.ɵqud(335544320, 6, { _content: 0 }), (_l()(), i1.ɵeld(47, 0, null, 0, 5, "mat-sidenav", [["class", "mat-drawer mat-sidenav"], ["fixedTopGap", "56"], ["tabIndex", "-1"]], [[40, "@transform", 0], [1, "align", 0], [2, "mat-drawer-end", null], [2, "mat-drawer-over", null], [2, "mat-drawer-push", null], [2, "mat-drawer-side", null], [2, "mat-sidenav-fixed", null], [4, "top", "px"], [4, "bottom", "px"]], [["component", "@transform.start"], ["component", "@transform.done"]], function (_v, en, $event) { var ad = true; if (("component:@transform.start" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 48)._onAnimationStart($event) !== false);
         ad = (pd_0 && ad);
     } if (("component:@transform.done" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 44)._onAnimationEnd($event) !== false);
+        var pd_1 = (i1.ɵnov(_v, 48)._onAnimationEnd($event) !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i19.View_MatSidenav_0, i19.RenderType_MatSidenav)), i1.ɵdid(44, 3325952, [[5, 4], [1, 4], ["snav", 4]], 0, i20.MatSidenav, [i1.ElementRef, i5.FocusTrapFactory, i5.FocusMonitor, i4.Platform, i1.NgZone, [2, i12.DOCUMENT]], { mode: [0, "mode"], fixedInViewport: [1, "fixedInViewport"], fixedTopGap: [2, "fixedTopGap"] }, null), (_l()(), i1.ɵeld(45, 0, null, 0, 3, "mat-nav-list", [["class", "mat-nav-list"], ["role", "navigation"]], null, null, null, i9.View_MatNavList_0, i9.RenderType_MatNavList)), i1.ɵdid(46, 49152, null, 0, i10.MatNavList, [], null, null), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_2)), i1.ɵdid(48, 802816, null, 0, i12.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(49, 0, null, 1, 3, "mat-sidenav-content", [["class", "mat-drawer-content mat-sidenav-content"]], [[4, "margin-left", "px"], [4, "margin-right", "px"]], null, null, i19.View_MatSidenavContent_0, i19.RenderType_MatSidenavContent)), i1.ɵdid(50, 1097728, [[6, 4]], 0, i20.MatSidenavContent, [i1.ChangeDetectorRef, i20.MatSidenavContainer], null, null), (_l()(), i1.ɵeld(51, 16777216, null, 0, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(52, 212992, null, 0, i11.RouterOutlet, [i11.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_3 = "primary"; _ck(_v, 3, 0, currVal_3); var currVal_4 = (_co.fillerNav.length > 0); _ck(_v, 6, 0, currVal_4); var currVal_8 = i1.ɵnov(_v, 15); _ck(_v, 11, 0, currVal_8); _ck(_v, 15, 0); var currVal_14 = "/angular"; _ck(_v, 21, 0, currVal_14); var currVal_20 = "/js-module"; _ck(_v, 25, 0, currVal_20); var currVal_26 = "/c-programming"; _ck(_v, 29, 0, currVal_26); _ck(_v, 40, 0); var currVal_42 = (_co.mobileQuery.matches ? "over" : "side"); var currVal_43 = _co.mobileQuery.matches; var currVal_44 = "56"; _ck(_v, 44, 0, currVal_42, currVal_43, currVal_44); var currVal_45 = _co.fillerNav; _ck(_v, 48, 0, currVal_45); _ck(_v, 52, 0); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.mobileQuery.matches; _ck(_v, 1, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 3)._toolbarRows.length; var currVal_2 = !i1.ɵnov(_v, 3)._toolbarRows.length; _ck(_v, 2, 0, currVal_1, currVal_2); var currVal_5 = (i1.ɵnov(_v, 11).menuOpen || null); var currVal_6 = (i1.ɵnov(_v, 12).disabled || null); var currVal_7 = (i1.ɵnov(_v, 12)._animationMode === "NoopAnimations"); _ck(_v, 10, 0, currVal_5, currVal_6, currVal_7); var currVal_9 = i1.ɵnov(_v, 20)._highlighted; var currVal_10 = i1.ɵnov(_v, 20)._triggersSubmenu; var currVal_11 = i1.ɵnov(_v, 20)._getTabIndex(); var currVal_12 = i1.ɵnov(_v, 20).disabled.toString(); var currVal_13 = (i1.ɵnov(_v, 20).disabled || null); _ck(_v, 19, 0, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13); var currVal_15 = i1.ɵnov(_v, 24)._highlighted; var currVal_16 = i1.ɵnov(_v, 24)._triggersSubmenu; var currVal_17 = i1.ɵnov(_v, 24)._getTabIndex(); var currVal_18 = i1.ɵnov(_v, 24).disabled.toString(); var currVal_19 = (i1.ɵnov(_v, 24).disabled || null); _ck(_v, 23, 0, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19); var currVal_21 = i1.ɵnov(_v, 28)._highlighted; var currVal_22 = i1.ɵnov(_v, 28)._triggersSubmenu; var currVal_23 = i1.ɵnov(_v, 28)._getTabIndex(); var currVal_24 = i1.ɵnov(_v, 28).disabled.toString(); var currVal_25 = (i1.ɵnov(_v, 28).disabled || null); _ck(_v, 27, 0, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25); var currVal_27 = (i1.ɵnov(_v, 34).disabled || null); var currVal_28 = (i1.ɵnov(_v, 34)._animationMode === "NoopAnimations"); _ck(_v, 33, 0, currVal_27, currVal_28); var currVal_29 = (i1.ɵnov(_v, 37).disabled || null); var currVal_30 = (i1.ɵnov(_v, 37)._animationMode === "NoopAnimations"); _ck(_v, 36, 0, currVal_29, currVal_30); var currVal_31 = (_co.mobileQuery.matches ? 56 : 0); var currVal_32 = i1.ɵnov(_v, 40)._backdropOverride; _ck(_v, 39, 0, currVal_31, currVal_32); var currVal_33 = i1.ɵnov(_v, 44)._animationState; var currVal_34 = null; var currVal_35 = (i1.ɵnov(_v, 44).position === "end"); var currVal_36 = (i1.ɵnov(_v, 44).mode === "over"); var currVal_37 = (i1.ɵnov(_v, 44).mode === "push"); var currVal_38 = (i1.ɵnov(_v, 44).mode === "side"); var currVal_39 = i1.ɵnov(_v, 44).fixedInViewport; var currVal_40 = (i1.ɵnov(_v, 44).fixedInViewport ? i1.ɵnov(_v, 44).fixedTopGap : null); var currVal_41 = (i1.ɵnov(_v, 44).fixedInViewport ? i1.ɵnov(_v, 44).fixedBottomGap : null); _ck(_v, 43, 0, currVal_33, currVal_34, currVal_35, currVal_36, currVal_37, currVal_38, currVal_39, currVal_40, currVal_41); var currVal_46 = i1.ɵnov(_v, 50)._container._contentMargins.left; var currVal_47 = i1.ɵnov(_v, 50)._container._contentMargins.right; _ck(_v, 49, 0, currVal_46, currVal_47); }); }
+    } return ad; }, i19.View_MatSidenav_0, i19.RenderType_MatSidenav)), i1.ɵdid(48, 3325952, [[5, 4], [1, 4], ["snav", 4]], 0, i20.MatSidenav, [i1.ElementRef, i5.FocusTrapFactory, i5.FocusMonitor, i4.Platform, i1.NgZone, [2, i12.DOCUMENT]], { mode: [0, "mode"], fixedInViewport: [1, "fixedInViewport"], fixedTopGap: [2, "fixedTopGap"] }, null), (_l()(), i1.ɵeld(49, 0, null, 0, 3, "mat-nav-list", [["class", "mat-nav-list"], ["role", "navigation"]], null, null, null, i9.View_MatNavList_0, i9.RenderType_MatNavList)), i1.ɵdid(50, 49152, null, 0, i10.MatNavList, [], null, null), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_MenuBarComponent_2)), i1.ɵdid(52, 802816, null, 0, i12.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(53, 0, null, 1, 3, "mat-sidenav-content", [["class", "mat-drawer-content mat-sidenav-content"]], [[4, "margin-left", "px"], [4, "margin-right", "px"]], null, null, i19.View_MatSidenavContent_0, i19.RenderType_MatSidenavContent)), i1.ɵdid(54, 1097728, [[6, 4]], 0, i20.MatSidenavContent, [i1.ChangeDetectorRef, i20.MatSidenavContainer], null, null), (_l()(), i1.ɵeld(55, 16777216, null, 0, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(56, 212992, null, 0, i11.RouterOutlet, [i11.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_3 = "primary"; _ck(_v, 3, 0, currVal_3); var currVal_4 = (_co.fillerNav.length > 0); _ck(_v, 6, 0, currVal_4); var currVal_8 = i1.ɵnov(_v, 15); _ck(_v, 11, 0, currVal_8); _ck(_v, 15, 0); var currVal_14 = "/angular"; _ck(_v, 21, 0, currVal_14); var currVal_20 = "/js-module"; _ck(_v, 25, 0, currVal_20); var currVal_26 = "/c-programming"; _ck(_v, 29, 0, currVal_26); var currVal_32 = "/rxjs"; _ck(_v, 33, 0, currVal_32); _ck(_v, 44, 0); var currVal_48 = (_co.mobileQuery.matches ? "over" : "side"); var currVal_49 = _co.mobileQuery.matches; var currVal_50 = "56"; _ck(_v, 48, 0, currVal_48, currVal_49, currVal_50); var currVal_51 = _co.fillerNav; _ck(_v, 52, 0, currVal_51); _ck(_v, 56, 0); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.mobileQuery.matches; _ck(_v, 1, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 3)._toolbarRows.length; var currVal_2 = !i1.ɵnov(_v, 3)._toolbarRows.length; _ck(_v, 2, 0, currVal_1, currVal_2); var currVal_5 = (i1.ɵnov(_v, 11).menuOpen || null); var currVal_6 = (i1.ɵnov(_v, 12).disabled || null); var currVal_7 = (i1.ɵnov(_v, 12)._animationMode === "NoopAnimations"); _ck(_v, 10, 0, currVal_5, currVal_6, currVal_7); var currVal_9 = i1.ɵnov(_v, 20)._highlighted; var currVal_10 = i1.ɵnov(_v, 20)._triggersSubmenu; var currVal_11 = i1.ɵnov(_v, 20)._getTabIndex(); var currVal_12 = i1.ɵnov(_v, 20).disabled.toString(); var currVal_13 = (i1.ɵnov(_v, 20).disabled || null); _ck(_v, 19, 0, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13); var currVal_15 = i1.ɵnov(_v, 24)._highlighted; var currVal_16 = i1.ɵnov(_v, 24)._triggersSubmenu; var currVal_17 = i1.ɵnov(_v, 24)._getTabIndex(); var currVal_18 = i1.ɵnov(_v, 24).disabled.toString(); var currVal_19 = (i1.ɵnov(_v, 24).disabled || null); _ck(_v, 23, 0, currVal_15, currVal_16, currVal_17, currVal_18, currVal_19); var currVal_21 = i1.ɵnov(_v, 28)._highlighted; var currVal_22 = i1.ɵnov(_v, 28)._triggersSubmenu; var currVal_23 = i1.ɵnov(_v, 28)._getTabIndex(); var currVal_24 = i1.ɵnov(_v, 28).disabled.toString(); var currVal_25 = (i1.ɵnov(_v, 28).disabled || null); _ck(_v, 27, 0, currVal_21, currVal_22, currVal_23, currVal_24, currVal_25); var currVal_27 = i1.ɵnov(_v, 32)._highlighted; var currVal_28 = i1.ɵnov(_v, 32)._triggersSubmenu; var currVal_29 = i1.ɵnov(_v, 32)._getTabIndex(); var currVal_30 = i1.ɵnov(_v, 32).disabled.toString(); var currVal_31 = (i1.ɵnov(_v, 32).disabled || null); _ck(_v, 31, 0, currVal_27, currVal_28, currVal_29, currVal_30, currVal_31); var currVal_33 = (i1.ɵnov(_v, 38).disabled || null); var currVal_34 = (i1.ɵnov(_v, 38)._animationMode === "NoopAnimations"); _ck(_v, 37, 0, currVal_33, currVal_34); var currVal_35 = (i1.ɵnov(_v, 41).disabled || null); var currVal_36 = (i1.ɵnov(_v, 41)._animationMode === "NoopAnimations"); _ck(_v, 40, 0, currVal_35, currVal_36); var currVal_37 = (_co.mobileQuery.matches ? 56 : 0); var currVal_38 = i1.ɵnov(_v, 44)._backdropOverride; _ck(_v, 43, 0, currVal_37, currVal_38); var currVal_39 = i1.ɵnov(_v, 48)._animationState; var currVal_40 = null; var currVal_41 = (i1.ɵnov(_v, 48).position === "end"); var currVal_42 = (i1.ɵnov(_v, 48).mode === "over"); var currVal_43 = (i1.ɵnov(_v, 48).mode === "push"); var currVal_44 = (i1.ɵnov(_v, 48).mode === "side"); var currVal_45 = i1.ɵnov(_v, 48).fixedInViewport; var currVal_46 = (i1.ɵnov(_v, 48).fixedInViewport ? i1.ɵnov(_v, 48).fixedTopGap : null); var currVal_47 = (i1.ɵnov(_v, 48).fixedInViewport ? i1.ɵnov(_v, 48).fixedBottomGap : null); _ck(_v, 47, 0, currVal_39, currVal_40, currVal_41, currVal_42, currVal_43, currVal_44, currVal_45, currVal_46, currVal_47); var currVal_52 = i1.ɵnov(_v, 54)._container._contentMargins.left; var currVal_53 = i1.ɵnov(_v, 54)._container._contentMargins.right; _ck(_v, 53, 0, currVal_52, currVal_53); }); }
 exports.View_MenuBarComponent_0 = View_MenuBarComponent_0;
 function View_MenuBarComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-menu-bar", [], null, null, null, View_MenuBarComponent_0, RenderType_MenuBarComponent)), i1.ɵdid(1, 4440064, null, 0, i21.MenuBarComponent, [i1.ChangeDetectorRef, i22.MediaMatcher, i23.CommunicationService, i11.Router], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MenuBarComponent_Host_0 = View_MenuBarComponent_Host_0;
@@ -5361,6 +5588,271 @@ var MenuBarComponent = /** @class */ (function () {
     return MenuBarComponent;
 }());
 exports.MenuBarComponent = MenuBarComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ngfactory.js":
+/*!*****************************************************************!*\
+  !*** ./src/app/rxjs/rxjs-menu/rxjs-menu.component.ngfactory.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./rxjs-menu.component.scss.shim.ngstyle */ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i3 = __webpack_require__(/*! ./rxjs-menu.component */ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ts");
+var i4 = __webpack_require__(/*! ../../comunication.service */ "./src/app/comunication.service.ts");
+var styles_RxjsMenuComponent = [i0.styles];
+var RenderType_RxjsMenuComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_RxjsMenuComponent, data: {} });
+exports.RenderType_RxjsMenuComponent = RenderType_RxjsMenuComponent;
+function View_RxjsMenuComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(1, 212992, null, 0, i2.RouterOutlet, [i2.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_RxjsMenuComponent_0 = View_RxjsMenuComponent_0;
+function View_RxjsMenuComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-rxjs-menu", [], null, null, null, View_RxjsMenuComponent_0, RenderType_RxjsMenuComponent)), i1.ɵdid(1, 114688, null, 0, i3.RxjsMenuComponent, [i4.CommunicationService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_RxjsMenuComponent_Host_0 = View_RxjsMenuComponent_Host_0;
+var RxjsMenuComponentNgFactory = i1.ɵccf("app-rxjs-menu", i3.RxjsMenuComponent, View_RxjsMenuComponent_Host_0, {}, {}, []);
+exports.RxjsMenuComponentNgFactory = RxjsMenuComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.scss.shim.ngstyle.js":
+/*!*************************************************************************!*\
+  !*** ./src/app/rxjs/rxjs-menu/rxjs-menu.component.scss.shim.ngstyle.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/rxjs/rxjs-menu/rxjs-menu.component.ts ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var comunication_service_1 = __webpack_require__(/*! ../../comunication.service */ "./src/app/comunication.service.ts");
+var RxjsMenuComponent = /** @class */ (function () {
+    function RxjsMenuComponent(communicationService) {
+        this.communicationService = communicationService;
+    }
+    RxjsMenuComponent.prototype.ngOnInit = function () {
+        var rxjsMenus = [
+            { name: 'Migration', route: '/rxjs' },
+        ];
+        this.communicationService.setMenuItems(rxjsMenus);
+    };
+    return RxjsMenuComponent;
+}());
+exports.RxjsMenuComponent = RxjsMenuComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ngfactory.js":
+/*!***************************************************************************!*\
+  !*** ./src/app/rxjs/rxjs-migration/rxjs-migration.component.ngfactory.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./rxjs-migration.component.scss.shim.ngstyle */ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../../shared-module/pre.code.component.ngfactory */ "./src/app/shared-module/pre.code.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../shared-module/pre.code.component */ "./src/app/shared-module/pre.code.component.ts");
+var i4 = __webpack_require__(/*! ./rxjs-migration.component */ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ts");
+var i5 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i6 = __webpack_require__(/*! ../../seo.service */ "./src/app/seo.service.ts");
+var styles_RxjsMigrationComponent = [i0.styles];
+var RenderType_RxjsMigrationComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_RxjsMigrationComponent, data: {} });
+exports.RenderType_RxjsMigrationComponent = RenderType_RxjsMigrationComponent;
+function View_RxjsMigrationComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 28, "div", [["class", "main-container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Migrating Angular Apps to RxJS v6 "])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["RxJs 5 Operators are not treeshackable for bundling So by migrating Rxjs5 to Rxjs6 you can make all Rxjs operators as treeshackable. So that bundle size will get decreased so will get more performance"])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["I will be showing how to migrate from Rxjs5 to Rxjs6"])), (_l()(), i1.ɵeld(7, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Rxjs5 code will looks like as below"])), (_l()(), i1.ɵeld(9, 0, null, null, 1, "app-pre-code", [], null, null, null, i2.View_PreCodeComponent_0, i2.RenderType_PreCodeComponent)), i1.ɵdid(10, 114688, null, 0, i3.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["The above code is written in rxjs5 "])), (_l()(), i1.ɵeld(13, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Migration"])), (_l()(), i1.ɵeld(15, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Go to project directory and install rxjs-lint as below "])), (_l()(), i1.ɵeld(17, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["yarn add rxjs-tslint"])), (_l()(), i1.ɵeld(20, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["And then you need to do the following command in project directory."])), (_l()(), i1.ɵeld(22, 0, null, null, 2, "div", [["class", "code-text"]], null, null, null, null, null)), (_l()(), i1.ɵeld(23, 0, null, null, 1, "code", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["rxjs-5-to-6-migrate -p src/tsconfig.app.json"])), (_l()(), i1.ɵeld(25, 0, null, null, 1, "app-pre-code", [], null, null, null, i2.View_PreCodeComponent_0, i2.RenderType_PreCodeComponent)), i1.ɵdid(26, 114688, null, 0, i3.PreCodeComponent, [], { code: [0, "code"] }, null), (_l()(), i1.ɵeld(27, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Now all the rxjx5 code changed to rxjs6 so it can be treeshackable and using pipe operators its more cleaner way to implement all the operators."]))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.rxjs5; _ck(_v, 10, 0, currVal_0); var currVal_1 = _co.rxjs6; _ck(_v, 26, 0, currVal_1); }, null); }
+exports.View_RxjsMigrationComponent_0 = View_RxjsMigrationComponent_0;
+function View_RxjsMigrationComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-rxjs-migration", [], null, null, null, View_RxjsMigrationComponent_0, RenderType_RxjsMigrationComponent)), i1.ɵdid(1, 114688, null, 0, i4.RxjsMigrationComponent, [i5.Title, i6.SEOService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_RxjsMigrationComponent_Host_0 = View_RxjsMigrationComponent_Host_0;
+var RxjsMigrationComponentNgFactory = i1.ɵccf("app-rxjs-migration", i4.RxjsMigrationComponent, View_RxjsMigrationComponent_Host_0, {}, {}, []);
+exports.RxjsMigrationComponentNgFactory = RxjsMigrationComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.scss.shim.ngstyle.js":
+/*!***********************************************************************************!*\
+  !*** ./src/app/rxjs/rxjs-migration/rxjs-migration.component.scss.shim.ngstyle.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/rxjs/rxjs-migration/rxjs-migration.component.ts ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var seo_service_1 = __webpack_require__(/*! ../../seo.service */ "./src/app/seo.service.ts");
+var RxjsMigrationComponent = /** @class */ (function () {
+    function RxjsMigrationComponent(title, seoService) {
+        this.title = title;
+        this.seoService = seoService;
+        this.title.setTitle('Migrating Angular Apps to rxjs6 | rxjs v6 migration');
+        var metaData = {
+            description: 'This post will describe about the migration of Angular apps from rxjs5 to rxjs6',
+            keywords: '',
+            title: 'Migrating Angular Apps to rxjs6',
+            website: 'https://ifelseloop.com/rxjs'
+        };
+        this.seoService.updateMetaTags(metaData);
+    }
+    RxjsMigrationComponent.prototype.ngOnInit = function () {
+        this.rxjs5 = "\n    import {Observable } from 'rxjs/Observable';\n    import 'rxjs/add/operators'\n\n    this.http.get<any>(path).map(data=>data);\n    ";
+        this.rxjs6 = "\n  import {Observable} from 'rxjs';\n  import {map} from 'rxjs/operators';\nthis.http.get<any>(path).pipe(\n    map(data=>data)\n  );\n    ";
+    };
+    return RxjsMigrationComponent;
+}());
+exports.RxjsMigrationComponent = RxjsMigrationComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs.module.ngfactory.js":
+/*!***********************************************!*\
+  !*** ./src/app/rxjs/rxjs.module.ngfactory.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! ./rxjs.module */ "./src/app/rxjs/rxjs.module.ts");
+var i2 = __webpack_require__(/*! ../../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
+var i3 = __webpack_require__(/*! ./rxjs-menu/rxjs-menu.component.ngfactory */ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ngfactory.js");
+var i4 = __webpack_require__(/*! ./rxjs-migration/rxjs-migration.component.ngfactory */ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ngfactory.js");
+var i5 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i6 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i7 = __webpack_require__(/*! ./rxjs.routing */ "./src/app/rxjs/rxjs.routing.ts");
+var i8 = __webpack_require__(/*! ../shared-module/shared.module */ "./src/app/shared-module/shared.module.ts");
+var i9 = __webpack_require__(/*! ./rxjs-menu/rxjs-menu.component */ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ts");
+var i10 = __webpack_require__(/*! ./rxjs-migration/rxjs-migration.component */ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ts");
+var RxjsModuleNgFactory = i0.ɵcmf(i1.RxjsModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.RxjsMenuComponentNgFactory, i4.RxjsMigrationComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i5.NgLocalization, i5.NgLocaleLocalization, [i0.LOCALE_ID, [2, i5.ɵangular_packages_common_common_a]]), i0.ɵmpd(1073742336, i5.CommonModule, i5.CommonModule, []), i0.ɵmpd(1073742336, i6.RouterModule, i6.RouterModule, [[2, i6.ɵangular_packages_router_router_a], [2, i6.Router]]), i0.ɵmpd(1073742336, i7.RxjsRoutingModule, i7.RxjsRoutingModule, []), i0.ɵmpd(1073742336, i8.SharedModule, i8.SharedModule, []), i0.ɵmpd(1073742336, i1.RxjsModule, i1.RxjsModule, []), i0.ɵmpd(1024, i6.ROUTES, function () { return [[{ path: "", component: i9.RxjsMenuComponent, children: [{ path: "", component: i10.RxjsMigrationComponent }] }]]; }, [])]); });
+exports.RxjsModuleNgFactory = RxjsModuleNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/rxjs/rxjs.module.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var RxjsModule = /** @class */ (function () {
+    function RxjsModule() {
+    }
+    return RxjsModule;
+}());
+exports.RxjsModule = RxjsModule;
+
+
+/***/ }),
+
+/***/ "./src/app/rxjs/rxjs.routing.ts":
+/*!**************************************!*\
+  !*** ./src/app/rxjs/rxjs.routing.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var rxjs_menu_component_1 = __webpack_require__(/*! ./rxjs-menu/rxjs-menu.component */ "./src/app/rxjs/rxjs-menu/rxjs-menu.component.ts");
+var rxjs_migration_component_1 = __webpack_require__(/*! ./rxjs-migration/rxjs-migration.component */ "./src/app/rxjs/rxjs-migration/rxjs-migration.component.ts");
+var routes = [
+    {
+        path: '', component: rxjs_menu_component_1.RxjsMenuComponent,
+        children: [{
+                path: '',
+                component: rxjs_migration_component_1.RxjsMigrationComponent
+            }]
+    }
+];
+var RxjsRoutingModule = /** @class */ (function () {
+    function RxjsRoutingModule() {
+    }
+    return RxjsRoutingModule;
+}());
+exports.RxjsRoutingModule = RxjsRoutingModule;
 
 
 /***/ }),
@@ -5614,6 +6106,7 @@ exports.AppServerModuleNgFactory = app_server_module_ngfactory_1.AppServerModule
 var __lazy_0__ = __webpack_require__(/*! ./app/angular-tut/angular-tut.module.ngfactory.js */ "./src/app/angular-tut/angular-tut.module.ngfactory.js");
 var __lazy_1__ = __webpack_require__(/*! ./app/c-language/c-language.module.ngfactory.js */ "./src/app/c-language/c-language.module.ngfactory.js");
 var __lazy_2__ = __webpack_require__(/*! ./app/javascript/javascript.module.ngfactory.js */ "./src/app/javascript/javascript.module.ngfactory.js");
+var __lazy_3__ = __webpack_require__(/*! ./app/rxjs/rxjs.module.ngfactory.js */ "./src/app/rxjs/rxjs.module.ngfactory.js");
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var environment_1 = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 if (environment_1.environment.production) {
@@ -5621,7 +6114,7 @@ if (environment_1.environment.production) {
 }
 var app_server_module_1 = __webpack_require__(/*! ./app/app.server.module */ "./src/app/app.server.module.ts");
 exports.AppServerModule = app_server_module_1.AppServerModule;
-exports.LAZY_MODULE_MAP = { "./angular-tut/angular-tut.module#AngularTutModule": __lazy_0__.AngularTutModuleNgFactory, "./c-language/c-language.module#CLanguageModule": __lazy_1__.CLanguageModuleNgFactory, "./javascript/javascript.module#JavaScriptModule": __lazy_2__.JavaScriptModuleNgFactory };
+exports.LAZY_MODULE_MAP = { "./angular-tut/angular-tut.module#AngularTutModule": __lazy_0__.AngularTutModuleNgFactory, "./c-language/c-language.module#CLanguageModule": __lazy_1__.CLanguageModuleNgFactory, "./javascript/javascript.module#JavaScriptModule": __lazy_2__.JavaScriptModuleNgFactory, "./rxjs/rxjs.module#RxjsModule": __lazy_3__.RxjsModuleNgFactory };
 
 
 /***/ }),
@@ -5965,6 +6458,17 @@ module.exports = require("@ng-toolkit/universal");
 /***/ (function(module, exports) {
 
 module.exports = require("@nguniversal/module-map-ngfactory-loader");
+
+/***/ }),
+
+/***/ "@stackblitz/sdk":
+/*!**********************************!*\
+  !*** external "@stackblitz/sdk" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@stackblitz/sdk");
 
 /***/ }),
 

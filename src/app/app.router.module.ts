@@ -6,7 +6,7 @@ import { HiremeComponent } from './hireme/hireme.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }, //
+  { path: '', component: HomeComponent },
   {
     path: 'angular',
     loadChildren: './angular-tut/angular-tut.module#AngularTutModule'
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'js-module',
     loadChildren: './javascript/javascript.module#JavaScriptModule'
+  },
+  {
+    path: 'rxjs',
+    loadChildren: './rxjs/rxjs.module#RxjsModule'
   },
   {
     path: 'hireme',

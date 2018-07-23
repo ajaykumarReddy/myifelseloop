@@ -13,7 +13,7 @@ export class ClanguagemenuComponent implements OnInit {
   ngOnInit() {
     const cTopics = [
       { name: 'C Intoduction', route: '/c-programming' },
-      // { name: 'Constants', route: '/c-programming/constants' },
+      { name: 'Constants', route: '/c-programming/constants-in-c' },
       // { name: 'Variables', route: '/c-programming/variables' },
 
     ];

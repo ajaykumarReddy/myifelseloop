@@ -26,14 +26,17 @@
     <div class="code-text">
       <code>Wrong: 45.6</code>
     </div>
-    <li>You can use both positive (<span class="red">+</span>) or negative(<span class="red">-</span>).</li>
+    <li>You can use both positive (
+      <span class="red">+</span>) or negative(
+      <span class="red">-</span>).</li>
     <div class="code-text">
       <code>Correct: +567</code>
     </div>
     <div class="code-text">
       <code>Correct: -567</code>
     </div>
-    <li>If you not add any sign to an integer constant, the default sign is positive(<span class="red">+</span>).</li>
+    <li>If you not add any sign to an integer constant, the default sign is positive(
+      <span class="red">+</span>).</li>
     <li>Blank spaces, commas are not allowed within an integer constant.</li>
     <div class="code-text">
       <code>Wrong: 342 56</code>
@@ -44,7 +47,7 @@
   </ol>
   <p>Here are some of the examples of Integer constants.</p>
   <pre class="pre-text">
-<code [innerHTML]="polyfill"></code>
+<code [innerHTML]="polyfillData"></code>
 </pre>
   <h3>Floating Point Constants</h3>
   <p>A Floating point constant are also called as Real Constants. It can be written in fractional form and exponential form.
@@ -61,7 +64,9 @@
     <div class="code-text">
       <code>Wrong: 456</code>
     </div>
-    <li>You can use both positive (<span class="red">+</span>) or negative(<span class="red">-</span>)</li>
+    <li>You can use both positive (
+      <span class="red">+</span>) or negative(
+      <span class="red">-</span>)</li>
     <div class="code-text">
       <code>Correct: +567.34</code>
     </div>
@@ -69,7 +74,8 @@
       <code>Correct: -567.43</code>
     </div>
 
-    <li>If you not add any sign to an Floating Point constant, the default sign is positive(<span class="red">+</span>).</li>
+    <li>If you not add any sign to an Floating Point constant, the default sign is positive(
+      <span class="red">+</span>).</li>
     <li>Blank spaces, commas are not allowed within an Float Point constant.</li>
     <div class="code-text">
       <code>Wrong: 386 56</code>
@@ -80,18 +86,21 @@
   </ol>
   <p>Here are some of the examples of Floating Point constants.</p>
   <pre class="pre-text">
-<code [innerHTML]="float"></code>
+<code [innerHTML]="floatData"></code>
 </pre>
   <p>In Floating Point constants exponential form of representation is only used if the value is too small or too big. In exponential
-    form the part appearing before ‘e’ is called <span class="red">“Mantissa”</span> and after ‘e’ is called as <span class="red">“exponent”</span>.</p>
+    form the part appearing before ‘e’ is called
+    <span class="red">“Mantissa”</span> and after ‘e’ is called as
+    <span class="red">“exponent”</span>.</p>
   <p>Here are some of the examples of exponential constants</p>
   <pre class="pre-text">
-  <code [innerHTML]="exponent"></code>
+  <code [innerHTML]="exponentData"></code>
   </pre>
   <h3>Character Constants</h3>
   <ol>
     <li>A Character constant must be a single digit or a single alphabet.</li>
-    <li>It must be enclosed in single quotes (<span class="red">‘ ’</span>).</li>
+    <li>It must be enclosed in single quotes (
+      <span class="red">‘ ’</span>).</li>
     <pre class="pre-text">
   <code [innerHTML]="singleQuote"></code>
   </pre>
@@ -103,7 +112,8 @@
 </pre>
   <h3>String Constants</h3>
   <ol>
-    <li>A String Constant is set of character which are enclosed in double quotes (<span class="red">“ ”</span>).</li>
+    <li>A String Constant is set of character which are enclosed in double quotes (
+      <span class="red">“ ”</span>).</li>
     <li>String constants contains characters that can be a digits, numbers or white spaces.</li>
   </ol>
   <p>Here are some of the examples of String constants.</p>
@@ -118,7 +128,8 @@
     <li>#define preprocessor</li>
   </ol>
   <h3>1. Using Const Keywords</h3>
-  <p>You can use <span class="red">const</span> keyword to define constants in C programs.</p>
+  <p>You can use
+    <span class="red">const</span> keyword to define constants in C programs.</p>
   <strong>Syntax:</strong>
   <div class="code-text">
     <code>const  datatype  identifier = value;</code>
@@ -127,15 +138,22 @@
   <pre class="pre-text">
       <code [innerHTML]="defConst"></code>
       </pre>
-  <p>In the above example, <span class="red">const</span> is keyword to defining a constant, <span class="red">int</span> is a datatype, <span class="red">a</span> is identifier and <span class="red">10</span> is a value which
-    is assigned to identifier '<span class="red">a</span>'. The value ‘<span class="red">10</span>’ cannot be changed in the program.</p>
+  <p>In the above example,
+    <span class="red">const</span> is keyword to defining a constant,
+    <span class="red">int</span> is a datatype,
+    <span class="red">a</span> is identifier and
+    <span class="red">10</span> is a value which is assigned to identifier '
+    <span class="red">a</span>'. The value ‘
+    <span class="red">10</span>’ cannot be changed in the program.</p>
   <p>............................Code 1 Here.............................</p>
   <p>The above program displays the following output.</p>
   <img src="../../../assets/const-keyword.png" height="100%" width="60%" />
-  <p>If you want to change the value of ‘<span class="red">a</span>’, the program will result compile time error.</p>
+  <p>If you want to change the value of ‘
+    <span class="red">a</span>’, the program will result compile time error.</p>
   <h3>2. Using #define Preprocessor</h3>
-  <p>You can use <span class="red">#define</span> Preprocessor to define a constant in c programs. It doesn’t end with semicolon(<span class="red">;</span>), because #define
-    preprocessor directive is just like #include.</p>
+  <p>You can use
+    <span class="red">#define</span> Preprocessor to define a constant in c programs. It doesn’t end with semicolon(
+    <span class="red">;</span>), because #define preprocessor directive is just like #include.</p>
   <strong>Syntax:</strong>
   <div class="code-text">
     <code>#define identifier Value</code>
@@ -144,14 +162,19 @@
   <pre class="pre-text">
       <code [innerHTML]="define"></code>
       </pre>
-  <p>In the above example <span class="red">#define</span> is a preprocessor directive to define a constant, <span class="red">a</span> is a identifier and <span class="red">10</span> is a value which
-    is assigned to identifier '<span class="red">a</span>'.</p>
+  <p>In the above example
+    <span class="red">#define</span> is a preprocessor directive to define a constant,
+    <span class="red">a</span> is a identifier and
+    <span class="red">10</span> is a value which is assigned to identifier '
+    <span class="red">a</span>'.</p>
   <p>............................Code 2 Here.............................</p>
   <p>The above program displays the following output.</p>
   <img src="../../../assets/define-constant.png" height="100%" width="60%" />
-  <p><strong>Bottom Line:</strong> Note that constants are fixed values in C program that may not change during the execution of a
-    program.</p>
- 
+  <p>
+    <strong>Bottom Line:</strong> Note that constants are fixed values in C program that may not change during the execution of a
+    program.
+  </p>
+
 </div>
 <p>
   <span class="red"></span>

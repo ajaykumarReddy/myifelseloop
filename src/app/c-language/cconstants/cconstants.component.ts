@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { SEOService } from '../../seo.service';
 
 @Component({
   selector: 'app-cconstants',
@@ -6,48 +8,64 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cconstants.component.scss']
 })
 export class CconstantsComponent implements OnInit {
-
-  constructor() { }
+  polyfillData: string;
+  floatData: string;
+  exponentData: string;
+  singleQuote: string;
+  charConst: string;
+  stringConst: string;
+  defConst: string;
+  define: string;
+  constructor(private title: Title, private seoService: SEOService) {
+    this.title.setTitle('vscode extensions for angular apps | vscode extension');
+    const metaData = {
+      description: 'This post will describe about the all neccessary and helpfull vscode extension for angular apps.',
+      keywords: '',
+      title: 'vscode extensions for angular apps',
+      website: 'https://ifelseloop.com/angular/vs-code-ext'
+    };
+    this.seoService.updateMetaTags(metaData);
+  }
 
   ngOnInit() {
-    this.polyfill = `
+    this.polyfillData = `
    786
    +345
    -9870
    -3000
 `;
 
-this.float = `
+    this.floatData = `
 + 4332
 436.0
 -34.45
 -48.6785
 `;
 
-this.exponent = `
+    this.exponentData = `
 +4.3e-5
 4.2e8
 -0.4E+3
 -5.4e-5`;
 
-this.singleQuote = `
+    this.singleQuote = `
 Example: 'A'`;
 
-this.charConst = `
+    this.charConst = `
 ‘A’
 ‘I’
 ‘5’
 ‘=’`;
 
-this.stringConst = `
+    this.stringConst = `
 “hello”        //string constant
 “123”          //string constant
 “        “     //string constant with eight white spaces`;
 
-this.defConst = `
+    this.defConst = `
 const int a = 10;`;
 
-this.define = `
+    this.define = `
 #define a 10 `;
-
+  }
 }

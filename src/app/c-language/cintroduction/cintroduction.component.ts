@@ -14,7 +14,9 @@ export class CintroductionComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle('C Language Introduction (2018) | C Programming Tutorials');
     const metaData = {
-      description: 'This C language tutorial guide will give you everything you need about C introduction, features, uses of C in various applications along with setting up compiling and running of a C program on your Computer.',
+      description: `This C language tutorial guide will give you everything you
+      need about C introduction, features, uses of C in various applications along with setting up compiling and running
+       of a C program on your Computer.`,
       keywords: 'C Language, C programming tutorials, C tutorials for bigenners',
       title: 'C Language Introduction (2018) | C Programming Tutorials',
       website: 'https://ifelseloop.com/c-programming'

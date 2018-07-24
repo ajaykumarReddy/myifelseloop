@@ -15,7 +15,7 @@ const routes: Routes = [
         component: CintroductionComponent 
       },
       {
-        path: 'constants',
+        path: 'constants-in-c',
         component:  CconstantsComponent
       },
       {

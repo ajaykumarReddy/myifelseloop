@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: './javascript/javascript.module#JavaScriptModule'
   },
   {
+    path: 'questions',
+    loadChildren: './questions/interview-questions.module#InterviewQuestionsModule'
+  },
+  {
     path: 'rxjs',
     loadChildren: './rxjs/rxjs.module#RxjsModule'
   },

@@ -16,6 +16,8 @@ export class CconstantsComponent implements OnInit {
   stringConst: string;
   defConst: string;
   define: string;
+  section1: string;
+  section2: string;
   constructor(private title: Title, private seoService: SEOService) {
     this.title.setTitle('Constants in C with Examples');
     const metaData = {
@@ -67,5 +69,27 @@ const int a = 10;`;
 
     this.define = `
 #define a 10 `;
+
+    this.section1 = `
+#include<stdio.h>
+
+int main(){
+    const int a = 10;
+    printf("The value of ‘a’ is: %i",a);
+    return 0;
+}
+
+</div>`;
+
+    this.section2 = `
+#include<stdio.h>
+#define a 10
+
+int main()
+{
+    printf("value of a is : %i",a);
+    return 0;
+}
+</div>`;
   }
 }

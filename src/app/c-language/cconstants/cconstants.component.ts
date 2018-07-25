@@ -17,12 +17,12 @@ export class CconstantsComponent implements OnInit {
   defConst: string;
   define: string;
   constructor(private title: Title, private seoService: SEOService) {
-    this.title.setTitle('vscode extensions for angular apps | vscode extension');
+    this.title.setTitle('Constants in C with Examples');
     const metaData = {
-      description: 'This post will describe about the all neccessary and helpfull vscode extension for angular apps.',
-      keywords: '',
-      title: 'vscode extensions for angular apps',
-      website: 'https://ifelseloop.com/angular/vs-code-ext'
+      description: 'In this guide, you will get more details about constant in C program, types of constants and how to define a constant in C program with syntax and examples here.',
+      keywords: 'constants in C, C program constants, Types of constants with examples ',
+      title: 'Constants in C with Example',
+      website: 'https://ifelseloop.com/c-programming/constants-in-c'
     };
     this.seoService.updateMetaTags(metaData);
   }

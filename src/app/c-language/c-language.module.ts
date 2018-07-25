@@ -6,13 +6,15 @@ import { CintroductionComponent } from './cintroduction/cintroduction.component'
 import { ClanguagemenuComponent } from './clanguagemenu/clanguagemenu.component';
 import { CconstantsComponent } from './cconstants/cconstants.component';
 import { CvariablesComponent } from './cvariables/cvariables.component';
+import { SharedModule } from './../shared-module/shared.module';
 
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     CLanguageRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   declarations: [
     CintroductionComponent,

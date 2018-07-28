@@ -24,6 +24,7 @@ body{
   padding-top: 25px;
   padding-left: 20px;
   padding-right: 350px;
+  padding-bottom: 20px;
   p {
     font-size: 14px;
     line-height: 24px;
@@ -103,4 +104,10 @@ h1{
   background-color: #3f51b5;
  -webkit-font-smoothing: antialiased;
  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+ .main-container{
+   padding: 5px
+ }
 }

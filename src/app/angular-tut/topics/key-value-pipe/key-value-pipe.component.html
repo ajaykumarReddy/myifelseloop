@@ -1,0 +1,24 @@
+<div class="main-container">
+  <h1>The New KeyValuePipe in Angular</h1>
+
+  <p>Angular 6.1 has been released and shipped with new feature called KeyValue Pipe operator.</p>
+
+  <p>As we all know that we cant iterate Objects using the *NgFor directive directly but now we have an pipe operator called
+    "keyValue" , with help of this pipe we can easly iterate javascript Objects and Maps.
+  </p>
+
+  <p>without wasting time on theory lets get start with examples code</p>
+
+  <p>Lets see how we can use it:</p>
+
+  <app-pre-code [code]="objCode"></app-pre-code>
+  <p>Let’s see how we can use it with Map.</p>
+  <app-pre-code [code]="mapCode"></app-pre-code>
+  <p>By default, the output array will be ordered by keys. Here are examples of arrays that were created based on the default
+    alphanumerical order:</p>
+
+  <app-pre-code [code]="sampleCode"></app-pre-code>
+  <p>But you can always override that by passing a compareFn as the second input, if you need a custom ordering.</p>
+  <app-pre-code [code]="orderCode"></app-pre-code>
+
+</div>

@@ -32,9 +32,11 @@ export class AngularElementComponent implements OnInit {
   ngOnInit() {
     this.polyfill = `
     import '@webcomponents/custom-elements/src/native-shim';
-    import '@webcomponents/custom-elements/custom-elements.min';`;
+    import '@webcomponents/custom-elements/custom-elements.min';
+    `;
 
-    this.componentElm = `import { Component, Input } from '@angular/core';
+    this.componentElm = `
+    import { Component, Input } from '@angular/core';
     @Component({
         selector: 'app-hello',
         template:  <span>Angular Elements-{{wish}}</span>,
@@ -68,14 +70,14 @@ export class AngularElementComponent implements OnInit {
     import { NgModule, Injector } from '@angular/core';
     import { createCustomElement } from '@angular/elements';
     import { SEOService } from './../../../seo.service';
-export class AppModule {
-      constructor(private injector: Injector) {
-          const customElement = createCustomElement(MessageComponent, { injector });
-          customElements.define('app-hello', customElement);
-      }
-      ngDoBootstrap() {
-      }
-  }`;
+    export class AppModule {
+          constructor(private injector: Injector) {
+              const customElement = createCustomElement(MessageComponent, { injector });
+              customElements.define('app-hello', customElement);
+          }
+          ngDoBootstrap() {
+          }
+      }`;
 
     this.buildsScript = `
   "build": "ng build --prod --output-hashing=none",

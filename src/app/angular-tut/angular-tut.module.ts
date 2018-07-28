@@ -11,11 +11,14 @@ import { AngularElementComponent } from './topics/angular-element/angular-elemen
 import { HttpOperatorsComponent } from './topics/http-operators/http-operators.component';
 import { SharedModule } from './../shared-module/shared.module';
 import { VsCodeExtensionComponent } from './topics/vs-code-extension/vs-code-extension.component';
-
+import { HighlightModule } from 'ngx-highlightjs';
+import { Angular6FeaturesComponent } from './topics/angular1.6-features/angular1.6-features.component';
+import { KeyValuePipeComponent } from './topics/key-value-pipe/key-value-pipe.component';
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    HighlightModule,
     AngularRoutingModule,
     MaterialModule
   ],
@@ -27,7 +30,9 @@ import { VsCodeExtensionComponent } from './topics/vs-code-extension/vs-code-ext
     AngularServiceComponent,
     AngularElementComponent,
     HttpOperatorsComponent,
-    VsCodeExtensionComponent
+    VsCodeExtensionComponent,
+    Angular6FeaturesComponent,
+    KeyValuePipeComponent
   ]
 })
 export class AngularTutModule { }

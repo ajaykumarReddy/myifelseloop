@@ -19,6 +19,8 @@ export class AngularPlaceholderComponent implements OnInit {
       { name: 'Angular-Elements', route: '/angular/angular-element' },
       { name: 'Http-Operators', route: '/angular/http-operators' },
       { name: 'vscode-extensions', route: '/angular/vs-code-ext' },
+      { name: 'angularv6.1-features', route: '/angular/angularv6.1-features' },
+      { name: 'keyvalue', route: '/angular/keyvalue' },
     ];
     this.communicationService.setMenuItems(angularTopics);
   }

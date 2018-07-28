@@ -21,7 +21,8 @@ export class CconstantsComponent implements OnInit {
   constructor(private title: Title, private seoService: SEOService) {
     this.title.setTitle('Constants in C with Examples');
     const metaData = {
-      description: 'In this guide, you will get more details about constant in C program, types of constants and how to define a constant in C program with syntax and examples here.',
+      description: `In this guide, you will get more details about constant in C program, types of
+      constants and how to define a constant in C program with syntax and examples here.`,
       keywords: 'constants in C, C program constants, Types of constants with examples ',
       title: 'Constants in C with Example',
       website: 'https://ifelseloop.com/c-programming/constants-in-c'

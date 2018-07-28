@@ -23,9 +23,9 @@
       <code>npm install @webcomponents/custom-elements</code>
     </div>
     <p>After done with polyfill installation , add these below lines to polyfill.ts</p>
-    <pre class="pre-text">
-      <code [innerHTML]="polyfill"></code>
-    </pre>
+
+    <app-pre-code [code]="polyfill"></app-pre-code>
+
   </div>
 
   <div class="text-headline">
@@ -36,15 +36,15 @@
   <pre class="pre-text">
     <code [innerHTML]="componentElm"></code>
   </pre>
+  <app-pre-code [code]="componentElm"></app-pre-code>
   <p>Now we can start making this component as angular-elements</p>
 
   <div class="text-headline">
     <strong>Step2: Componet Declaration</strong>
   </div>
 
-  <pre class="pre-text">
-    <code [innerHTML]="componentDeclar"></code>
-  </pre>
+
+  <app-pre-code [code]="componentDeclar"></app-pre-code>
 
   <div class="l-sub-section">
     <ul>
@@ -59,9 +59,8 @@
   </div>
   <p>Add the following code to your appModule</p>
 
-  <pre class="pre-text">
-      <code [innerHTML]="elementsCode"></code>
-    </pre>
+
+  <app-pre-code [code]="elementsCode"></app-pre-code>
 
   <div class="text-headline">
     <strong>Step4: Build, Optimize and run the code</strong>
@@ -74,9 +73,9 @@
     and main.js) . we’d like to distribute our component as a single js file, we need to turn hashing file names off to know
     what are the names of files to manually concatenate. You can add this to npm script as below
   </p>
-  <pre class="pre-text">
-    <code [innerHTML]="buildsScript"></code>
-  </pre>
+
+
+  <app-pre-code [code]="buildsScript"></app-pre-code>
 
   <div class="text-headline">
     <strong>Step5: Run the code with angular custom elements</strong>

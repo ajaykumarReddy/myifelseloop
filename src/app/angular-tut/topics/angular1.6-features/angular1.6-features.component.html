@@ -1,0 +1,40 @@
+<div class="main-container">
+  <h1>Angular v6.1 Features with Examples</h1>
+  <p>
+    Angular version 6.1 has been released with minor version change with new features and bug fixes.
+  </p>
+  <h1>What’s new?</h1>
+
+  <h2>Router Scroll Position Restoration</h2>
+
+  <p>With this new feature Developers now can easly configure and restore the previsous page scroll posotion when we navigating
+    from one route page to another router </p>
+
+  <h3>Turn on restoration in the router configuration:</h3>
+
+  <app-pre-code code="RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})">
+
+  </app-pre-code>
+
+  <h3>Example: </h3>
+
+  <div id="myScroll"></div>
+
+  <div class="l-sub-section">
+    <p> Note: When trying to go back, don’t use the back button on StackBlitz’s built-in browser, it will re-bundle the app.
+      Instead, use the back key combination (Alt + Left Arrow)</p>
+  </div>
+
+  <h1>ShadowDOM v1 View Encapsulation</h1>
+
+  <p>There are multiple ways of connecting your CSS to the components they are defined within, we call this View Encapsulation.
+    Within your component decorator, you can now change the View Encapsulation to use ShadowDOM v1. The previous ViewEncapsulation.Native
+    is now deprecated. ShadowDOM v1 has better cross-browser support than the previous version, and is being built as a shared
+    standard across browsers.</p>
+
+  <app-pre-code [code]="code1"></app-pre-code>
+
+  <h1>TypeScript 2.9</h1>
+
+  <p>Angular now supports TypeScript 2.8 and 2.9, in addition to 2.7.</p>
+</div>

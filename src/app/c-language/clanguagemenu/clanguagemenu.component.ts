@@ -14,7 +14,7 @@ export class ClanguagemenuComponent implements OnInit {
     const cTopics = [
       { name: 'C Intoduction', route: '/c-programming' },
       { name: 'Constants', route: '/c-programming/constants-in-c' },
-      // { name: 'Variables', route: '/c-programming/variables' },
+      { name: 'Variables', route: '/c-programming/variables' },
 
     ];
     this.communicationService.setMenuItems(cTopics);

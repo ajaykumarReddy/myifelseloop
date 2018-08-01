@@ -8,7 +8,7 @@ import { CvariablesComponent } from './cvariables/cvariables.component';
 const routes: Routes = [
   {
     path: '',
-    component: ClanguagemenuComponent, //
+    component: ClanguagemenuComponent, 
     children: [
       {
         path: '',
@@ -19,7 +19,7 @@ const routes: Routes = [
         component:  CconstantsComponent
       },
       {
-        path: 'variables',
+        path: 'variables-in-c',
         component:  CvariablesComponent
       }
     ]

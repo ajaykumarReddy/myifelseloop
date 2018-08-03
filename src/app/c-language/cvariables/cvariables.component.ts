@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SEOService } from '../../seo.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cvariables',
@@ -15,40 +17,51 @@ export class CvariablesComponent implements OnInit {
   globalProg: string;
   staticEx: string;
   staticProg: string;
-  constructor() { }
+  constructor(private title: Title, private seoService: SEOService) {
+    this.title.setTitle('Constants in C with Examples');
+    const metaData = {
+      description: `In this guide, you will get more details about constant in C program, types of
+      constants and how to define a constant in C program with syntax and examples here.`,
+      keywords: 'constants in C, C program constants, Types of constants with examples ',
+      title: 'Constants in C with Example',
+      website: 'https://ifelseloop.com/c-programming/constants-in-c'
+    };
+    this.seoService.updateMetaTags(metaData);
+  }
+
 
   ngOnInit() {
-  this.externKeyword = `
+    this.externKeyword = `
   extern int a;
   extern char b;
   extern Char lat[20];
  `;
 
- this.withoutExtern = `
+    this.withoutExtern = `
  Int a;
  Char b;
  Float c;
  `;
 
- this.localEx = `
+    this.localEx = `
  Void function1()
- {       
+ {
         Int x = 5;      //Local variable
  }
  `;
 
-this.globalEx = `
+    this.globalEx = `
 Int x = 10;          //Global Variable
 Int y = 20;         //Global variable
  Void main()
-{  
+{
 
     Printf("Global variable x = %d\n", x);    //accessing global variable ‘x’
     printf("Global variable y = %d\n\n", y);  //accessing global variable ‘y’
 }
 `;
 
-this.staticEx = `
+    this.staticEx = `
 Void increment1()
 {
       Int x = 10;      	          // Local Variable
@@ -61,7 +74,7 @@ Void increment1()
 `;
 
 
-this.variab1 = `
+    this.variab1 = `
 #include <stdio.h>
 extern int x, y;             // Variable declaration using 'extern' Keyword(optional)
 extern int z;
@@ -76,7 +89,7 @@ int main () {
 }
 </div>`;
 
-this.localProg = `
+    this.localProg = `
 #include<stdio.h>
 int main()
 
@@ -94,7 +107,7 @@ int main()
 
 </div>`;
 
-this.globalProg = `
+    this.globalProg = `
 #include<stdio.h>
 
 int x = 50;
@@ -114,7 +127,7 @@ void main()
 
 </div>`;
 
-this.staticProg = `
+    this.staticProg = `
 #include<stdio.h>
 
 int main()

@@ -3,66 +3,65 @@ import { SEOService } from '../../seo.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-cvariables',
-  templateUrl: './cvariables.component.html',
-  styleUrls: ['./cvariables.component.scss']
+    selector: 'app-cvariables',
+    templateUrl: './cvariables.component.html',
+    styleUrls: ['./cvariables.component.scss']
 })
 export class CvariablesComponent implements OnInit {
-  externKeyword: string;
-  withoutExtern: string;
-  variab1: string;
-  localEx: string;
-  localProg: string;
-  globalEx: string;
-  globalProg: string;
-  staticEx: string;
-  staticProg: string;
-  constructor(private title: Title, private seoService: SEOService) {
-    this.title.setTitle('Constants in C with Examples');
-    const metaData = {
-      description: `In this guide, you will get more details about constant in C program, types of
-      constants and how to define a constant in C program with syntax and examples here.`,
-      keywords: 'constants in C, C program constants, Types of constants with examples ',
-      title: 'Constants in C with Example',
-      website: 'https://ifelseloop.com/c-programming/constants-in-c'
-    };
-    this.seoService.updateMetaTags(metaData);
-  }
+    externKeyword: string;
+    withoutExtern: string;
+    variab1: string;
+    localEx: string;
+    localProg: string;
+    globalEx: string;
+    globalProg: string;
+    staticEx: string;
+    staticProg: string;
+    constructor(private title: Title, private seoService: SEOService) {
+        this.title.setTitle('Variables in C Language | Local, Global and Static Variables');
+        const metaData = {
+            description: `C variables – Get the complete details of variables in C, rules for creating C variables, declaring, defining and initialization of a variable in a program and types of variables in C language with examples.`,
+            keywords: 'variables in C, C program variables, Types of variables with examples ',
+            title: 'Variables in C Language | Local, Global and Static Variables',
+            website: 'https://ifelseloop.com/c-programming/variables-in-c'
+        };
+        this.seoService.updateMetaTags(metaData);
+    }
 
 
-  ngOnInit() {
-    this.externKeyword = `
+    ngOnInit() {
+        this.externKeyword = `
   extern int a;
   extern char b;
-  extern Char lat[20];
+  extern char last[20];
  `;
 
-    this.withoutExtern = `
- Int a;
- Char b;
- Float c;
+        this.withoutExtern = `
+ int a;
+ char b;
+ float c;
  `;
 
-    this.localEx = `
- Void function1()
+        this.localEx = `
+ void function1()
  {
-        Int x = 5;      //Local variable
+        int x = 5;      //Local variable
  }
  `;
 
-    this.globalEx = `
-Int x = 10;          //Global Variable
-Int y = 20;         //Global variable
- Void main()
+        this.globalEx = `
+int x = 10;          //Global Variable
+int y = 20;         //Global variable
+ void main()
 {
 
-    Printf("Global variable x = %d\n", x);    //accessing global variable ‘x’
-    printf("Global variable y = %d\n\n", y);  //accessing global variable ‘y’
+    printf("Global variable x = %d", x);    //accessing global variable ‘x’
+    printf("Global variable y = %d", y);  //accessing global variable ‘y’
 }
 `;
 
-    this.staticEx = `
-Void increment1()
+        this.staticEx = `
+void increment1()
 {
       Int x = 10;      	          // Local Variable
       Static int y = 30;          //Static Variables
@@ -74,7 +73,7 @@ Void increment1()
 `;
 
 
-    this.variab1 = `
+        this.variab1 = `
 #include <stdio.h>
 extern int x, y;             // Variable declaration using 'extern' Keyword(optional)
 extern int z;
@@ -83,13 +82,13 @@ int main () {
       x = 10;               /* actual initialization */
       y = 20;
       z = x + y;
-    printf("Sum is : %d \n", z);
+    printf("Sum is : %d", z);
 
     return 0;
 }
-</div>`;
+`;
 
-    this.localProg = `
+        this.localProg = `
 #include<stdio.h>
 int main()
 
@@ -98,16 +97,16 @@ int main()
     int x = 50;                 //Variable declared outside the loop
     int y = 100;
     {
-        int x = 20;            //Local Variable (variable declared inside the loop)
-        printf("Inner variable x = %d\n", x);
+       int x = 20;            //Local Variable (variable declared inside the loop)
+       printf("Inner variable x = %d ", x);
     }
-    printf("Outer variable x = %d\n", x);
-    printf("Outer variable y = %d\n", y);
+    printf("Outer variable x = %d", x);
+    printf("Outer variable y = %d", y);
 }
 
-</div>`;
+`;
 
-    this.globalProg = `
+        this.globalProg = `
 #include<stdio.h>
 
 int x = 50;
@@ -116,18 +115,17 @@ int y = 100;  // declaring and initializing global variables
 void main()
 {
 {
-    printf("Global variable x = %d\n", x);
-    printf("Global variable y = %d\n\n", y);
+    printf("Global variable x = %d", x);
+    printf("Global variable y = %d", y);
 }
-  printf("Global variable x = %d\n", x);
-  printf("Global variable y = %d\n\n", y);
+  printf("Global variable x = %d", x);
+  printf("Global variable y = %d", y);
 
 }
 
+`;
 
-</div>`;
-
-    this.staticProg = `
+        this.staticProg = `
 #include<stdio.h>
 
 int main()
@@ -146,10 +144,9 @@ void increment1()
       static int y = 30;          //Static Variables
       x = x + 1;
       y = y + 1;
-      printf("%d, %d\n", x,y);
+      printf("%d, %d", x,y);
 }
+`;
 
-</div>`;
-
-  }
+    }
 }

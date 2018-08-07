@@ -1,0 +1,277 @@
+<div class="main-container">
+<h1>C programming Keywords and Identifiers</h1>
+<p>In this tutorial you will learn keywords in C programming, Identifiers in C and also how to name a variable.</p>
+<h2>Keywords in C Programming</h2>
+<p>Keywords are also called as ‘Reserved Words’ whose meaning has already been explained to C compilers. Keywords cannot
+        be used as a variables names or identifiers because if we do we are trying to give a new meaning to the keyword,
+        which is not accepted by the compiler. In C language total 32 keywords are available. Below table shows all the 32
+        keywords.</p>
+<table style="width:100%">
+<tr>
+<td>auto</td>
+<td>break</td>
+<td>case</td>
+<td>char</td>
+</tr>
+<tr>
+<td>const</td>
+<td>continue</td>
+<td>default</td>
+<td>do</td>
+</tr>
+<tr>
+<td>double</td>
+<td>else</td>
+<td>enum</td>
+<td>extern</td>
+</tr>
+<tr>
+<td>float</td>
+<td>for</td>
+<td>goto</td>
+<td>if</td>
+</tr>
+<tr>
+<td>int</td>
+<td>long</td>
+<td>register</td>
+<td>return</td>
+</tr>
+<tr>
+<td>short</td>
+<td>signed</td>
+<td>sizeof</td>
+<td>static</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>switch</td>
+<td>typedef</td>
+<td>union</td>
+</tr>
+<tr>
+<td>unsigned</td>
+<td>void</td>
+<td>volatile</td>
+<td>while</td>
+</tr>
+</table>
+<p>We will discuss each of these keywords in later chapters where these keywords are relevant.</p>
+<h2>Indentifiers in C Language</h2>
+<p>Identifiers are names given to variables, structures and constants etc. Identifiers must be unique because they are created
+        to given a unique name to a variable or constants or structures to identify it during the execution of a program.</p>
+<p> Identifiers and keywords are different and you cannot use keyword as an identifier. You can give any name to identifiers except keywords. It is always a good practice to give a meaningful name to the identifiers because you and your team are easy to understand.</p>
+<p><strong>Examples:</strong></p>
+<div class="code-text">
+<code>Int currency;</code>
+</div>
+<div class="code-text">
+<code>Double mainBalance;</code>
+</div>
+<p>Here ‘currency’ and ‘mainBalance’ are two identifiers given to data types ‘int’ and ‘double’.</p>
+<h3>Rules for Creating Identifiers:</h3>
+<ol>
+<li>An identifier must only contain alphabets, digits and underscores.</li>
+<li>First character of an identifier must be alphabet or underscore.</li>
+<li>In C language identifiers are case sensitive. For example, ‘money’ and ‘Money’ are two different identifiers.</li>   
+<li>Identifiers must not be ‘keywords’.</li>
+</ol>
+<p><strong>Some of the example of valid Identifiers:</strong></p>
+<div class="code-text">
+<p><code>money</code></p>
+<p><code>_money</code></p>
+<p><code>account_balance</code></p>
+<p><code>balance_123</code></p>
+</div>
+<p><strong>Some of the example of invalid Identifiers:</strong></p>
+<div class="code-text">
+<p><code>123balance – must not start with number</code></p>
+<p><code>int-char-double – must not be a keyword</code></p>
+<p><code>balance money – must not contain a white space</code></p>
+</div>
+<h2>Character Set</h2>
+<p>In C language Character set represents Alphabets, digits and special symbols used to represent information.</p>
+<h3>Alphabet:</h3>
+<p>Upper Case: A,B,C,D,…….Z</p>
+<p>Lowe Case: a,b,c,d,………..z</p>       
+<h3>Digits</h3>  
+<p>0,1,2,3,4,5,6,7,8,9</p> 
+<h3>Special Characters</h3>
+<table style="width:100%">
+<tr>  
+<th>Character</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>,</td>
+<td>Comma</td>
+</tr>
+<tr>
+<td>.</td>
+<td>dot operator</td>
+</tr>
+<tr>
+<td>~</td>
+<td>tilde</td>
+</tr>
+<tr>
+<td>%</td>
+<td>percent sign</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Vertical bar</td>
+</tr>
+<tr>
+<td>@</td>
+<td>symbol</td>
+</tr>
+<tr>
+<td><</td>
+<td>less than</td>
+</tr>
+<tr>
+<td>></td>
+<td>greater than</td>
+</tr>
+<tr>
+<td>_</td>
+<td>underscore</td>
+</tr>
+<tr>
+<td>+</td>
+<td>plus symbol</td>
+</tr>
+<tr>
+<td>-</td>
+<td>minus</td>
+</tr>
+<tr>
+<td>^</td>
+<td>caret</td>
+</tr>
+<tr>
+<td>=</td>
+<td>equal to</td>
+</tr>
+<tr>
+<td>#</td>
+<td>number sign</td>
+</tr>
+<tr>
+<td>&</td>
+<td>ampersand</td>
+</tr>
+<tr>
+<td>/</td>
+<td>slash</td>
+</tr>
+<tr>
+<td>\</td>
+<td>back slash</td>
+</tr>
+<tr>
+<td>*</td>
+<td>asterisk</td>
+</tr>
+<tr>
+<td>$</td>
+<td>dollar</td>
+</tr>
+<tr>
+<td>(</td>
+<td>left parenthesis</td>
+</tr>
+<tr>
+<td>)</td>
+<td>right parenthesis</td>
+</tr>
+<tr>
+<td>`</td>
+<td>apostrophe</td>
+</tr>
+<tr>
+<td>:</td>
+<td>colon</td>
+</tr>
+<tr>
+<td>;</td>
+<td>semicolon</td>
+</tr>
+<tr>
+<td>“</td>
+<td>quotation mark</td>
+</tr>
+<tr>
+<td>[</td>
+<td>left bracket</td>
+</tr>
+<tr>
+<td>]</td>
+<td>right bracket</td>
+</tr>
+<tr>
+<td>!</td>
+<td>exclamation mark</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Question mark</td>
+</tr>
+</table>
+<h3>White Space Character</h3>
+<table style="width:100%">
+<tr>  
+<th>Character</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>\n</td>
+<td>new line</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>blank line</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>verticle tab</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>horizontal tab</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>carriage return</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>form feed</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>form feed</td>
+</tr>
+<tr>
+<td>\’</td>
+<td>single quote</td>
+</tr>
+<tr>
+<td>\’’</td>
+<td>double quote</td>
+</tr> 
+<tr>
+<td>\?</td>
+<td>question mark</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>null</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>alarm</td>
+</tr>                          
+</table>
+</div>

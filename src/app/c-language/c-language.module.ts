@@ -7,6 +7,7 @@ import { ClanguagemenuComponent } from './clanguagemenu/clanguagemenu.component'
 import { CconstantsComponent } from './cconstants/cconstants.component';
 import { CvariablesComponent } from './cvariables/cvariables.component';
 import { SharedModule } from './../shared-module/shared.module';
+import { CKeywordsComponent } from './c-keywords/c-keywords.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SharedModule } from './../shared-module/shared.module';
     CintroductionComponent,
     ClanguagemenuComponent,
     CconstantsComponent,
-    CvariablesComponent]
+    CvariablesComponent,
+    CKeywordsComponent]
 })
 export class CLanguageModule { }
